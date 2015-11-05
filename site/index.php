@@ -7,7 +7,7 @@
 <body>
 <h1>Hello World in public_html?</h1>
 <?php
-echo "Hello PHP!";
+echo "Hello PHP! redirected";
 ?>
 </body>
 </html>

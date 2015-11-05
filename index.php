@@ -8,5 +8,5 @@
  * Redirect to main web page
  */
 
-header('Location: ./site/index.php');
+header('Location: ./site/');
 die();
