@@ -7,7 +7,8 @@
 <body>
 <h1>Hello World in public_html?</h1>
 <?php
-echo "Hello PHP! redirected";
+echo "Hello PHP! redirected<br>";
+echo $_SERVER["DOCUMENT_ROOT"];
 ?>
 </body>
 </html>
