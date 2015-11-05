@@ -8,4 +8,4 @@
  * Redirect to web page
  */
 
-http_redirect("/site");
+header('Location: /site');
