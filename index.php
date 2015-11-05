@@ -8,4 +8,4 @@
  * Redirect to web page
  */
 
-header('Location: /site');
+header('Location: ./site/index.php');
