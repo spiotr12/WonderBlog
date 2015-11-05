@@ -9,6 +9,7 @@
 <?php
 echo "Hello PHP! redirected<br>";
 echo $_SERVER["DOCUMENT_ROOT"];
+echo $_SERVER["HTTP_HOST"];
 ?>
 </body>
 </html>
