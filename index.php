@@ -1,11 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 1307811
+ * User: Piotr Starzec
  * Date: 05/11/2015
  * Time: 11:56
  *
- * Redirect to web page
+ * Redirect to main web page
  */
 
 header('Location: ./site/index.php');
+die();
