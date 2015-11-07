@@ -8,5 +8,4 @@
  * Redirect to main web page
  */
 
-header('Location: ./site/');
-die();
+//TODO redirect to home
