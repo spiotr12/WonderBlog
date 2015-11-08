@@ -9,3 +9,4 @@
  */
 
 //TODO redirect to home
+require_once("./resources/config.php");

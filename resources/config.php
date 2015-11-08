@@ -5,3 +5,5 @@
  * Date: 05/11/2015
  * Time: 11:36
  */
+
+echo "Hello I'm config file";
