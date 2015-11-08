@@ -44,20 +44,21 @@ function renderHeader($title, $meta, $css, $js) {
  * Function used to render assets html links for metatag, css and javascript files
  * @param string $type "m" - metatag; "c" - css; "j" - javascript
  * @param string $pathToFile path to file, e.g.: "css/main.css"; in case of metatags this would be a metatag
+ * @return string with correct asset
  */
 function addAsset($type, $pathToFile) {
-    echo "\t";
+    $str = "\t";
     switch ($type) {
         case "m" :
-            echo $pathToFile;
+            $str .= $pathToFile;
             break;
         case 'c' :
-            echo "<link rel='stylesheet' href='" . $pathToFile . "'>";
+            $str .= "<link rel='stylesheet' href='" . $pathToFile . "'>";
             break;
         case 'j' :
-            echo "<script type='text/javascript' src='" . $pathToFile . "'></script>";
+            $str .= "<script type='text/javascript' src='" . $pathToFile . "'></script>";
             break;
     }
-    echo "\n";
-    return null;
+    $str .= "\n";
+    return $str;
 }
