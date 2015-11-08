@@ -18,18 +18,24 @@ require_once(realpath(dirname(__FILE__) . "/../config.php"));
 function renderHeader($title, $meta, $css, $js) {
     echo "<head>\n";
     // add metatags
-    foreach ($meta as $m) {
-        echo addAsset("m", $m);
+    if (is_array($meta)) {
+        foreach ($meta as $m) {
+            echo addAsset("m", $m);
+        }
     }
     // add title
     echo "\t<title>" . $title . "</title>\n";
     // add css
-    foreach ($css as $c) {
-        echo addAsset("c", $c);
+    if (is_array($css)) {
+        foreach ($css as $c) {
+            echo addAsset("c", $c);
+        }
     }
     // add javascript
-    foreach ($js as $s) {
-        echo addAsset("j", $s);
+    if (is_array($js)) {
+        foreach ($js as $s) {
+            echo addAsset("j", $s);
+        }
     }
     echo "</head>";
 }
@@ -40,15 +46,18 @@ function renderHeader($title, $meta, $css, $js) {
  * @param string $pathToFile path to file, e.g.: "css/main.css"; in case of metatags this would be a metatag
  */
 function addAsset($type, $pathToFile) {
+    echo "\t";
     switch ($type) {
         case "m" :
-            echo "\t" . $pathToFile . "\n";
+            echo $pathToFile;
             break;
         case 'c' :
-            echo "\t<link rel='stylesheet' href='" . $pathToFile . "'>\n";
+            echo "<link rel='stylesheet' href='" . $pathToFile . "'>";
             break;
         case 'j' :
-            echo "\t<script type='text/javascript' src='" . $pathToFile . "'></script>\n";
+            echo "<script type='text/javascript' src='" . $pathToFile . "'></script>";
             break;
     }
+    echo "\n";
+    return null;
 }
