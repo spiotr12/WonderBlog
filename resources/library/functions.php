@@ -6,8 +6,10 @@
  * Time: 12:12
  */
 
-function redirectToHome(){
-    //TODO check if can use __dir__
-    header('Location: ./site/');
+/**
+ * Redirect straight to home page
+ */
+function redirectToHome() {
+    header('Location: ./site/home.php');
     die();
 }

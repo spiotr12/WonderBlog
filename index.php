@@ -8,5 +8,8 @@
  * Redirect to main web page
  */
 
-//TODO redirect to home
 require_once("./resources/config.php");
+
+require_once(LIBRARY_PATH . "/functions.php");
+
+redirectToHome();
