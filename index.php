@@ -12,6 +12,7 @@ $meta = array(
 );
 $css = array(
     "css/bootstrap.min.css",
+    "css/bootstrap-theme.min.css",
     "css/main.css"
 );
 $js = array(
@@ -24,9 +25,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("./resources/templates/menu.php"); ?>
 
 <div class="container">
-    <div class="row">
-        <h1>Hello world!</h1>
-    </div>
+    <h1>Hello world!</h1>
 </div>
 </body>
 </html>
