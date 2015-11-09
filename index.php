@@ -12,7 +12,7 @@ $meta = array(
 );
 $css = array(
     "css/bootstrap.min.css",
-    "css/bootstrap-theme.min.css",
+//    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
     "css/main.css"
 );
