@@ -18,9 +18,6 @@ $config = array(
     ),
     "urls" => array(
         "baseUrl" => "http://wonderblog.azurewebsites.net"
-    ),
-    "paths" => array(
-
     )
 );
 
