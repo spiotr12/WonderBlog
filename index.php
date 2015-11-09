@@ -12,8 +12,8 @@ $meta = array(
 );
 $css = array(
     "css/bootstrap.min.css",
-//    "css/bootstrap-theme.min.css",
-    "css/theme.min.css",
+    "css/bootstrap-theme.min.css",
+    "css/bootstrap-theme.min.css",
     "css/main.css"
 );
 $js = array(
@@ -31,5 +31,9 @@ renderHeader("WonderBlog!", $meta, $css, $js);
     </div>
 </div>
 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/vendor/jquery-1.11.3.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/vendor/bootstrap.min.js"></script>
 </body>
 </html>
