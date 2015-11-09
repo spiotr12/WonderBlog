@@ -25,7 +25,9 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("./resources/templates/menu.php"); ?>
 
 <div class="container">
-    <h1>Hello world!</h1>
+    <div class="row">
+        <h1>Hello world!</h1>
+    </div>
 </div>
 </body>
 </html>
