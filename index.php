@@ -13,6 +13,7 @@ $meta = array(
 $css = array(
     "css/bootstrap.min.css",
     "css/bootstrap-theme.min.css",
+    "css/theme.min.css",
     "css/main.css"
 );
 $js = array(
@@ -29,5 +30,6 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <h1>Hello world!</h1>
     </div>
 </div>
+
 </body>
 </html>
