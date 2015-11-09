@@ -62,7 +62,3 @@ function addAsset($type, $pathToFile) {
     $str .= "\n";
     return $str;
 }
-
-function renderMenu(){
-
-}

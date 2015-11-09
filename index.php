@@ -12,8 +12,7 @@ $meta = array(
 );
 $css = array(
     "css/bootstrap.min.css",
-    "css/main.css",
-    "css/konradstyle.css"
+    "css/main.css"
 );
 $js = array(
     "js/main.js"
@@ -21,6 +20,9 @@ $js = array(
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
 <body>
+
+<?php require_once("./resources/templates/menu.php"); ?>
+
 <h1>Hello world!</h1>
 </body>
 </html>
