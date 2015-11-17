@@ -37,7 +37,7 @@ renderHeader("Adventure", $meta, $css, $js);
 
 <script type="text/javascript">
     var jq = $('#jq');
-    jq.html("I was added by jQuery yey :D")
+    jq.html("I was added by jQuery yey! :D")
 </script>
 
 </body>
