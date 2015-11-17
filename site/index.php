@@ -17,6 +17,8 @@ $css = array(
     "css/main.css"
 );
 $js = array(
+    "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
     "js/main.js"
 );
 renderHeader("WonderBlog!", $meta, $css, $js);
@@ -31,9 +33,5 @@ renderHeader("WonderBlog!", $meta, $css, $js);
     </div>
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/vendor/jquery-1.11.3.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/vendor/bootstrap.min.js"></script>
 </body>
 </html>
