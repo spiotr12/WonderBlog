@@ -21,7 +21,7 @@ $js = array(
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
     "js/main.js"
 );
-renderHeader("WonderBlog!", $meta, $css, $js);
+renderHeader("Adventure", $meta, $css, $js);
 ?>
 <body>
 
@@ -30,8 +30,15 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <div class="container">
     <div class="row">
         //TODO your application here
+        <div id="jq"></div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    var jq = $('#jq');
+    jq.html("I was added by jQuery yey :D")
+</script>
 
 </body>
 </html>
