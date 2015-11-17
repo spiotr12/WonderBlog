@@ -19,7 +19,7 @@ $css = array(
 $js = array(
     "js/main.js"
 );
-renderHeader("WonderBlog!", $meta, $css, $js);
+renderHeader("Author page", $meta, $css, $js);
 ?>
 <body>
 

@@ -19,7 +19,7 @@ $css = array(
 $js = array(
     "js/main.js"
 );
-renderHeader("WonderBlog!", $meta, $css, $js);
+renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 ?>
 <body>
 
@@ -27,7 +27,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        <h1>Hello world!</h1>
+        <h1>Hello world! testing</h1>
     </div>
 </div>
 
