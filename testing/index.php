@@ -40,6 +40,14 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
+<div id = "top5" class = "container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Top 5 Adventures</h1>
+        </div>
+    </div>
+</div>
+
 <div id = "top1" class = "container">
     <div class="row">
         <div class="col-md-4">
