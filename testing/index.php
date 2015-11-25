@@ -14,7 +14,8 @@ $css = array(
     "css/bootstrap.min.css",
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
-    "css/main.css"
+    "css/main.css",
+    "css/index.css"
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
