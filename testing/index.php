@@ -14,7 +14,8 @@ $css = array(
     "css/bootstrap.min.css",
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
-    "css/main.css"
+    "css/main.css",
+    "css/index.css"
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
@@ -36,6 +37,14 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         <p>
             <a class = "btn btn-primary btn-lg" role = "button">Learn more</a>
         </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
     </div>
 </div>
 
