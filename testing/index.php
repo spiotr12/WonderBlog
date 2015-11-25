@@ -43,7 +43,6 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <div id = "top1" class = "container">
     <div class="row">
         <div class="col-md-4">
-            <h2>Heading</h2>
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
         </div>
         <div class="col-md-8">
@@ -56,7 +55,6 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <div id = "top2" class = "container">
     <div class="row">
         <div class="col-md-4">
-            <h2>Heading</h2>
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
         </div>
         <div class="col-md-8">
@@ -66,44 +64,6 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
-<div id = "top3" class = "container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
-        </div>
-        <div class="col-md-8">
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-    </div>
-</div>
-
-<div id = "top4" class = "container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
-        </div>
-        <div class="col-md-8">
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-    </div>
-</div>
-
-<div id = "top5" class = "container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
-        </div>
-        <div class="col-md-8">
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-    </div>
-</div>
 
 </body>
 </html>
