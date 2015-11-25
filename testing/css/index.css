@@ -5,3 +5,7 @@
 .container{
     text-align: center;
 }
+
+.col-md-8{
+    text-align: left;
+}
