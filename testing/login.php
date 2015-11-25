@@ -29,7 +29,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        //TODO your application here
+        //TODO your  application here
     </div>
 </div>
 
