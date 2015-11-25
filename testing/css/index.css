@@ -11,21 +11,31 @@
 }
 
 #top1{
-    background-color: floralwhite;
+    background-color: #8c8c8c;
 }
 
 #top2{
     padding-top: 20px;
-    background-color: floralwhite;
+    background-color: #9999FF;
 }
 
 #top3{
     padding-top: 20px;
-    padding-bottom: 30px;
-    background-color: floralwhite;
+    background-color: #8c8c8c;
+}
+
+#top4{
+    padding-top: 20px;
+    background-color: #9999FF;
 }
 
 #top5{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background-color: #8c8c8c;
+}
+
+#topAdventure{
     text-align: center;
     background-color: floralwhite;
 }
