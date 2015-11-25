@@ -14,7 +14,10 @@ $css = array(
     "css/bootstrap.min.css",
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
-    "css/main.css"
+    "css/main.css",
+    "css/login.css",
+
+
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
@@ -29,7 +32,24 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        //TODO your  application here
+        <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Login to Your Account</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="Username">
+                        <input type="password" name="pass" placeholder="Password">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                    </form>
+
+                    <div class="login-help">
+                        <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
