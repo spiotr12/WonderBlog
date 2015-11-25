@@ -29,7 +29,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        <h1>Hello world! testing</h1>
+        <h1>WonderBlog</h1>
     </div>
 </div>
 
