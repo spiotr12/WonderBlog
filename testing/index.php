@@ -44,7 +44,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     <div class="row">
         <div class="col-md-4">
             <h2>Heading</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" style="width: 304px height=228px">
         </div>
         <div class="col-md-8">
             <h2>Heading</h2>
