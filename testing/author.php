@@ -29,7 +29,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        //TODO your application here
+        <body>
+
+        <h2>Spectacular Mountain</h2>
+        <img src="http://weknowyourdreams.com/images/mountain/mountain-03.jpg" alt="Mountain View" style="width:304px;height:228px;">
+
+        </body>
     </div>
 </div>
 
