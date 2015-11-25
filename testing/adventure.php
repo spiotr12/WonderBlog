@@ -36,29 +36,36 @@ renderHeader("Adventure", $meta, $css, $js);
         <div class="container">
             <div class="carousel slide article-slide" id="adventureCarousel">
                 <div class="carousel-inner cont-slider">
-
-                    <div class="item active">
-                        <img src="http://placehold.it/1200x440/cccccc/ffffff">
-                    </div>
-                    <div class="item">
-                        <img src="http://placehold.it/1200x440/999999/cccccc">
-                    </div>
-                    <div class="item">
-                        <img src="http://placehold.it/1200x440/dddddd/333333">
-                    </div>
+                    <?php $carouselRuns = 3 ?>
+                    <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                        <div class="item <?php if ($i == 0) echo "active"; ?>">
+                            <img src="http://placehold.it/1200x440/cccccc/ffffff">
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/1200x440/999999/cccccc">
+                        </div>
+                    <?php endfor; ?>
                 </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#adventureCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#adventureCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
 
                 <!-- Indicators -->
                 <ol class="carousel-indicators visible-lg visible-md">
-                    <li class="active" data-slide-to="0" data-target="#adventureCarousel">
-                        <img alt="" title="" src="http://placehold.it/120x44/cccccc/ffffff">
-                    </li>
-                    <li class="" data-slide-to="1" data-target="#adventureCarousel">
-                        <img alt="" title="" src="http://placehold.it/120x44/999999/cccccc">
-                    </li>
-                    <li class="" data-slide-to="2" data-target="#adventureCarousel">
-                        <img alt="" title="" src="http://placehold.it/120x44/dddddd/333333">
-                    </li>
+                    <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                        <li class="<?php if ($i == 0) echo "active"; ?>" data-slide-to="<?php echo 2 * $i; ?>"
+                            data-target="#adventureCarousel">
+                            <img alt="" title="" src="http://placehold.it/120x44/cccccc/ffffff">
+                        </li>
+                        <li class="" data-slide-to="<?php echo 2 * $i + 1; ?>" data-target="#adventureCarousel">
+                            <img alt="" title="" src="http://placehold.it/120x44/999999/cccccc">
+                        </li>
+                    <?php endfor; ?>
                 </ol>
             </div>
         </div>
@@ -75,67 +82,20 @@ renderHeader("Adventure", $meta, $css, $js);
         </div>
         <div class="col-md-3 col-md-offset-2">
             <h2>Tags</h2>
-            <ul>
+            <ul class="list-unstyled">
                 <li>
-                    #tag
+                    #iLoveTags
                 </li>
                 <li>
-                    #tag
+                    #mayTheForceBeWithYou
                 </li>
                 <li>
-                    #tag
+                    #imGoingOnAnAdventure
                 </li>
                 <li>
-                    #tag
+                    #youShallNotPass
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <h2>Comments</h2>
-            <section>
-                <h5>Piotrek</h5>
-                <label>2015-12-01</label>
-
-                <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf dksjgoewrihg
-                    dkjsng d
-                </div>
-            </section>
-            <section>
-                <h5>Piotrek</h5>
-                <label>2015-12-01</label>
-
-                <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf dksjgoewrihg
-                    dkjsng d
-                </div>
-            </section>
-            <section>
-                <h5>Piotrek</h5>
-                <label>2015-12-01</label>
-
-                <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf dksjgoewrihg
-                    dkjsng d
-                </div>
-            </section>
-            <section>
-                <h5>Piotrek</h5>
-                <label>2015-12-01</label>
-
-                <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf dksjgoewrihg
-                    dkjsng d
-                </div>
-            </section>
-            <section>
-                <h5>Piotrek</h5>
-                <label>2015-12-01</label>
-
-                <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf dksjgoewrihg
-                    dkjsng d
-                </div>
-            </section>
-        </div>
-        <div class="col-md-4 col-md-offset-2">
             <h2>Rating</h2>
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star"></span>
@@ -144,11 +104,31 @@ renderHeader("Adventure", $meta, $css, $js);
             <span class="glyphicon glyphicon-star"></span>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1 comments-section">
+            <h2>Comments</h2>
+            <?php for ($i = 0; $i < 4; $i++): ?>
+                <section>
+                    <div class="">
+                        <label class="">Piotrek</label>
+                        <label class="pull-right">2015-12-01</label>
+                    </div>
+
+                    <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf
+                        dksjgoewrihg
+                        dkjsng d
+                    </div>
+                </section>
+            <?php endfor; ?>
+        </div>
+    </div>
 </div>
 
 
 <script type="text/javascript">
-
+    $('#adventureCarousel').carousel({
+        interval: 4000
+    });
 </script>
 
 </body>
