@@ -29,7 +29,19 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        //TODO your application here
+        <body>
+
+        <h2>Spectacular Mountain</h2>
+        <img src="http://i.telegraph.co.uk/multimedia/archive/02625/mountain1_2625884k.jpg" alt="Mountain View" style="width:304px;height:228px;">
+
+        </body>
+
+        <div class="jumbotron">
+            <h1>Hello, world!</h1>
+            <p>...</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
+
     </div>
 </div>
 

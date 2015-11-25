@@ -27,9 +27,15 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 
 <?php require_once("../resources/templates/menu.php"); ?>
 
-<div class="container">
-    <div class="row">
-        <h1>WonderBlogBALLS</h1>
+<div class = "jumbotron">
+
+    <div class = "container">
+        <h1>Welcome to WanderBlog</h1>
+        <p>The place to upload and explore adventures!</p>
+
+        <p>
+            <a class = "btn btn-primary btn-lg" role = "button">Learn more</a>
+        </p>
     </div>
 </div>
 
