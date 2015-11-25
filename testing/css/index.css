@@ -10,15 +10,22 @@
     text-align: left;
 }
 
+#top1{
+    background-color: floralwhite;
+}
+
 #top2{
     padding-top: 20px;
+    background-color: floralwhite;
 }
 
 #top3{
     padding-top: 20px;
     padding-bottom: 30px;
+    background-color: floralwhite;
 }
 
 #top5{
     text-align: center;
+    background-color: floralwhite;
 }
