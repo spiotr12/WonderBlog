@@ -11,27 +11,32 @@
 }
 
 #top1{
+    padding-top: 20px;
     background-color: #8c8c8c;
+    padding-bottom: 20px;
 }
 
 #top2{
     padding-top: 20px;
     background-color: #9999FF;
+    padding-bottom: 20px;
 }
 
 #top3{
     padding-top: 20px;
     background-color: #8c8c8c;
+    padding-bottom: 20px;
 }
 
 #top4{
     padding-top: 20px;
     background-color: #9999FF;
+    padding-bottom: 20px;
 }
 
 #top5{
     padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     background-color: #8c8c8c;
 }
 
