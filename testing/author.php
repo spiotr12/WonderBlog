@@ -29,7 +29,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        //TODO your application here
+        <body>
+
+        <h2>Spectacular Mountain</h2>
+        <img src="http://www.w3schools.com/images/w3schools_green.jpg" alt="Mountain View" style="width:304px;height:228px;">
+
+        </body>
     </div>
 </div>
 
