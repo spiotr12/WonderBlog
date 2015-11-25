@@ -30,9 +30,9 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <div class = "container">
 
     <div class = "jumbotron">
-        <h1>Welcome to landing page!</h1>
-        <p>This is an example for jumbotron.</p>
-        
+        <h1>Welcome to WanderBlog</h1>
+        <p>The place to upload and explore adventures!</p>
+
         <p>
             <a class = "btn btn-primary btn-lg" role = "button">Learn more</a>
         </p>
