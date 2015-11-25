@@ -27,9 +27,9 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 
 <?php require_once("../resources/templates/menu.php"); ?>
 
-<div class = "container">
+<div class = "jumbotron">
 
-    <div class = "jumbotron">
+    <div class = "container">
         <h1>Welcome to WanderBlog</h1>
         <p>The place to upload and explore adventures!</p>
 
