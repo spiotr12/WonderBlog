@@ -32,7 +32,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <body>
 
         <h2>Spectacular Mountain</h2>
-        <img src="http://weknowyourdreams.com/images/mountain/mountain-03.jpg" alt="Mountain View" style="width:304px;height:228px;">
+        <img src="http://www.w3schools.com/images/w3schools_green.jpg" alt="Mountain View" style="width:304px;height:228px;">
 
         </body>
     </div>
