@@ -31,7 +31,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <div class="container">
     <div class="row">
         <body>
-        <div id="test" class="container">
+        <div id="AuthorDescription" class="container">
             <!-- Example row of columns -->
             <div class="row">
                 <div class="col-md-3">
