@@ -42,10 +42,10 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
             </div>
         </div>
         <div class = "row">
-            <div class = "col-md-6">
+            <div id = "searchAuthor" class = "col-md-6">
                 <button type="button" class="btn btn-danger">Search Author</button>
             </div>
-            <div class = "col-md-6">
+            <div id = "searchAdventure" class = "col-md-6">
                 <button type="button" class="btn btn-danger">Search Adventure</button>
             </div>
         </div>

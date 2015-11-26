@@ -54,3 +54,11 @@
     text-align: center;
     background-color: floralwhite;
 }
+
+#searchAuthor{
+    text-align: right;
+}
+
+#searchAdventure{
+    text-align: left;
+}
