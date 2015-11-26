@@ -12,7 +12,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">Home</a></li>
+                <li class="active"><a href="http://wonderblog.azurewebsites.net/testing/login.php">Home</a></li>
                 <li class=""><a href="http://wonderblog.azurewebsites.net/testing/login.php">Login</a></li>
             </ul>
         </div>
