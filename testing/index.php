@@ -84,7 +84,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
-<div id = "top3" class = "container">
+<div id = "top1" class = "container">
     <div class="row">
         <div class="col-md-4">
             <img src="http://77wallpapers.com/wp-content/uploads/2014/10/tropical-waterfall-scenery-wide.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
@@ -96,7 +96,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
-<div id = "top4" class = "container">
+<div id = "top2" class = "container">
     <div class="row">
         <div class="col-md-4">
             <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
@@ -108,7 +108,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
-<div id = "top5" class = "container">
+<div id = "top3" class = "container">
     <div class="row">
         <div class="col-md-4">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
