@@ -33,20 +33,12 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     <div class = "container">
         <h1>Welcome to WanderBlog</h1>
         <p>The place to upload and explore adventures!</p>
-        <div class="featurette">
-            <div class="featurette-inner text-center">
-                <form role="form" class="search">
-                    <h3 class="no-margin-top h1">Search Me.</h3>
-                    <div class="input-group input-group-lg">
-                        <input type="search" placeholder="search" class="form-control">
-                    </div>
-                    <!-- /input-group -->
-                </form>
-                <!-- /.max-width on this form -->
-
+        <div class="row">
+            <div id="mainSearch">
+                <div class="input-group col-md-8 col-md-offset-2">
+                    <input type="text" class="  search-query form-control" placeholder="Search for author or adventures" />
+                </div>
             </div>
-            <!-- /.featurette-inner (display:table-cell) -->
-
         </div>
         <div id = "buttonGroup" class = "row">
             <div id = "searchAuthor" class = "col-md-6">
