@@ -39,9 +39,6 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
                     <h3 class="no-margin-top h1">Search Me.</h3>
                     <div class="input-group input-group-lg">
                         <input type="search" placeholder="search" class="form-control">
-            <span class="input-group-btn">
-            <button class="btn btn-danger" type="button">Search</button>
-            </span>
                     </div>
                     <!-- /input-group -->
                 </form>

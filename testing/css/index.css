@@ -96,23 +96,3 @@
     font-size: 18px;
     line-height: normal;
 }
-
-
-/* ------ disjointed form group custom */
-.featurette .search.has-button .btn {
-    margin-top: 5px;
-    width: 100%;
-}
-@media (min-width:480px) {
-    .featurette .search.has-button .form-group {
-        position: relative;
-        padding-right: 99px; /*space for button*/
-    }
-    .featurette .search.has-button .btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: auto;
-        margin: 0;
-    }
-}
