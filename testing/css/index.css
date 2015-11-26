@@ -1,3 +1,7 @@
+.jumbotron{
+    background-color: #9999FF;
+}
+
 .container{
     text-align: center;
 }
@@ -8,7 +12,7 @@
 
 #top1{
     padding-top: 20px;
-    background-color: rgb(92, 184, 92);
+    background-color: #5bc0de;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -16,7 +20,7 @@
 
 #top2{
     padding-top: 20px;
-    background-color: #FF8C7C;
+    background-color: #9acfea;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -25,13 +29,14 @@
 #top3{
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: rgb(92, 184, 92);
+    background-color: #5bc0de;
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
 #topAdventure{
     text-align: center;
+    background-color: floralwhite;
 }
 
 #searchAuthor{
