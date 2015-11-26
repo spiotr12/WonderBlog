@@ -36,12 +36,10 @@
 
 #topAdventure{
     text-align: center;
-    border-radius: 20px;
 }
 
 #searchAuthor{
     text-align: right;
-    border-radius: 20px;
 }
 
 #searchAdventure{
@@ -58,5 +56,4 @@
     line-height: 20px;
     width: 1000px;
     text-align: center;
-    border-radius: 20px;
 }
