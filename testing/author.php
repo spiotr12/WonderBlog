@@ -46,6 +46,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <p>About Me: id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna moid elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mo </p>
                 </div>
             </div>
+        </div>
 
 
             <div id = "Contributions" class = "container">
