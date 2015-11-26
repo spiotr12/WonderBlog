@@ -67,10 +67,10 @@
     padding-top: 20px;
 }
 
-#mainSearch{
-    height: 40px;
+.form-control{
+    height: 50px;
     font-size: 20px;
     line-height: 20px;
     width: 1000px;
-    align-content: center;
+    text-align: center;
 }
