@@ -39,7 +39,11 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                 </div>
                 <div class="col-md-8">
                     <h2>Author Name</h2>
-                    <p>Donec id elit non  mi portvid a at ege t metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p>Age: 21</p>
+                    <p>Country: Scotland</p>
+                    <p>Adventures: 5 </p>
+                    <p>Memeber Since: 01/10/15 </p>
+                    <p>About Me: id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna moid elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mo </p>
                 </div>
             </div>
 
