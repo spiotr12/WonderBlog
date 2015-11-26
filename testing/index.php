@@ -35,7 +35,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         <p>The place to upload and explore adventures!</p>
         <div class="row">
             <div id="custom-search-input">
-                <div class="input-group col-md-12">
+                <div class="input-group col-md-10">
                     <input type="text" class="  search-query form-control" placeholder="Search for author or adventures" />
                 </div>
             </div>
