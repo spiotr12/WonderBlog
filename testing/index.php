@@ -154,6 +154,13 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
+<div class="rating-select">
+    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
+</div>
 
 </body>
 </html>
