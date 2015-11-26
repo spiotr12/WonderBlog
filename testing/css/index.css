@@ -54,3 +54,19 @@
     text-align: center;
     background-color: floralwhite;
 }
+
+#searchAuthor{
+    text-align: right;
+}
+
+#searchAdventure{
+    text-align: left;
+}
+
+#buttonGroup{
+    padding-top: 20px;
+}
+
+#mainSearch{
+    text-align: center;
+}
