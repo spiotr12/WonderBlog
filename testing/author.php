@@ -35,22 +35,14 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <!-- Example row of columns -->
             <div class="row">
                 <div class="col-md-4">
-                    <img src="http://i.telegraph.co.uk/multimedia/archive/02625/mountain1_2625884k.jpg" class="img-rounded" alt="Mountain View" style="width:304px;height:228px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Michelle-Borromeo-Actor-Headshots-Vancouver-BC20110408_0030.jpg" class="img-rounded" alt="Mountain View" style="width:304px;height:228px;">
                 </div>
                 <div class="col-md-8">
                     <h2>Author Name</h2>
                     <p>Donec id elit non  mi portvid a at ege t metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
                 </div>
             </div>
 
-            <div id = "authorText" class = "container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>Donec id elit non mi onec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daporta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    </div>
-                </div>
-            </div>
 
             <div id = "Contributions" class = "container">
                 <div class="row">
@@ -63,7 +55,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+                        <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -75,7 +67,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+                        <img src="http://topwalls.net/wallpapers/2012/01/Nature-sea-scenery-travel-photography-image-800x1280.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -87,7 +79,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+                        <img src="http://77wallpapers.com/wp-content/uploads/2014/10/tropical-waterfall-scenery-wide.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -99,7 +91,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
