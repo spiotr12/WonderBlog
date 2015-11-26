@@ -68,5 +68,9 @@
 }
 
 #mainSearch{
-    text-align: center;
+    height: 40px;
+    font-size: 20px;
+    line-height: 20px;
+    width: 1000px;
+    align-content: center;
 }
