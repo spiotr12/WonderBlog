@@ -9,3 +9,52 @@
 .col-md-8{
     text-align: left;
 }
+
+#top1{
+    padding-top: 20px;
+    background-color: #8c8c8c;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#top2{
+    padding-top: 20px;
+    background-color: #9999FF;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#top3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #8c8c8c;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#topAdventure{
+    text-align: center;
+    background-color: floralwhite;
+}
+
+#searchAuthor{
+    text-align: right;
+}
+
+#searchAdventure{
+    text-align: left;
+}
+
+#buttonGroup{
+    padding-top: 20px;
+}
+
+.form-control{
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    width: 1000px;
+    text-align: center;
+}

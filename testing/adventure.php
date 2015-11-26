@@ -14,7 +14,8 @@ $css = array(
     "css/bootstrap.min.css",
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
-    "css/main.css"
+    "css/main.css",
+    "css/adventure.css"
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
@@ -29,15 +30,105 @@ renderHeader("Adventure", $meta, $css, $js);
 
 <div class="container">
     <div class="row">
-        //TODO your application here
-        <div id="jq"></div>
+        <h1 class="text-center">Adventure Title</h1>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="carousel slide article-slide" id="adventureCarousel">
+                <div class="carousel-inner cont-slider">
+                    <?php $carouselRuns = 3 ?>
+                    <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                        <div class="item <?php if ($i == 0) echo "active"; ?>">
+                            <img src="http://placehold.it/1200x440/cccccc/ffffff">
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/1200x440/999999/cccccc">
+                        </div>
+                    <?php endfor; ?>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#adventureCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#adventureCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators visible-lg visible-md">
+                    <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                        <li class="<?php if ($i == 0) echo "active"; ?>" data-slide-to="<?php echo 2 * $i; ?>"
+                            data-target="#adventureCarousel">
+                            <img alt="" title="" src="http://placehold.it/120x44/cccccc/ffffff">
+                        </li>
+                        <li class="" data-slide-to="<?php echo 2 * $i + 1; ?>" data-target="#adventureCarousel">
+                            <img alt="" title="" src="http://placehold.it/120x44/999999/cccccc">
+                        </li>
+                    <?php endfor; ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <h2>Description</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-md-3 col-md-offset-2">
+            <h2>Tags</h2>
+            <ul class="list-unstyled">
+                <li>
+                    #iLoveTags
+                </li>
+                <li>
+                    #mayTheForceBeWithYou
+                </li>
+                <li>
+                    #imGoingOnAnAdventure
+                </li>
+                <li>
+                    #youShallNotPass
+                </li>
+            </ul>
+            <h2>Rating</h2>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1 comments-section">
+            <h2>Comments</h2>
+            <?php for ($i = 0; $i < 4; $i++): ?>
+                <section>
+                    <div class="">
+                        <label class="">Piotrek</label>
+                        <label class="pull-right">2015-12-01</label>
+                    </div>
+
+                    <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf
+                        dksjgoewrihg
+                        dkjsng d
+                    </div>
+                </section>
+            <?php endfor; ?>
+        </div>
     </div>
 </div>
 
 
 <script type="text/javascript">
-    var jq = $('#jq');
-    jq.html("I was added by jQuery yey! :D")
+    $('#adventureCarousel').carousel({
+        interval: 4000
+    });
 </script>
 
 </body>
