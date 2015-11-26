@@ -30,9 +30,8 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <div class = "jumbotron">
-
     <div class = "container">
-        <h1>Welcome to WanderBlog</h1>
+        <h1>WanderBlog</h1>
         <p>The place to upload and explore adventures!</p>
         <div class="row">
             <div id="mainSearch">
