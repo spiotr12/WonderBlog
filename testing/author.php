@@ -47,6 +47,8 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
             <div id = "Contributions" class = "container">
