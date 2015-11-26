@@ -55,7 +55,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
+                        <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -67,7 +67,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
+                        <img src="http://topwalls.net/wallpapers/2012/01/Nature-sea-scenery-travel-photography-image-800x1280.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -79,7 +79,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div id = "top4" class = "container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
+                        <img src="http://lifewallpaperz.com/image.php?pic=/images/2015/scenery/scenery-05.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
                     </div>
                     <div class="col-md-8">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
