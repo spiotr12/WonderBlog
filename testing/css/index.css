@@ -23,6 +23,7 @@
     background-color: #9999FF;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #top3{
@@ -30,6 +31,7 @@
     background-color: #8c8c8c;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #top4{
@@ -37,6 +39,7 @@
     background-color: #9999FF;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #top5{
@@ -44,6 +47,7 @@
     padding-bottom: 20px;
     background-color: #8c8c8c;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #topAdventure{
