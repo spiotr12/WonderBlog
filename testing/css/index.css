@@ -1,6 +1,4 @@
-.jumbotron{
-    background-color: gray;
-}
+
 
 .container{
     text-align: center;
@@ -12,7 +10,6 @@
 
 #top1{
     padding-top: 20px;
-    background-color: #8c8c8c;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -20,7 +17,6 @@
 
 #top2{
     padding-top: 20px;
-    background-color: #9999FF;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -29,14 +25,12 @@
 #top3{
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #8c8c8c;
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
 #topAdventure{
     text-align: center;
-    background-color: floralwhite;
 }
 
 #searchAuthor{
