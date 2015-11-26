@@ -24,7 +24,7 @@ $js = array(
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
     "js/main.js",
     "js/login.js",
-    
+
 );
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
@@ -50,7 +50,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                           <form id="login-form" action="http://wonderblog.azurewebsites.net/testing/login.php" method="post" role="form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                 </div>
@@ -72,13 +72,13 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                <a href="http://wonderblog.azurewebsites.net/testing/login.php" tabindex="5" class="forgot-password">Forgot Password?</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                            <form id="register-form" action="http://wonderblog.azurewebsites.net/testing/login.php" method="post" role="form" style="display: none;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                 </div>
