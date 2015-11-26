@@ -61,10 +61,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
             <div id = "top4" class = "container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "204px" height = "128px">
+                    <div class="col-md-2">
+                        <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "154px" height = "78px">
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
                     </div>
