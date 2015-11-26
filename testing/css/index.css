@@ -67,11 +67,10 @@
     padding-top: 20px;
 }
 
-#mainSearch{
+#mainSearch {
+    height: 40px;
+    font-size: 20px;
+    line-height: 20px;
     width: 1000px;
     align: center;
-    min-height: 46px;
-    border-radius: 6px;
-    font-size: 18px;
-    line-height: normal;
 }
