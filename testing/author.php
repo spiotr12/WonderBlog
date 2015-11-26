@@ -52,5 +52,14 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                 </div>
             </div>
 
+            <div id = "Contributions" class = "container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Contributions </p>
+                    </div>
+                </div>
+            </div>
+
+
 </body>
 </html>
