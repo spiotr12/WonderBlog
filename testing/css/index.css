@@ -1,5 +1,5 @@
 .jumbotron{
-    background-color: #9999FF;
+    background-color: dimgrey;
 }
 
 .container{
@@ -12,7 +12,7 @@
 
 #top1{
     padding-top: 20px;
-    background-color: #5bc0de;
+    background-color: #2b669a;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -29,14 +29,13 @@
 #top3{
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #5bc0de;
+    background-color: #2b669a;
     margin-bottom: 20px;
     border-radius: 10px;
 }
 
 #topAdventure{
     text-align: center;
-    background-color: floralwhite;
 }
 
 #searchAuthor{
