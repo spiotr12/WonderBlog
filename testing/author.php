@@ -34,7 +34,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <div id="Author" class="container">
             <!-- Example row of columns -->
             <div class="row">
-                <div id="AuthorDescription" class="col-md-3">
+                <div id="AuthorPic" class="col-md-3">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Michelle-Borromeo-Actor-Headshots-Vancouver-BC20110408_0030.jpg" class="img-rounded" alt="Mountain View" style="width:250px;height:228px;">
                 </div>
                 <div class="col-md-9">
