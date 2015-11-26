@@ -55,7 +55,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <div id = "top1" class = "container">
     <div class="row">
         <div class="col-md-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -67,7 +67,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <div id = "top2" class = "container">
     <div class="row">
         <div class="col-md-4">
-            <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+            <img src="http://topwalls.net/wallpapers/2012/01/Nature-sea-scenery-travel-photography-image-800x1280.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
@@ -79,7 +79,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <div id = "top3" class = "container">
     <div class="row">
         <div class="col-md-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
+            <img src="http://77wallpapers.com/wp-content/uploads/2014/10/tropical-waterfall-scenery-wide.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
