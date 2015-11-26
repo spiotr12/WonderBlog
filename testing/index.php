@@ -67,11 +67,11 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span></p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span></p>
             <p>
                 <a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -85,6 +85,13 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span></p>
+            <p>
             <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -97,6 +104,13 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span></p>
+            <p>
             <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -109,6 +123,13 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span></p>
+            <p>
             <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -121,6 +142,13 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         </div>
         <div class="col-md-8">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span></p>
+            <p>
             <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
