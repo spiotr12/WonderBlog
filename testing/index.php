@@ -34,7 +34,6 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         <h1>Welcome to WanderBlog</h1>
         <p>The place to upload and explore adventures!</p>
         <div class="row">
-            <h2>Search for Adventures and Authors</h2>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <input type="text" class="  search-query form-control" placeholder="Search for author or adventures" />
