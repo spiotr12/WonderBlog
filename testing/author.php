@@ -40,17 +40,9 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                 <div class="col-md-8">
                     <h2>Author Name</h2>
                     <p>Donec id elit non  mi portvid a at ege t metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
                 </div>
             </div>
 
-            <div id = "authorText" class = "container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>Donec id elit non mi onec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daonec id elit non mi porta gravida at eget metus. Fusce daporta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    </div>
-                </div>
-            </div>
 
             <div id = "Contributions" class = "container">
                 <div class="row">
