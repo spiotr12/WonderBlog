@@ -15,7 +15,8 @@ $css = array(
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
     "css/main.css",
-    "css/index.css"
+    "css/index.css",
+    "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
@@ -36,7 +37,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
         <div class="row">
             <div id="mainSearch">
                 <div class="input-group col-md-8 col-md-offset-2">
-                    <input type="text" class="  search-query form-control" placeholder="Search for author or adventures" />
+                    <input type="text" class="search-query form-control" placeholder="Search for author or adventures" />
                 </div>
             </div>
         </div>
