@@ -19,19 +19,11 @@
 #Contributions{
     text-align: center;
     font-size: large;
-    margin-top: 30px;
+    margin-top: 40px;
 
 }
 
 #ContributionsDisc{
 
     margin-right: 20px;
-}
-
-#top4{
-    padding-top: 20px;
-    background-color: #E369F0;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
 }
