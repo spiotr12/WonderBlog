@@ -70,7 +70,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                   <span class="glyphicon glyphicon-star" style="color:gold"></span>
                   <span class="glyphicon glyphicon-star" style="color:gold"></span>
                   <span class="glyphicon glyphicon-star" style="color:gold"></span>
-                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star" style="color:gold"></span>
                   <span class="glyphicon glyphicon-star"></span></p>
               <p>
               <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
@@ -85,6 +85,13 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         </div>
         <div class="col-md-9">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -97,6 +104,13 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         </div>
         <div class="col-md-9">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -109,6 +123,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         </div>
         <div class="col-md-9">
             <p>Do at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condiment. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo . </p>
+            <p>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span></p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
@@ -121,6 +141,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         </div>
         <div class="col-md-9">
             <p>Donec id elit non mi porta gr avida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star" style="color:gold"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span></p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
