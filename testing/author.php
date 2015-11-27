@@ -24,13 +24,13 @@ $js = array(
 );
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
-<body>
+
 
 <?php require_once("../resources/templates/menu.php"); ?>
-
+<body>
 <div class="container">
     <div class="row">
-        <body>
+
         <div id="Author" class="container">
             <!-- Example row of columns -->
             <div class="row">
@@ -61,10 +61,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
     <div id = "top1" class = "container">
       <div class="row">
-            <div class="col-md-4">
-              <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "284px" height = "208px">
+            <div class="col-md-3">
+              <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "274px" height = "198px">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-9">
              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
             </div>
@@ -73,10 +73,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div id = "top1" class = "container">
     <div class="row">
-        <div class="col-md-4">
-            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "284px" height = "208px">
+        <div class="col-md-3">
+            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "274px" height = "198px">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -85,10 +85,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div id = "top1" class = "container">
     <div class="row">
-        <div class="col-md-4">
-            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "284px" height = "208px">
+        <div class="col-md-3">
+            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "274px" height = "198px">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -97,10 +97,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div id = "top1" class = "container">
     <div class="row">
-        <div class="col-md-4">
-            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "284px" height = "208px">
+        <div class="col-md-3">
+            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "274px" height = "198px">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -109,10 +109,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div id = "top1" class = "container">
     <div class="row">
-        <div class="col-md-4">
-            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "284px" height = "208px">
+        <div class="col-md-3">
+            <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "274px" height = "198px">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
