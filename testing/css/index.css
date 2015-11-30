@@ -50,7 +50,7 @@
     padding-top: 20px;
 }
 
-.search-query .form-control{
+#mainSearch .form-control{
     height: 50px;
     font-size: 20px;
     line-height: 20px;
