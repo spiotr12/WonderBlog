@@ -60,7 +60,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
-<div class = "container top1">
+<div id = "top1" class = "container">
     <div class="row">
         <div class="col-md-4">
             <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
@@ -79,7 +79,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
     </div>
 </div>
 
-<div class = "container top2">
+<div id = "top2" class = "container">
     <div class="row">
         <div class="col-md-4">
             <img src="http://topwalls.net/wallpapers/2012/01/Nature-sea-scenery-travel-photography-image-800x1280.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
