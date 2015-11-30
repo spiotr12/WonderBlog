@@ -10,7 +10,7 @@
     text-align: left;
 }
 
-#top1{
+.container .top1{
     padding-top: 20px;
     background-color: #8c8c8c;
     padding-bottom: 20px;
@@ -18,7 +18,7 @@
     border-radius: 10px;
 }
 
-#top2{
+.container .top2{
     padding-top: 20px;
     background-color: #355f7c;
     padding-bottom: 20px;
