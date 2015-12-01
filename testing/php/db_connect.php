@@ -5,7 +5,7 @@
  * Date: 01/12/2015
  * Time: 12:08
  */
-require_once(realpath(dirname(__FILE__) . "/config.php"));
+require_once(realpath(dirname(__FILE__) . "../../resources/config.php"));
 
 $mysqli = new mysqli(
     $config["db"]["host"],
