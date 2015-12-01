@@ -50,11 +50,11 @@
     padding-top: 20px;
 }
 
-.form-control{
+#mainSearch .form-control{
     height: 50px;
     font-size: 20px;
     line-height: 20px;
-    width: 1000px;
+    width: 800px;
     text-align: center;
 }
 .rating-select{
