@@ -15,13 +15,15 @@
                 <li class=""><a href="http://wonderblog.azurewebsites.net/testing">Home</a></li>
                 <li class=""><a href="http://wonderblog.azurewebsites.net/testing/login.php">Login</a></li>
             </ul>
-            <div class="col-sm-3 col-md-3 pull-right">
+            <div class="col-sm-6 col-md-6 pull-right">
                 <form class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
 
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Author</span>
+                            </button>
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Adventure</span>
                             </button>
                         </div>
                     </div>
