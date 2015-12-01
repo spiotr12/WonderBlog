@@ -2,11 +2,6 @@
 
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
-$mysqli = new mysqli($config["db"]["host"],$config["db"]["username"],$config["db"]["passwsord"],$config["db"]["dbname"]);
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
 
 ?>
 <!DOCTYPE html>
