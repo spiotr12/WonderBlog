@@ -1,16 +1,16 @@
-h1{
+h1 {
     color: red;
 }
 
-li.active{
+li.active {
     color: red;
 }
 
-.comments-section section{
+.comments-section section {
     margin-bottom: 10px;
-    border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
+    background-color: #355f7c;
 }
 
 #adventureCarousel .carousel-indicators {
@@ -19,6 +19,7 @@ li.active{
     margin-left: 5px;
     width: 100%;
 }
+
 #adventureCarousel .carousel-indicators li {
     border: medium none;
     border-radius: 0;
@@ -30,6 +31,7 @@ li.active{
     margin-top: 0;
     width: 100px;
 }
+
 #adventureCarousel .carousel-indicators img {
     border: 2px solid #FFFFFF;
     float: left;
@@ -37,6 +39,7 @@ li.active{
     left: 0;
     width: 100px;
 }
+
 #adventureCarousel .carousel-indicators .active img {
     border: 2px solid #39b3d7;
 }

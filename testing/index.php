@@ -66,7 +66,7 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
             <img src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg" class="img-rounded" alt="Cinque Terre" width = "304px" height = "228px">
         </div>
         <div class="col-md-8">
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p>Donec id elit non mi porta gravidda at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
             <div class="rating-select">
                 <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>
                 <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span></div>

@@ -33,7 +33,67 @@ renderHeader("Adventure", $meta, $css, $js);
         <h1 class="text-center">Adventure Title</h1>
     </div>
     <div class="row">
-        <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <img class="img-responsive" src="http://placehold.it/1200x440/cccccc/ffffff">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <h2>Description</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col-md-3 col-md-offset-2 text-center">
+            <h2>Rating</h2>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+
+            <h2>Tags</h2>
+            <ul class="list-unstyled">
+                <li>
+                    #iLoveTags
+                </li>
+                <li>
+                    #mayTheForceBeWithYou
+                </li>
+                <li>
+                    #imGoingOnAnAdventure
+                </li>
+                <li>
+                    #youShallNotPass
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1 comments-section">
+            <h2>Comments</h2>
+            <?php for ($i = 0; $i < 4; $i++): ?>
+                <section>
+                    <div class="">
+                        <label class="">Piotrek</label>
+                        <label class="pull-right">2015-12-01</label>
+                    </div>
+
+                    <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf
+                        dksjgoewrihg
+                        dkjsng d
+                    </div>
+                </section>
+            <?php endfor; ?>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
             <div class="carousel slide article-slide" id="adventureCarousel">
                 <div class="carousel-inner cont-slider">
                     <?php $carouselRuns = 3 ?>
@@ -70,60 +130,7 @@ renderHeader("Adventure", $meta, $css, $js);
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <h2>Description</h2>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-        </div>
-        <div class="col-md-3 col-md-offset-2">
-            <h2>Tags</h2>
-            <ul class="list-unstyled">
-                <li>
-                    #iLoveTags
-                </li>
-                <li>
-                    #mayTheForceBeWithYou
-                </li>
-                <li>
-                    #imGoingOnAnAdventure
-                </li>
-                <li>
-                    #youShallNotPass
-                </li>
-            </ul>
-            <h2>Rating</h2>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1 comments-section">
-            <h2>Comments</h2>
-            <?php for ($i = 0; $i < 4; $i++): ?>
-                <section>
-                    <div class="">
-                        <label class="">Piotrek</label>
-                        <label class="pull-right">2015-12-01</label>
-                    </div>
-
-                    <div class="comment">ahfkjbfkjbasfkjbewak bkjfb ksbbf labfeab jehbf aljbfhbfksbf sk djbf
-                        dksjgoewrihg
-                        dkjsng d
-                    </div>
-                </section>
-            <?php endfor; ?>
-        </div>
-    </div>
 </div>
-
 
 <script type="text/javascript">
     $('#adventureCarousel').carousel({
