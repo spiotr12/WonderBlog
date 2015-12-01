@@ -1,6 +1,8 @@
 <?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
+require_once("../resources/db_connect.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
