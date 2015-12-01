@@ -21,7 +21,10 @@
                         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
 
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search">Test</span>
+
+                            </button>
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span>
                             </button>
                         </div>
                     </div>
