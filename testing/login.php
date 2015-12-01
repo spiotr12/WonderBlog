@@ -15,12 +15,16 @@ $css = array(
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
     "css/main.css",
-    "css/login.css");
+    "css/login.css",
+
+
+);
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
     "js/main.js",
-    "js/login.js"
+    "js/login.js",
+
 );
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
@@ -79,8 +83,8 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" action="<?php echo LIBRARY_PATH . "/register.php"; ?>"
-                                  method="post" role="form">
+                            <form id="register-form" action="<?php echo LIBRARY_PATH . "/process_login.php"; ?>"
+                                  method="post" role="form" style="display: none;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control"
                                            placeholder="Username" value="">
