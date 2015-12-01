@@ -7,6 +7,7 @@
  */
 
 require_once("../../resources/config.php");
+require_once("./db_connect.php");
 
 
 $error_msg = "";
