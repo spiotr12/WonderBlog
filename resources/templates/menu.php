@@ -8,12 +8,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://wonderblog.azurewebsites.net/testing">WanderBlog</a>
+            <a class="navbar-brand" href="./testing">WanderBlog</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class=""><a href="http://wonderblog.azurewebsites.net/testing">Home</a></li>
-                <li class=""><a href="http://wonderblog.azurewebsites.net/testing/login.php">Login</a></li>
+                <li class=""><a href="./testing">Home</a></li>
+                <li class=""><a href="./login.php">Login</a></li>
             </ul>
             <div class="col-sm-6 col-md-6 pull-right">
                 <form class="navbar-form" role="search">
