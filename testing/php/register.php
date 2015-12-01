@@ -67,4 +67,3 @@ if (isset($_POST['email'], $_POST['password'])) {
 //		echo "<h1>Register was successfull</h1>";
     }
 }
-?>
