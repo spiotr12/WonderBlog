@@ -21,10 +21,9 @@
                         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
 
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search">Test</span>
-
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Author</span>
                             </button>
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span>
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Adventure</span>
                             </button>
                         </div>
                     </div>
