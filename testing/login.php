@@ -1,7 +1,7 @@
 <?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
-sec_session_start();
+//sec_session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +54,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                             <form id="login-form" action="./php/process_login.php" method="post" role="form"
                                   style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    <input type="text" name="email" id="login_email" tabindex="1" class="form-control" placeholder="Email" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -84,19 +84,19 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                             <form id="register-form" action="./php/register.php" method="post" role="form"
                                   style="display: none;">
                                 <div class="form-group">
-                                    <input type="text" name="fname" id="fname" tabindex="1" class="form-control" placeholder="First name" value="">
+                                    <input type="text" name="fname" id="fname" tabindex="1" class="form-control" placeholder="First name" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="lname" id="lname" tabindex="2" class="form-control" placeholder="Last name" value="">
+                                    <input type="text" name="lname" id="lname" tabindex="2" class="form-control" placeholder="Last name" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="3" class="form-control" placeholder="Email Address" value="">
+                                    <input type="email" name="email" id="email" tabindex="3" class="form-control" placeholder="Email Address" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="4" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" tabindex="4" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password_repeat" id="password_repeat" tabindex="5" class="form-control" placeholder="Password repeat">
+                                    <input type="password" name="password_repeat" id="password_repeat" tabindex="5" class="form-control" placeholder="Password repeat" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
