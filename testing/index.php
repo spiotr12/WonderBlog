@@ -29,7 +29,7 @@ $js = array(
     "js/main.js",
     "js/starRating.js"
 );
-renderHeader("WonderBlog! [testing]", $meta, $css, $js);
+renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 ?>
 <body>
 
