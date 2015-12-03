@@ -86,18 +86,21 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                     <input type="text" name="fname" id="fname" tabindex="1" class="form-control" placeholder="First name" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="lname" id="lname" tabindex="1" class="form-control" placeholder="Last name" value="">
+                                    <input type="text" name="lname" id="lname" tabindex="2" class="form-control" placeholder="Last name" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                    <input type="email" name="email" id="email" tabindex="3" class="form-control" placeholder="Email Address" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" tabindex="4" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password_repeat" id="password_repeat" tabindex="5" class="form-control" placeholder="Password repeat">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register"
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="6" class="form-control btn btn-register"
                                                    value="Register Now">
                                         </div>
                                     </div>
