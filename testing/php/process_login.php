@@ -16,6 +16,9 @@ if (isset($_POST['email'], $_POST['password'])) {
 	$email = $_POST['email'];
 	$password = $_POST['password']; // The hashed password.
 
+	echo $email;
+	echo $password;
+
 	if (login($email, $password, $mysqli) == true) {
 		// Login success
 		echo "login successful";
