@@ -33,11 +33,11 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <?php
 $id = 31;
-$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country FROM users WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
 if ($stmt) {
 $stmt->bind_param("i", $id);
 if ($stmt->execute()) {
-$stmt->bind_result($first_name, $last_name, $description, $country);
+$stmt->bind_result($first_name, $last_name, $description, $country, $dob);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -58,7 +58,7 @@ while ($stmt->fetch()) {
                 <div class="col-md-9">
                     <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
-                    <p>Age: 22</p>
+                    <p>Date of Birth: <?php echo $dob?></p>
 
                     <p>Country: <?php echo $country ?></p>
 
