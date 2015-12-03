@@ -50,7 +50,7 @@ if ($stmt)   {
         $stmt->bind_result($description);
         $stmt->store_result();
         if ($stmt->num_rows() == 1) {
-            while ($stmt->fetch())  {
+            while ($stmt->fetch()) {
 
 
                 ?>
