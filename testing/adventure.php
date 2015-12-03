@@ -38,7 +38,7 @@ $id = $_GET["id"];
 
 
 // create a SQL query as a string
-$sql_query = "SELECT description FROM adventure WHERE id LIKE $id";
+$sql_query = "SELECT description FROM adventures WHERE id = $id";
 // execute the SQL query
 $description = $mysqli->query($sql_query);
 
