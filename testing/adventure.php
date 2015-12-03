@@ -62,7 +62,7 @@ if ($stmt)   {
                     </div>
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <img class="img-responsive" src="./1.jpeg">
+                            <img class="img-responsive" src="https://i.ytimg.com/vi/EOnqkApnvf8/maxresdefault.jpg">
                         </div>
                     </div>
                     <div class="row">
