@@ -62,7 +62,7 @@ while ($stmt->fetch()) {
             <div class="row">
                 <div id="AuthorPic" class="col-md-3">
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Michelle-Borromeo-Actor-Headshots-Vancouver-BC20110408_0030.jpg"
+                        src="https://upload.wikimedia.org/wikipedia/commons/9/93/Evan_Roth_head_shot.jpg"
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                 <div class="col-md-9">
@@ -92,6 +92,7 @@ while ($stmt->fetch()) {
     </div>
 </div>
 
+for()
 <div id="top1" class="container">
     <div class="row">
         <div class="col-md-3">
@@ -104,19 +105,11 @@ while ($stmt->fetch()) {
                 condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
                 euismod. Donec sed odio dui. </p>
 
-            <p>
-                <span class="glyphicon glyphicon-star" style="color:gold"></span>
-                <span class="glyphicon glyphicon-star" style="color:gold"></span>
-                <span class="glyphicon glyphicon-star" style="color:gold"></span>
-                <span class="glyphicon glyphicon-star" style="color:gold"></span>
-                <span class="glyphicon glyphicon-star"></span></p>
-
-            <p>
-
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
 </div>
+
 
 <?php
 }
