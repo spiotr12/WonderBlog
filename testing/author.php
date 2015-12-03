@@ -68,7 +68,7 @@ while ($stmt->fetch()) {
                 <div class="col-md-9">
                     <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
-                    <p>Date of Birth: <?php echo $dob?></p>
+                    <p>Date of Birth: <?php echo $dob ?></p>
 
                     <p>Country: <?php echo $country ?></p>
 
@@ -184,11 +184,7 @@ while ($stmt->fetch()) {
             <p>Do at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condiment. Fusce dapibus, tellus
                 ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo Donec id elit non mi porta
                 gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-                commodo, tortor mauris condimentum nibh, ut fermentum massa justo Donec id elit non mi porta gravida at
-                eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                justo Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                mauris condimentum nibh, ut fermentum massa justo . </p>
+                fermentum m . </p>
 
             <p>
                 <span class="glyphicon glyphicon-star" style="color:gold"></span>
