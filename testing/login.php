@@ -53,12 +53,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                             <form id="login-form" action="./php/process_login.php" method="post" role="form"
                                   style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control"
-                                           placeholder="Username" value="">
+                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2"
-                                           class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -67,8 +65,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                   class="form-control btn btn-login" value="Log In">
+                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                                         </div>
                                     </div>
                                 </div>
@@ -76,8 +73,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="http://wonderblog.azurewebsites.net/testing/login.php"
-                                                   tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                <a href="http://wonderblog.azurewebsites.net/testing/login.php" tabindex="5" class="forgot-password">Forgot Password?</a>
                                             </div>
                                         </div>
                                     </div>
@@ -87,22 +83,21 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                             <form id="register-form" action="./php/register.php" method="post" role="form"
                                   style="display: none;">
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control"
-                                           placeholder="Username" value="">
+                                    <input type="text" name="fname" id="fname" tabindex="1" class="form-control" placeholder="First name" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control"
-                                           placeholder="Email Address" value="">
+                                    <input type="text" name="lname" id="lname" tabindex="1" class="form-control" placeholder="Last name" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2"
-                                           class="form-control" placeholder="Password">
+                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit"
-                                                   tabindex="4" class="form-control btn btn-register"
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register"
                                                    value="Register Now">
                                         </div>
                                     </div>
