@@ -34,6 +34,8 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php
 $id = 21;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+if ($stmt) {
+$stmt->bind_param("i", $id);
 if ($stmt->execute()) {
 $stmt->bind_result($first_name, $last_name);
 $stmt->store_result();
@@ -213,7 +215,7 @@ $stmt->store_result();
 </div>
 
 <?php
-
+}
 
 }
 
