@@ -32,12 +32,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = 21;
-$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+$id = 31;
+$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country FROM users WHERE id = ?");
 if ($stmt) {
 $stmt->bind_param("i", $id);
 if ($stmt->execute()) {
-$stmt->bind_result($first_name, $last_name);
+$stmt->bind_result($first_name, $last_name, $description, $country);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -60,17 +60,13 @@ while ($stmt->fetch()) {
 
                     <p>Age: 22</p>
 
-                    <p>Country: Scotland</p>
+                    <p>Country: <?php echo $country ?></p>
 
                     <p>Adventures: 5 </p>
 
                     <p>Memeber Since: 01/10/15 </p>
 
-                    <p>About Me: id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-                        malesuada magna moid elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-                        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta
-                        sem malesuada magna mo </p>
+                    <p><?php echo $description; ?></p>
                 </div>
             </div>
         </div>
