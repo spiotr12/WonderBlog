@@ -36,9 +36,9 @@ renderHeader("WonderBlog! [testing]", $meta, $css, $js);
 <?php
 require_once("../resources/templates/menu.php");
 
-if(login_check($mysqli)){
-    echo "<h1>logged in</h1>";
-}
+
+echo "<h1>logged in" . login_check($mysqli) . "</h1>";
+
 
 ?>
 
