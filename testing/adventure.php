@@ -61,7 +61,7 @@ $description = $mysqli->query($sql_query);
         <div class="col-md-5 col-md-offset-1">
             <h2>Description</h2>
 
-            <p><?php echo $description ?></p>
+            <?php echo $description ?>
         </div>
         <div class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
