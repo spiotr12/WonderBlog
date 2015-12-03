@@ -62,7 +62,7 @@ while ($stmt->fetch()) {
 
                     <p>Country: <?php echo $country ?></p>
 
-                    <p>Adventures: <?php echo "SELECT COUNT(*) FROM adventure WHERE user_id = $id AS COUNT"?> </p>
+                    <p>Adventures: <?php "SELECT COUNT(*) FROM adventure WHERE user_id = $id AS COUNT"?> </p>
 
 
                     <p>Memeber Since: 01/10/15 </p>
