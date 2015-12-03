@@ -44,7 +44,7 @@ $id = $_GET["id"];
 
 $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = ?");
 
-if ($stmt) {
+if ($stmt)   {
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
         $stmt->bind_result($description);
