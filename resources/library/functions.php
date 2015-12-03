@@ -31,12 +31,14 @@ function sec_session_start() {
 }
 
 function login($email, $password, $mysqli) {
+    $error = "";
     // Using prepared statements means that SQL injection is not possible.
     $stmt = $mysqli->prepare("SELECT id, password, salt FROM administrators WHERE email = ? LIMIT 1");
     if ($stmt) {
         $stmt->bind_param('s', $email); // Bind "$email" to parameter.
         $stmt->execute(); // Execite query
         $stmt->store_result();
+        $error .= "failed stmt; ";
 
         // get variables from result.
         $stmt->bind_result($user_id, $db_password, $salt);
@@ -45,10 +47,12 @@ function login($email, $password, $mysqli) {
         // hash the password with the unique salt.
         $password = hash('sha512', $password . $salt);
         if ($stmt->num_rows == 1) {
+            $error .= "failed 1 row; ";
             // If user exists checks if the account is locked (from too many login attempts)
             if (checkbrute($user_id, $mysqli) == TRUE) {
                 // Account is locked
                 return FALSE;
+                $error .= "failed checkbrute; ";
             } else {
                 // Check if the password match with the password from db
                 if ($db_password == $password) {
@@ -62,6 +66,7 @@ function login($email, $password, $mysqli) {
 
                     $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
                     // Login successful.
+                    $error .= "success; ";
                     return TRUE;
                 } else {
                     // Password is not correct
@@ -70,14 +75,17 @@ function login($email, $password, $mysqli) {
                     $now = time();
                     $mysqli->query("INSERT INTO login_attempts(user_id, time) VALUES ('$user_id', '$now')");
                     echo mysqli_error($mysqli);
+                    $error .= "failed password check; ";
                     return FALSE;
                 }
             }
         } else {
             // No user exists.
+            $error .= "no user; ";
             return FALSE;
         }
     }
+    echo "<br/>".$error;
 }
 
 /**
