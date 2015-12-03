@@ -4,7 +4,7 @@ require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
 require_once("./php/db_connect.php");
 
-session_name("sec_sess_wonderblog");
+session_name("sec_sess_rewdt");
 session_start();
 ?>
 <!DOCTYPE html>

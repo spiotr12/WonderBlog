@@ -5,8 +5,7 @@
  * Date: 05/11/2015
  * Time: 12:12
  */
-function redirectToHome()
-{
+function redirectToHome() {
     header('Location: ./site');
     die();
 }
@@ -14,8 +13,7 @@ function redirectToHome()
 /**
  * Starcts cecure session
  */
-function sec_session_start()
-{
+function sec_session_start() {
     $secure = TRUE;
     // This stops JavaScript being able to access the session id.
     $httponly = TRUE;
@@ -28,12 +26,11 @@ function sec_session_start()
     $cookiesParams = session_get_cookie_params();
     session_set_cookie_params($cookiesParams["lifetime"], $cookiesParams["path"], $cookiesParams["domain"], $secure, $httponly);
     // Sets the session name to the one set above.
-    session_name("sec_sess_wonderblog");
+    session_name("sec_sess_rewdt");
     session_start();
 }
 
-function login($email, $password, $mysqli)
-{
+function login($email, $password, $mysqli) {
     $error = "";
     // Using prepared statements means that SQL injection is not possible.
     $stmt = $mysqli->prepare("SELECT id, password, salt FROM users WHERE email = ? LIMIT 1");
@@ -88,7 +85,7 @@ function login($email, $password, $mysqli)
             return FALSE;
         }
     }
-    echo "<br/>" . $error;
+    echo "<br/>".$error;
     echo mysqli_error($mysqli);
 }
 
@@ -99,8 +96,7 @@ function login($email, $password, $mysqli)
  * @param type $mysqli
  * @return boolean
  */
-function checkbrute($user_id, $mysqli)
-{
+function checkbrute($user_id, $mysqli) {
     // Get timestamp of current time
     $now = time();
     // All login attempts are counted from the past 1 hours.
@@ -128,8 +124,7 @@ function checkbrute($user_id, $mysqli)
  * @param type $mysqli
  * @return boolean
  */
-function login_check($mysqli)
-{
+function login_check($mysqli) {
     // Check if all session variables are set
     if (isset($_SESSION['user_id'], $_SESSION['login_string'])) {
         $user_id = $_SESSION['user_id'];
