@@ -58,7 +58,7 @@ function login($email, $password, $mysqli) {
 
                     // XSS protection as we might printing this value
                     $user_id = preg_replace("/[^0-9]+/", "", $user_id);
-                    $_SESSION['admin_id'] = $user_id;
+                    $_SESSION['user_id'] = $user_id;
 
                     $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
                     // Login successful.
@@ -68,7 +68,7 @@ function login($email, $password, $mysqli) {
                     // We record this attempt in the database
                     echo "password incorrect - login attempt added";
                     $now = time();
-                    $mysqli->query("INSERT INTO login_attempts(administrator_id, time) VALUES ('$user_id', '$now')");
+                    $mysqli->query("INSERT INTO login_attempts(user_id, time) VALUES ('$user_id', '$now')");
                     echo mysqli_error($mysqli);
                     return FALSE;
                 }
@@ -83,18 +83,18 @@ function login($email, $password, $mysqli) {
 /**
  * Checks if the account is locked due to too many login attempts within last hour
  *
- * @param type $admin_id
+ * @param type $user_id
  * @param type $mysqli
  * @return boolean
  */
-function checkbrute($admin_id, $mysqli) {
+function checkbrute($user_id, $mysqli) {
     // Get timestamp of current time
     $now = time();
     // All login attempts are counted from the past 1 hours.
     $valid_attempts = $now - (1 * 60 * 60);
-    $stmt = $mysqli->prepare("SELECT time FROM login_attempts WHERE administrator_id = ? AND time > '$valid_attempts'");
+    $stmt = $mysqli->prepare("SELECT time FROM login_attempts WHERE user_id = ? AND time > '$valid_attempts'");
     if ($stmt) {
-        $stmt->bind_param('i', $admin_id);
+        $stmt->bind_param('i', $user_id);
 
         // Execute prepared query
         $stmt->execute();
@@ -117,8 +117,8 @@ function checkbrute($admin_id, $mysqli) {
  */
 function login_check($mysqli) {
     // Check if all session variables are set
-    if (isset($_SESSION['admin_id'], $_SESSION['login_string'])) {
-        $admin_id = $_SESSION['admin_id'];
+    if (isset($_SESSION['user_id'], $_SESSION['login_string'])) {
+        $user_id = $_SESSION['user_id'];
         $login_string = $_SESSION['login_string'];
 
         // Get the user-agent string of the user
@@ -126,8 +126,8 @@ function login_check($mysqli) {
 
         $stmt = $mysqli->prepare("SELECT password FROM administrators WHERE id = ? LIMIT 1");
         if ($stmt) {
-            // Bind "$admin_id" to parameter.
-            $stmt->bind_param('i', $admin_id);
+            // Bind "$user_id" to parameter.
+            $stmt->bind_param('i', $user_id);
             $stmt->execute();   // Execute the prepared query.
             $stmt->store_result();
 
