@@ -160,7 +160,8 @@ if ($stmt) {
             });
         </script>
 
-    <?php}
+    <?php
+    }
 }
 ?>
 
