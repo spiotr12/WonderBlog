@@ -51,8 +51,8 @@ function login($email, $password, $mysqli) {
             // If user exists checks if the account is locked (from too many login attempts)
             if (checkbrute($user_id, $mysqli) == TRUE) {
                 // Account is locked
-                return FALSE;
                 $error .= "failed checkbrute; ";
+                return FALSE;
             } else {
                 // Check if the password match with the password from db
                 if ($db_password == $password) {
@@ -86,6 +86,7 @@ function login($email, $password, $mysqli) {
         }
     }
     echo "<br/>".$error;
+    echo mysqli_error($mysqli);
 }
 
 /**
