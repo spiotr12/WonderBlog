@@ -62,7 +62,7 @@ if ($stmt)   {
                     </div>
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <img class="img-responsive" src="./1.jpg">
+                            <img class="img-responsive" src="http://whitecitykabul.com/wp-content/uploads/2013/12/LL1A8842-1200x440.jpg">
                         </div>
                     </div>
                     <div class="row">
