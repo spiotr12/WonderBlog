@@ -29,20 +29,16 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
 
 
-<?php require_once("../resources/templates/menu.php");?>
+<?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-
-if($mysqli->connect_errno){
-    die('Connectfailed['.$mysqli->connect_error.']');
-}
-
-$id = $_GET['id'];
+$id = 21;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+if ($stmt) {
+$stmt->bind_param("i", $id);
 if ($stmt->execute()) {
 $stmt->bind_result($first_name, $last_name);
 $stmt->store_result();
-
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
 
@@ -220,10 +216,10 @@ while ($stmt->fetch()) {
 </div>
 
 <?php
-        }
-    }
 }
-
+}
+}
+}
 
 ?>
 
