@@ -34,6 +34,16 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php
 $id = 31;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
+$stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = $id");
+
+if ($stmt1) {
+$stmt1->bind_param("i", $id);
+if ($stmt1->execute()) {
+$stmt1->bind_result($adventure_no);
+$stmt1->store_result();
+if ($stmt1->num_rows() == 1) {
+while ($stmt1->fetch()) {
+
 if ($stmt) {
 $stmt->bind_param("i", $id);
 if ($stmt->execute()) {
@@ -62,9 +72,9 @@ while ($stmt->fetch()) {
 
                     <p>Country: <?php echo $country ?></p>
 
-                    <p>Adventures: <?php $number = ("SELECT COUNT(user_id) AS adventureNumber FROM adventures WHERE user_id = $id ");
+                    <p>Adventures: <?php
 
-                        echo $number;
+                        echo $adventure_no;
 
                         ?> </p>
 
@@ -217,6 +227,10 @@ while ($stmt->fetch()) {
 </div>
 
 <?php
+}
+}
+}
+}
 }
 }
 }
