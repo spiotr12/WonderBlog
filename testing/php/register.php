@@ -66,7 +66,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 //				header('Location: ../error.php?err=Registration failure: INSERT');
             }
         }
-//        header('Location: ../index.php');
+        header('Location: ../index.php');
 //		echo "<h1>Register was successfull</h1>";
     }
 }

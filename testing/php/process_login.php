@@ -24,15 +24,12 @@ if (isset($_POST['email'], $_POST['password'])) {
     if (login($email, $password, $mysqli) == true) {
         // Login success
         echo "login successful";
-//		header('Location: ../index.php?link=admin&success=11');
     } else {
         // Login failed
         echo "login failed";
-//		header('Location: ../index.php?link=admin&error=1');
     }
 } else {
     // The correct POST variables were not sent to this page.
     echo 'Invalid Request';
-//	header('Location: ../index.php?link=admin&error=40');
 }
-?>
+header('Location: ../index.php');
