@@ -1,6 +1,7 @@
 <?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
+sec_session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

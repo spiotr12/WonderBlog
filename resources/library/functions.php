@@ -19,7 +19,7 @@ function sec_session_start() {
     $httponly = TRUE;
     // Forces sessions to only use cookies.
     if (ini_set('session.use_only_cookies', 1) === FALSE) {
-        header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
+        echo "Could not initiate a safe session";
         exit();
     }
     // Gets current cookies params.
@@ -39,7 +39,7 @@ function login($email, $password, $mysqli) {
         $stmt->store_result();
 
         // get variables from result.
-        $stmt->bind_result($user_ids, $db_password, $salt);
+        $stmt->bind_result($user_id, $db_password, $salt);
         $stmt->fetch();
 
         // hash the password with the unique salt.
