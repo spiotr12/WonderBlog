@@ -30,6 +30,24 @@ renderHeader("Adventure", $meta, $css, $js);
 
 <?php require_once("../resources/templates/menu.php"); ?>
 
+
+
+<?php
+
+$id = $_GET["id"];
+
+
+// create a SQL query as a string
+$sql_query = "SELECT description FROM adventure WHERE id LIKE $id";
+// execute the SQL query
+$description = $mysqli->query($sql_query);
+
+
+
+?>
+
+
+
 <div class="container">
     <div class="row">
         <h1 class="text-center">Adventure Title</h1>
@@ -43,11 +61,7 @@ renderHeader("Adventure", $meta, $css, $js);
         <div class="col-md-5 col-md-offset-1">
             <h2>Description</h2>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
+            <p><?php echo $description ?></p>
         </div>
         <div class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
