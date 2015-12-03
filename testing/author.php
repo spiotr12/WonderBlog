@@ -32,14 +32,14 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = $_GET['id'];
-$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
-if ($stmt->execute()) {
-$stmt->bind_result($first_name, $last_name);
-$stmt->store_result();
-
-if ($stmt->num_rows() == 1) {
-while ($stmt->fetch()) {
+//$id = $_GET['id'];
+//$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+//if ($stmt->execute()) {
+//$stmt->bind_result($first_name, $last_name);
+//$stmt->store_result();
+//
+//if ($stmt->num_rows() == 1) {
+//while ($stmt->fetch()) {
 
 ?>
 <body>
@@ -55,7 +55,7 @@ while ($stmt->fetch()) {
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                 <div class="col-md-9">
-                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
+                    <h2><?php //echo $first_name . " " . $last_name; ?></h2>
 
                     <p>Age: 22</p>
 
@@ -215,9 +215,9 @@ while ($stmt->fetch()) {
 </div>
 
 <?php
-}
-}
-}
+//}
+//}
+//}
 
 
 ?>
