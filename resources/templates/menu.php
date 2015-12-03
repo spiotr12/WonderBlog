@@ -12,7 +12,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class=""><a href="">Home</a></li>
+                <li class=""><a href="./#">Home</a></li>
                 <li class=""><a href="./login.php">Login</a></li>
             </ul>
             <div class="col-sm-6 col-md-6 pull-right">
