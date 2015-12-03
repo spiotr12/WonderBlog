@@ -39,14 +39,14 @@ function login($email, $password, $mysqli) {
         $stmt->store_result();
 
         // get variables from result.
-        $stmt->bind_result($admin_id, $db_password, $salt);
+        $stmt->bind_result($user_ids, $db_password, $salt);
         $stmt->fetch();
 
         // hash the password with the unique salt.
         $password = hash('sha512', $password . $salt);
         if ($stmt->num_rows == 1) {
             // If user exists checks if the account is locked (from too many login attempts)
-            if (checkbrute($admin_id, $mysqli) == TRUE) {
+            if (checkbrute($user_id, $mysqli) == TRUE) {
                 // Account is locked
                 return FALSE;
             } else {
@@ -56,9 +56,9 @@ function login($email, $password, $mysqli) {
                     // get the user agent string of the user
                     $user_browser = $_SERVER['HTTP_USER_AGENT'];
 
-                    // XSS protection as we might pring this value
-                    $admin_id = preg_replace("/[^0-9]+/", "", $admin_id);
-                    $_SESSION['admin_id'] = $admin_id;
+                    // XSS protection as we might printing this value
+                    $user_id = preg_replace("/[^0-9]+/", "", $user_id);
+                    $_SESSION['admin_id'] = $user_id;
 
                     $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
                     // Login successful.
@@ -68,7 +68,7 @@ function login($email, $password, $mysqli) {
                     // We record this attempt in the database
                     echo "password incorrect - login attempt added";
                     $now = time();
-                    $mysqli->query("INSERT INTO login_attempts(administrator_id, time) VALUES ('$admin_id', '$now')");
+                    $mysqli->query("INSERT INTO login_attempts(administrator_id, time) VALUES ('$user_id', '$now')");
                     echo mysqli_error($mysqli);
                     return FALSE;
                 }

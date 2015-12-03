@@ -44,6 +44,7 @@ if (isset($_POST['email'], $_POST['password'])) {
         $error_msg .= '<p class="error">' . mysqli_error($mysqli) . '</p>';
         $stmt->close();
     }
+
     // We'll also have to account for the situation where the user doesn't have
     // rights to do registration, by checking what type of user is attempting to
     // perform the operation.
@@ -65,7 +66,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 //				header('Location: ../error.php?err=Registration failure: INSERT');
             }
         }
-        header('Location: ../index.php');
+//        header('Location: ../index.php');
 //		echo "<h1>Register was successfull</h1>";
     }
 }
