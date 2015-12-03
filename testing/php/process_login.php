@@ -7,6 +7,7 @@
  */
 
 require_once("../../resources/config.php");
+require_once(LIBRARY_PATH . "/functions.php");
 require_once("./db_connect.php");
 
 sec_session_start(); // Our custom secure way of starting a PHP session.
