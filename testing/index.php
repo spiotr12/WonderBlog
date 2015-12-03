@@ -29,16 +29,22 @@ $js = array(
     "js/main.js",
     "js/starRating.js"
 );
-renderHeader("WonderBlog! [testing]", $meta, $css, $js);
+renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 ?>
 <body>
 
 <?php
 require_once("../resources/templates/menu.php");
 
+
+$teste =  "<h1>logged in?:";
 if(login_check($mysqli)){
-    echo "<h1>logged in</h1>";
+    $teste .= "TRUE";
+} else {
+    $teste .= "FALSE";
 }
+$teste .= "</h1>";
+echo $teste;
 
 ?>
 

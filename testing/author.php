@@ -34,7 +34,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php
 $id = 31;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
-$stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = $id");
+$stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
 if ($stmt1) {
 $stmt1->bind_param("i", $id);
