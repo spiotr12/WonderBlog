@@ -20,6 +20,8 @@ class Registration {
     public function __construct() {
         if (isset($_POST["register"])) {
             $this->registerNewUser();
+        } else {
+            $this->errors[] = "No post 'register'";
         }
     }
 
