@@ -115,7 +115,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register" id="register-submit" tabindex="6" class="form-control btn btn-register"
+                                            <input type="submit" name="register" id="register" tabindex="6" class="form-control btn btn-register"
                                                    value="Register Now!">
                                         </div>
                                     </div>
