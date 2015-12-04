@@ -37,20 +37,21 @@ $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, cou
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
 if ($stmt1) {
-$stmt1->bind_param("i", $id);
+    $stmt1->bind_param("i", $id);
 if ($stmt1->execute()) {
-$stmt1->bind_result($adventure_no);
-$stmt1->store_result();
+    $stmt1->bind_result($adventure_no);
+    $stmt1->store_result();
 if ($stmt1->num_rows() == 1) {
-while ($stmt1->fetch()) {
 
-if ($stmt) {
-$stmt->bind_param("i", $id);
-if ($stmt->execute()) {
-$stmt->bind_result($first_name, $last_name, $description, $country, $dob);
-$stmt->store_result();
-if ($stmt->num_rows() == 1) {
-while ($stmt->fetch()) {
+    while ($stmt1->fetch()) {
+
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+                if ($stmt->execute()) {
+                    $stmt->bind_result($first_name, $last_name, $description, $country, $dob);
+                    $stmt->store_result();
+                        if ($stmt->num_rows() == 1) {
+                            while ($stmt->fetch()) {
 
 ?>
 <body>
@@ -83,6 +84,17 @@ while ($stmt->fetch()) {
     </div>
 </div>
 
+<?php
+}
+}
+}
+}
+}
+}
+}
+}
+
+?>
 
 <div id="Contributions" class="container">
     <div class="row">
@@ -92,7 +104,57 @@ while ($stmt->fetch()) {
     </div>
 </div>
 
-for()
+<?php
+$author = array(
+    'id' => $_GET['id'],
+    'first_name' => "",
+    'last_name' => ""
+);
+
+// Author
+$stmtUser = mysqli_prepare($mysqli, "SELECT fisrt_name, last_name FROM users WHERE id = ?");
+if ($stmt) {
+    mysqli_stmt_bind_param($stmtUser, "i", $project['id']);
+    // execute statement
+    if (mysqli_stmt_execute($stmtUser)) {
+        mysqli_stmt_bind_result($stmtUser, $fisrt_name, $last_name);
+        mysqli_stmt_store_result($stmtUser);
+        // save variables
+        if (mysqli_stmt_num_rows($stmtUser) == 1) {
+            mysqli_stmt_fetch($stmtUser);
+            $project['first_name'] = $fisrt_name;
+            $project['last_name'] = $last_name;
+        }
+    }
+}
+
+// preapre adventure data
+$adventure = array();
+$total_progress = 0;
+// adventure
+$stmtAdventure = new mysqli_stmt($stmtAdventure, "SELECT id, description FROM adventures WHERE user_id = ?");
+if ($stmtAdventure) {
+    $stmtAdventure->bind_param("i", $project['id']);
+    if ($stmtAdventure->execute()) {
+        $stmtAdventure->bind_result($ad_id, $ad_description
+        );
+        while ($stmtAdventure->fetch()) {
+            $temp_arr = array(
+                'id' => $ms_id,
+                'description' => $ad_description,
+                //'progress' => $ad_progress
+            );
+            //array_push($adventure, $temp_arr);
+           // $total_progress += $ad_progress;
+        }
+    }
+}
+
+
+foreach ($adventure as $stone) {
+    $ad_total -= $stone['progress'];
+?>
+
 <div id="top1" class="container">
     <div class="row">
         <div class="col-md-3">
@@ -110,18 +172,11 @@ for()
     </div>
 </div>
 
-
-<?php
-}
-}
-}
-}
-}
-}
-}
-}
-
+    <?php
+    }
 ?>
+
+
 
 
 </body>
