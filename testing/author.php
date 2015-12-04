@@ -114,7 +114,7 @@ $author = array(
 // Author
 $stmtUser = mysqli_prepare($mysqli, "SELECT fisrt_name, last_name FROM users WHERE id = ?");
 if ($stmt) {
-    mysqli_stmt_bind_param($stmtUser, "i", $project['id']);
+    mysqli_stmt_bind_param($stmtUser, "i", $author['id']);
     // execute statement
     if (mysqli_stmt_execute($stmtUser)) {
         mysqli_stmt_bind_result($stmtUser, $fisrt_name, $last_name);
@@ -122,8 +122,8 @@ if ($stmt) {
         // save variables
         if (mysqli_stmt_num_rows($stmtUser) == 1) {
             mysqli_stmt_fetch($stmtUser);
-            $project['first_name'] = $fisrt_name;
-            $project['last_name'] = $last_name;
+            $author['first_name'] = $fisrt_name;
+            $author['last_name'] = $last_name;
         }
     }
 }
