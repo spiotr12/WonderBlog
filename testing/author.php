@@ -11,8 +11,8 @@ require_once("./php/db_connect.php");
 $meta = array(
     "<meta charset=\"UTF-8\">",
     "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
-);
+    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+
 $css = array(
     "css/bootstrap.min.css",
 //    "css/bootstrap-theme.min.css",
@@ -32,7 +32,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = 31;
+//$id = 31;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
