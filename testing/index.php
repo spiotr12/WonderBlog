@@ -121,7 +121,7 @@ if ($stmt) {
                             width="304px" height="228px">
                     </div>
                     <div class="col-md-8">
-                        <h2><?php echo $stone['name']; ?></h2>
+                        <h2><?php echo $stone['description']; ?></h2>
 
                         <div class="rating-select">
                             <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
