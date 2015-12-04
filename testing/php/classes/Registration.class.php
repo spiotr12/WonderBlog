@@ -30,7 +30,7 @@ class Registration {
             $this->errors[] = "Password and password repeat are not the same";
         } else {
             // create a database connection
-            $this->db_connection = MYSQLI_CONNECTION;
+            $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
             // change character set to utf8 and check it
             if (!$this->db_connection->set_charset("utf8")) {
