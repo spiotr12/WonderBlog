@@ -7,12 +7,12 @@
  */
 require_once(realpath(dirname(__FILE__) . "../../resources/config.php"));
 
-$mysqli = new mysqli(
+define("MYSQLI_CONNECTION", $mysqli = new mysqli(
     $config["db"]["host"],
     $config["db"]["username"],
     $config["db"]["password"],
     $config["db"]["dbname"]
-);
+));
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 } else {
