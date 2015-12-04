@@ -51,7 +51,7 @@ echo $teste;
 $adventures = array();
 $total_progress = 0;
 
-$stmt = new mysqli_stmt($mysqli, "SELECT id, country, city, google_location, description, date FROM adventures ORDER BY date");
+$stmt = new mysqli_stmt($mysqli, "SELECT id, country, city, google_location, description, date FROM adventures WHERE id = ? ORDER BY date");
 if ($stmt) {
     $stmt->bind_param("i", $adventures['id']);
     if ($stmt->execute()) {
@@ -73,9 +73,6 @@ if ($stmt) {
 }
 ?>
 
-<?php
-foreach ($adventures as $stone)
-?>
 <div class="jumbotron">
     <div class="container">
         <h1>WanderBlog</h1>
