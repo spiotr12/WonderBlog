@@ -32,9 +32,7 @@ $css = array(
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
     "css/main.css",
-    "css/login.css",
-
-
+    "css/login.css"
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
