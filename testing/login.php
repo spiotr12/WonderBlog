@@ -1,7 +1,23 @@
 <?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
-//sec_session_start();
+require_once("./php/db_connect.php");
+require_once("./php/classes/Registration.class.php");
+
+$registration = new Registration();
+
+if (isset($registration)) {
+    if ($registration->errors) {
+        foreach ($registration->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($registration->messages) {
+        foreach ($registration->messages as $message) {
+            echo $message;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +67,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="./php/process_login.php" method="post" role="form"
+                            <form id="login-form" action="<?php $_SERVER['PHP_SELF']; ?>" method="post" role="form"
                                   style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="email" id="login_email" tabindex="1" class="form-control" placeholder="Email" value="" required>
@@ -81,7 +97,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                 </div>
                             </form>
                             <!-- REGISTER FORM -->
-                            <form id="register-form" action="./php/register.php" method="post" role="form"
+                            <form id="register-form" action="<?php $_SERVER['PHP_SELF']; ?>" method="post" role="form"
                                   style="display: none;">
                                 <div class="form-group">
                                     <input type="text" name="fname" id="fname" tabindex="1" class="form-control" placeholder="First name" value="" required>
