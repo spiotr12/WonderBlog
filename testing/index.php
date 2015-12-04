@@ -46,8 +46,36 @@ if(login_check($mysqli)){
 $teste .= "</h1>";
 echo $teste;
 
+
+//Gather adventures
+$adventures = array();
+$total_progress = 0;
+
+$stmt = new mysqli_stmt($mysqli, "SELECT id, country, city, google_location, description, date FROM adventures ORDER BY date");
+if ($stmt) {
+    $stmt->bind_param("i", $adventures['id']);
+    if ($stmt->execute()) {
+        $stmt->bind_result($id, $country, $city,  $google_location, $description, $date);
+        while ($stmt->fetch()) {
+            $temp_arr = array(
+                'id' => $id,
+                'country' => $country,
+                'city' => $city,
+                'google_location' => $google_location,
+                'description' => $description,
+                'date' => date("d/m/y", strtotime($date)),
+            );
+            array_push($adventures, $temp_arr);
+        }
+    }
+} else {
+    echo "<h3>" . mysqli_error($mysqli) . "</h3>";
+}
 ?>
 
+<?php
+foreach ($adventures as $stone)
+?>
 <div class="jumbotron">
     <div class="container">
         <h1>WanderBlog</h1>
