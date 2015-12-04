@@ -32,9 +32,7 @@ $css = array(
 //    "css/bootstrap-theme.min.css",
     "css/theme.min.css",
     "css/main.css",
-    "css/login.css",
-
-
+    "css/login.css"
 );
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
@@ -117,8 +115,8 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="6" class="form-control btn btn-register"
-                                                   value="Register Now">
+                                            <input type="submit" name="register" id="register-submit" tabindex="6" class="form-control btn btn-register"
+                                                   value="Register Now!">
                                         </div>
                                     </div>
                                 </div>
