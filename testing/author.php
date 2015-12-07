@@ -73,24 +73,50 @@ if ($stmt1->num_rows() == 1) {
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                     <?php
-                    //if(isset($_SESSION['id']) && $id == $_SESSION['id']){
-                        //echo "This is your page";
+                    if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
+                        echo "This is your page";
 
-//                    else{
-                    //?>
-                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-                    <p>Date of Birth: <?php echo $dob ?></p>
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
 
-                    <p>Country: <?php echo $country ?></p>
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Some text in the modal.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
 
-                    <p>Adventures: <?php echo $adventure_no; ?> </p>
+                            </div>
+                        </div>
 
-                    <p>Memeber Since: 01/10/15 </p>
+                    <?php }
 
-                    <p><?php echo $description; ?></p>
+                   else{
+                        ?>
+                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
+
+                        <p>Date of Birth: <?php echo $dob ?></p>
+
+                        <p>Country: <?php echo $country ?></p>
+
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
+
+                        <p>Memeber Since: 01/10/15 </p>
+
+                        <p><?php echo $description; ?></p>
                         <?php
-
+                    }
                     ?>
                 </div>
             </div>
