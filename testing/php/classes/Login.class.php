@@ -71,7 +71,7 @@ class Login {
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['id'] = $result_row->id;
                         $_SESSION['first_name'] = $result_row->first_name;
-                        $_SESSION['last_name'] = $result_row->first_name;
+                        $_SESSION['last_name'] = $result_row->last_name;
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['user_login_status'] = 1;
 
