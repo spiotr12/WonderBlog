@@ -70,7 +70,7 @@ if ($stmt) {
                         if ($stmt1->num_rows() == 1) {
                             while ($stmt1->fetch()) {
 
-                                $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ?");
+                                $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ? ");
 
                                 if ($stmt2) {
                                     $stmt2->bind_param("i", $id);
@@ -99,7 +99,7 @@ if ($stmt) {
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-10 col-md-offset-1">
-                                                                            <img class="img-responsive" src="./img/contents/"<?php echo $photoID; ?>"."<?php echo $fileEXT; ?>>
+                                                                            <img class="img-responsive" src="./img/contents/1.jpg" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
