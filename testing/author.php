@@ -105,7 +105,6 @@ if ($stmt1->num_rows() == 1) {
 </div>
 
 <?php
-$id = 31;
 $author = array(
     'id' => $_GET['id'],
     'first_name' => "",
