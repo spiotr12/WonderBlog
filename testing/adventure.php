@@ -3,6 +3,14 @@ require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once("./php/db_connect.php");
 //sec_session_start();
+
+// TO ALLOW USERS TO LOGIN ON EACH PAGE PLEASE COPY THIS CODE
+require_once("./php/db_connect.php");
+require_once("./php/classes/Login.class.php");
+$login = new Login();
+// END OF LOGIN SCRIPT
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,9 +99,7 @@ if ($stmt) {
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-10 col-md-offset-1">
-                                                                            <img class="img-responsive"
-                                                                                 src="./img/contents/"<?php echo $photoID; ?>
-                                                                            "."<?php echo $fileEXT; ?>>
+                                                                            <img class="img-responsive" src="./img/contents/"<?php echo $photoID; ?>"."<?php echo $fileEXT; ?>>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
