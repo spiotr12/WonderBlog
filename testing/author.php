@@ -32,7 +32,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = 31;
+$id = 21;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
@@ -104,7 +104,75 @@ if ($stmt1->num_rows() == 1) {
     </div>
 </div>
 
+<?php
+$author = array(
+    'id' => $_GET['id'],
+    'first_name' => "",
+    'last_name' => ""
+);
 
+// Author
+$stmtUser = mysqli_prepare($mysqli, "SELECT fisrt_name, last_name FROM users WHERE id = ?");
+if ($stmtUser) {
+    mysqli_stmt_bind_param($stmtUser, "i", $author['id']);
+    // execute statement
+    if (mysqli_stmt_execute($stmtUser)) {
+        mysqli_stmt_bind_result($stmtUser, $fisrt_name, $last_name);
+        mysqli_stmt_store_result($stmtUser);
+        // save variables
+        if (mysqli_stmt_num_rows($stmtUser) == 1) {
+            mysqli_stmt_fetch($stmtUser);
+            $author['first_name'] = $fisrt_name;
+            $author['last_name'] = $last_name;
+        }
+    }
+}
+
+// preapre adventure data
+$adventure = array();
+$total_progress = 0;
+// adventure
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures WHERE user_id = ?");
+if ($stmtAdventure) {
+    $stmtAdventure->bind_param("i", $project['id']);
+    if ($stmtAdventure->execute()) {
+        $stmtAdventure->bind_result($ad_id, $ad_description
+        );
+        while ($stmtAdventure->fetch()) {
+            $temp_arr = array(
+                'id' => $ms_id,
+                'description' => $ad_description,
+                //'progress' => $ad_progress
+            );
+            //array_push($adventure, $temp_arr);
+           // $total_progress += $ad_progress;
+        }
+    }
+}
+
+
+foreach ($adventure as $stone) {
+    $ad_total -= $stone['progress'];
+?>
+
+<div id="top1" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img
+                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+        </div>
+        <div class="col-md-9">
+            <p> <?php echo $ad_description ?></p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+</div>
+
+    <?php
+    }
+?>
 
 
 
