@@ -73,12 +73,11 @@ if ($stmt1->num_rows() == 1) {
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                     <?php
-                    if(isset($_SESSION['id']) && $id == $_SESSION['id']){
-                        echo "This is your page";
+                    //if(isset($_SESSION['id']) && $id == $_SESSION['id']){
+                        //echo "This is your page";
 
-                    }
-                    else{
-                    ?>
+//                    else{
+                    //?>
                     <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
                     <p>Date of Birth: <?php echo $dob ?></p>
@@ -91,7 +90,7 @@ if ($stmt1->num_rows() == 1) {
 
                     <p><?php echo $description; ?></p>
                         <?php
-                    }
+
                     ?>
                 </div>
             </div>
