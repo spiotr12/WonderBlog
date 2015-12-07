@@ -132,7 +132,7 @@ if ($stmtUser) {
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($stmtAdventure, "SELECT id, description FROM adventures WHERE user_id = ?");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures WHERE user_id = ?");
 if ($stmtAdventure) {
     $stmtAdventure->bind_param("i", $project['id']);
     if ($stmtAdventure->execute()) {
