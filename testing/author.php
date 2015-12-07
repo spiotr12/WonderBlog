@@ -75,6 +75,18 @@ if ($stmt1->num_rows() == 1) {
                     <?php
                     if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
 
+                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
+
+                        <p>Date of Birth: <?php echo $dob ?></p>
+
+                        <p>Country: <?php echo $country ?></p>
+
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
+
+                        <p>Memeber Since: 01/10/15 </p>
+
+                        <p><?php echo $description; ?></p>
+
                         <!-- Trigger the modal with a button -->
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
 
