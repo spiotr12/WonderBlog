@@ -87,6 +87,7 @@ if ($stmt) {
                                         </div>
                                         <div class="col-md-3 col-md-offset-2 text-center">
                                             <h2>Rating</h2>
+                                            <?php echo $voteCount; ?>
                                             <span class="glyphicon glyphicon-star"></span>
                                             <span class="glyphicon glyphicon-star"></span>
                                             <span class="glyphicon glyphicon-star"></span>
