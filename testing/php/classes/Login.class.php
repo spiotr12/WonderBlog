@@ -53,7 +53,7 @@ class Login {
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
                 //TODO change it to prepared statement
-                $sql = "SELECT id, first_name, last_name, email, password
+                $sql = "SELECT id, first_name, last_name, email, password, privilages
                         FROM users
                         WHERE email = '" . $email . "';";
                 $result_of_login_check = $this->db_connection->query($sql);
@@ -73,6 +73,7 @@ class Login {
                         $_SESSION['first_name'] = $result_row->first_name;
                         $_SESSION['last_name'] = $result_row->last_name;
                         $_SESSION['email'] = $result_row->email;
+                        $_SESSION['privilege'] = $result_row->privileges;
                         $_SESSION['user_login_status'] = 1;
 
                         $this->messages[] = "You have logged in successfully!";
@@ -113,27 +114,4 @@ class Login {
         return false;
     }
 
-
-    /**
-     * Return the privilages of current user
-     *
-     * @param mysqli $mysqli mysqli connection to database
-     * @return int the privilages for the logged in user
-     */
-    public function whatPrivilages($mysqli) {
-        $id = $_SESSION['id'];
-        $privilages = -1;
-        $stmt = new mysqli_stmt($mysqli, "SELECT privilages FROM users WHERE id = ?");
-        if ($stmt) {
-            $stmt->bind_param("i", $id);
-            if ($stmt->execute()) {
-                $stmt->bind_result($pvl);
-                $stmt->store_result();
-                if ($stmt->num_rows == 1) {
-                    $privilages = $pvl;
-                }
-            }
-        }
-        return $privilages;
-    }
 }

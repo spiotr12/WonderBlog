@@ -65,7 +65,6 @@ if ($stmt) {
     echo "<h3>" . mysqli_error($mysqli) . "</h3>";
 }
 
-echo "<h2>" . $login->whatPrivilages($msqli) . "</h2>";
 ?>
 
 <?php
