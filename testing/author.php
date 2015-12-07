@@ -151,26 +151,26 @@ if ($stmtAdventure) {
 
 //$ad_total = $total_progress;
 foreach ($adventure as $stone) {
-   $ad_total -= $stone['progress'];
-?>
+    $ad_total -= $stone['progress'];
+    ?>
 
-<div id="top1" class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <img
-                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
-                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
-        </div>
-        <div class="col-md-9">
-            <p> <?php echo $stone['description'] ?></p>
+    <div id="top1" class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img
+                    src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+            </div>
+            <div class="col-md-9">
+                <p> <?php echo $stone['description'] ?></p>
 
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
         </div>
     </div>
-</div>
 
-<?php
-
+    <?php
+}
 ?>
 
 
