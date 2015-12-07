@@ -70,20 +70,20 @@ if ($stmt) {
                         if ($stmt1->num_rows() == 1) {
                             while ($stmt1->fetch()) {
 
-                                $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ? ");
+                                $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
                                 if ($stmt2) {
                                     $stmt2->bind_param("i", $id);
                                     if ($stmt2->execute()) {
-                                        $stmt2->bind_result($photoID);
+                                        $stmt2->bind_result($coverPhotoID);
                                         $stmt2->store_result();
                                         if ($stmt2->num_rows() == 1) {
                                             while ($stmt2->fetch()) {
 
-                                                $stmt3 = new mysqli_stmt($mysqli, "SELECT file_ext FROM photos WHERE adv_id = ?");
+                                                $stmt3 = new mysqli_stmt($mysqli, "SELECT file_ext FROM photos WHERE id = ?");
 
                                                 if ($stmt3) {
-                                                    $stmt3->bind_param("i", $id);
+                                                    $stmt3->bind_param("i", $coverPhotoID);
                                                     if ($stmt3->execute()) {
                                                         $stmt3->bind_result($fileEXT);
                                                         $stmt3->store_result();
@@ -99,7 +99,7 @@ if ($stmt) {
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-10 col-md-offset-1">
-                                                                            <img class="img-responsive" src="./img/contents/<?php echo $photoID; ?>.<?php echo $fileEXT; ?>" >
+                                                                            <img class="img-responsive" src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $fileEXT; ?>" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
