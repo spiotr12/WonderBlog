@@ -32,7 +32,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = 21;
+$id = $_GET['id'];
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
