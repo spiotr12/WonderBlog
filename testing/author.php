@@ -85,13 +85,13 @@ if ($stmt1->num_rows() == 1) {
 </div>
 
 <?php
-}
-}
-}
-}
-}
-}
-}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 ?>
@@ -113,7 +113,7 @@ $author = array(
 
 // Author
 $stmtUser = mysqli_prepare($mysqli, "SELECT fisrt_name, last_name FROM users WHERE id = ?");
-if ($stmt) {
+if ($stmtUser) {
     mysqli_stmt_bind_param($stmtUser, "i", $author['id']);
     // execute statement
     if (mysqli_stmt_execute($stmtUser)) {
