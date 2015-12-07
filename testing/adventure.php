@@ -52,7 +52,7 @@ if ($stmt) {
         if ($stmt->num_rows() == 1) {
             while ($stmt->fetch()) {
 
-                $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE user_id = ?");
+                $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
                 if ($stmt1) {
                     $stmt1->bind_param("i", $id);
