@@ -67,6 +67,13 @@ if ($stmt1->num_rows() == 1) {
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                 <div class="col-md-9">
+                    <?php
+                    if($id = 21){
+                        echo "test";
+
+                    }
+                    else{
+                    ?>
                     <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
                     <p>Date of Birth: <?php echo $dob ?></p>
@@ -78,6 +85,9 @@ if ($stmt1->num_rows() == 1) {
                     <p>Memeber Since: 01/10/15 </p>
 
                     <p><?php echo $description; ?></p>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -151,7 +161,6 @@ if ($stmtAdventure) {
 
 //$ad_total = $total_progress;
 foreach ($adventure as $stone) {
-    //$ad_total -= $stone['progress'];
     ?>
 
     <div id="top1" class="container">
