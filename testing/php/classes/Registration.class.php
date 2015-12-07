@@ -51,6 +51,7 @@ class Registration {
                 $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
 
                 // check if user or email address already exists
+                //TODO change it to prepared statement
                 $sql = "SELECT * FROM users WHERE email = '" . $user_email . "';";
                 $query_check_user_name = $this->db_connection->query($sql);
 
@@ -58,6 +59,7 @@ class Registration {
                     $this->errors[] = "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
+                    //TODO change it to prepared statement
                     $sql = "INSERT INTO users (first_name, last_name, password, email)
                             VALUES('" . $user_first_name . "', '" . $user_last_name . "', '" . $user_password_hash . "', '" . $user_email . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
