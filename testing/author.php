@@ -134,7 +134,7 @@ $total_progress = 0;
 // adventure
 $stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures WHERE user_id = ?");
 if ($stmtAdventure) {
-    $stmtAdventure->bind_param("i", $project['id']);
+    $stmtAdventure->bind_param("i", $author['id']);
     if ($stmtAdventure->execute()) {
         $stmtAdventure->bind_result($ad_id, $ad_description
         );
@@ -163,7 +163,7 @@ foreach ($adventure as $stone) {
                 class="img-rounded" alt="Cinque Terre" width="250" height="228px">
         </div>
         <div class="col-md-9">
-            <p> <?php echo $ad_description ?></p>
+            <p> <?php echo $stone['description'] ?></p>
 
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
