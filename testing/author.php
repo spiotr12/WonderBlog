@@ -140,7 +140,7 @@ if ($stmtAdventure) {
         );
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
-                'id' => $ms_id,
+                'id' => $ad_id,
                 'description' => $ad_description,
                 //'progress' => $ad_progress
             );
