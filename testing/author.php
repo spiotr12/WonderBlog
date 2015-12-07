@@ -74,12 +74,11 @@ if ($stmt1->num_rows() == 1) {
                 </div>
                 <div class="col-md-9"> <input type="text" name="name"><br>
                     <?php
-                    if($id == 21){
-                        ?>
-                    <p>Date of Birth: <input type="text" name="name"><br> </p>
-                        <?php
+                    if($id == 20){
+                        echo "test";
+
                     }
-                     else{
+                    else{
                     ?>
                     <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
