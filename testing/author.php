@@ -32,7 +32,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = 31;
+$id = 21;
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
@@ -85,13 +85,13 @@ if ($stmt1->num_rows() == 1) {
 </div>
 
 <?php
-}
-}
-}
-}
-}
-}
-}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 ?>
@@ -113,7 +113,7 @@ $author = array(
 
 // Author
 $stmtUser = mysqli_prepare($mysqli, "SELECT fisrt_name, last_name FROM users WHERE id = ?");
-if ($stmt) {
+if ($stmtUser) {
     mysqli_stmt_bind_param($stmtUser, "i", $author['id']);
     // execute statement
     if (mysqli_stmt_execute($stmtUser)) {
@@ -132,9 +132,9 @@ if ($stmt) {
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($stmtAdventure, "SELECT id, description FROM adventures WHERE user_id = ?");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures WHERE user_id = ?");
 if ($stmtAdventure) {
-    $stmtAdventure->bind_param("i", $project['id']);
+    $stmtAdventure->bind_param("i", $author['id']);
     if ($stmtAdventure->execute()) {
         $stmtAdventure->bind_result($ad_id, $ad_description
         );
@@ -163,7 +163,7 @@ foreach ($adventure as $stone) {
                 class="img-rounded" alt="Cinque Terre" width="250" height="228px">
         </div>
         <div class="col-md-9">
-            <p> <?php echo $ad_description ?></p>
+            <p> <?php echo $stone['description'] ?></p>
 
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
