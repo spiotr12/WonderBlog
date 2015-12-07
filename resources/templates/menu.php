@@ -13,10 +13,11 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class=""><a href="./#">Home</a></li>
-                <li class=""><a href="./login.php">Login</a></li>
                 <?php if ($login->isUserLoggedIn() == true): ?>
                     <li class=""><a href="./author.php?id=<?php echo $_SESSION['id']; ?>"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></a></li>
-                    <li class=""><a href="./?logout</a></li>
+                    <li class=""><a href="./?logout"</a></li>
+                <?php else: ?>
+                    <li class=""><a href="./login.php">Login</a></li>
                 <?php endif; ?>
             </ul>
             <div class="col-sm-6 col-md-6 pull-right">
