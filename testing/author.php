@@ -76,7 +76,7 @@ if ($stmt1->num_rows() == 1) {
                     if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
 
                         <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
 
                         <!-- Modal -->
                         <div id="myModal" class="modal fade" role="dialog">
