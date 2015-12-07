@@ -112,4 +112,28 @@ class Login {
         // default return
         return false;
     }
+
+
+    /**
+     * Return the privilages of current user
+     *
+     * @param mysqli $mysqli mysqli connection to database
+     * @return int the privilages for the logged in user
+     */
+    public function whatPrivilages($mysqli) {
+        $id = $_SESSION['id'];
+        $privilages = -1;
+        $stmt = new mysqli_stmt($mysqli, "SELECT privilages FROM users WHERE id = ?");
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+            if ($stmt->execute()) {
+                $stmt->bind_result($pvl);
+                $stmt->store_result();
+                if ($stmt->num_rows == 1) {
+                    $privilages = $pvl;
+                }
+            }
+        }
+        return $privilages;
+    }
 }
