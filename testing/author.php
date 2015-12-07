@@ -101,7 +101,10 @@ if ($stmt1->num_rows() == 1) {
                                         <h4 class="modal-title">Modal Header</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Some text in the modal.</p>
+                                        <div class="form-group">
+                                            <label for="usr">Name:</label>
+                                            <input type="text" class="form-control" id="usr">
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
