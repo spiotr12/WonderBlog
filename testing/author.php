@@ -150,8 +150,8 @@ if ($stmtAdventure) {
 }
 
 //$ad_total = $total_progress;
-//foreach ($adventure as $stone) {
-  //  $ad_total -= $stone['progress'];
+foreach ($adventure as $stone) {
+   $ad_total -= $stone['progress'];
 ?>
 
 <div id="top1" class="container">
@@ -162,7 +162,7 @@ if ($stmtAdventure) {
                 class="img-rounded" alt="Cinque Terre" width="250" height="228px">
         </div>
         <div class="col-md-9">
-            <p> <?php echo $ad_description ?></p>
+            <p> <?php echo $stone['description'] ?></p>
 
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
