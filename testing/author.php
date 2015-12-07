@@ -74,7 +74,7 @@ if ($stmt1->num_rows() == 1) {
                 </div>
                     <?php
                     if(isset($_SESSION['id']) && $id == $_SESSION['id']){
-                        echo "test";
+                        echo "This is your page";
 
                     }
                     else{
