@@ -150,9 +150,9 @@ if ($stmtAdventure) {
     }
 }
 
-$ad_total = $total_progress;
-foreach ($adventure as $stone) {
-    $ad_total -= $stone['progress'];
+//$ad_total = $total_progress;
+//foreach ($adventure as $stone) {
+  //  $ad_total -= $stone['progress'];
 ?>
 
 <div id="top1" class="container">
@@ -170,8 +170,8 @@ foreach ($adventure as $stone) {
     </div>
 </div>
 
-    <?php
-    }
+<?php
+
 ?>
 
 
