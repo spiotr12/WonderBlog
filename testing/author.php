@@ -145,7 +145,6 @@ if ($stmtAdventure) {
                 //'progress' => $ad_progress
             );
             array_push($adventure, $temp_arr);
-           $total_progress += $ad_progress;
         }
     }
 }
