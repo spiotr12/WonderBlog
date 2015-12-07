@@ -68,7 +68,7 @@ if ($stmt1->num_rows() == 1) {
                 </div>
                 <div class="col-md-9">
                     <?php
-                    if($id = 21){
+                    if($id == 21){
                         echo "test";
 
                     }
