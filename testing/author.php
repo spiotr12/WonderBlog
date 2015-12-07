@@ -72,7 +72,7 @@ if ($stmt1->num_rows() == 1) {
                         src="https://upload.wikimedia.org/wikipedia/commons/9/93/Evan_Roth_head_shot.jpg"
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9"> <input type="text" name="name"><br>
                     <?php
                     if($id == 20){
                         echo "test";
