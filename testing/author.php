@@ -73,24 +73,64 @@ if ($stmt1->num_rows() == 1) {
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                     <?php
-                    //if(isset($_SESSION['id']) && $id == $_SESSION['id']){
-                        //echo "This is your page";
+                    if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
 
-//                    else{
-                    //?>
-                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
+                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
-                    <p>Date of Birth: <?php echo $dob ?></p>
+                        <p>Date of Birth: <?php echo $dob ?></p>
 
-                    <p>Country: <?php echo $country ?></p>
+                        <p>Country: <?php echo $country ?></p>
 
-                    <p>Adventures: <?php echo $adventure_no; ?> </p>
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
 
-                    <p>Memeber Since: 01/10/15 </p>
+                        <p>Memeber Since: 01/10/15 </p>
 
-                    <p><?php echo $description; ?></p>
+                        <p><?php echo $description; ?></p>
+
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="usr">Name:</label>
+                                            <input type="text" class="form-control" id="usr">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <?php }
+
+                   else{
+                        ?>
+                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
+
+                        <p>Date of Birth: <?php echo $dob ?></p>
+
+                        <p>Country: <?php echo $country ?></p>
+
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
+
+                        <p>Memeber Since: 01/10/15 </p>
+
+                        <p><?php echo $description; ?></p>
                         <?php
-
+                    }
                     ?>
                 </div>
             </div>
