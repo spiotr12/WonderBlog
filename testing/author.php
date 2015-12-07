@@ -144,13 +144,13 @@ if ($stmtAdventure) {
                 'description' => $ad_description,
                 //'progress' => $ad_progress
             );
-            //array_push($adventure, $temp_arr);
-           // $total_progress += $ad_progress;
+            array_push($adventure, $temp_arr);
+           $total_progress += $ad_progress;
         }
     }
 }
 
-
+$ad_total = $total_progress;
 foreach ($adventure as $stone) {
     $ad_total -= $stone['progress'];
 ?>
