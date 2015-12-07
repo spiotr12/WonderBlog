@@ -66,14 +66,15 @@ class Login {
 
                     // using PHP 5.5's password_verify() function to check if the provided password fits
                     // the hash of that user's password
-                    if (password_verify($_POST['password'], $result_row->user_password_hash)) {
+                    if (password_verify($_POST['password'], $result_row->password)) {
 
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['first_name'] = $result_row->first_name;
                         $_SESSION['last_name'] = $result_row->first_name;
-                        $_SESSION['email'] = $result_row->user_email;
+                        $_SESSION['email'] = $result_row->email;
                         $_SESSION['user_login_status'] = 1;
 
+                        $this->messages[] = "You have logged in successfully!";
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
                     }
