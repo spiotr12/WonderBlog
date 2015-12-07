@@ -3,6 +3,25 @@ require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once("./php/db_connect.php");
 require_once("./php/classes/Registration.class.php");
+require_once("./php/classes/Login.class.php");
+
+// create a login object. when this object is created, it will do all login/logout stuff automatically
+// so this single line handles the entire login process. in consequence, you can simply ...
+$login = new Login();
+
+// show potential errors / feedback (from login object)
+if (isset($login)) {
+    if ($login->errors) {
+        foreach ($login->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($login->messages) {
+        foreach ($login->messages as $message) {
+            echo $message;
+        }
+    }
+}
 
 $registration = new Registration();
 
@@ -73,14 +92,14 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                 <div class="form-group">
                                     <input type="password" name="password" id="login_password" tabindex="2" class="form-control" placeholder="Password" required>
                                 </div>
-<!--                                <div class="form-group text-center">-->
-<!--                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">-->
-<!--                                    <label for="remember"> Remember Me</label>-->
-<!--                                </div>-->
+                                <!--                                <div class="form-group text-center">-->
+                                <!--                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">-->
+                                <!--                                    <label for="remember"> Remember Me</label>-->
+                                <!--                                </div>-->
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <input type="submit" name="login" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                                         </div>
                                     </div>
                                 </div>

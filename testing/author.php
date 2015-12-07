@@ -4,6 +4,12 @@ require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once("./php/db_connect.php");
 
+// TO ALLOW USERS TO LOGIN ON EACH PAGE PLEASE COPY THIS CODE
+require_once("./php/db_connect.php");
+require_once("./php/classes/Login.class.php");
+$login = new Login();
+// END OF LOGIN SCRIPT
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +38,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-$id = 21;
+$id = $_GET['id'];
 $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
@@ -66,7 +72,14 @@ if ($stmt1->num_rows() == 1) {
                         src="https://upload.wikimedia.org/wikipedia/commons/9/93/Evan_Roth_head_shot.jpg"
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9"> <input type="text" name="name"><br>
+                    <?php
+                    if($id == 20){
+                        echo "test";
+
+                    }
+                    else{
+                    ?>
                     <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
                     <p>Date of Birth: <?php echo $dob ?></p>
@@ -78,6 +91,9 @@ if ($stmt1->num_rows() == 1) {
                     <p>Memeber Since: 01/10/15 </p>
 
                     <p><?php echo $description; ?></p>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -151,7 +167,6 @@ if ($stmtAdventure) {
 
 //$ad_total = $total_progress;
 foreach ($adventure as $stone) {
-    //$ad_total -= $stone['progress'];
     ?>
 
     <div id="top1" class="container">
