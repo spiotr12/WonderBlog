@@ -2,10 +2,11 @@
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
-require_once("./php/db_connect.php");
 
-session_name("sec_sess_rewdt");
-session_start();
+require_once("./php/db_connect.php");
+require_once("./php/classes/Login.class.php");
+$login = new Login();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,17 +36,6 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 
 <?php
 require_once("../resources/templates/menu.php");
-
-
-$teste =  "<h1>logged in?:";
-if(login_check($mysqli)){
-    $teste .= "TRUE";
-} else {
-    $teste .= "FALSE";
-}
-$teste .= "</h1>";
-echo $teste;
-
 
 //Gather adventures
 $adventures = array();

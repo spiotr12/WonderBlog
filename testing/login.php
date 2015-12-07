@@ -92,10 +92,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                                 <div class="form-group">
                                     <input type="password" name="password" id="login_password" tabindex="2" class="form-control" placeholder="Password" required>
                                 </div>
-<!--                                <div class="form-group text-center">-->
-<!--                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">-->
-<!--                                    <label for="remember"> Remember Me</label>-->
-<!--                                </div>-->
+                                <!--                                <div class="form-group text-center">-->
+                                <!--                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">-->
+                                <!--                                    <label for="remember"> Remember Me</label>-->
+                                <!--                                </div>-->
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
