@@ -73,8 +73,8 @@ if ($stmt1->num_rows() == 1) {
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
                     <?php
-                    if($id == 20){
-                        echo "test";
+                    if(isset($_SESSION['id']) && $id == $_SESSION['id']){
+                        echo "This is your page";
 
                     }
                     else{
