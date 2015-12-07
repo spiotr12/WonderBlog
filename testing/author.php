@@ -100,9 +100,25 @@ if ($stmt1->num_rows() == 1) {
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Modal Header</h4>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="usr">First Name:</label>
+                                        <input type="text" class="form-control" id="usr">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">Second Name:</label>
+                                        <input type="text" class="form-control" id="usr">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">Date Of Birth:</label>
+                                        <input type="text" class="form-control" id="usr">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">Country:</label>
+                                        <input type="text" class="form-control" id="usr">
+                                    </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="usr">Name:</label>
+                                            <label for="usr">Description:</label>
                                             <input type="text" class="form-control" id="usr">
                                         </div>
                                     </div>
