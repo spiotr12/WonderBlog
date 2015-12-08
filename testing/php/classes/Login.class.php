@@ -8,8 +8,6 @@
  */
 
 require_once(realpath(dirname(__FILE__) . "../../../resources/config.php"));
-require_once("../db_connect.php");
-
 
 class Login {
     private $db_connection = null;
