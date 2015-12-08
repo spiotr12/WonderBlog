@@ -44,7 +44,7 @@ require_once("../resources/templates/menu.php");
 $adventures = array();
 $total_progress = 0;
 
-$stmt = new mysqli_stmt($mysqli, "SELECT id, country, city, google_location, description, date FROM adventures WHERE id = ? ORDER BY date");
+$stmt = new mysqli_stmt($mysqli, "SELECT id, country, description FROM adventures WHERE adv_id = ?");
 if ($stmt) {
     $stmt->bind_param("i", $adventures['id']);
     if ($stmt->execute()) {
@@ -53,10 +53,7 @@ if ($stmt) {
             $temp_arr = array(
                 'id' => $id,
                 'country' => $country,
-                'city' => $city,
-                'google_location' => $google_location,
                 'description' => $description,
-                'date' => date("d/m/y", strtotime($date)),
             );
             array_push($adventures, $temp_arr);
         }
@@ -67,12 +64,6 @@ if ($stmt) {
 
 ?>
 
-<?php
-//Print adventure
-$ms_total = $total_progress;
-foreach ($adventures as $stone) {
-    $ms_total -= $stone['progress'];
-    ?>
     <div class="jumbotron">
         <div class="container">
             <h1>WanderBlog</h1>
@@ -106,151 +97,26 @@ foreach ($adventures as $stone) {
         </div>
     </div>
 
-    <div id="top1" class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img
-                    src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
-                    class="img-rounded" alt="Cinque Terre"
-                    width="304px" height="228px">
-            </div>
-            <div class="col-md-8">
-                <h2><?php echo $stone['description']; ?></h2>
+<?php
+foreach ($adventures as $stone) {
+?>
 
-                <div class="rating-select">
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                </div>
-                <a class="btn btn-info" href="#" role="button">View details &raquo;</a>
-            </div>
+<div id="top1" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img
+                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+        </div>
+        <div class="col-md-9">
+            <p> <?php echo $stone['description'] ?></p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
     </div>
+</div>
 
-    <div id="top2" class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img
-                    src="http://topwalls.net/wallpapers/2012/01/Nature-sea-scenery-travel-photography-image-800x1280.jpg"
-                    class="img-rounded" alt="Cinque Terre" width="304px"
-                    height="228px">
-            </div>
-            <div class="col-md-8">
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                    tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                    Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-
-                <div class="rating-select">
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                </div>
-                <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="top1" class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img
-                    src="http://77wallpapers.com/wp-content/uploads/2014/10/tropical-waterfall-scenery-wide.jpg"
-                    class="img-rounded" alt="Cinque Terre" width="304px" height="228px">
-            </div>
-            <div class="col-md-8">
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                    tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                    Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-
-                <div class="rating-select">
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                </div>
-                <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="top2" class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="http://upload.wikimedia.org/wikipedia/commons/6/68/Soufriere_Hills.jpg"
-                     class="img-rounded" alt="Cinque Terre" width="304px" height="228px">
-            </div>
-            <div class="col-md-8">
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                    tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                    Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-
-                <div class="rating-select">
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                </div>
-                <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div id="top3" class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Mt._Everest_from_Gokyo_Ri_November_5,_2012_Cropped.jpg"
-                    class="img-rounded" alt="Cinque Terre"
-                    width="304px" height="228px">
-            </div>
-            <div class="col-md-8">
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-                    tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                    Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-
-                <div class="rating-select">
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <div class="btn btn-default btn-sm"><span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                </div>
-                <p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-    <?php
+<?php
 }
 ?>
 </body>
