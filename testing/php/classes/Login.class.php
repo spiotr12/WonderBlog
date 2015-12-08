@@ -53,7 +53,7 @@ class Login {
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
                 //TODO change it to prepared statement
-                $sql = "SELECT id, first_name, last_name, email, password, privilages
+                $sql = "SELECT id, first_name, last_name, email, password
                         FROM users
                         WHERE email = '" . $email . "';";
                 $result_of_login_check = $this->db_connection->query($sql);
