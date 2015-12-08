@@ -44,7 +44,7 @@ require_once("../resources/templates/menu.php");
 $adventures = array();
 $total_progress = 0;
 
-$stmt = new mysqli_stmt($mysqli, "SELECT id, country, description FROM adventures WHERE adv_id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT id, country, description FROM adventures WHERE id = ?");
 if ($stmt) {
     $stmt->bind_param("i", $adventures['id']);
     if ($stmt->execute()) {
