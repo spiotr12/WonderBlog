@@ -44,11 +44,11 @@ require_once("../resources/templates/menu.php");
 $adventures = array();
 $total_progress = 0;
 
-$stmt = new mysqli_stmt($mysqli, "SELECT id, country, description FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT id, country, description FROM adventures WHERE adv_id = ?");
 if ($stmt) {
     $stmt->bind_param("i", $adventures['id']);
     if ($stmt->execute()) {
-        $stmt->bind_result($id, $country, $city, $google_location, $description, $date);
+        $stmt->bind_result($id, $country, $description);
         while ($stmt->fetch()) {
             $temp_arr = array(
                 'id' => $id,
