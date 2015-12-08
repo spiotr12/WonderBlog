@@ -15,7 +15,7 @@
                 <li class=""><a href="./#">Home</a></li>
                 <?php if ($login->isUserLoggedIn() == true): ?>
                     <li class=""><a href="./author.php?id=<?php echo $_SESSION['id']; ?>"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></a></li>
-                    <li class="">Privilages: <?php echo $_SESSION['privileges']; ?></li>
+                    <li class=""><a>Privilege: <?php echo $_SESSION['privilege']; ?></a></li>
                     <li class=""><a href="./?logout">Log out</a></li>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
