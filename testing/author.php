@@ -231,7 +231,7 @@ foreach ($adventure as $stone) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
 
-                <p><a class="btn btn-default" href="?id=<?php$ad_id?>" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://wonderblog.azurewebsites.net/testing/adventure.php?id=<?php$ad_id?>" role="button">View details &raquo;</a></p>
             </div>
         </div>
     </div>
