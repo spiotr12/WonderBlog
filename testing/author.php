@@ -106,16 +106,16 @@ if ($stmt1->num_rows() == 1) {
                                             <input type="text" class="form-control" id="usr" placeholder="<?php echo $first_name;?>">
 
                                             <label for="usr">Second Name:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $last_name;?>">
 
                                             <label for="usr">Description:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $description;?>">
 
                                             <label for="usr">Date Of Birth:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $dob;?>">
 
                                             <label for="usr">Country:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $country;?>">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
