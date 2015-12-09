@@ -41,7 +41,19 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <h1>Hello Boss xD</h1>
             <h2>Notifications</h2>
+
             <h2>Vew users</h2>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-title">
+                        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
+                           aria-expanded="false" aria-controls="collapseExample">Users</a></div>
+                    <div class="panel-body collapse" id="usersTable">
+                        Panel content
+                    </div>
+                </div>
+            </div>
+
             <h2>Vew adventures</h2>
         <?php else: ?>
             <h2>You do not have a rights to access this page</h2>
