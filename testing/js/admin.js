@@ -11,13 +11,15 @@ function getUsers() {
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             console.log(user);
-            tbody.append("<tr>");
+            var row = "<tr>";
             $.each(user, function (j, userData) {
-                tbody.append("<td>");
-                tbody.append(userData);
-                tbody.append("</td>");
+                row += "<td>";
+                row += userData;
+                row += "</td>";
             });
-            tbody.append("</tr>");
+            row += "</tr>";
+            console.log(row);
+            tbody.append(row);
         });
     });
 }
