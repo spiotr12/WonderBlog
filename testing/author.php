@@ -102,14 +102,18 @@ if ($stmt1->num_rows() == 1) {
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="usr">Description:</label>
-                                            <input type="text" class="form-control" id="usr">
-                                            <label for="usr">First Name:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <label for="usr">First Name:Description:</label>
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $first_name;?>">
+
                                             <label for="usr">Second Name:</label>
                                             <input type="text" class="form-control" id="usr">
+
+                                            <label for="usr">Description:</label>
+                                            <input type="text" class="form-control" id="usr">
+
                                             <label for="usr">Date Of Birth:</label>
                                             <input type="text" class="form-control" id="usr">
+
                                             <label for="usr">Country:</label>
                                             <input type="text" class="form-control" id="usr">
                                         </div>
