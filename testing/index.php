@@ -118,6 +118,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                            <?php for ($i = 0; $i < 5; $i++): ?>
                                                                             <div id="top1" class="container">
                                                                                 <div class="row">
                                                                                     <div class="col-md-3">
@@ -127,18 +128,17 @@
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p><?php echo $description; ?></p>
-                                                                                        <h2><?php echo $voteCount; ?></h2>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                        <p><a class="btn btn-default" href="#"
-                                                                                              role="button">View details &raquo;</a>
-                                                                                        </p>
+                                                                                        <><?php echo $voteCount; ?>
+                                                                                            <h2><a href="#" class="btn btn-default">
+                                                                                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                                                                            </a>
+                                                                                                <a class="btn btn-default" href="#"
+                                                                                                    role="button">View details &raquo;</a>
+                                                                                                </h2>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            <?php endfor; ?>
 
                                                                             <?php
                                                                         }
@@ -158,5 +158,5 @@
             }
         }
                     ?>
-                    </body>
-                    </html>
+        </body>
+        </html>

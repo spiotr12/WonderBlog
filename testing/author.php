@@ -97,7 +97,7 @@ if ($stmt1->num_rows() == 1) {
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">&times;</button>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Edit Info</h4>
                                     </div>
                                     <div class="modal-body">
