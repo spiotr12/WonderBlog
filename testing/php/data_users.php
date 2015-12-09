@@ -23,4 +23,5 @@ if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified 
     $results = $resultset->fetch_array();
 }
 
+
 echo json_encode($results);
