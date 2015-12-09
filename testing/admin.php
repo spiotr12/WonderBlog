@@ -1,6 +1,7 @@
 <?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
+require_once(LIBRARY_PATH . "/functions.php");
 
 // TO ALLOW USERS TO LOGIN ON EACH PAGE PLEASE COPY THIS CODE
 require_once("./php/db_connect.php");
@@ -37,10 +38,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
     <div class="row">
         <?php
         echo "PRIVILAGES: " . privilegeCheck($mysqli, $_SESSION['id']);
-        if (privilegeCheck($mysqli, $_SESSION['id']) != 0): ?>
-            <h2>You do not have a rights to access this page</h2>
-        <?php else: ?>
+        if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <h2>Hello Boss</h2>
+        <?php else: ?>
+            <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
     </div>
 </div>
