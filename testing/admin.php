@@ -45,12 +45,16 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <h2>Vew users</h2>
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-title">
-                        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
-                           aria-expanded="false" aria-controls="collapseExample">Users</a></div>
+                    <div class="panel-heading" role="tab">
+                        <div class="panel-title" role="tab">
+                            <h4><a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
+                                   aria-expanded="false" aria-controls="collapseExample">Users</a>
+                            </h4>
+                        </div>
+                    </div>
                     <div class="panel-collapse collapse" id="usersTable">
                         <div class="panel-body">
-                            <p>Panel content
+
                         </div>
                     </div>
                 </div>
