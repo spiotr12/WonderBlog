@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 
 function getUsers() {
-    var tbody = $("#usersTable").children("tbody");
+    var tbody = $("#usersTable").find("tbody");
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             console.log(user);
