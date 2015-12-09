@@ -128,17 +128,10 @@
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p><?php echo $description; ?></p>
-                                                                                        <h2><?php echo $voteCount; ?></h2>
-                                                                                        <span
-                                                                                            class="glyphicon glyphicon-star"></span>
-                                                                                        <span
-                                                                                            class="glyphicon glyphicon-star"></span>
-                                                                                        <span
-                                                                                            class="glyphicon glyphicon-star"></span>
-                                                                                        <span
-                                                                                            class="glyphicon glyphicon-star"></span>
-                                                                                        <span
-                                                                                            class="glyphicon glyphicon-star"></span>
+                                                                                        <h2><?php echo $voteCount; ?>
+                                                                                            <a href="#" class="btn btn-default">
+                                                                                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                                                                            </a></h2>
                                                                                                 <p><a class="btn btn-default" href="#"
                                                                                                     role="button">View details &raquo;</a>
                                                                                                 </p>
