@@ -129,7 +129,7 @@
                                                                                     <div class="col-md-9">
                                                                                         <p><?php echo $description; ?></p>
                                                                                         <h2><?php echo $voteCount; ?>
-                                                                                            <a href="#" class="btn btn-info btn-lg">
+                                                                                            <a href="#" class="btn btn-default">
                                                                                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
                                                                                             </a></h2>
                                                                                                 <p><a class="btn btn-default" href="#"
