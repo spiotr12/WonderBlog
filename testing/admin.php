@@ -28,7 +28,7 @@ $js = array(
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
     "js/main.js"
 );
-renderHeader("WonderBlog!", $meta, $css, $js);
+renderHeader("Admin Tools", $meta, $css, $js);
 ?>
 <body>
 
@@ -46,11 +46,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
-                        <div class="panel-title" role="tab">
-                            <h4><a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
-                                   aria-expanded="false" aria-controls="collapseExample">Users</a>
-                            </h4>
-                        </div>
+                        <h4>
+                            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
+                               aria-expanded="false" aria-controls="collapseExample">Users</a>
+                        </h4>
                     </div>
                     <div class="panel-collapse collapse" id="usersTable">
                         <div class="panel-body">
