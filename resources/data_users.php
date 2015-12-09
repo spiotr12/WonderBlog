@@ -5,7 +5,7 @@
  * Date: 2015-12-09
  * Time: 18:16
  */
-require_once("./resources/config.php");
+require_once("./config.php");
 require_once("./db_connect.php");
 
 $search = NULL;
