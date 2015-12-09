@@ -51,15 +51,15 @@ renderHeader("Admin Tools", $meta, $css, $js);
                                aria-expanded="false" aria-controls="collapseExample">Users</a>
                         </h4>
                     </div>
-                    <div class="panel-collapse collapse" id="usersTable">
+                    <div class="panel-collapse collapse in" id="usersTable">
                         <div class="panel-body">
-                            <table id="usersTable">
+                            <table class="table" id="usersTable">
                                 <thead>
                                 <tr>
-                                    <th>First name </th>
-                                    <th>Last name </th>
-                                    <th>Privileges </th>
-                                    <th>Verified </th>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Privileges</th>
+                                    <th>Verified</th>
                                 </tr>
                                 </thead>
                                 <tbody>
