@@ -112,11 +112,10 @@ if ($stmt1->num_rows() == 1) {
                                             <input type="text" class="form-control" id="usr">
                                             <label for="usr">Country:</label>
                                             <input type="text" class="form-control" id="usr">
-                                            <button type="submit" class="btn btn-default">Submit</button>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <button class= "submit" type="submit" class="btn btn-default">Submit</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
