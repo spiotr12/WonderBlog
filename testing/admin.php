@@ -48,8 +48,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <div class="panel-title">
                         <a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
                            aria-expanded="false" aria-controls="collapseExample">Users</a></div>
-                    <div class="panel-body collapse" id="usersTable">
-                        Panel content
+                    <div class="panel-collapse collapse" id="usersTable">
+                        <div class="panel-body">
+                            <p>Panel content
+                        </div>
                     </div>
                 </div>
             </div>
