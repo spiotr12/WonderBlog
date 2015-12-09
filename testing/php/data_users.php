@@ -22,10 +22,10 @@ if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified 
     $stmt->bind_result($fname, $lname, $priv, $veri);
     while($stmt->fetch()){
         $results[] = array(
-            ["fname"] => $fname,
-            ['lname'] => $fname,
-            ['privilege'] => $priv,
-            ['verified'] => $veri
+            'fname' => $fname,
+            'lname' => $fname,
+            'privilege' => $priv,
+            'verified' => $veri
         );
     }
 }
