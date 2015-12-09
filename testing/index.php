@@ -123,7 +123,8 @@
                                                                                 <div class="row">
                                                                                     <div class="col-md-3">
                                                                                         <img src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $fileEXT; ?>"
-                                                                                            class="img-rounded" width="250" height="228px">
+                                                                                            class="img-rounded"
+                                                                                            width="250" height="228px">
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p><?php echo $description; ?></p>
