@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function getUsers() {
     var tbody = $("#usersTable").children("tbody");
-    $.getJSON("./resources/data_users.php", function (result) {
+    $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             tbody.append("<tr>");
             $.each(user, function (j, userData) {
