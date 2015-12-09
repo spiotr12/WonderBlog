@@ -98,24 +98,30 @@ if ($stmt1->num_rows() == 1) {
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Edit Info</h4>
+                                        <h10 class="modal-title">Edit Info</h10>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="usr">Description:</label>
-                                            <input type="text" class="form-control" id="usr">
-                                            <label for="usr">First Name:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <label for="usr">First Name:Description:</label>
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $first_name;?>">
+
                                             <label for="usr">Second Name:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $last_name;?>">
+
+                                            <label for="usr">Description:</label>
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $description;?>">
+
                                             <label for="usr">Date Of Birth:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $dob;?>">
+
                                             <label for="usr">Country:</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $country;?>">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
+
                                     </div>
                                 </div>
 
