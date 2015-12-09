@@ -127,8 +127,7 @@
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p><?php echo $description; ?></p>
-                                                                                        <h2>Rating</h2>
-                                                                                        <?php echo $voteCount; ?>
+                                                                                        <h2><?php echo $voteCount; ?></h2>
                                                                                             <span class="glyphicon glyphicon-star"></span>
                                                                                             <span class="glyphicon glyphicon-star"></span>
                                                                                             <span class="glyphicon glyphicon-star"></span>
