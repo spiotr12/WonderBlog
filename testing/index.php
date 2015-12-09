@@ -126,15 +126,21 @@
                                                                                             width="250" height="228px">
                                                                                     </div>
                                                                                     <div class="col-md-9">
-                                                                                        <p><?php echo $description; ?></p><h2><?php echo $voteCount; ?></h2>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                            <span class="glyphicon glyphicon-star"></span>
-                                                                                        <p><a class="btn btn-default" href="#"
-                                                                                              role="button">View details &raquo;</a>
-                                                                                        </p>
+                                                                                        <p><?php echo $description; ?></p>
+                                                                                        <h2><?php echo $voteCount; ?></h2>
+                                                                                        <span
+                                                                                            class="glyphicon glyphicon-star"></span>
+                                                                                        <span
+                                                                                            class="glyphicon glyphicon-star"></span>
+                                                                                        <span
+                                                                                            class="glyphicon glyphicon-star"></span>
+                                                                                        <span
+                                                                                            class="glyphicon glyphicon-star"></span>
+                                                                                        <span
+                                                                                            class="glyphicon glyphicon-star"></span>
+                                                                                                <p><a class="btn btn-default" href="#"
+                                                                                                    role="button">View details &raquo;</a>
+                                                                                                </p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
