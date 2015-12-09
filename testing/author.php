@@ -97,7 +97,7 @@ if ($stmt1->num_rows() == 1) {
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">&times;</button>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Edit Info</h4>
                                     </div>
                                     <div class="modal-body">
@@ -231,7 +231,7 @@ foreach ($adventure as $stone) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
 
-                <p><a class="btn btn-default" href="http://wonderblog.azurewebsites.net/testing/adventure.php?id=<?php$ad_id?>" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
             </div>
         </div>
     </div>
