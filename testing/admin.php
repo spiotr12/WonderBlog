@@ -56,10 +56,10 @@ renderHeader("Admin Tools", $meta, $css, $js);
                             <table id="usersTable">
                                 <thead>
                                 <tr>
-                                    <th>First name</th>
-                                    <th>Last name</th>
-                                    <th>Privileges</th>
-                                    <th>Verified</th>
+                                    <th>First name </th>
+                                    <th>Last name </th>
+                                    <th>Privileges </th>
+                                    <th>Verified </th>
                                 </tr>
                                 </thead>
                                 <tbody>
