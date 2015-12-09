@@ -53,7 +53,11 @@ renderHeader("Admin Tools", $meta, $css, $js);
                     </div>
                     <div class="panel-collapse collapse" id="usersTable">
                         <div class="panel-body">
-                            Table with users
+                            <table>
+                                <thead>
+
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -65,6 +69,6 @@ renderHeader("Admin Tools", $meta, $css, $js);
         <?php endif; ?>
     </div>
 </div>
-
+<script type="text/javascript" src="./js/admin.js"></script>
 </body>
 </html>
