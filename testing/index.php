@@ -111,8 +111,6 @@
                                                                             </div>
                                                                         </div>
 
-                                                                        <?php for ($i = 0; $i < 5; $i++): ?>
-
                                                                         <div id="topAdventure" class="container">
                                                                             <div class="row">
                                                                                 <div class="col-md-12">
@@ -120,6 +118,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                            <?php for ($i = 0; $i < 5; $i++): ?>
                                                                             <div id="top1" class="container">
                                                                                 <div class="row">
                                                                                     <div class="col-md-3">
