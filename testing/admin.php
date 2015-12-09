@@ -46,8 +46,8 @@ renderHeader("Admin Tools", $meta, $css, $js);
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
-                        <h4>
-                            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#usersTable"
+                        <h4 class="panel-title">
+                            <a class=collapsed" role="button" data-toggle="collapse" href="#usersTable"
                                aria-expanded="false" aria-controls="collapseExample">Users</a>
                         </h4>
                     </div>
