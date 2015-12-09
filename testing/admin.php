@@ -1,6 +1,7 @@
 <?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
+require_once(LIBRARY_PATH . "/functions.php");
 
 // TO ALLOW USERS TO LOGIN ON EACH PAGE PLEASE COPY THIS CODE
 require_once("./php/db_connect.php");
