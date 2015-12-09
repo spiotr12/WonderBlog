@@ -53,7 +53,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
                     </div>
                     <div class="panel-collapse collapse" id="usersTable">
                         <div class="panel-body">
-
+                            Table with users
                         </div>
                     </div>
                 </div>
