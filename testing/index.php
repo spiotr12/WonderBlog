@@ -128,13 +128,14 @@
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p><?php echo $description; ?></p>
-                                                                                        <><?php echo $voteCount; ?>
-                                                                                            <h2><a href="#" class="btn btn-default">
+                                                                                        <h2><?php echo $voteCount; ?>
+                                                                                            <a href="#" class="btn btn-default">
                                                                                                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                                                                                            </a>
+                                                                                                </a>
                                                                                                 <a class="btn btn-default" href="#"
-                                                                                                    role="button">View details &raquo;</a>
-                                                                                                </h2>
+                                                                                                    role="button">View details &raquo;
+                                                                                                </a>
+                                                                                            </h2>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
