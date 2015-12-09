@@ -16,7 +16,6 @@ function getUsers() {
                 tbody.append("<td>");
                 tbody.append(userData);
                 tbody.append("</td>");
-                console.log(userData);
             });
             tbody.append("</tr>");
         });

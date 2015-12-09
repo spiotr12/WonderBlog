@@ -23,7 +23,7 @@ if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified 
     while($stmt->fetch()){
         $results[] = array(
             'fname' => $fname,
-            'lname' => $fname,
+            'lname' => $lname,
             'privilege' => $priv,
             'verified' => $veri
         );
