@@ -13,14 +13,21 @@ if (isset($_GET['search'])) {
     $search = $_GET['search'];
 }
 
-$results = null;
+$results = array();
 
 if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified FROM users WHERE first_name LIKE ?")) {
     $search = "%" . $search . "%";
     $stmt->bind_param('s', $search);
     $stmt->execute();
-    $resultset = $stmt->get_result();
-    $results = $resultset->fetch_array();
+    $stmt->bind_result($fname, $lname, $priv, $veri);
+    while($stmt->fetch()){
+        $results[] = array(
+            ["fname"] => $fname,
+            ['lname'] => $fname,
+            ['privilege'] => $priv,
+            ['verified'] => $veri
+        );
+    }
 }
 
 
