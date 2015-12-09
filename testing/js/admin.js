@@ -10,7 +10,7 @@ function getUsers() {
     var tbody = $("#usersTable").find("tbody");
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
-            console.log(user);
+            //console.log(user);
             var row = "<tr>";
             $.each(user, function (j, userData) {
                 row += "<td>";
@@ -18,7 +18,7 @@ function getUsers() {
                 row += "</td>";
             });
             row += "</tr>";
-            console.log(row);
+            //console.log(row);
             tbody.append(row);
         });
     });
