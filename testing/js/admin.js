@@ -3,5 +3,13 @@
  */
 
 $(document).ready(function () {
-    alert("hello admin");
+    getUsers();
 });
+
+function getUsers() {
+    $.getJSON("../php/data_users.php", function (result) {
+        $.each(result, function (i, field) {
+            $("#testDiv").append(field + " ");
+        });
+    });
+}

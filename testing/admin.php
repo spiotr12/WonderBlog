@@ -55,8 +55,16 @@ renderHeader("Admin Tools", $meta, $css, $js);
                         <div class="panel-body">
                             <table>
                                 <thead>
-
+                                <tr>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Privileges</th>
+                                    <th>Verified</th>
+                                </tr>
                                 </thead>
+                                <tbody>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -64,6 +72,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
             </div>
 
             <h2>Vew adventures</h2>
+            <div id="testDiv"></div>
         <?php else: ?>
             <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
