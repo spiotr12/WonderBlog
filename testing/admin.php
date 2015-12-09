@@ -38,10 +38,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
     <div class="row">
         <?php
         echo "PRIVILAGES: " . privilegeCheck($mysqli, $_SESSION['id']);
-        if (privilegeCheck($mysqli, $_SESSION['id']) != 0): ?>
-            <h2>You do not have a rights to access this page</h2>
-        <?php else: ?>
+        if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <h2>Hello Boss</h2>
+        <?php else: ?>
+            <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
     </div>
 </div>

@@ -17,7 +17,7 @@ function privilegeCheck($mysqli, $id){
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_object();
-        $privilege = $result->id;
+        $privilege = $result->privilege;
     }
     return $privilege;
 }
