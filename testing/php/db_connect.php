@@ -5,7 +5,7 @@
  * Date: 01/12/2015
  * Time: 12:08
  */
-require_once(dirname(__FILE__) . "../../resources/config.php");
+require_once("../../resources/config.php");
 
 define("DB_HOST", $config["db"]["host"]);
 define("DB_USER", $config["db"]["username"]);
