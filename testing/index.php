@@ -58,7 +58,7 @@
                                 if ($stmt1->num_rows() == 1) {
                                     while ($stmt1->fetch()) {
 
-                                        $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ? AND is_cover = 11 ");
+                                        $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
                                         if ($stmt2) {
                                             $stmt2->bind_param("i", $id);
