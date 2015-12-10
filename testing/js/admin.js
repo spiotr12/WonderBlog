@@ -19,14 +19,12 @@ function getUsers() {
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
-            tbody.append("<tr>");
-            $.each(user, function (j, userData) {
-                tbody.append("<td>");
-                tbody.append(userData);
-                tbody.append("</td>");
-            });
-            row += "</tr>";
-            //console.log(row);
+            var row = "<tr>";
+            row += '<tr><a href="./author.php?id=' + user['id'] + '">' + user['fname'] + '</a></tr>';
+            row += '<tr><a href="./author.php?id=' + user['id'] + '">' + user['lname'] + '</a></tr>';
+            row += '<tr>' + user['privilege'] + '</tr>';
+            row += '<tr>' + user['verified'] + '</tr>';
+            row += '</tr>';
             tbody.append(row);
         });
     });
