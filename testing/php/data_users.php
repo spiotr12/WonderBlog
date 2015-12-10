@@ -28,7 +28,6 @@ if ($stmt = $mysqli->prepare("SELECT id, first_name, last_name, privilege, verif
             'lname' => $lname,
             'privilege' => $priv,
             'verified' => ((bool) $veri)
-//            'id' => $id
         );
     }
 }
