@@ -3,23 +3,15 @@
  */
 
 $(document).ready(function () {
-    $('#usersTable').on('show.bs.collapse', function () {
-        console.log("click show");
+    $("#usersTitle").click(function () {
+        console.log("click");
         getUsers();
-    })
-    $('#usersTable').on('hidden.bs.collapse', function () {
-        console.log("click hide");
-        $("#usersTable").find("tbody").empty();
-    })
-    //$("#usersTitle").click(function () {
-    //    console.log("click");
-    //    getUsers();
-    //});
+    });
 });
 
 function getUsers() {
     var tbody = $("#usersTable").find("tbody");
-    //tbody.empty();
+    tbody.empty();
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
