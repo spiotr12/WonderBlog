@@ -4,6 +4,7 @@
 
 $(document).ready(function () {
     $("#usersTitle").click(function () {
+        console.log("click");
         getUsers();
     });
 });

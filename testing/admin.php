@@ -47,7 +47,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
                             <a class=collapsed" id="usersTitle" role="button" data-toggle="collapse" href="#usersTable"
-                               aria-expanded="false" aria-controls="collapseExample">Users</a>
+                               aria-expanded="false" aria-controls="collapseExample">Not verified users</a>
                         </h4>
                     </div>
                     <div class="panel-collapse collapse" id="usersTable">
