@@ -26,7 +26,7 @@ if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified 
             'fname' => $fname,
             'lname' => $lname,
             'privilege' => $priv,
-            'verified' => (bool) $veri
+            'verified' => ((bool) $veri)
         );
     }
 }

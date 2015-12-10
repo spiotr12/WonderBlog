@@ -3,11 +3,14 @@
  */
 
 $(document).ready(function () {
-    getUsers();
+    $("#usersTitle").click(function () {
+        getUsers();
+    });
 });
 
 function getUsers() {
     var tbody = $("#usersTable").find("tbody");
+    tbody.erase();
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
