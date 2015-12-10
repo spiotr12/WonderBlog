@@ -4,9 +4,14 @@
 
 $(document).ready(function () {
     $("#usersTitle").click(function () {
-        console.log("click");
         getUsers();
     });
+    $('#usersPanel').on('show.bs.collapse', function () {
+        console.log("panel show");
+    })
+    $('#usersPanel').on('hidden.bs.collapse', function () {
+        console.log("panel hidden");
+    })
 });
 
 function getUsers() {
