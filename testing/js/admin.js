@@ -3,6 +3,9 @@
  */
 
 $(document).ready(function () {
+    //$('#myCollapsible').on('hidden.bs.collapse', function () {
+    //    // do something…
+    //})
     $("#usersTitle").click(function () {
         console.log("click");
         getUsers();
@@ -11,7 +14,7 @@ $(document).ready(function () {
 
 function getUsers() {
     var tbody = $("#usersTable").find("tbody");
-    tbody.erase();
+    //tbody.erase();
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
