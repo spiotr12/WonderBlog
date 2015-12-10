@@ -3,18 +3,23 @@
  */
 
 $(document).ready(function () {
-    //$('#myCollapsible').on('hidden.bs.collapse', function () {
-    //    // do something…
-    //})
-    $("#usersTitle").click(function () {
-        console.log("click");
+    $('#myCollapsible').on('show.bs.collapse', function () {
+        console.log("click show");
         getUsers();
-    });
+    })
+    $('#myCollapsible').on('hidden.bs.collapse', function () {
+        console.log("click hide");
+        $("#usersTable").find("tbody").empty();
+    })
+    //$("#usersTitle").click(function () {
+    //    console.log("click");
+    //    getUsers();
+    //});
 });
 
 function getUsers() {
     var tbody = $("#usersTable").find("tbody");
-    //tbody.erase();
+    //tbody.empty();
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
