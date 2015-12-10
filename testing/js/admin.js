@@ -3,13 +3,15 @@
  */
 
 $(document).ready(function () {
-    $('#usersPanel').on('show.bs.collapse', function () {
-        console.log("panel show");
-        getUsers();
-    })
-    $('#usersPanel').on('hidden.bs.collapse', function () {
-        $(this).find("tbody").empty();
-    })
+    //$('.collapse').collapse();
+    //$('#usersPanel').on('show.bs.collapse', function () {
+    //    console.log("panel show");
+    //    getUsers();
+    //})
+    //$('#usersPanel').on('hidden.bs.collapse', function () {
+    //    console.log("panel hide");
+    //    $(this).find("tbody").empty();
+    //})
 });
 
 function getUsers() {
