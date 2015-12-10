@@ -23,11 +23,11 @@ if ($stmt = $mysqli->prepare("SELECT id, first_name, last_name, privilege, verif
     $stmt->bind_result($id, $fname, $lname, $priv, $veri);
     while($stmt->fetch()){
         $results[$id] = array(
-            'ix' => $id,
             'fname' => $fname,
             'lname' => $lname,
             'privilege' => $priv,
-            'verified' => ((bool) $veri)
+            'verified' => ((bool) $veri),
+            'id' => $id
         );
     }
 }

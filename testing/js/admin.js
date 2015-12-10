@@ -22,9 +22,9 @@ function getUsers() {
             var row = "<tr>";
             //row += '<tr><a href="./author.php?id=' + user.id + '">' + user.fname + '</a></tr>';
             //row += '<tr><a href="./author.php?id=' + user.id  + '">' + user.lname + '</a></tr>';
-            row += '<td><a href="./author.php?id=' + user['ix'] + '">' + user['fname'] + '</a></td>';
+            row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['fname'] + '</a></td>';
             console.log(user['fname']);
-            row += '<td><a href="./author.php?id=' + user['ix'] + '">' + user['lname'] + '</a></td>';
+            row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['lname'] + '</a></td>';
             console.log(user['lname']);
             row += '<td>' + user['privilege'] + '</td>';
             console.log(user['privilege']);
