@@ -3,11 +3,11 @@
  */
 
 $(document).ready(function () {
-    $('#myCollapsible').on('show.bs.collapse', function () {
+    $('#usersTable').on('show.bs.collapse', function () {
         console.log("click show");
         getUsers();
     })
-    $('#myCollapsible').on('hidden.bs.collapse', function () {
+    $('#usersTable').on('hidden.bs.collapse', function () {
         console.log("click hide");
         $("#usersTable").find("tbody").empty();
     })
