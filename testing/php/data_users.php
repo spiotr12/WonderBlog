@@ -14,10 +14,11 @@ if (isset($_GET['search'])) {
 }
 
 $results = array();
+$verified = 0;
 
-if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified FROM users WHERE first_name LIKE ?")) {
+if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified FROM users WHERE first_name LIKE ? AND verified = ?")) {
     $search = "%" . $search . "%";
-    $stmt->bind_param('s', $search);
+    $stmt->bind_param('si', $search, $verified);
     $stmt->execute();
     $stmt->bind_result($fname, $lname, $priv, $veri);
     while($stmt->fetch()){
@@ -25,7 +26,7 @@ if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified 
             'fname' => $fname,
             'lname' => $lname,
             'privilege' => $priv,
-            'verified' => $veri
+            'verified' => (bool) $veri
         );
     }
 }

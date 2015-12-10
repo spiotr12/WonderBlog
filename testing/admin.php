@@ -37,7 +37,6 @@ renderHeader("Admin Tools", $meta, $css, $js);
 <div class="container">
     <div class="row">
         <?php
-        echo "PRIVILAGES: " . privilegeCheck($mysqli, $_SESSION['id']);
         if ($login->isUserLoggedIn() AND isset($_SESSION['id']) AND privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <h1>Hello Boss xD</h1>
             <h2>Notifications</h2>
@@ -47,11 +46,11 @@ renderHeader("Admin Tools", $meta, $css, $js);
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
-                            <a class=collapsed" role="button" data-toggle="collapse" href="#usersTable"
+                            <a class=collapsed" id="usersTitle" role="button" data-toggle="collapse" href="#usersTable"
                                aria-expanded="false" aria-controls="collapseExample">Users</a>
                         </h4>
                     </div>
-                    <div class="panel-collapse collapse in" id="usersTable">
+                    <div class="panel-collapse collapse" id="usersTable">
                         <div class="panel-body">
                             <table class="table" id="usersTable">
                                 <thead>
