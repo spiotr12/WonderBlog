@@ -38,7 +38,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
     <div class="row">
         <?php
         echo "PRIVILAGES: " . privilegeCheck($mysqli, $_SESSION['id']);
-        if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+        if ($login->isUserLoggedIn() AND isset($_SESSION['id']) AND privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <h1>Hello Boss xD</h1>
             <h2>Notifications</h2>
 
