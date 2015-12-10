@@ -22,13 +22,13 @@ function getUsers() {
             var row = "<tr>";
             //row += '<tr><a href="./author.php?id=' + user.id + '">' + user.fname + '</a></tr>';
             //row += '<tr><a href="./author.php?id=' + user.id  + '">' + user.lname + '</a></tr>';
-            row += '<tr>' + user['fname'] + '</tr>';
+            row += '<td>' + user['fname'] + '</td>';
             console.log(user['fname']);
-            row += '<tr>' + user['lname'] + '</tr>';
+            row += '<td>' + user['lname'] + '</td>';
             console.log(user['lname']);
-            row += '<tr>' + user['privilege'] + '</tr>';
+            row += '<td>' + user['privilege'] + '</td>';
             console.log(user['privilege']);
-            row += '<tr>' + user['verified'] + '</tr>';
+            row += '<td>' + user['verified'] + '</td>';
             console.log(user['verified']);
             row += '</tr>';
             tbody.append(row);
