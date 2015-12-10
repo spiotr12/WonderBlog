@@ -19,11 +19,11 @@ function getUsers() {
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
-            var row = "<tr>";
+            tbody.append("<tr>");
             $.each(user, function (j, userData) {
-                row += "<td>";
-                row += userData;
-                row += "</td>";
+                tbody.append("<td>");
+                tbody.append(userData);
+                tbody.append("</td>");
             });
             row += "</tr>";
             //console.log(row);
