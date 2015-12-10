@@ -3,20 +3,18 @@
  */
 
 $(document).ready(function () {
-    $("#usersTitle").click(function () {
-        getUsers();
-    });
     $('#usersPanel').on('show.bs.collapse', function () {
         console.log("panel show");
+        getUsers();
     })
     $('#usersPanel').on('hidden.bs.collapse', function () {
-        console.log("panel hidden");
+        $(this).find("tbody").empty();
     })
 });
 
 function getUsers() {
     var tbody = $("#usersTable").find("tbody");
-    tbody.empty();
+    //tbody.empty();
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
