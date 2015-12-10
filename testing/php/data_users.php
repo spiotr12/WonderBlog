@@ -22,8 +22,8 @@ if ($stmt = $mysqli->prepare("SELECT id, first_name, last_name, privilege, verif
     $stmt->execute();
     $stmt->bind_result($id, $fname, $lname, $priv, $veri);
     while($stmt->fetch()){
-        $results[] = array(
-            'id' => $id,
+        $results[$id] = array(
+//            'id' => $id,
             'fname' => $fname,
             'lname' => $lname,
             'privilege' => $priv,
