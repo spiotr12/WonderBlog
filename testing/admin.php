@@ -1,4 +1,4 @@
- ><?php
+><?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
@@ -29,16 +29,18 @@ $js = array(
     "js/main.js"
 );
 renderHeader("Admin Tools", $meta, $css, $js);
+?>
+<body>
+
+<?php require_once("../resources/templates/menu.php");
+
 $query = $_SERVER['PHP_SELF'];
 echo $query;
-$path = pathinfo( $query );
+$path = pathinfo($query);
 echo $path;
 $what_you_want = $path['basename'];
 echo $what_you_want;
 ?>
-<body>
-
-<?php require_once("../resources/templates/menu.php"); ?>
 
 <div class="container">
     <div class="row">
