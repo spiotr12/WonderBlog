@@ -32,10 +32,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
 ?>
 <body>
 
-<?php require_once("../resources/templates/menu.php");
-
-echo $baseName = pathinfo($_SERVER['PHP_SELF'])['basename'];
-?>
+<?php require_once("../resources/templates/menu.php"); s?>
 
 <div class="container">
     <div class="row">
