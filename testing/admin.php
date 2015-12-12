@@ -34,11 +34,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
 
 <?php require_once("../resources/templates/menu.php");
 
-$query = $_SERVER['PHP_SELF'];
-echo $query;
-$path = pathinfo($query);
-$what_you_want = $path['basename'];
-echo $what_you_want;
+echo $baseName = pathinfo($_SERVER['PHP_SELF'])['basename'];
 ?>
 
 <div class="container">
