@@ -1,3 +1,9 @@
+<?php
+$url = basename($_SERVER['PHP_SELF']) . "?";
+if (strlen($_SERVER['QUERY_STRING'])) {
+    $url .=  $_SERVER['QUERY_STRING'] . "&";
+}
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -23,7 +29,7 @@
                     </li>
                     <li class="">
                         <a href="./<?php echo pathinfo($_SERVER['PHP_SELF'])['basename']; ?>?logout">Log out</a>
-                        <a href="./<?php echo strlen($_SERVER['QUERY_STRING']) ? basename($_SERVER['PHP_SELF']) . "?" . $_SERVER['QUERY_STRING'] . "&" : basename($_SERVER['PHP_SELF']) . "?"; ?>logout">
+                        <a href="./<?php echo $url; ?>logout">
                             Log out
                         </a>
                     </li>
