@@ -25,9 +25,6 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                         </a>
                     </li>
                     <li class="">
-                        <a>Privilege: <?php echo privilegeCheck($mysqli, $_SESSION['id']); ?></a>
-                    </li>
-                    <li class="">
                         <a href="./<?php echo $url; ?>logout">
                             Log out
                         </a>
