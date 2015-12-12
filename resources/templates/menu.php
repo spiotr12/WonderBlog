@@ -28,7 +28,6 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                         <a>Privilege: <?php echo privilegeCheck($mysqli, $_SESSION['id']); ?></a>
                     </li>
                     <li class="">
-                        <a href="./<?php echo pathinfo($_SERVER['PHP_SELF'])['basename']; ?>?logout">Log out</a>
                         <a href="./<?php echo $url; ?>logout">
                             Log out
                         </a>
