@@ -23,6 +23,7 @@
                     </li>
                     <li class="">
                         <a href="./<?php echo pathinfo($_SERVER['PHP_SELF'])['basename']; ?>?logout">Log out</a>
+                        <a href="./<?php echo strlen($_SERVER['QUERY_STRING']) ? basename($_SERVER['PHP_SELF'])."?".$_SERVER['QUERY_STRING'] ."&" : basename($_SERVER['PHP_SELF']) . "?"; ?>logout">Log out</a>
                     </li>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
