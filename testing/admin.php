@@ -1,4 +1,4 @@
-<?php
+ ><?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
@@ -29,6 +29,12 @@ $js = array(
     "js/main.js"
 );
 renderHeader("Admin Tools", $meta, $css, $js);
+$query = $_SERVER['PHP_SELF'];
+echo $query;
+$path = pathinfo( $query );
+echo $path;
+$what_you_want = $path['basename'];
+echo $what_you_want;
 ?>
 <body>
 
@@ -69,9 +75,6 @@ renderHeader("Admin Tools", $meta, $css, $js);
                     </div>
                 </div>
             </div>
-
-            <h2>Vew adventures</h2>
-            <div id="testDiv"></div>
         <?php else: ?>
             <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
