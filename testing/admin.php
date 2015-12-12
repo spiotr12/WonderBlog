@@ -37,7 +37,6 @@ renderHeader("Admin Tools", $meta, $css, $js);
 $query = $_SERVER['PHP_SELF'];
 echo $query;
 $path = pathinfo($query);
-echo $path;
 $what_you_want = $path['basename'];
 echo $what_you_want;
 ?>
