@@ -55,7 +55,7 @@ if ($stmt1->num_rows() == 1) {
         );
     array_push($voting, $temp_arr);
 }
-foreach ($adventure as $stone){
+foreach ($rating as $stone){
 ?>
 
 <div class="jumbotron">
