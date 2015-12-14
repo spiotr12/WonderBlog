@@ -23,6 +23,9 @@ function verifyUser(e) {
         });
     } else {
         alert("not confirmed");
+        thisButton.addClass('btn-success');
+        thisButton.removeClass('btn-warning');
+        thisButton.text("Verify!");
     }
 }
 
