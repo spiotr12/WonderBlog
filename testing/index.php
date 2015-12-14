@@ -40,7 +40,7 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $voting = array();
 $total_progress = 0;
 
-$stmt1 = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id LIMIT 5");
+$stmt1 = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id");
 
 $stmt1->bind_result($voteCount, $adventureID, $adventureDesc, $voteAdvID, $vote);
 $stmt1->store_result();
@@ -104,6 +104,7 @@ foreach ($voting as $stone) {
                     class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
             </div>
             <div class="col-md-9">
+                <p> <?php echo $stone['description'] ?></p>
                 <a href="#" class="btn btn-default">
                     <span class="glyphicon glyphicon-thumbs-up"></span> Like
                 </a>
