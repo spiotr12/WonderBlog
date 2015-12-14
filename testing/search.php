@@ -77,7 +77,7 @@ renderHeader("Search: " . $search, $meta, $css, $js);
             echo "<br>";
             var_dump($_GET);
             echo "<br>";
-            var_dump($search_results);
+            echo json_encode($search_results);
             ?>
         </div>
     </div>
