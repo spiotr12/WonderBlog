@@ -110,8 +110,7 @@ if ($stmt1->num_rows() == 1) {
                                             <input type="text" class="form-control" id="usr" value="<?php echo $last_name;?>">
 
                                             <label for="usr">Description:</label>
-                                            <textarea class="form-control" id="usr"  rows="5" cols="80" value="<?php echo $description;?>"/>
-
+                                            <textarea class="form-control" id="usr"  rows="5" cols="80" value="<?php echo $description;?>">
 
                                             <label for="usr">Date Of Birth:</label>
                                             <input type="text" class="form-control" id="usr" value="<?php echo $dob;?>">
@@ -140,7 +139,7 @@ if ($stmt1->num_rows() == 1) {
 
                         <p>Country: <?php echo $country ?></p>
 
-                        <p>Adventures: <?php echo $adventure_no; ?>  </p>
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
 
                         <p>Memeber Since: 01/10/15 </p>
 
