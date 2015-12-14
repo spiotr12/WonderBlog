@@ -20,18 +20,18 @@ function getUsers() {
         $.each(result, function (i, user) {
             //console.log(user);
             var row = "<tr>";
-            //row += '<tr><a href="./author.php?id=' + user.id + '">' + user.fname + '</a></tr>';
-            //row += '<tr><a href="./author.php?id=' + user.id  + '">' + user.lname + '</a></tr>';
             row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['fname'] + '</a></td>';
-            console.log(user['fname']);
             row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['lname'] + '</a></td>';
-            console.log(user['lname']);
             row += '<td>' + user['privilege'] + '</td>';
-            console.log(user['privilege']);
-            row += '<td>' + user['verified'] + '</td>';
-            console.log(user['verified']);
+            row += '<td>' + user['verified'] + ' <button class="btn-verify" type="button" value="' + user['id'] + '">Verify!</button></td>';
             row += '</tr>';
             tbody.append(row);
         });
+    });
+}
+
+function verifyUser() {
+    $(".btn-verify").click(function(){
+        console.log("button clicked and id is ". $(this).val());
     });
 }
