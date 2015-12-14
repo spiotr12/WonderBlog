@@ -42,6 +42,7 @@ $total_progress = 0;
 
 $stmt1 = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id");
 
+$stmt1->execute();
 $stmt1->bind_result($voteCount, $adventureID, $adventureDesc, $voteAdvID, $vote);
 $stmt1->store_result();
 if ($stmt1->num_rows() == 1) {
