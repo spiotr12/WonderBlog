@@ -41,7 +41,7 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, p.file_ext, p.id, COUNT(vote) as rate FROM adventures A, votes V, photos P WHERE A.id = v.adv_id GROUP BY A.id LIMIT 5");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, p.file_ext, p.id, COUNT(vote) as rate FROM adventures A, votes V, photos P WHERE A.id = v.adv_id GROUP BY A.id DESC LIMIT 5");
 if ($stmtAdventure) {
     if ($stmtAdventure->execute()) {
         $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $photoExt, $photoID, $voteCount);
