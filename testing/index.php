@@ -56,7 +56,6 @@ if ($stmt1->num_rows() == 1) {
         );
     array_push($voting, $temp_arr);
 }
-foreach ($voting as $stone) {
 ?>
 
 <div class="jumbotron">
@@ -97,6 +96,8 @@ foreach ($voting as $stone) {
         </div>
     </div>
 </div>
+<?php foreach ($voting as $stone) {
+?>
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
