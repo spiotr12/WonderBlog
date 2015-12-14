@@ -4,14 +4,11 @@
 
 $(document).ready(function () {
     $('#usersPanel').on('show.bs.collapse', function () {
-        console.log("panel show");
         getUsers();
     });
     $('#usersPanel').on('hidden.bs.collapse', function () {
-        console.log("panel hide");
         $(this).find("tbody").empty();
     });
-    verifyUser();
 });
 
 function getUsers() {
@@ -27,6 +24,7 @@ function getUsers() {
             row += '<td>' + user['verified'] + ' <button class="btn-verify" type="button" value="' + user['id'] + '">Verify!</button></td>';
             row += '</tr>';
             tbody.append(row);
+            verifyUser();
         });
     });
 }
