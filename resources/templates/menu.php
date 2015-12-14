@@ -38,9 +38,11 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="q" id="srch-term">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Author</span>
+                            <button class="btn btn-default" type="submit" name="author"><span
+                                    class="glyphicon glyphicon-search"> Author</span>
                             </button>
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Adventure</span>
+                            <button class="btn btn-default" type="submit" name="adventure"><span
+                                    class="glyphicon glyphicon-search"> Adventure</span>
                             </button>
                         </div>
                     </div>

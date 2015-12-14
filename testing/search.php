@@ -45,7 +45,11 @@ renderHeader("Search: " . $search, $meta, $css, $js);
 <body>
 <div class="container">
     <div class="row">
-
+        <div class="col-md-12">
+            <?php
+            var_dump($_GET);
+            ?>
+        </div>
     </div>
 </div>
 </body>
