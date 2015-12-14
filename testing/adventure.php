@@ -82,11 +82,11 @@ if ($stmt->num_rows() == 1) {
 
                           $comment = array();
 
-                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
+                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, name, date FROM comments WHERE id = ?");
 
                            $stmt4->bind_param("i", $id);
                           $stmt4->execute();
-                          $stmt4->bind_result($comment);
+                          $stmt4->bind_result($comment, $commentName, $commentDate);
                           $stmt4->store_result();
                           if ($stmt4->num_rows() == 1) {
                          while ($stmt4->fetch()) {
