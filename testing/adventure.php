@@ -160,14 +160,14 @@ if ($stmt->num_rows() == 1) {
                                             <section>
                                                 <div class="">
                                                     <label
-                                                        class=""><?php echo "commentName"?></label>
+                                                        class=""><?php echo "commentName";?></label>
                                                     <label
-                                                        class="pull-right"><?php echo "commentDate"?></label>
+                                                        class="pull-right"><?php echo "commentDate";?></label>
                                                 </div>
 
                                                 <div
                                                     class="comment">
-                                                    <?php echo $comment ?>
+                                                    <?php echo $comment; ?>
 
                                                 </div>
                                             </section>
