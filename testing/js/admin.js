@@ -20,8 +20,9 @@
 //}
 function verifyUser(e) {
     var adminId = $("#admId").text();
-    var id = e.val();
-    console.log(e.val());
+    var thisButton = $(e);
+    var id = thisButton.val();
+    console.log(thisButton.val());
     var conf = confirm("Are you sure to confirm user " + id);
     if (conf) {
         $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
