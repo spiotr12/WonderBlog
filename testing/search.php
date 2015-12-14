@@ -74,7 +74,7 @@ renderHeader("Search: " . $search, $meta, $css, $js);
 
                 }
             } else if ($search_type == "author") {
-                $stmt = new mysqli_stmt($mysqli, "SELECT id, first_name, last_name FROM authors WHERE privilege = ? AND first_name LIKE ? OR last_name LIKE ?");
+                $stmt = new mysqli_stmt($mysqli, "SELECT id, first_name, last_name FROM users WHERE privilege = ? AND first_name LIKE ? OR last_name LIKE ?");
                 if ($stmt) {
                     $priv = 1;
                     $stmt->bind_param("iss", $priv, $search, $search);
