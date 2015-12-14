@@ -36,7 +36,7 @@ $js = array(
 
 $search = "";
 if (isset($_GET["q"])) {
-    $search = "%" . $_GET["q"] . "%";
+    $search = $_GET["q"];
 }
 $search_type = "";
 if (isset($_GET["search_type"])) {
