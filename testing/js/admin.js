@@ -2,31 +2,23 @@
  * Created by Piotrek on 2015-12-09.
  */
 
-//function verifyUser() {
-//    var adminId = $("#admId").text();
-//    $(".btn-verify").click(function () {
-//        var id = $(this).val();
-//        if (id == $(this).attr('id')) {
-//            var conf = confirm("Are you sure to confirm user " + id);
-//            if (conf) {
-//                $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
-//                    alert(data);
-//                });
-//            } else {
-//                alert("not confirmed");
-//            }
-//        }
-//    });
-//}
+/**
+ * Verify the user. This is an admin tool to verify users that still wait for verification
+ * @param e should be the DOM element which used onclick to activate this funciton
+ */
 function verifyUser(e) {
-    var adminId = $("#admId").text();
-    var thisButton = $(e);
-    var id = thisButton.val();
-    console.log(thisButton.val());
-    var conf = confirm("Are you sure to confirm user " + id);
+    var adminId = $("#admId").text(); // get admin ID
+    var thisButton = $(e); // convert to jQuery object
+    var id = thisButton.val(); // id of the user to verify
+    var conf = confirm("Are you sure to confirm user " + id); // ask admin to confirm their choice
+    thisButton.removeClass('btn-success');
+    thisButton.addClass('btn-warning');
     if (conf) {
+        // send id of the user to be verified.
         $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
             alert(data);
+        }).done(function(){
+            thisButton.remove();
         });
     } else {
         alert("not confirmed");
