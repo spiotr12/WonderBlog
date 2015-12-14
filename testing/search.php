@@ -55,9 +55,9 @@ renderHeader("Search: " . $search, $meta, $css, $js);
             );
             $stmt = null;
             if ($search_type == "adventures") {
-                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM adventures WHERE name LIKE ?");
+                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM adventures ");
                 if ($stmt) {
-                    $stmt->bind_param("s", $search);
+//                    $stmt->bind_param("s", $search);
                     $stmt->execute();
                     $results = $stmt->get_result();
                     $search_results["data"] = $results->fetch_array();
