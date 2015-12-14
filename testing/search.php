@@ -100,3 +100,4 @@ renderHeader("Search: " . $search, $meta, $css, $js);
 </div>
 </body>
 </html>
+<?php $mysqli->close(); ?>

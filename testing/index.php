@@ -55,7 +55,7 @@ if ($stmt1->num_rows() == 1) {
         );
     array_push($voting, $temp_arr);
 }
-
+foreach ($rating as $stone){
 ?>
 
 <div class="jumbotron">
@@ -105,6 +105,7 @@ if ($stmt1->num_rows() == 1) {
                     class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
             </div>
             <div class="col-md-9">
+                <p><?php echo $stone['description'] ?></p>
                 <a href="#" class="btn btn-default">
                     <span class="glyphicon glyphicon-thumbs-up"></span> Like
                 </a>
@@ -115,6 +116,9 @@ if ($stmt1->num_rows() == 1) {
             </div>
         </div>
     </div>
-<?php endfor; ?>
+    <?php endfor; ?>
+    <?php
+}
+?>
 </body>
 </html>

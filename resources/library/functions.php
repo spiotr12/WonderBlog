@@ -10,6 +10,13 @@ function redirectToHome() {
     die();
 }
 
+/**
+ * Returns the privilege of the given user (id)
+ *
+ * @param mysqli $mysqli
+ * @param int $id id of the user
+ * @return int int privilege of the user
+ */
 function privilegeCheck($mysqli, $id){
     $stmt = new mysqli_stmt($mysqli, "SELECT privilege FROM users WHERE id = ?");
     $privilege = -1;
