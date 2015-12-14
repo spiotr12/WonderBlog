@@ -50,6 +50,7 @@ renderHeader("Search: " . $search, $meta, $css, $js);
     <div class="row">
         <div class="col-md-12">
             <?php
+            $search = "%" . $search . "%";
             $search_results = array(
                 "type" => $search_type,
                 "data" => array()
