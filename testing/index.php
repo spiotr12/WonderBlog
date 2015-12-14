@@ -98,7 +98,7 @@ if ($stmtAdventure) {
         </div>
     </div>
 </div>
-<?php foreach ($voting as $stone) {
+<?php foreach ($adventure as $stone) {
 ?>
     <div id="top1" class="container">
         <div class="row">
