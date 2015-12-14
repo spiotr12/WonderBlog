@@ -51,7 +51,8 @@ renderHeader("Search: " . $search, $meta, $css, $js);
         <div class="col-md-12">
             <?php
             $search_results = array(
-                "type" => $search_type
+                "type" => $search_type,
+                "data" => array()
             );
             $stmt = null;
             if ($search_type == "adventure") {
@@ -61,7 +62,7 @@ renderHeader("Search: " . $search, $meta, $css, $js);
                     $stmt->execute();
                     $stmt->bind_result($id, $name);
                     while ($stmt->fetch()) {
-                        $search_results["data"] = array(
+                        $search_results["data"][] = array(
                             "id" => $id,
                             "name" => $name
                         );
@@ -76,7 +77,7 @@ renderHeader("Search: " . $search, $meta, $css, $js);
                     $stmt->execute();
                     $stmt->bind_result($id, $fname, $lname);
                     while ($stmt->fetch()) {
-                        $search_results["data"] = array(
+                        $search_results["data"][] = array(
                             "id" => $id,
                             "name" => $fname . " " . $lname
                         );
