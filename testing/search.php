@@ -54,30 +54,42 @@ renderHeader("Search: " . $search, $meta, $css, $js);
                 "type" => $search_type
             );
             $stmt = null;
-            if ($search_type == "adventures") {
-                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM adventures WHERE name LIKE ? OR description LIKE ?");
+            if ($search_type == "adventure") {
+                $stmt = new mysqli_stmt($mysqli, "SELECT id, name FROM adventures WHERE name LIKE ? OR description LIKE ?");
                 if ($stmt) {
                     $stmt->bind_param("ss", $search, $search);
                     $stmt->execute();
-                    $results = $stmt->get_result();
-                    $search_results["data"] = $results->fetch_array();
+                    $stmt->bind_result($id, $name);
+                    while ($stmt->fetch()) {
+                        $search_results["data"] = array(
+                            "id" => $id,
+                            "name" => $name
+                        );
+                    }
+
                 }
-            } else if ($search_type == "authors") {
-                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM authors WHERE privilege = ? AND first_name LIKE ? OR last_name LIKE ?");
+            } else if ($search_type == "author") {
+                $stmt = new mysqli_stmt($mysqli, "SELECT id, first_name, last_name FROM authors WHERE privilege = ? AND first_name LIKE ? OR last_name LIKE ?");
                 if ($stmt) {
                     $priv = 1;
                     $stmt->bind_param("iss", $priv, $search, $search);
                     $stmt->execute();
-                    $results = $stmt->get_result();
-                    $search_results["data"] = $results->fetch_array();
+                    $stmt->bind_result($id, $fname, $lname);
+                    while ($stmt->fetch()) {
+                        $search_results["data"] = array(
+                            "id" => $id,
+                            "name" => $fname . " " . $lname
+                        );
+                    }
                 }
             }
-
-            echo $search_results["type"];
-            echo "<br>";
-            var_dump($_GET);
-            echo "<br>";
-            echo json_encode($search_results);
+            foreach ($search_results["data"] as $key => $val):
+                ?>
+                <a href="./<?php echo $search_results["type"] . ".php?id=" . $val['id']; ?>">
+                    <?php echo $val['name'] ?>
+                </a>
+                <?php
+            endforeach;
             ?>
         </div>
     </div>
