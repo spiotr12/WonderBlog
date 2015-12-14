@@ -38,6 +38,10 @@ $search = "";
 if(isset($_GET["q"])){
     $search = $_GET["q"];
 }
+$search_type = "";
+if(isset($_GET["$search_type"])){
+    $search_type = $_GET["$search_type"];
+}
 
 
 renderHeader("Search: " . $search, $meta, $css, $js);
@@ -47,7 +51,19 @@ renderHeader("Search: " . $search, $meta, $css, $js);
     <div class="row">
         <div class="col-md-12">
             <?php
-            var_dump($_GET);
+            $search_results = array(
+                "type" => $search_type
+            );
+            $stmt = new mysqli_stmt($mysqli, "SELECT * FROM $search_type WHERE name LIKE ?");
+            if($stmt){
+                $stmt->bind_param("s", $search);
+                $stmt->execute();
+                $results = $stmt->get_result();
+                $search_results["data"] = $results->fetch_array();
+            }
+            var_dump($search_results);
+            echo "<br>";
+            var_dump($search_results["data"]);
             ?>
         </div>
     </div>
