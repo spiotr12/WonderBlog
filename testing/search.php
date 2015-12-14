@@ -43,7 +43,6 @@ if (isset($_GET["$search_type"])) {
     $search_type = $_GET["$search_type"];
 }
 
-
 renderHeader("Search: " . $search, $meta, $css, $js);
 ?>
 <body>
