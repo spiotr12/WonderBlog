@@ -35,11 +35,11 @@ $js = array(
 );
 
 $search = "";
-if(isset($_GET["q"])){
+if (isset($_GET["q"])) {
     $search = $_GET["q"];
 }
 $search_type = "";
-if(isset($_GET["$search_type"])){
+if (isset($_GET["$search_type"])) {
     $search_type = $_GET["$search_type"];
 }
 
@@ -54,14 +54,27 @@ renderHeader("Search: " . $search, $meta, $css, $js);
             $search_results = array(
                 "type" => $search_type
             );
-            $stmt = new mysqli_stmt($mysqli, "SELECT * FROM $search_type WHERE name LIKE ?");
-            if($stmt){
-                $stmt->bind_param("s", $search);
-                $stmt->execute();
-                $results = $stmt->get_result();
-                $search_results["data"] = $results->fetch_array();
+            $stmt = null;
+            if ($search_type == "adventures") {
+                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM adventures WHERE name LIKE ?");
+                if ($stmt) {
+                    $stmt->bind_param("s", $search);
+                    $stmt->execute();
+                    $results = $stmt->get_result();
+                    $search_results["data"] = $results->fetch_array();
+                }
+            } else if ($search_type == "authors") {
+                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM authors WHERE privilege = ? AND first_name LIKE ? OR last_name LIKE ?");
+                if ($stmt) {
+                    $priv = 1;
+                    $stmt->bind_param("iss", $priv, $search, $search);
+                    $stmt->execute();
+                    $results = $stmt->get_result();
+                    $search_results["data"] = $results->fetch_array();
+                }
             }
-            var_dump($search_results);
+
+            echo $search_results["type"];
             echo "<br>";
             var_dump($search_results["data"]);
             ?>
