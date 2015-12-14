@@ -33,8 +33,8 @@ function verifyUser() {
     var adminId = $("#admId").text();
     $(".btn-verify").click(function () {
         var id = $(this).val();
-        var confirm = confirm("Are you sure to confirm user " + id);
-        if (confirm) {
+        var conf = confirm("Are you sure to confirm user " + id);
+        if (conf) {
             $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
                 alert(data);
             });
