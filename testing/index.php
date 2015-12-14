@@ -55,7 +55,7 @@ if ($stmt1->num_rows() == 1) {
         );
     array_push($voting, $temp_arr);
 }
-foreach ($rating as $stone){
+foreach ($voting as $stone) {
 ?>
 
 <div class="jumbotron">
@@ -96,7 +96,6 @@ foreach ($rating as $stone){
         </div>
     </div>
 </div>
-<?php for ($i = 0; $i < 5; $i++): ?>
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
@@ -105,7 +104,7 @@ foreach ($rating as $stone){
                     class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
             </div>
             <div class="col-md-9">
-                <p><?php echo $stone['description'] ?></p>
+                <p> <?php echo $stone['description'] ?></p>
                 <a href="#" class="btn btn-default">
                     <span class="glyphicon glyphicon-thumbs-up"></span> Like
                 </a>
@@ -116,7 +115,6 @@ foreach ($rating as $stone){
             </div>
         </div>
     </div>
-    <?php endfor; ?>
     <?php
 }
 ?>
