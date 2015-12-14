@@ -31,6 +31,12 @@ function getUsers() {
 
 function verifyUser() {
     $(".btn-verify").click(function(){
-        console.log("button clicked and id is " + $(this).val());
+        var id = (this).val();
+        var confirm = confirm("Are you sure to confirm user " + id);
+        if(confirm){
+
+        } else {
+            alert("not confirmed");
+        }
     });
 }

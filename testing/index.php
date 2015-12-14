@@ -33,6 +33,7 @@ $js = array(
 renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 ?>
 <body>
+<?php require_once("../resources/templates/menu.php"); ?>
 
 <div class="jumbotron">
     <div class="container">
