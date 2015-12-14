@@ -51,8 +51,8 @@ if ($stmt1->num_rows() == 1) {
             'adventureID' => $adventureID,
             'description' => $adventureDesc,
             'voteAdvID' => $voteAdvID,
-            'voteCount' => $voteCount,
             'vote' => $vote,
+            'voteCount' => $voteCount,
         );
     array_push($voting, $temp_arr);
 }
