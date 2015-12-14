@@ -39,7 +39,7 @@ if (isset($_GET["q"])) {
     $search = "%" . $_GET["q"] . "%";
 }
 $search_type = "";
-if (isset($_GET["$search_type"])) {
+if (isset($_GET["search_type"])) {
     $search_type = $_GET["search_type"];
 }
 
