@@ -2,6 +2,21 @@
  * Created by Piotrek on 2015-12-09.
  */
 
+function verifyUser() {
+    var adminId = $("#admId").text();
+    $(".btn-verify").click(function () {
+        var id = $(this).val();
+        var conf = confirm("Are you sure to confirm user " + id);
+        if (conf) {
+            $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
+                alert(data);
+            });
+        } else {
+            alert("not confirmed");
+        }
+    });
+}
+
 $(document).ready(function () {
     $('#usersPanel').on('show.bs.collapse', function () {
         getUsers();
@@ -25,20 +40,5 @@ function getUsers() {
             row += '</tr>';
             tbody.append(row);
         });
-    });
-}
-
-function verifyUser() {
-    var adminId = $("#admId").text();
-    $(".btn-verify").click(function () {
-        var id = $(this).val();
-        var conf = confirm("Are you sure to confirm user " + id);
-        if (conf) {
-            $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
-                alert(data);
-            });
-        } else {
-            alert("not confirmed");
-        }
     });
 }
