@@ -36,11 +36,11 @@ $js = array(
 
 $search = "";
 if (isset($_GET["q"])) {
-    $search = $_GET["q"];
+    $search = "%" . $_GET["q"] . "%";
 }
 $search_type = "";
 if (isset($_GET["$search_type"])) {
-    $search_type = $_GET["$search_type"];
+    $search_type = $_GET["search_type"];
 }
 
 renderHeader("Search: " . $search, $meta, $css, $js);
@@ -55,7 +55,7 @@ renderHeader("Search: " . $search, $meta, $css, $js);
             );
             $stmt = null;
             if ($search_type == "adventures") {
-                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM adventures ");
+                $stmt = new mysqli_stmt($mysqli, "SELECT * FROM adventures");
                 if ($stmt) {
 //                    $stmt->bind_param("s", $search);
                     $stmt->execute();
