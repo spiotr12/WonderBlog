@@ -38,8 +38,6 @@ function verifyUser() {
             $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
                 alert(data);
             });
-        } else {
-            alert("not confirmed");
         }
     });
 }
