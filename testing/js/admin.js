@@ -31,6 +31,6 @@ function getUsers() {
 
 function verifyUser() {
     $(".btn-verify").click(function(){
-        console.log("button clicked and id is ". $(this).val());
+        console.log("button clicked and id is " + $(this).val());
     });
 }
