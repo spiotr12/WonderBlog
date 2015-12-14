@@ -36,104 +36,89 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 <?php
-//prepare rating
+//prepare rating and adventure
 $voting = array();
 $total_progress = 0;
-    $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
-        if ($stmt1) {
-            $stmt1->bind_param("i", $id);
-            if ($stmt1->execute()) {
-                $stmt1->bind_result($voteCount);
-                $stmt1->store_result();
-                if ($stmt1->num_rows() == 1) {
-                    while ($stmt1->fetch())
-                        $temp_arr = array(
-                            'vote' => $id
-                        );
-                    array_push($voting, $temp_arr);
-                }
-            }
-        }
+$stmt1 = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id LIMIT 5");
 
-            //prepare adventure
-            $adventure = array();
-            $total_progress = 0;
+$stmt1->bind_result($voteCount, $adventureID, $adventureDesc, $voteAdvID, $vote);
+$stmt1->store_result();
+if ($stmt1->num_rows() == 1) {
+    while ($stmt1->fetch())
+        $temp_arr = array(
+            'vote' => $vote,
+            'voteCount' => $voteCount,
+            'adventureID' => $adventureID,
+            'description' => $adventureDesc,
+            'voteAdvID' => $voteAdvID
+        );
+    array_push($voting, $temp_arr);
+}
+foreach ($rating as $stone){
+?>
 
-            $stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures");
-            if ($stmtAdventure) {
-                $stmtAdventure->bind_param("i", $id);
-                if ($stmtAdventure->execute()) {
-                    $stmtAdventure->bind_result($ad_id, $ad_description);
-                    while ($stmtAdventure->fetch()) {
-                        $temp_arr = array(
-                            'id' => $ad_id,
-                            'description' => $ad_description,
-                            //'progress' => $ad_progress
-                        );
-                        array_push($adventure, $temp_arr);
-                    }
-                }
-            }
-            ?>
+<div class="jumbotron">
+    <div class="container">
+        <h1>WanderBlog</h1>
 
-            <div class="jumbotron">
-                <div class="container">
-                    <h1>WanderBlog</h1>
+        <p>The place to upload and explore adventures!</p>
 
-                    <p>The place to upload and explore adventures!</p>
-
-                    <div class="row">
-                        <div id="mainSearch">
-                            <div
-                                class="input-group col-md-8 col-md-offset-2">
-                                <input type="text"
-                                       class="search-query form-control"
-                                       placeholder="Search for author or adventures"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="buttonGroup" class="row">
-                        <div id="searchAuthor" class="col-md-6">
-                            <button type="button"
-                                    class="btn btn-danger">Search Author
-                            </button>
-                        </div>
-                        <div id="searchAdventure" class="col-md-6">
-                            <button type="button"
-                                    class="btn btn-danger">Search Adventure
-                            </button>
-                        </div>
-                    </div>
+        <div class="row">
+            <div id="mainSearch">
+                <div
+                    class="input-group col-md-8 col-md-offset-2">
+                    <input type="text"
+                           class="search-query form-control"
+                           placeholder="Search for author or adventures"/>
                 </div>
             </div>
-
-            <div id="topAdventure" class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>Top 5 Adventures</h1>
-                    </div>
-                </div>
+        </div>
+        <div id="buttonGroup" class="row">
+            <div id="searchAuthor" class="col-md-6">
+                <button type="button"
+                        class="btn btn-danger">Search Author
+                </button>
             </div>
-            <?php for ($i = 0; $i < 5; $i++): ?>
-                <div id="top1" class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img
-                                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
-                                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
-                        </div>
-                        <div class="col-md-9">
-                            <a href="#" class="btn btn-default">
-                                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                            </a>
-                            <a class="btn btn-default" href="#"
-                               role="button">View details &raquo;
-                            </a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-            <?php endfor; ?>
-            </body>
-            </html>
+            <div id="searchAdventure" class="col-md-6">
+                <button type="button"
+                        class="btn btn-danger">Search Adventure
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="topAdventure" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Top 5 Adventures</h1>
+        </div>
+    </div>
+</div>
+<?php for ($i = 0; $i < 5; $i++): ?>
+    <div id="top1" class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img
+                    src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                    class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
+            </div>
+            <div class="col-md-9">
+                <p><?php echo $stone['description'] ?></p>
+                <a href="#" class="btn btn-default">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                </a>
+                <a class="btn btn-default" href="#"
+                   role="button">View details &raquo;
+                </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <?php endfor; ?>
+    <?php
+}
+?>
+</body>
+</html>
