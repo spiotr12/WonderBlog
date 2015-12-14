@@ -99,7 +99,7 @@ if ($stmt->num_rows() == 1) {
                             <div class="container">
                                 <div class="row">
                                     <h1 class="text-center">
-                                        <?php echo $adventureName ?></h1>
+                                        <?php echo $adventureName; ?></h1>
                                 </div>
                                 <div class="row">
                                     <div
