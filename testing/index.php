@@ -37,24 +37,26 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 
 <?php
 //prepare rating and adventure
-$voting = array();
+
+$adventure = array();
 $total_progress = 0;
-
-$stmt1 = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id");
-
-$stmt1->execute();
-$stmt1->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $voteCount);
-$stmt1->store_result();
-if ($stmt1->num_rows() == 1) {
-    while ($stmt1->fetch())
-        $temp_arr = array(
-            'adventureID' => $adventureID,
-            'description' => $adventureDesc,
-            'voteAdvID' => $voteAdvID,
-            'vote' => $vote,
-            'voteCount' => $voteCount,
-        );
-    array_push($voting, $temp_arr);
+// adventure
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id");
+if ($stmtAdventure) {
+    if ($stmtAdventure->execute()) {
+        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $voteCount);
+        while ($stmtAdventure->fetch()) {
+            $temp_arr = array(
+                'adventureID' => $adventureID,
+                'description' => $adventureDesc,
+                'voteAdvID' => $voteAdvID,
+                'vote' => $vote,
+                'voteCount' => $voteCount,
+                //'progress' => $ad_progress
+            );
+            array_push($adventure, $temp_arr);
+        }
+    }
 }
 ?>
 
