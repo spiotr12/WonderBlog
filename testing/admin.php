@@ -76,3 +76,4 @@ renderHeader("Admin Tools", $meta, $css, $js);
 <script type="text/javascript" src="./js/admin.js"></script>
 </body>
 </html>
+<?php $mysqli->close(); ?>
