@@ -40,7 +40,7 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $voting = array();
 $total_progress = 0;
 
-$stmt1 = new mysqli_stmt($mysqli, "SELECT adventures.id, adventures.description, votes.adv_id, votes.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id");
+$stmt1 = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, COUNT(vote) as rate FROM adventures A, votes V WHERE A.id = v.adv_id GROUP BY A.id");
 
 $stmt1->execute();
 $stmt1->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $voteCount);
@@ -51,8 +51,8 @@ if ($stmt1->num_rows() == 1) {
             'adventureID' => $adventureID,
             'description' => $adventureDesc,
             'voteAdvID' => $voteAdvID,
-            'vote' => $vote,
             'voteCount' => $voteCount,
+            'vote' => $vote,
         );
     array_push($voting, $temp_arr);
 }
