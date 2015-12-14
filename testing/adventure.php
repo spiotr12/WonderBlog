@@ -71,25 +71,26 @@ if ($stmt) {
                         if ($stmt1->num_rows() == 1) {
                             while ($stmt1->fetch()) {
 
-                                $stmt2 = new mysqli_stmt($mysqli, "SELECT id FROM photos WHERE adv_id = ? AND is_cover = 1 ");
+                                $stmt2 = new mysqli_stmt($mysqli, "SELECT id, file_ext FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
                                 if ($stmt2) {
                                     $stmt2->bind_param("i", $id);
                                     if ($stmt2->execute()) {
-                                        $stmt2->bind_result($coverPhotoID);
+                                        $stmt2->bind_result($coverPhotoID, $coverFileEXT);
                                         $stmt2->store_result();
                                         if ($stmt2->num_rows() == 1) {
                                             while ($stmt2->fetch()) {
 
-                                                $stmt3 = new mysqli_stmt($mysqli, "SELECT file_ext FROM photos WHERE id = ?");
+                                                //$stmt3 = new mysqli_stmt($mysqli, "SELECT file_ext FROM photos WHERE id = ?");
 
-                                                if ($stmt3) {
-                                                    $stmt3->bind_param("i", $coverPhotoID);
-                                                    if ($stmt3->execute()) {
-                                                        $stmt3->bind_result($coverFileEXT);
-                                                        $stmt3->store_result();
-                                                        if ($stmt3->num_rows() == 1) {
-                                                            while ($stmt3->fetch()) {
+                                             //   if ($stmt3) {
+                                                //    $stmt3->bind_param("i", $coverPhotoID);
+                                                //    if ($stmt3->execute()) {
+                                                 //       $stmt3->bind_result($coverFileEXT);
+                                                  //      $stmt3->store_result();
+                                                   //     if ($stmt3->num_rows() == 1) {
+                                                      //      while ($stmt3->fetch()) {
+
 
                                                                 $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
@@ -174,14 +175,7 @@ if ($stmt) {
                                                                                                     <div
                                                                                                         class="comment">
                                                                                                         <?php echo $comment ?>
-                                                                                                        ahfkjbfkjbasfkjbewak
-                                                                                                        bkjfb
-                                                                                                        ksbbf labfeab
-                                                                                                        jehbf
-                                                                                                        aljbfhbfksbf sk
-                                                                                                        djbf
-                                                                                                        dksjgoewrihg
-                                                                                                        dkjsng d
+
                                                                                                     </div>
                                                                                                 </section>
                                                                                             <?php endfor; ?>
@@ -274,10 +268,10 @@ if ($stmt) {
                             }
                         }
                     }
-                }
-            }
-        }
-    }
+
+
+
+
 }
 ?>
 
