@@ -44,21 +44,21 @@ $stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, cou
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
 if ($stmt1) {
-$stmt1->bind_param("i", $id);
+    $stmt1->bind_param("i", $id);
 if ($stmt1->execute()) {
-$stmt1->bind_result($adventure_no);
-$stmt1->store_result();
+    $stmt1->bind_result($adventure_no);
+    $stmt1->store_result();
 if ($stmt1->num_rows() == 1) {
 
-while ($stmt1->fetch()) {
+    while ($stmt1->fetch()) {
 
-if ($stmt) {
-$stmt->bind_param("i", $id);
-if ($stmt->execute()) {
-$stmt->bind_result($first_name, $last_name, $description, $country, $dob);
-$stmt->store_result();
-if ($stmt->num_rows() == 1) {
-while ($stmt->fetch()) {
+        if ($stmt) {
+            $stmt->bind_param("i", $id);
+                if ($stmt->execute()) {
+                    $stmt->bind_result($first_name, $last_name, $description, $country, $dob);
+                    $stmt->store_result();
+                        if ($stmt->num_rows() == 1) {
+                            while ($stmt->fetch()) {
 
 ?>
 <body>
@@ -73,99 +73,94 @@ while ($stmt->fetch()) {
                         src="https://upload.wikimedia.org/wikipedia/commons/9/93/Evan_Roth_head_shot.jpg"
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
-                <?php
-                if (isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
+                    <?php
+                    if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
 
-                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
+                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
-                    <p>Date of Birth: <?php echo $dob ?></p>
+                        <p>Date of Birth: <?php echo $dob ?></p>
 
-                    <p>Country: <?php echo $country ?></p>
+                        <p>Country: <?php echo $country ?></p>
 
-                    <p>Adventures: <?php echo $adventure_no; ?> </p>
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
 
-                    <p>Memeber Since: 01/10/15 </p>
+                        <p>Memeber Since: 01/10/15 </p>
 
-                    <p><?php echo $description; ?></p>
+                        <p><?php echo $description; ?></p>
 
-                    <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit
-                        Info
-                    </button>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
 
-                    <!-- Modal -->
-                    <div id="myModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
 
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Edit Info</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="usr">First Name:Description:</label>
-                                        <input type="text" class="form-control" id="usr"
-                                               placeholder="<?php echo $first_name; ?>">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Edit Info</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="usr">First Name:Description:</label>
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $first_name;?>">
 
-                                        <label for="usr">Second Name:</label>
-                                        <input type="text" class="form-control" id="usr"
-                                               placeholder="<?php echo $last_name; ?>">
+                                            <label for="usr">Second Name:</label>
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $last_name;?>">
 
-                                        <label for="usr">Description:</label>
-                                        <input type="text" class="form-control" id="usr"
-                                               placeholder="<?php echo $description; ?>">
+                                            <label for="usr">Description:</label>
+                                            <textarea class="form-control" id="usr"  rows="5" cols="80" value="<?php echo $description;?>">
 
-                                        <label for="usr">Date Of Birth:</label>
-                                        <input type="text" class="form-control" id="usr"
-                                               placeholder="<?php echo $dob; ?>">
+                                            <label for="usr">Date Of Birth:</label>
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $dob;?>">
 
-                                        <label for="usr">Country:</label>
-                                        <input type="text" class="form-control" id="usr"
-                                               placeholder="<?php echo $country; ?>">
+                                            <label for="usr">Country:</label>
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $country;?>">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
+
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-default" data-dismiss="modal">Submit</button>
 
-                                </div>
                             </div>
-
                         </div>
-                    </div>
 
-                <?php } else {
+                    <?php }
+
+                   else{
+                        ?>
+                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
+
+                        <p>Date of Birth: <?php echo $dob ?></p>
+
+                        <p>Country: <?php echo $country ?></p>
+
+                        <p>Adventures: <?php echo $adventure_no; ?> </p>
+
+                        <p>Memeber Since: 01/10/15 </p>
+
+                        <p><?php echo $description; ?></p>
+                        <?php
+                    }
                     ?>
-                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
-
-                    <p>Date of Birth: <?php echo $dob ?></p>
-
-                    <p>Country: <?php echo $country ?></p>
-
-                    <p>Adventures: <?php echo $adventure_no; ?> </p>
-
-                    <p>Memeber Since: 01/10/15 </p>
-
-                    <p><?php echo $description; ?></p>
-                    <?php
-                }
-                ?>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 
 <?php
-}
-}
-}
-}
-}
-}
-}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 ?>
@@ -210,7 +205,8 @@ $stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventure
 if ($stmtAdventure) {
     $stmtAdventure->bind_param("i", $author['id']);
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($ad_id, $ad_description);
+        $stmtAdventure->bind_result($ad_id, $ad_description
+        );
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
                 'id' => $ad_id,
@@ -244,6 +240,9 @@ foreach ($adventure as $stone) {
     <?php
 }
 ?>
+
+
+
 
 </body>
 </html>
