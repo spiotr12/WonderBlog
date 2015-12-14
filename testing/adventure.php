@@ -53,9 +53,9 @@ $id = $_GET["id"];
 
 $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = ?");
 
-if ($stmt) {
+
     $stmt->bind_param("i", $id);
-    if ($stmt->execute()) {
+    $stmt->execute();
         $stmt->bind_result($description);
         $stmt->store_result();
         if ($stmt->num_rows() == 1) {
@@ -63,9 +63,9 @@ if ($stmt) {
 
                 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
-                if ($stmt1) {
+
                     $stmt1->bind_param("i", $id);
-                    if ($stmt1->execute()) {
+                    $stmt1->execute();
                         $stmt1->bind_result($voteCount);
                         $stmt1->store_result();
                         if ($stmt1->num_rows() == 1) {
@@ -73,30 +73,22 @@ if ($stmt) {
 
                                 $stmt2 = new mysqli_stmt($mysqli, "SELECT id, file_ext FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
-                                if ($stmt2) {
+
                                     $stmt2->bind_param("i", $id);
-                                    if ($stmt2->execute()) {
+                                    $stmt2->execute();
                                         $stmt2->bind_result($coverPhotoID, $coverFileEXT);
                                         $stmt2->store_result();
                                         if ($stmt2->num_rows() == 1) {
                                             while ($stmt2->fetch()) {
 
-                                                //$stmt3 = new mysqli_stmt($mysqli, "SELECT file_ext FROM photos WHERE id = ?");
 
-                                             //   if ($stmt3) {
-                                                //    $stmt3->bind_param("i", $coverPhotoID);
-                                                //    if ($stmt3->execute()) {
-                                                 //       $stmt3->bind_result($coverFileEXT);
-                                                  //      $stmt3->store_result();
-                                                   //     if ($stmt3->num_rows() == 1) {
-                                                      //      while ($stmt3->fetch()) {
 
 
                                                                 $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
-                                                                if ($stmt4) {
+
                                                                     $stmt4->bind_param("i", $id);
-                                                                    if ($stmt4->execute()) {
+                                                                    $stmt4->execute();
                                                                         $stmt4->bind_result($comment);
                                                                         $stmt4->store_result();
                                                                         if ($stmt4->num_rows() == 1) {
@@ -128,7 +120,7 @@ if ($stmt) {
                                                                                             class="col-md-3 col-md-offset-2 text-center">
                                                                                             <h2>Rating</h2>
                                                                                             <?php echo $voteCount;
-                                                                                            " Votes"; ?>
+                                                                                            echo " Votes"; ?>
 
 
                                                                                             <!--     <span
@@ -260,14 +252,13 @@ if ($stmt) {
                                                             }
                                                         }
                                                     }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+
+
+
+
+
+
+
 
 
 
