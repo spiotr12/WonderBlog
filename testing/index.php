@@ -102,7 +102,7 @@ if ($stmt1->num_rows() == 1) {
             <div class="col-md-3">
                 <img
                     src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
-                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+                    class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
             </div>
             <div class="col-md-9">
                 <a href="#" class="btn btn-default">
