@@ -36,8 +36,6 @@
 
         <?php
 
-        $id = $_GET["id"];
-
         $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = ?");
 
         if ($stmt) {
