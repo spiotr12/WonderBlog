@@ -39,32 +39,27 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 //prepare rating
 $voting = array();
 $total_progress = 0;
+
     $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
-        if ($stmt1) {
             $stmt1->bind_param("i", $id);
-            if ($stmt1->execute()) {
-                $stmt1->bind_result($voteCount);
-                $stmt1->store_result();
+            $stmt1->bind_result($voteCount);
+            $stmt1->store_result();
                 if ($stmt1->num_rows() == 1) {
                     while ($stmt1->fetch())
                         $temp_arr = array(
-                            'vote' => $id
+                            'vote' => $vote
                         );
                     array_push($voting, $temp_arr);
                 }
-            }
-        }
 
             //prepare adventure
             $adventure = array();
             $total_progress = 0;
 
             $stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures");
-            if ($stmtAdventure) {
-                $stmtAdventure->bind_param("i", $id);
-                if ($stmtAdventure->execute()) {
-                    $stmtAdventure->bind_result($ad_id, $ad_description);
+            $stmtAdventure->bind_param("i", $id);
+            $stmtAdventure->bind_result($ad_id, $ad_description);
                     while ($stmtAdventure->fetch()) {
                         $temp_arr = array(
                             'id' => $ad_id,
@@ -73,8 +68,6 @@ $total_progress = 0;
                         );
                         array_push($adventure, $temp_arr);
                     }
-                }
-            }
             ?>
 
             <div class="jumbotron">
