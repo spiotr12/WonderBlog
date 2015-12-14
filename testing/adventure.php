@@ -80,12 +80,11 @@ if ($stmt->num_rows() == 1) {
                     while ($stmt2->fetch()) {
 
 
+                        //  $comment = array();
 
+                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
-
-                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE adv_id = ?");
-
-                          $stmt4->bind_param("i", $id);
+                           $stmt4->bind_param("i", $id);
                           $stmt4->execute();
                           $stmt4->bind_result($comment);
                           $stmt4->store_result();
@@ -99,7 +98,7 @@ if ($stmt->num_rows() == 1) {
                             <div class="container">
                                 <div class="row">
                                     <h1 class="text-center">
-                                        <?php echo $adventureName; ?></h1>
+                                        <?php echo $adventureName ?></h1>
                                 </div>
                                 <div class="row">
                                     <div
@@ -160,14 +159,14 @@ if ($stmt->num_rows() == 1) {
                                             <section>
                                                 <div class="">
                                                     <label
-                                                        class=""><?php echo "commentName";?></label>
+                                                        class=""><?php echo "commentName"?></label>
                                                     <label
-                                                        class="pull-right"><?php echo "commentDate";?></label>
+                                                        class="pull-right"><?php echo "commentDate"?></label>
                                                 </div>
 
                                                 <div
                                                     class="comment">
-                                                    <?php echo $comment; ?>
+                                                    <?php echo $comment ?>
 
                                                 </div>
                                             </section>
@@ -253,7 +252,6 @@ if ($stmt->num_rows() == 1) {
         }
     }
       }
-
 
 
 }
