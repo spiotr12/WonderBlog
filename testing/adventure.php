@@ -80,24 +80,17 @@ if ($stmt->num_rows() == 1) {
                     while ($stmt2->fetch()) {
 
 
-                        //  $comment = array();
 
-                        //   $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
-                        //   $stmt4->bind_param("i", $id);
-                        //  $stmt4->execute();
-                        //  $stmt4->bind_result($comment);
-                        //  $stmt4->store_result();
-                        //  if ($stmt4->num_rows() == 1) {
-                        //   while ($stmt4->fetch()) {
 
-                        $commentsQuery = "SELECT * FROM comments WHERE id = $id;";
-                        $comments = mysql_query($commentsQuery);
-                        while ($row = mysql_fetch_array($comments, MYSQL_ASSOC)) {
+                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE adv_id = ?");
 
-                            $comment = $row['comment'];
-                            $commentName = $row['id'];
-                            $commentDate = $row['date'];
+                          $stmt4->bind_param("i", $id);
+                          $stmt4->execute();
+                          $stmt4->bind_result($comment);
+                          $stmt4->store_result();
+                          if ($stmt4->num_rows() == 1) {
+                         while ($stmt4->fetch()) {
 
 
                             ?>
@@ -167,9 +160,9 @@ if ($stmt->num_rows() == 1) {
                                             <section>
                                                 <div class="">
                                                     <label
-                                                        class=""><?php echo $commentName?></label>
+                                                        class=""><?php echo "commentName"?></label>
                                                     <label
-                                                        class="pull-right"><?php echo $commentDate?></label>
+                                                        class="pull-right"><?php echo "commentDate"?></label>
                                                 </div>
 
                                                 <div
@@ -259,8 +252,8 @@ if ($stmt->num_rows() == 1) {
             }
         }
     }
-      //  }
-    //}
+      }
+
 
 
 }
