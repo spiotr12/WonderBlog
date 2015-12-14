@@ -1,4 +1,4 @@
-<?php
+><?php
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
@@ -28,7 +28,7 @@ $js = array(
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
     "js/main.js"
 );
-renderHeader("WonderBlog!", $meta, $css, $js);
+renderHeader("Admin Tools", $meta, $css, $js);
 ?>
 <body>
 
@@ -37,14 +37,43 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <div class="container">
     <div class="row">
         <?php
-        echo "PRIVILAGES: " . privilegeCheck($mysqli, $_SESSION['id']);
-        if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-            <h2>Hello Boss xD</h2>
+        if ($login->isUserLoggedIn() AND isset($_SESSION['id']) AND privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+            <h1>Hello Boss xD</h1>
+            <h2>Notifications</h2>
+
+            <h2>Vew users</h2>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a class="collapsed" id="usersTitle" role="button" data-toggle="collapse" href="#usersPanel"
+                               aria-expanded="false" aria-controls="usersPanel">Not verified users</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse" id="usersPanel">
+                        <div class="panel-body">
+                            <table class="table" id="usersTable">
+                                <thead>
+                                <tr>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Privileges</th>
+                                    <th>Verified</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <?php else: ?>
             <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
     </div>
 </div>
-
+<script type="text/javascript" src="./js/admin.js"></script>
 </body>
 </html>

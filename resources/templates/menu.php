@@ -1,3 +1,9 @@
+<?php
+$url = basename($_SERVER['PHP_SELF']) . "?";
+if (strlen($_SERVER['QUERY_STRING'])) {
+    $url .= $_SERVER['QUERY_STRING'] . "&";
+}
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -14,28 +20,40 @@
             <ul class="nav navbar-nav">
                 <li class=""><a href="./#">Home</a></li>
                 <?php if ($login->isUserLoggedIn() == true): ?>
-                    <li class=""><a href="./author.php?id=<?php echo $_SESSION['id']; ?>"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></a></li>
-                    <li class=""><a>Privilege: <?php echo privilegeCheck($mysqli, $_SESSION['id']); ?></a></li>
-                    <li class=""><a href="./?logout">Log out</a></li>
+                    <li class=""><a href="./author.php?id=<?php echo $_SESSION['id']; ?>">
+                            <?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="./<?php echo $url; ?>logout">
+                            Log out
+                        </a>
+                    </li>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
                 <?php endif; ?>
             </ul>
             <div class="col-sm-6 col-md-6 pull-right">
-                <form class="navbar-form" role="search">
+                <form class="navbar-form" role="search" method="get" action="./search.php">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="srch-term"
+                            <?php
+                            if (isset($_GET['q'])) {
+                                echo 'value="' . $_GET['q'] . '"s';
+                            }
+                            ?>
+                        >
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Author</span>
+                            <button class="btn btn-default" type="submit" name="search_type" value="author"><span
+                                    class="glyphicon glyphicon-search"> Author</span>
                             </button>
-                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Adventure</span>
+                            <button class="btn btn-default" type="submit" name="search_type" value="adventure"><span
+                                    class="glyphicon glyphicon-search"> Adventure</span>
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
-            <!--/.nav-collapse -->
-        </div>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
