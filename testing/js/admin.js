@@ -4,14 +4,11 @@
 
 $(document).ready(function () {
     $('#usersPanel').on('show.bs.collapse', function () {
-        console.log("panel show");
         getUsers();
     });
     $('#usersPanel').on('hidden.bs.collapse', function () {
-        console.log("panel hide");
         $(this).find("tbody").empty();
     });
-    verifyUser();
 });
 
 function getUsers() {
@@ -27,12 +24,20 @@ function getUsers() {
             row += '<td>' + user['verified'] + ' <button class="btn-verify" type="button" value="' + user['id'] + '">Verify!</button></td>';
             row += '</tr>';
             tbody.append(row);
+            verifyUser();
         });
     });
 }
 
 function verifyUser() {
-    $(".btn-verify").click(function(){
-        console.log("button clicked and id is ". $(this).val());
+    var adminId = $("#admId").text();
+    $(".btn-verify").click(function () {
+        var id = $(this).val();
+        var conf = confirm("Are you sure to confirm user " + id);
+        if (conf) {
+            $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
+                alert(data);
+            });
+        }
     });
 }
