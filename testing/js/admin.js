@@ -21,7 +21,7 @@ function getUsers() {
             row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['fname'] + '</a></td>';
             row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['lname'] + '</a></td>';
             row += '<td>' + user['privilege'] + '</td>';
-            row += '<td>' + user['verified'] + ' <button class="btn-verify" type="button" value="' + user['id'] + '">Verify!</button></td>';
+            row += '<td>' + user['verified'] + ' <button class="btn btn-success btn-verify" type="button" value="' + user['id'] + '">Verify!</button></td>';
             row += '</tr>';
             tbody.append(row);
             verifyUser();
@@ -38,6 +38,8 @@ function verifyUser() {
             $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
                 alert(data);
             });
+        } else {
+            alert("not confirmed");
         }
     });
 }
