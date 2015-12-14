@@ -106,6 +106,7 @@ foreach ($voting as $stone) {
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
+                <p><?php echo $stone['vote'] ?></p>
                 <a href="#" class="btn btn-default">
                     <span class="glyphicon glyphicon-thumbs-up"></span> Like
                 </a>
