@@ -35,6 +35,27 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 <body>
 <?php require_once("../resources/templates/menu.php"); ?>
 
+<?php
+$adventure = array();
+$total_progress = 0;
+// adventure
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures");
+if ($stmtAdventure) {
+    $stmtAdventure->bind_param("i", $id);
+    if ($stmtAdventure->execute()) {
+        $stmtAdventure->bind_result($ad_id, $ad_description);
+        while ($stmtAdventure->fetch()) {
+            $temp_arr = array(
+                'id' => $ad_id,
+                'description' => $ad_description,
+                //'progress' => $ad_progress
+            );
+            array_push($adventure, $temp_arr);
+        }
+    }
+}
+?>
+
 <div class="jumbotron">
     <div class="container">
         <h1>WanderBlog</h1>
