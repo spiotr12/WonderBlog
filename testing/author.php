@@ -139,7 +139,7 @@ if ($stmt1->num_rows() == 1) {
 
                         <p>Country: <?php echo $country ?></p>
 
-                        <p>Adventures: <?php echo $adventure_no; ?> </p>
+                        <p>Adventures: <?php echo $adventure_no; ?>  </p>
 
                         <p>Memeber Since: 01/10/15 </p>
 
