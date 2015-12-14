@@ -83,7 +83,7 @@ if ($stmt->num_rows() == 1) {
 
 
 
-                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, name, date FROM comments WHERE id = ?");
+                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, id, date FROM comments WHERE id = ?");
 
                           $stmt4->bind_param("i", $id);
                           $stmt4->execute();
