@@ -21,10 +21,9 @@ function getUsers() {
             row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['fname'] + '</a></td>';
             row += '<td><a href="./author.php?id=' + user['id'] + '">' + user['lname'] + '</a></td>';
             row += '<td>' + user['privilege'] + '</td>';
-            row += '<td><button class="btn-success btn-verify" type="button" value="' + user['id'] + '">Verify!</button></td>';
+            row += '<td><button class="btn-success btn-verify" type="button" onclick="verifyUser()" value="' + user['id'] + '">Verify!</button></td>';
             row += '</tr>';
             tbody.append(row);
-            verifyUser();
         });
     });
 }
