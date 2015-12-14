@@ -40,8 +40,6 @@ renderHeader("Admin Tools", $meta, $css, $js);
         if ($login->isUserLoggedIn() AND isset($_SESSION['id']) AND privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <h1>Hello Boss xD</h1>
             <div id="admId" class="hidden"><?php echo $_SESSION['id']; ?></div>
-            <h2>Notifications</h2>
-
             <h2>Vew users</h2>
             <div class="col-md-12">
                 <div class="panel panel-default">

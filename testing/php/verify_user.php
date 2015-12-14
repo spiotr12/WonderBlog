@@ -42,3 +42,5 @@ if ($_POST['adminId']) {
 
 // returns JSON
 echo json_encode($result);
+
+$mysqli->close();
