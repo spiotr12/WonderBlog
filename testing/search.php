@@ -46,6 +46,9 @@ if (isset($_GET["search_type"])) {
 renderHeader("Search: " . $search, $meta, $css, $js);
 ?>
 <body>
+
+<?php require_once("../resources/templates/menu.php"); ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">

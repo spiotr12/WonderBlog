@@ -32,7 +32,7 @@ renderHeader("Admin Tools", $meta, $css, $js);
 ?>
 <body>
 
-<?php require_once("../resources/templates/menu.php"); s?>
+<?php require_once("../resources/templates/menu.php"); ?>
 
 <div class="container">
     <div class="row">
