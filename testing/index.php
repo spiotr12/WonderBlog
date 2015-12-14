@@ -37,22 +37,24 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 
 <?php
 //prepare rating
-$stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
+$voting = array();
+$total_progress = 0;
+    $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
-    if ($stmt1) {
-        $stmt1->bind_param("i", $id);
-        if ($stmt1->execute()) {
-            $stmt1->bind_result($voteCount);
-            $stmt1->store_result();
-            if ($stmt1->num_rows() == 1) {
-                while ($stmt1->fetch())
-                    $temp_arr = array(
-                        'vote' => $ra_id
-                    );
-                array_push($stmt1);
+        if ($stmt1) {
+            $stmt1->bind_param("i", $id);
+            if ($stmt1->execute()) {
+                $stmt1->bind_result($voteCount);
+                $stmt1->store_result();
+                if ($stmt1->num_rows() == 1) {
+                    while ($stmt1->fetch())
+                        $temp_arr = array(
+                            'vote' => $id
+                        );
+                    array_push($voting, $temp_arr);
+                }
             }
         }
-    }
 
             //prepare adventure
             $adventure = array();
