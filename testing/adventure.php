@@ -80,14 +80,14 @@ if ($stmt->num_rows() == 1) {
                     while ($stmt2->fetch()) {
 
 
+                        //  $comment = array();
 
+                         $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
-                           $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
-
-                           $stmt4->bind_param("i", $id);
-                          $stmt4->execute();
-                          $stmt4->bind_result($comment);
-                          $stmt4->store_result();
+                         $stmt4->bind_param("i", $id);
+                         $stmt4->execute();
+                         $stmt4->bind_result($comment);
+                         $stmt4->store_result();
                           if ($stmt4->num_rows() == 1) {
                          while ($stmt4->fetch()) {
 
@@ -159,9 +159,9 @@ if ($stmt->num_rows() == 1) {
                                             <section>
                                                 <div class="">
                                                     <label
-                                                        class=""><?php echo "commentName"?></label>
+                                                        class="">Name</label>
                                                     <label
-                                                        class="pull-right"><?php echo "commentDate"?></label>
+                                                        class="pull-right">Date</label>
                                                 </div>
 
                                                 <div
@@ -251,7 +251,8 @@ if ($stmt->num_rows() == 1) {
             }
         }
     }
-      }
+    }
+
 
 
 }
