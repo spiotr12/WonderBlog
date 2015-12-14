@@ -63,7 +63,7 @@ $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = 
 
                 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
-                if ($stmt1) {
+
                     $stmt1->bind_param("i", $id);
                     $stmt1->execute();
                         $stmt1->bind_result($voteCount);
@@ -73,9 +73,9 @@ $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = 
 
                                 $stmt2 = new mysqli_stmt($mysqli, "SELECT id, file_ext FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
-                                if ($stmt2) {
+
                                     $stmt2->bind_param("i", $id);
-                                    if ($stmt2->execute()) {
+                                    $stmt2->execute();
                                         $stmt2->bind_result($coverPhotoID, $coverFileEXT);
                                         $stmt2->store_result();
                                         if ($stmt2->num_rows() == 1) {
@@ -86,9 +86,9 @@ $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = 
 
                                                                 $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
-                                                                if ($stmt4) {
+
                                                                     $stmt4->bind_param("i", $id);
-                                                                    if ($stmt4->execute()) {
+                                                                    $stmt4->execute();
                                                                         $stmt4->bind_result($comment);
                                                                         $stmt4->store_result();
                                                                         if ($stmt4->num_rows() == 1) {
@@ -252,11 +252,10 @@ $stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = 
                                                             }
                                                         }
                                                     }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+
+
+
+
 
 
 
