@@ -107,8 +107,8 @@ if ($stmtAdventure) {
         <div class="row">
             <div class="col-md-3">
                 <img
-                    src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
-                    class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
+                    src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>"
+                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
