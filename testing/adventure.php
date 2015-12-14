@@ -82,11 +82,11 @@ if ($stmt->num_rows() == 1) {
 
                         //  $comment = array();
 
-                         $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
+                         $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, user_id, date FROM comments WHERE id = ?");
 
                          $stmt4->bind_param("i", $id);
                          $stmt4->execute();
-                         $stmt4->bind_result($comment);
+                         $stmt4->bind_result($comment, $commentName, $commentDate);
                          $stmt4->store_result();
                           if ($stmt4->num_rows() == 1) {
                          while ($stmt4->fetch()) {
@@ -155,13 +155,13 @@ if ($stmt->num_rows() == 1) {
                                     <div
                                         class="col-md-5 col-md-offset-1 comments-section">
                                         <h2>Comments</h2>
-                                        <?php for ($i = 0; $i < 4; $i++): ?>
+
                                             <section>
                                                 <div class="">
                                                     <label
-                                                        class="">Name</label>
+                                                        class=""><?php echo $commentName; ?></label>
                                                     <label
-                                                        class="pull-right">Date</label>
+                                                        class="pull-right"><?php echo $commentDate;?></label>
                                                 </div>
 
                                                 <div
@@ -170,7 +170,7 @@ if ($stmt->num_rows() == 1) {
 
                                                 </div>
                                             </section>
-                                        <?php endfor; ?>
+
                                     </div>
                                 </div>
                             </div>
