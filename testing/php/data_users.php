@@ -32,13 +32,4 @@ if ($stmt = $mysqli->prepare("SELECT id, first_name, last_name, privilege, verif
     }
 }
 
-//$results = array();
-//
-//if ($stmt = $mysqli->prepare("SELECT first_name, last_name, privilege, verified FROM users WHERE first_name LIKE ?")) {
-//    $search = "%" . $search . "%";
-//    $stmt->bind_param('s', $search);
-//    $stmt->execute();
-//    $results = $stmt->fetch();
-//}
-
 echo json_encode($results);

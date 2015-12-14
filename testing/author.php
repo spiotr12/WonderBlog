@@ -104,19 +104,19 @@ if ($stmt1->num_rows() == 1) {
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="usr">First Name:Description:</label>
-                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $first_name;?>">
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $first_name;?>">
 
                                             <label for="usr">Second Name:</label>
-                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $last_name;?>">
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $last_name;?>">
 
                                             <label for="usr">Description:</label>
-                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $description;?>">
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $description;?>">
 
                                             <label for="usr">Date Of Birth:</label>
-                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $dob;?>">
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $dob;?>">
 
                                             <label for="usr">Country:</label>
-                                            <input type="text" class="form-control" id="usr" placeholder="<?php echo $country;?>">
+                                            <input type="text" class="form-control" id="usr" value="<?php echo $country;?>">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
