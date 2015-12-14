@@ -36,7 +36,13 @@ if (strlen($_SERVER['QUERY_STRING'])) {
             <div class="col-sm-6 col-md-6 pull-right">
                 <form class="navbar-form" role="search" method="get" action="./search.php">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="q" id="srch-term">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="srch-term"
+                            <?php
+                            if (isset($_GET['q'])){
+                                echo $_GET['q'];
+                            }
+                            ?>
+                        >
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit" name="search_type" value="author"><span
                                     class="glyphicon glyphicon-search"> Author</span>
