@@ -75,7 +75,9 @@ renderHeader("Search: " . $search, $meta, $css, $js);
 
             echo $search_results["type"];
             echo "<br>";
-            var_dump($search_results["data"]);
+            var_dump($_GET);
+            echo "<br>";
+            var_dump($search_results);
             ?>
         </div>
     </div>
