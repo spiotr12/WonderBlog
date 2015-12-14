@@ -156,7 +156,7 @@ if ($stmt->num_rows() == 1) {
                                     <div
                                         class="col-md-5 col-md-offset-1 comments-section">
                                         <h2>Comments</h2>
-
+                                        <?php for ($i = 0; $i < 4; $i++): ?>
                                             <section>
                                                 <div class="">
                                                     <label
@@ -171,7 +171,7 @@ if ($stmt->num_rows() == 1) {
 
                                                 </div>
                                             </section>
-
+                                        <?php endfor; ?>
                                     </div>
                                 </div>
                             </div>
