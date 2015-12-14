@@ -161,7 +161,7 @@ if ($stmt->num_rows() == 1) {
                                                     <label
                                                         class="">Name</label>
                                                     <label
-                                                        class="pull-right">Date</label>
+                                                        class="pull-right"><?php echo "Date2";?></label>
                                                 </div>
 
                                                 <div
