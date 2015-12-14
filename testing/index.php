@@ -104,7 +104,6 @@ foreach ($voting as $stone) {
                     class="img-rounded" alt="Cinque Terdre" width="250" height="228px">
             </div>
             <div class="col-md-9">
-                <p> <?php echo $stone['description'] ?></p>
                 <a href="#" class="btn btn-default">
                     <span class="glyphicon glyphicon-thumbs-up"></span> Like
                 </a>
