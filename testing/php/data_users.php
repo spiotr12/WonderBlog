@@ -33,3 +33,5 @@ if ($stmt = $mysqli->prepare("SELECT id, first_name, last_name, privilege, verif
 }
 
 echo json_encode($results);
+
+$mysqli->close();

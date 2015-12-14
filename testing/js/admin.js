@@ -13,6 +13,7 @@ function verifyUser(e) {
     var conf = confirm("Are you sure to confirm user " + id); // ask admin to confirm their choice
     thisButton.removeClass('btn-success');
     thisButton.addClass('btn-warning');
+    thisButton.text("...processing...");
     if (conf) {
         // send id of the user to be verified.
         $.post("./php/verify_user.php", {adminId: adminId, userToVerifyId: id}, function (data) {
