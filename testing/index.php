@@ -44,16 +44,17 @@ $total_progress = 0;
 $stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, p.file_ext, p.is_cover, p.id, COUNT(vote) as rate FROM adventures A, votes V, photos P WHERE A.id = v.adv_id GROUP BY A.id");
 if ($stmtAdventure) {
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $photoExt, $photoCover, $voteCount);
+        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $photoExt, $photoCover, $photoID, $voteCount);
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
                 'adventureID' => $adventureID,
                 'description' => $adventureDesc,
                 'voteAdvID' => $voteAdvID,
                 'vote' => $vote,
-                'voteCount' => $voteCount,
                 'photoExt' => $photoExt,
                 'cover' => $photoCover,
+                'photoID' => $photoID,
+                'voteCount' => $voteCount,
                 //'progress' => $ad_progress
             );
             array_push($adventure, $temp_arr);
