@@ -51,11 +51,11 @@ $id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT description FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT description, name FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $id);
 $stmt->execute();
-$stmt->bind_result($description);
+$stmt->bind_result($description, $adventureName);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
     while ($stmt->fetch()) {
@@ -80,6 +80,8 @@ if ($stmt->num_rows() == 1) {
                     while ($stmt2->fetch()) {
 
 
+                        $comment = array();
+
                         $stmt4 = new mysqli_stmt($mysqli, "SELECT comment FROM comments WHERE id = ?");
 
                         $stmt4->bind_param("i", $id);
@@ -95,7 +97,7 @@ if ($stmt->num_rows() == 1) {
                                 <div class="container">
                                     <div class="row">
                                         <h1 class="text-center">
-                                            Adventure Title</h1>
+                                            <?php echo $adventureName?></h1>
                                     </div>
                                     <div class="row">
                                         <div
