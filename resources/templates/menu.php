@@ -1,7 +1,7 @@
 <?php
 $url = basename($_SERVER['PHP_SELF']) . "?";
 if (strlen($_SERVER['QUERY_STRING'])) {
-    $url .=  $_SERVER['QUERY_STRING'] . "&";
+    $url .= $_SERVER['QUERY_STRING'] . "&";
 }
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -34,10 +34,9 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                 <?php endif; ?>
             </ul>
             <div class="col-sm-6 col-md-6 pull-right">
-                <form class="navbar-form" role="search">
+                <form class="navbar-form" role="search" method="get" action="./search.php">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="srch-term">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"> Author</span>
                             </button>
@@ -47,7 +46,6 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                     </div>
                 </form>
             </div>
-            <!--/.nav-collapse -->
-        </div>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
