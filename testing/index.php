@@ -115,6 +115,10 @@ if ($stmtAdventure) {
                 <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
                     <input type = "submit" name="like" value = "like"/>
                     <?php endif; ?>
+                    <?php
+                    $goToAdv = 'Location: ./adventure.php?id=' . $adventureID;
+                    ?>
+                    <p><a class="btn btn-default" href='$goToAdv' role="button">View details &raquo;</a></p>
 
             </div>
         </div>
