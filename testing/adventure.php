@@ -105,7 +105,17 @@ while ($stmt2->fetch()) {
         <div
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
-            <?php echo $voteCount;
+
+            <?php if ($login->isUserLoggedIn() == true): ?>
+            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                <input type = "submit" name="like" value = "like"/>
+                <?php endif;
+                if ($_POST['like']){
+                mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE adv_id = $id");
+                }
+                ?>
+
+                <?php echo $voteCount;
             echo " Votes"; ?>
 
 
