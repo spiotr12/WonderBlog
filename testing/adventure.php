@@ -151,26 +151,31 @@ if ($stmt->num_rows() == 1) {
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div
+                                    class="col-md-5 col-md-offset-1 comments-section">
+                                    <h2>Comments</h2>
+                                    </div
+                                    </div
 
 
+                            <?php
+
+                            $commentArray[] = array();
+
+
+                            $sql = "SELECT * FROM comments WHERE adv_id = $id";
+                            $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+                            while ($row = $res->fetch_assoc()) {
+
+
+                            ?>
 
 
                             <div class="row">
                                 <div
                                     class="col-md-5 col-md-offset-1 comments-section">
-                                    <h2>Comments</h2>
 
-                                    <?php
-
-                                    $commentArray[] = array();
-
-
-                                    $sql = "SELECT * FROM comments WHERE adv_id = $id";
-                                    $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
-                                    while ($row = $res->fetch_assoc()) {
-
-
-                                    ?>
 
                                     <section>
                                         <div class="">
