@@ -112,11 +112,16 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-                <a href="#" class="btn btn-default">
-                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                </a>
-                <a class="btn btn-default" href="#"
-                   role="button">View details &raquo;
+                <?php
+                if ($_POST['like']){
+                    $sql = new mysqli_stmt($mysqli,"UPDATE votes SET vote = vote+1 WHERE `adv_id` = '1'");
+                    $result=mysql_query($sql);
+                }
+                ?>
+
+                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                    <input type = "submit" name="like" value = "like"/>
+                </form>
                 </a>
                 </h2>
             </div>
