@@ -114,10 +114,11 @@ if ($stmtAdventure) {
                 <form id = "h2" form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST"></form>
                     <?php if ($login->isUserLoggedIn() == true): ?>
                     <input type = "submit" name="like" value = "like"/>
+                    <?php endif; ?>
+
             </div>
         </div>
     </div>
-    <?php endif; ?>
     <?php
 }
 ?>
