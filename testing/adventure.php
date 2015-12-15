@@ -80,17 +80,6 @@ if ($stmt->num_rows() == 1) {
                     while ($stmt2->fetch()) {
 
 
-                        //  $comment = array();
-
-
-                        //  $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, user_id, date FROM comments WHERE id = ?");
-
-                        //   $stmt4->bind_param("i", $id);
-                        //   $stmt4->execute();
-                        //   $stmt4->bind_result($comment, $commentName, $commentDate);
-                        //   $stmt4->store_result();
-                        //   if ($stmt4->num_rows() == 1) {
-                        //  while ($stmt4->fetch()) {
 
 
                         ?>
@@ -214,8 +203,9 @@ if ($stmt->num_rows() == 1) {
 
                                 </div>
                             </div>
-                        <?php } ?>
+
                         </div>
+                    <?php }} ?>
                         <div class="container">
                             <div class="row">
                                 <div
@@ -289,13 +279,12 @@ if ($stmt->num_rows() == 1) {
                         <?php
                     }
                     }
-                    }
                 }
             }
         }
-        //  }
-        // }
     }
+
+
 
 }
 ?>
