@@ -187,13 +187,14 @@ if ($stmt->num_rows() == 1) {
                                         <div
                                             class="comment">
                                             <?php echo $row['comment'];
-                                            }?>
+                                            ?>
 
                                         </div>
                                     </section>
 
                                 </div>
                             </div>
+                            <?php } ?>
                         </div>
                         <div class="container">
                             <div class="row">
