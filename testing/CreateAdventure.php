@@ -42,6 +42,14 @@ renderHeader("WonderBlog!", $meta, $css, $js);
     <fieldset class="form-group">
         <label for="formGroupExampleInput">Example label</label>
         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <label for="formGroupExampleInput">Example label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <label for="formGroupExampleInput">Example label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <label for="formGroupExampleInput">Example label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <label for="formGroupExampleInput">Example label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
     </fieldset>
 
 </body>
