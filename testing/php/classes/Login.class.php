@@ -51,7 +51,6 @@ class Login {
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
-                //TODO change it to prepared statement
                 $sql = new mysqli_stmt($this->db_connection, "SELECT id, first_name, last_name, email, password, privilege FROM users WHERE email = ?;");
                 $sql->bind_param("s", $_POST['email']);
                 $sql->execute();
