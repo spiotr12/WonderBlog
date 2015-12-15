@@ -154,7 +154,7 @@ if ($stmt->num_rows() == 1) {
                             <div class="row">
                                 <div
                                     class="col-md-5 col-md-offset-1 comments-section">
-                                    <h2>Comments</h2>
+                                    <h2>Comments <br></h2>
                                     </div
                                     </div
 
