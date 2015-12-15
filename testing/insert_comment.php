@@ -8,7 +8,7 @@ $userId = $_POST['user_id'];
 $comment = $_POST['comment'];
 $date = date("Y-m-d H:i:S");
 
-echo "dump: " . var_dump($_POST) "<br><br>";
+echo "dump: " . var_dump($_POST) . "<br><br>";
 
 
 $stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment, date) VALUES (?, ?, ?, ?)");
