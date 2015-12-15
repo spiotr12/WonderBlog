@@ -179,7 +179,7 @@ if ($stmt->num_rows() == 1) {
                                     <section>
                                         <div class="">
                                             <label
-                                                class=""><?php echo $row['name']; ?></label>
+                                                class=""><?php echo $row['user_id']; ?></label>
                                             <label
                                                 class="pull-right"><?php echo $row['date'] . "</p>";; ?></label>
                                         </div>
