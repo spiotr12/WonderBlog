@@ -55,12 +55,14 @@ class Registration {
                 $stmt->bind_param("s", $user_email);
                 $stmt->execute();
 
+
                 if ($stmt->num_rows() == 1) {
                     $this->errors[] = "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $stmt = new mysqli_stmt($this->db_connection, "INSERT INTO users (first_name, last_name, password, email) VALUES (?, ?, ?, ?)");
+                    $stmt = new mysqli_stmt($this->db_connection, "INSERT INTO users (first_name, last_name, password, email) VALUES (?, ?, ?, ?);");
                     $stmt->bind_param("ssss", $user_first_name, $user_last_name, $user_password_hash, $user_email);
+                    echo var_dump($stmt);
                     // if user has been added successfully
                     if ($stmt->execute()) {
                         $this->messages[] = "Your account has been created successfully. You can now log in.";
