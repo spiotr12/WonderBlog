@@ -82,14 +82,19 @@ if ($stmt->num_rows() == 1) {
 
                         //  $comment = array();
 
-                         $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, user_id, date FROM comments WHERE id = ?");
 
-                         $stmt4->bind_param("i", $id);
-                         $stmt4->execute();
-                         $stmt4->bind_result($comment, $commentName, $commentDate);
-                         $stmt4->store_result();
-                          if ($stmt4->num_rows() == 1) {
-                         while ($stmt4->fetch()) {
+                       //  $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, user_id, date FROM comments WHERE id = ?");
+
+                      //   $stmt4->bind_param("i", $id);
+                      //   $stmt4->execute();
+                      //   $stmt4->bind_result($comment, $commentName, $commentDate);
+                      //   $stmt4->store_result();
+                      //   if ($stmt4->num_rows() == 1) {
+                       //  while ($stmt4->fetch()) {
+
+
+
+
 
 
                             ?>
@@ -150,6 +155,21 @@ if ($stmt->num_rows() == 1) {
                                     </div>
                                 </div>
 
+                                <?php $sql_query = "SELECT * FROM comments  WHERE adv_id LIKE $id";
+
+
+
+                                $result = $mysqli->query($sql_query);
+
+                                // iterate over $result object one $row at a time
+                                // use fetch_array() to return an associative array
+
+                                while($row = $result->fetch_array()){
+                                // print out fields from row of data
+                                echo "<p>” . {$row}['comment'] . “</p>";
+                                }
+                                ?>
+
 
                                 <div class="row">
                                     <div
@@ -159,14 +179,14 @@ if ($stmt->num_rows() == 1) {
                                             <section>
                                                 <div class="">
                                                     <label
-                                                        class=""><?php echo $commentName; ?></label>
+                                                        class=""><?php echo "commentName"; ?></label>
                                                     <label
-                                                        class="pull-right"><?php echo $commentDate;?></label>
+                                                        class="pull-right"><?php echo "commentDate";?></label>
                                                 </div>
 
                                                 <div
                                                     class="comment">
-                                                    <?php echo $comment ?>
+                                                    <?php echo "comment" ?>
 
                                                 </div>
                                             </section>
@@ -250,8 +270,8 @@ if ($stmt->num_rows() == 1) {
                 }
             }
         }
-    }
-    }
+  //  }
+   // }
 
 
 
