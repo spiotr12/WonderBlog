@@ -34,19 +34,18 @@ $js = array(
 );
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
-<body>
 
 <?php require_once("../resources/templates/menu.php"); ?>
 
-
+<body>
 <!-- Modal -->
 <div id="createAdventure" class="modal fade" role="dialog">
    <div class="modal-dialog">
 
         <!-- Modal content-->
-<!--       <div class="modal-content">-->
-<!--           <div class="modal-header">-->
-<!--           </div>-->
+     <div class="modal-content">
+          <div class="modal-header">
+           </div>
             <div class="modal-body">
                 <div class="form-group">
                     <label for="usr">First Name:Description:</label>
@@ -73,7 +72,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         </div>
 
     </div>
-<!--</div>-->
+</div>
 
 </body>
 
