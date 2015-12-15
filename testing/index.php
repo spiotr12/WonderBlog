@@ -40,16 +40,15 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, p.file_ext, p.id, COUNT(vote) as rate FROM adventures A, votes V, photos P WHERE A.id = v.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY v.vote DESC LIMIT 5");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, p.file_ext, p.id, COUNT(v.adv_id) FROM adventures A, votes V, photos P WHERE A.id = v.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY v.adv_id DESC LIMIT 5");
 if ($stmtAdventure) {
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $photoExt, $photoID, $voteCount);
+        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $photoExt, $photoID, $voteCount);
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
                 'adventureID' => $adventureID,
                 'description' => $adventureDesc,
                 'voteAdvID' => $voteAdvID,
-                'vote' => $vote,
                 'photoExt' => $photoExt,
                 'photoID' => $photoID,
                 'voteCount' => $voteCount,
@@ -99,7 +98,8 @@ if ($stmtAdventure) {
         </div>
     </div>
 </div>
-<?php foreach ($adventure as $stone): ?>
+<?php foreach ($adventure as $stone) {
+    ?>
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
@@ -108,12 +108,14 @@ if ($stmtAdventure) {
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
-                <p><?php echo $stone['description']; ?></p>
+                <p> <?php echo $stone['description']; ?></p>
                 <p><?php echo $stone['vote']; ?></p>
             </div>
         </div>
     </div>
-<?php endforeach; ?>
+    <?php
+}
+?>
 
 </body>
 </html>
