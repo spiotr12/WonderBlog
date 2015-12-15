@@ -80,211 +80,201 @@ if ($stmt->num_rows() == 1) {
                     while ($stmt2->fetch()) {
 
 
-
-
                         ?>
 
 
                         <div class="container">
-                            <div class="row">
-                                <h1 class="text-center">
-                                    <?php echo $adventureName ?></h1>
+                        <div class="row">
+                            <h1 class="text-center">
+                                <?php echo $adventureName ?></h1>
+                        </div>
+                        <div class="row">
+                            <div
+                                class="col-md-10 col-md-offset-1">
+                                <img class="img-responsive" width="1200" height ="440px"
+                                     src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
                             </div>
-                            <div class="row">
-                                <div
-                                    class="col-md-10 col-md-offset-1">
-                                    <img class="img-responsive"
-                                         src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div
+                                class="col-md-5 col-md-offset-1">
+                                <h2>Description</h2>
+
+                                <?php echo $description; ?>
                             </div>
-                            <div class="row">
-                                <div
-                                    class="col-md-5 col-md-offset-1">
-                                    <h2>Description</h2>
-
-                                    <?php echo $description; ?>
-                                </div>
-                                <div
-                                    class="col-md-3 col-md-offset-2 text-center">
-                                    <h2>Rating</h2>
-                                    <?php echo $voteCount;
-                                    echo " Votes"; ?>
+                            <div
+                                class="col-md-3 col-md-offset-2 text-center">
+                                <h2>Rating</h2>
+                                <?php echo $voteCount;
+                                echo " Votes"; ?>
 
 
-                                    <!--     <span
-                                            class="glyphicon glyphicon-star"></span>
-                                        <span
-                                            class="glyphicon glyphicon-star"></span>
-                                        <span
-                                            class="glyphicon glyphicon-star"></span>
-                                        <span
-                                            class="glyphicon glyphicon-star"></span>
-                                        <span
-                                           class="glyphicon glyphicon-star"></span> -->
+                                <!--     <span
+                                        class="glyphicon glyphicon-star"></span>
+                                    <span
+                                        class="glyphicon glyphicon-star"></span>
+                                    <span
+                                        class="glyphicon glyphicon-star"></span>
+                                    <span
+                                        class="glyphicon glyphicon-star"></span>
+                                    <span
+                                       class="glyphicon glyphicon-star"></span> -->
 
-                                    <h2>Tags</h2>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            #iLoveTags
-                                        </li>
-                                        <li>
-                                            #mayTheForceBeWithYou
-                                        </li>
-                                        <li>
-                                            #imGoingOnAnAdventure
-                                        </li>
-                                        <li>
-                                            #youShallNotPass
-                                        </li>
-                                    </ul>
-                                </div>
+                                <h2>Tags</h2>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        #iLoveTags
+                                    </li>
+                                    <li>
+                                        #mayTheForceBeWithYou
+                                    </li>
+                                    <li>
+                                        #imGoingOnAnAdventure
+                                    </li>
+                                    <li>
+                                        #youShallNotPass
+                                    </li>
+                                </ul>
                             </div>
+                        </div>
 
-                            <div class="row">
-                                <div
-                                    class="col-md-5 col-md-offset-1 comments-section">
-                                    <h2>Comments <br></h2>
-                                </div
+                        <div class="row">
+                            <div
+                                class="col-md-5 col-md-offset-1 comments-section">
+                                <h2>Comments <br></h2>
+
+                                <form method = post>
+                                <textarea name='comment' id='comment'></textarea><br /
+                                <input type='submit' value='Submit' />
+                                </form>
+
                             </div
+                        </div
+
+                        <?php $commentArray[] = array();
 
 
-                            <?php
+                        $sql = "SELECT * FROM comments WHERE adv_id = $id";
+                        $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+                        while ($row = $res->fetch_assoc()) {
+                         $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
 
-                            $commentArray[] = array();
-
-
-                            $sql = "SELECT * FROM comments WHERE adv_id = $id";
-                            $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
-                            while ($row = $res->fetch_assoc()) {
-
-
-                            ?>
-
-
-                            <div class="row">
-                                <div
-                                    class="col-md-6 col-md-offset-1 comments-section">
+                            $stmt3->bind_param("i", $row['user_id']);
+                            $stmt3->execute();
+                            $stmt3->bind_result($commentFirstName, $commentLastName);
+                            $stmt3->store_result();
+                            if ($stmt3->num_rows() == 1) {
+                                while ($stmt3->fetch()) {?>
 
 
-                                    <section>
-                                        <div class="">
-                                            <label
-                                                class="">
-
-                                                <?php
-
-                                                $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
-
-                                                $stmt3->bind_param("i", $row['user_id']);
-                                                $stmt3->execute();
-                                                $stmt3->bind_result($commentFirstName, $commentLastName);
-                                                $stmt3->store_result();
-                                                if ($stmt3->num_rows() == 1) {
-                                                while ($stmt3->fetch()) {
+                        <div class="row">
+                        <div
+                            class="col-md-6 col-md-offset-1 comments-section">
 
 
-                                                echo $commentFirstName;
-                                                echo " ";
-                                                echo $commentLastName;
 
 
-                                                ?></label>
-                                            <label
-                                                class="pull-right"><?php echo $row['date']; ?></label>
-                                        </div>
+                        <section>
+                        <div class="">
+                        <label
+                            class=""><?php echo $commentFirstName; echo " "; echo $commentLastName; ?></label>
+                                    <label
+                                        class="pull-right"><?php echo $row['date']; ?></label>
+                                    </div>
 
-                                        <div
-                                            class="comment">
-                                            <?php echo $row['comment'];
-                                            ?>
+                                    <div
+                                        class="comment">
+                                        <?php echo $row['comment'];
+                                        ?>
 
-                                        </div>
+                                    </div>
                                     </section>
 
-                                </div>
-                            </div>
+                                    </div>
+                                    </div>
+                                <?php }
+                            }
+                        }
+                        }
+                        }
+                        }
+                        }
+                        }
 
+
+                        } ?>
+
+                                    </div>
+
+<div class="container">
+    <div class="row">
+        <div
+            class="col-md-10 col-md-offset-1">
+            <div
+                class="carousel slide article-slide"
+                id="adventureCarousel">
+                <div
+                    class="carousel-inner cont-slider">
+                    <?php $carouselRuns = 3 ?>
+                    <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                        <div
+                            class="item <?php if ($i == 0) echo "active"; ?>">
+                            <img
+                                src="http://placehold.it/1200x440/cccccc/ffffff">
                         </div>
-                    <?php }}  }
-                    }
-                }
-            }
-        }
-    }
+                        <div
+                            class="item">
+                            <img
+                                src="http://placehold.it/1200x440/999999/cccccc">
+                        </div>
+                    <?php endfor; ?>
+                </div>
 
-
-
-} ?>
-                        <div class="container">
-                            <div class="row">
-                                <div
-                                    class="col-md-10 col-md-offset-1">
-                                    <div
-                                        class="carousel slide article-slide"
-                                        id="adventureCarousel">
-                                        <div
-                                            class="carousel-inner cont-slider">
-                                            <?php $carouselRuns = 3 ?>
-                                            <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
-                                                <div
-                                                    class="item <?php if ($i == 0) echo "active"; ?>">
-                                                    <img
-                                                        src="http://placehold.it/1200x440/cccccc/ffffff">
-                                                </div>
-                                                <div
-                                                    class="item">
-                                                    <img
-                                                        src="http://placehold.it/1200x440/999999/cccccc">
-                                                </div>
-                                            <?php endfor; ?>
-                                        </div>
-
-                                        <!-- Controls -->
-                                        <a class="left carousel-control"
-                                           href="#adventureCarousel"
-                                           role="button"
-                                           data-slide="prev">
+                <!-- Controls -->
+                <a class="left carousel-control"
+                   href="#adventureCarousel"
+                   role="button"
+                   data-slide="prev">
                                                                     <span
                                                                         class="glyphicon glyphicon-chevron-left"></span>
-                                        </a>
-                                        <a class="right carousel-control"
-                                           href="#adventureCarousel"
-                                           role="button"
-                                           data-slide="next">
+                </a>
+                <a class="right carousel-control"
+                   href="#adventureCarousel"
+                   role="button"
+                   data-slide="next">
                                                                     <span
                                                                         class="glyphicon glyphicon-chevron-right"></span>
-                                        </a>
+                </a>
 
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators visible-lg visible-md">
-                                            <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
-                                                <li class="<?php if ($i == 0) echo "active"; ?>"
-                                                    data-slide-to="<?php echo 2 * $i; ?>"
-                                                    data-target="#adventureCarousel">
-                                                    <img alt=""
-                                                         title=""
-                                                         src="http://placehold.it/120x44/cccccc/ffffff">
-                                                </li>
-                                                <li class=""
-                                                    data-slide-to="<?php echo 2 * $i + 1; ?>"
-                                                    data-target="#adventureCarousel">
-                                                    <img alt=""
-                                                         title=""
-                                                         src="http://placehold.it/120x44/999999/cccccc">
-                                                </li>
-                                            <?php endfor; ?>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Indicators -->
+                <ol class="carousel-indicators visible-lg visible-md">
+                    <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                        <li class="<?php if ($i == 0) echo "active"; ?>"
+                            data-slide-to="<?php echo 2 * $i; ?>"
+                            data-target="#adventureCarousel">
+                            <img alt=""
+                                 title=""
+                                 src="http://placehold.it/120x44/cccccc/ffffff">
+                        </li>
+                        <li class=""
+                            data-slide-to="<?php echo 2 * $i + 1; ?>"
+                            data-target="#adventureCarousel">
+                            <img alt=""
+                                 title=""
+                                 src="http://placehold.it/120x44/999999/cccccc">
+                        </li>
+                    <?php endfor; ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 
-                        <script type="text/javascript">
-                            $('#adventureCarousel').carousel({
-                                interval: 4000
-                            });
-                        </script>
-
+<script type="text/javascript">
+    $('#adventureCarousel').carousel({
+        interval: 4000
+    });
+</script>
 
 
 </body>

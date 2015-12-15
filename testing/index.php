@@ -41,7 +41,7 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, p.file_ext, p.id, COUNT(vote) as rate FROM adventures A, votes V, photos P WHERE A.id = v.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY v.vote DESC LIMIT 5");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, v.vote, p.file_ext, p.id, COUNT(vote) AS rate FROM adventures A, votes V, photos P WHERE A.id = v.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY v.vote DESC LIMIT 5");
 if ($stmtAdventure) {
     if ($stmtAdventure->execute()) {
         $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $vote, $photoExt, $photoID, $voteCount);
@@ -112,13 +112,16 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-                <a href="#" class="btn btn-default">
-                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
-                </a>
-                <a class="btn btn-default" href="#"
-                   role="button">View details &raquo;
-                </a>
-                </h2>
+                <?php
+                if ($_POST['like']){
+                    $sql = new mysqli_stmt($mysqli,"UPDATE votes SET vote = vote+1 WHERE `adv_id` = '1'");
+                    $result=mysql_query($sql, $mysqli);
+                }
+                ?>
+
+                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                    <input type = "submit" name="like" value = "like"/>
+                </form>
             </div>
         </div>
     </div>
