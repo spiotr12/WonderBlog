@@ -6,9 +6,9 @@ require_once("./php/db_connect.php");
 $advId = $_POST['adv_id'];
 $userId = $_POST['user_id'];
 $comment = $_POST['comment'];
-$date = date("Y-m-d H:i:S");
+$date = date("Y-m-d H:i:s");
 
-echo var_dump($_POST);
+echo "dump: " . var_dump($_POST) . "<br><br>";
 
 
 $stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment, date) VALUES (?, ?, ?, ?)");
@@ -19,10 +19,10 @@ if ($stmt) {
     echo "stmt error";
 }
 
-echo $mysqli->error;
+echo "eror: " . $mysqli->error;
 
-//$mysqli->close();
+$mysqli->close();
 
-//header("location: ./adventure.php?id=$advId");
+header("location: ./adventure.php?id=$advId");
 
 ?>
