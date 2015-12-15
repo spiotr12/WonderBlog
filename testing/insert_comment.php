@@ -19,6 +19,8 @@ if ($stmt) {
     echo "stmt error";
 }
 
+echo $mysqli->error;
+
 //$mysqli->close();
 
 //header("location: ./adventure.php?id=$advId");
