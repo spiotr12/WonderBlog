@@ -38,25 +38,26 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 
+
 <div id="createform" class="container">
     <div class="row">
         <div class="col-md-12">
-            <form>
+            <form action="addAdventure.php" method="post">
                 <div class="form-group">
                     <label for="usr">Adventure Name:</label>
-                    <input type="text" class="form-control" id="usr" placeholder="Adventure Name">
+                    <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name">
 
                     <label for="usr">Country:</label>
-                    <input type="text" class="form-control" id="usr" placeholder="Country">
+                    <input type="text" class="form-control" name="country" placeholder="Country">
 
                     <label for="usr">City:</label>
-                    <input type="text" class="form-control" id="usr" placeholder="City">
+                    <input type="text" class="form-control" name="city" placeholder="City">
 
                     <label for="usr">Description:</label>
-                    <textarea class="form-control" id="usr"  rows="5" cols="80" >Description</textarea>
+                    <textarea class="form-control" name="description"  rows="5" cols="80" >Description</textarea>
 
                     <label for="usr">Date:</label>
-                    <input type="text" class="form-control" id="usr" placeholder="01/12/215">
+                    <input type="text" class="form-control" name="date" placeholder="01/12/215">
 
                     <div>
                         <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
