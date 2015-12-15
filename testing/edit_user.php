@@ -19,8 +19,8 @@ $stmt = new mysqli_stmt ($mysqli, "UPDATE users
 if ($stmt) {
     $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $userID);
     $stmt->execute();
-    $user_id = $stmt->insert_id;
-//vdhgfdh[
+
+
 }
 $str = 'Location:  ./author.php?id=' . $user_id;
 header($str);
