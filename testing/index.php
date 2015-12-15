@@ -112,7 +112,7 @@ if ($stmtAdventure) {
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
                     <?php
-                    $goToAdv = './adventure.php?id=' . $adventureID;
+                    $goToAdv = "./adventure.php?id='" . $stone['adventureID'];
                     ?>
                     <p><a class="btn btn-default" href="<?php echo $goToAdv; ?>" role="button">View details &raquo;</a></p>
 
