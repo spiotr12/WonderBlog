@@ -108,11 +108,11 @@ if ($stmtAdventure) {
                     src="./img/contents/<?php echo $photoID; ?>.<?php echo $photoExt; ?>"
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
-             <?php if ($login->isUserLoggedIn() == true): ?>
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
                 <form id = "h2" form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST"></form>
+                    <?php if ($login->isUserLoggedIn() == true): ?>
                     <input type = "submit" name="like" value = "like"/>
             </div>
         </div>
