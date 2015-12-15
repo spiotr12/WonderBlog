@@ -294,6 +294,51 @@ while ($stmt2->fetch()) {
             </div>
         </div>
 
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Info</h4>
+                    </div>
+                    <form action="" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="usr">First Name:</label>
+                                <input type="text" class="form-control" name="firstName" value="">
+
+                                <label for="usr">Second Name:</label>
+                                <input type="text" class="form-control" name="secondName" value="">
+
+                                <label for="usr">Description:</label>
+                                <textarea class="form-control" name="description"  rows="5" cols="80"></textarea>
+
+                                <label for="usr">Date Of Birth:</label>
+                                <input type="text" class="form-control" name="dob" value="">
+
+                                <label for="usr">Country:</label>
+                                <input type="text" class="form-control" name="country" value="">
+
+                                <input type="hidden" class="form-control" name="userID" value="">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-default" >Submit</button>
+
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
         <script type="text/javascript">
             $('#adventureCarousel').carousel({
                 interval: 4000
