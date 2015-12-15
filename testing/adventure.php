@@ -151,48 +151,70 @@ if ($stmt->num_rows() == 1) {
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div
+                                    class="col-md-5 col-md-offset-1 comments-section">
+                                    <h2>Comments <br></h2>
+                                </div
+                            </div
+
 
                             <?php
 
                             $commentArray[] = array();
 
 
-                            $sql = "SELECT * FROM comments  WHERE adv_id = 1";
-                            $res = $mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
-                            while($row = $res->fetch_assoc()) {
-
-                            // iterate over $result object one $row at a time
-                            // use fetch_array() to return an associative array
+                            $sql = "SELECT * FROM comments WHERE adv_id = $id";
+                            $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+                            while ($row = $res->fetch_assoc()) {
 
 
-                                // print out fields from row of data
-                                echo "<p>" . $row['comment'] . "</p>";
-                                }
                             ?>
 
 
                             <div class="row">
                                 <div
-                                    class="col-md-5 col-md-offset-1 comments-section">
-                                    <h2>Comments</h2>
+                                    class="col-md-6 col-md-offset-1 comments-section">
+
 
                                     <section>
                                         <div class="">
                                             <label
-                                                class=""><?php echo "commentName"; ?></label>
+                                                class="">
+
+                                                <?php
+
+                                                $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+
+                                                $stmt3->bind_param("i", $row['user_id']);
+                                                $stmt3->execute();
+                                                $stmt3->bind_result($commentFirstName, $commentLastName);
+                                                $stmt3->store_result();
+                                                if ($stmt3->num_rows() == 1) {
+                                                while ($stmt3->fetch()) {
+
+
+                                                echo $commentFirstName;
+                                                echo " ";
+                                                echo $commentLastName;
+
+
+                                                ?></label>
                                             <label
-                                                class="pull-right"><?php echo "commentDate"; ?></label>
+                                                class="pull-right"><?php echo $row['date']; ?></label>
                                         </div>
 
                                         <div
                                             class="comment">
-                                            <?php echo "comment" ?>
+                                            <?php echo $row['comment'];
+                                            ?>
 
                                         </div>
                                     </section>
 
                                 </div>
                             </div>
+                        <?php } ?>
                         </div>
                         <div class="container">
                             <div class="row">
@@ -266,13 +288,14 @@ if ($stmt->num_rows() == 1) {
 
                         <?php
                     }
+                    }
+                    }
                 }
             }
         }
+        //  }
+        // }
     }
-    //  }
-    // }
-
 
 }
 ?>
