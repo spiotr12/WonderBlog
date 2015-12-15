@@ -43,7 +43,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <div class="col-md-12">
             <form>
                 <div class="form-group">
-                    <label for="usr">First Name:Description:</label>
+                    <label for="usr">First Name:</label>
                     <input type="text" class="form-control" id="usr" value="">
 
                     <label for="usr">Second Name:</label>
@@ -59,6 +59,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <input type="text" class="form-control" id="usr" value="">
                 </div>
 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
+
+                </div>
+            </form>
         </div>
     </div>
 </div>
