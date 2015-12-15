@@ -109,14 +109,15 @@ while ($stmt2->fetch()) {
             <?php if ($login->isUserLoggedIn() == true): ?>
             <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
                 <input type = "submit" name="like" value = "like"/>
-                <?php endif;
+                <?php endif;?>
+                <?php
                 if ($_POST['like']){
                 mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE adv_id = $id");
                 }
                 ?>
 
                 <?php echo $voteCount;
-            echo " Votes"; ?>
+            echo " Like(s)"; ?>
 
 
             <!--     <span
