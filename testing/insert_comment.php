@@ -14,11 +14,8 @@ $stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment
     $stmt->execute();
 
 
-
-
-
 $mysqli->close();
 
-header("location: ./adventure.php?id=$advId");
+//header("location: ./adventure.php?id=$advId");
 
 ?>
