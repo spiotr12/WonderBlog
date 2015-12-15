@@ -112,23 +112,12 @@ while ($stmt2->fetch()) {
 
                 <?php
                 if ($_POST['like']){
-                mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE adv_id = $id");
+                mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE adv_id = 1");
                 }
                 ?>
                 <?php echo $voteCount;
             echo " Like(s)"; ?>
-
-
-            <!--     <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                   class="glyphicon glyphicon-star"></span> -->
+                
 
             <h2>Tags</h2>
             <ul class="list-unstyled">
