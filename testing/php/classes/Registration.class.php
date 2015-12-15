@@ -51,20 +51,22 @@ class Registration {
                 $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
 
                 // check if user or email address already exists
-                $stmt = new mysqli_stmt($this->db_connection, "SELECT * FROM users WHERE email = ?");
-                $stmt->bind_param("s", $user_email);
-                $stmt->execute();
+                //TODO change it to prepared statement
+                $sql = "SELECT * FROM users WHERE email = '" . $user_email . "';";
+                $query_check_user_name = $this->db_connection->query($sql);
 
-
-                if ($stmt->num_rows() == 1) {
+                if ($query_check_user_name->num_rows == 1) {
                     $this->errors[] = "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $stmt = new mysqli_stmt($this->db_connection, "INSERT INTO users (first_name, last_name, password, email) VALUES (?, ?, ?, ?);");
-                    $stmt->bind_param("ssss", $user_first_name, $user_last_name, $user_password_hash, $user_email);
-                    echo var_dump($stmt);
+                    //TODO change it to prepared statement
+                    $sql = "INSERT INTO users (first_name, last_name, password, email)
+                            VALUES('" . $user_first_name . "', '" . $user_last_name . "', '" . $user_password_hash . "', '" . $user_email . "');";
+                    $query_new_user_insert = $this->db_connection->query($sql);
+                    $stmt = new mysqli_stmt($this->db_connection, "INSERT INTO users (first_name, last_name, password, email) VALUSE");
+
                     // if user has been added successfully
-                    if ($stmt->execute()) {
+                    if ($query_new_user_insert) {
                         $this->messages[] = "Your account has been created successfully. You can now log in.";
                     } else {
                         $this->errors[] = "Sorry, your registration failed. Please go back and try again.";
