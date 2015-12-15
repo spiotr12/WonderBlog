@@ -35,7 +35,7 @@ try {
     }
 
     // You should also check filesize here.
-    if ($photoFile['size'] > 1000000) {
+    if ($photoFile['size'] > 5242880) {
         throw new RuntimeException('Exceeded filesize limit.');
     }
 
