@@ -109,7 +109,7 @@ if ($stmtAdventure) {
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description']; ?></p>
-                <p><?php echo $stone['vote']; ?></p>
+                <p><?php echo $stone['voteCount']; ?></p>
             </div>
         </div>
     </div>
