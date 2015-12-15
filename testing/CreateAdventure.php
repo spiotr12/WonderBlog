@@ -41,10 +41,10 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <!-- Modal -->
 <div id="createAdventure" class="modal fade" role="dialog">
-<!--    <div class="modal-dialog">-->
+   <div class="modal-dialog">
 
         <!-- Modal content-->
-       <div class="modal-content">
+<!--       <div class="modal-content">-->
            <div class="modal-header">
            </div>
             <div class="modal-body">
