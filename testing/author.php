@@ -78,9 +78,9 @@ if ($stmt1->num_rows() == 1) {
 
                         <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
-                        <p>Date of Birth: <?php echo $dob ?></p>
+                        <p>Date of Birth: <?php echo $dob; ?></p>
 
-                        <p>Country: <?php echo $country ?></p>
+                        <p>Country: <?php echo $country; ?></p>
 
                         <p>Adventures: <?php echo $adventure_no; ?> </p>
 
@@ -96,7 +96,8 @@ if ($stmt1->num_rows() == 1) {
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
-                                <div class="modal-content">
+                                    <form action="edit_user.php" method="post">
+                                        <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Edit Info</h4>
@@ -104,19 +105,21 @@ if ($stmt1->num_rows() == 1) {
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="usr">First Name:</label>
-                                            <input type="text" class="form-control" id="usr" value="<?php echo $first_name;?>">
+                                            <input type="text" class="form-control" id="firstName" value="<?php echo $first_name;?>">
 
                                             <label for="usr">Second Name:</label>
-                                            <input type="text" class="form-control" id="usr" value="<?php echo $last_name;?>">
+                                            <input type="text" class="form-control" id="secondName" value="<?php echo $last_name;?>">
 
                                             <label for="usr">Description:</label>
-                                            <textarea class="form-control" id="usr"  rows="5" cols="80" value="<?php echo $description;?>"></textarea>
+                                            <textarea class="form-control" id="description"  rows="5" cols="80" value="<?php echo $description;?>"></textarea>
 
                                             <label for="usr">Date Of Birth:</label>
-                                            <input type="text" class="form-control" id="usr" value="<?php echo $dob;?>">
+                                            <input type="text" class="form-control" id="dob" value="<?php echo $dob;?>">
 
                                             <label for="usr">Country:</label>
-                                            <input type="text" class="form-control" id="usr" value="<?php echo $country;?>">
+                                            <input type="text" class="form-control" id="country" value="<?php echo $country;?>">
+
+                                            <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -125,7 +128,7 @@ if ($stmt1->num_rows() == 1) {
 
                                     </div>
                                 </div>
-
+                                    </form>
                             </div>
                         </div>
 
