@@ -186,7 +186,8 @@ if ($stmt->num_rows() == 1) {
 
                                         <div
                                             class="comment">
-                                            <?php  echo $row['comment']; ?>
+                                            <?php echo $row['comment'];
+                                            }?>
 
                                         </div>
                                     </section>
@@ -272,7 +273,7 @@ if ($stmt->num_rows() == 1) {
         }
         //  }
         // }
-    }
+
 
 }
 ?>
