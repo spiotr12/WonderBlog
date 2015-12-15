@@ -331,8 +331,9 @@ while ($stmt2->fetch()) {
                             <button type="submit" class="btn btn-default" >Submit</button>
 
                         </div>
+                    </form>
                 </div>
-                </form>
+
             </div>
         </div>
 
