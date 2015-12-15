@@ -217,7 +217,7 @@ if ($stmt->num_rows() == 1) {
 
                                         $query = "INSERT INTO `comments` (`id`, `user_id`, `comment`, `date`, `adv_id`) VALUES ('NULL', '1', $users_comment, CURRENT_TIMESTAMP , $id);";
 
-                                        mysql_query($query);
+                                        mysqli_query($query);
 
                                     }
                                     ?>
