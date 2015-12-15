@@ -148,17 +148,7 @@ if ($stmt->num_rows() == 1) {
                             </div
 
 
-                            <?php
 
-                            $commentArray[] = array();
-
-
-                            $sql = "SELECT * FROM comments WHERE adv_id = $id";
-                            $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
-                            while ($row = $res->fetch_assoc()) {
-
-
-                            ?>
 
 
                             <div class="row">
@@ -172,6 +162,14 @@ if ($stmt->num_rows() == 1) {
                                                 class="">
 
                                                 <?php
+                                $commentArray[] = array();
+
+
+                                $sql = "SELECT * FROM comments WHERE adv_id = $id";
+                                $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+                                while ($row = $res->fetch_assoc()) {
+
+
 
                                                 $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
 
