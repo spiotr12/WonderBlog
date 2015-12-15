@@ -19,4 +19,4 @@ if ($stmt) {
 $mysqli->close();
 
 
-//header("location: ./adventure.php?id=$advId");
+header("location: ./adventure.php?id=$advId");
