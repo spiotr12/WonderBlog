@@ -8,16 +8,21 @@ $userId = $_POST['user_id'];
 $comment = $_POST['comment'];
 $date = date("Y-m-d H:i:S");
 
+echo "dump: " . var_dump($_POST) . "<br><br>";
+
 
 $stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment, date) VALUES (?, ?, ?, ?)");
-if($stmt){
-    $stmt->bind_param("i",$userId, $advId, comment);
-    $stmt->bind_param("s",$date);
+if ($stmt) {
+    $stmt->bind_param("iiss", $userId, $advId, $comment, $date);
     $stmt->execute();
+} else {
+    echo "stmt error";
 }
 
+echo "eror: " . $mysqli->error;
 
+//$mysqli->close();
 
+//header("location: ./adventure.php?id=$advId");
 
-$mysqli->close();
 ?>

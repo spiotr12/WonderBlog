@@ -202,7 +202,7 @@ while ($stmt2->fetch()) {
         <div
             class="col-md-5 col-md-offset-1 comments-section">
             <form action="insert_comment.php" method=post>
-                <textarea rows="3" cols="80" name='comment' id='comment'></textarea><br/>
+                <textarea rows="3" cols="80" name='comment' id='comment' placeholder="Insert comment here"></textarea><br/>
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <input type='submit'/>

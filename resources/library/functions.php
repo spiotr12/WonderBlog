@@ -43,3 +43,27 @@ function showPotentialErrors($object){
         }
     }
 }
+
+/**
+ * Compares adventure ID and author ID to see if the adventure was created by that author
+ *
+ * @param $mysqli
+ * @param $authorId
+ * @param $adventureId
+ * @return bool
+ */
+function isOwner($mysqli, $authorId, $adventureId){
+    $stmt = new mysqli_stmt($mysqli, "SELECT user_id FROM adventures WHERE id = ?");
+    if($stmt){
+        $stmt->bind_param('i', $adventureId);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_object();
+        if($authorId == $result->user_id){
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } else {
+        return FALSE;
+    }
+}
