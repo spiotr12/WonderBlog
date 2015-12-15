@@ -40,14 +40,12 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div id="top1" class="container">
     <div class="row">
-        <div class="col-md-3">
-            <img
-                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
-                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
-        </div>
-        <div class="col-md-9">
-
-
+        <div class="col-md-12">
+            <form>
+                <fieldset class="form-group">
+                    <label for="formGroupExampleInput">Example label</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </fieldset>
         </div>
     </div>
 </div>
