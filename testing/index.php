@@ -114,8 +114,7 @@ if ($stmtAdventure) {
                 <p><?php echo $stone['vote'] ?></p>
                 <?php
                 if ($_POST['like']){
-                    $sql = "UPDATE votes SET vote = vote+1 WHERE `adv_id` = '1'";
-                    $result=mysql_query($sql);
+                   mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE `adv_id` = '1'");
                 }
                 ?>
 
