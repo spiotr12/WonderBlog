@@ -109,6 +109,7 @@ while ($stmt2->fetch()) {
             <?php if ($login->isUserLoggedIn() == true): ?>
             <form action="like_adv.php" method="post">
                 <input type = "submit" name="like" value = "like"/>
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <?php endif; ?>
 
