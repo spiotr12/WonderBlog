@@ -107,13 +107,13 @@ while ($stmt2->fetch()) {
             <h2>Rating</h2>
 
             <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-            {
+
             <form action="admin_vote.php" method=post>
                 Change likes by: <input type='text' name='votes' id='votes' />
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <input type='submit'/>
 
-            }
+
 
 
 
