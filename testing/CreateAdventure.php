@@ -38,7 +38,19 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 
+<div id="top1" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img
+                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+        </div>
+        <div class="col-md-9">
 
+
+        </div>
+    </div>
+</div>
 
 </body>
 
