@@ -5,7 +5,7 @@
  * Date: 15/12/2015
  * Time: 11:21
  */
-// require specific files
+// require specific filesvcvcb b
 require_once("../../resources/config.php");
 require_once("./db_connect.php");
 
@@ -64,20 +64,14 @@ try {
     if ($stmt) {
         $stmt->bind_param("iiss", $_POST['user_id'], $_POST['adv_id'], $ext, $dateNow);
         if ($stmt->execute()) {
+            $id = $stmt->insert_id;
             $success = TRUE;
         }
     }
 
     // On this example, obtain safe unique name from its binary data.
     if ($success) {
-        if (!move_uploaded_file(
-            $photoFile['tmp_name'],
-            sprintf('../img/contents/%s.%s',
-                sha1_file($photoFile['tmp_name']),
-                $ext
-            )
-        )
-        ) {
+        if (!move_uploaded_file($photoFile['tmp_name'], sprintf('../img/contents/%s.%s', $id, $ext))) {
             throw new RuntimeException('Failed to move uploaded file.');
         }
     } else {
