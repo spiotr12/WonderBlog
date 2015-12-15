@@ -211,7 +211,7 @@ if ($stmtAdventure) {
             $temp_arr = array(
                 'id' => $ad_id,
                 'description' => $ad_description,
-                //'progress' => $ad_progress
+
             );
             array_push($adventure, $temp_arr);
         }
