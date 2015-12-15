@@ -152,29 +152,25 @@ if ($stmt->num_rows() == 1) {
                             </div>
 
 
-                            <?php
 
-                            $commentArray[] = array();
-
-
-                            $sql = "SELECT * FROM comments WHERE adv_id = $id";
-                            $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
-                            while ($row = $res->fetch_assoc()) {
-
-                            // iterate over $result object one $row at a time
-                            // use fetch_array() to return an associative array
-
-
-                            // print out fields from row of data
-
-
-                            ?>
 
 
                             <div class="row">
                                 <div
                                     class="col-md-5 col-md-offset-1 comments-section">
                                     <h2>Comments</h2>
+
+                                    <?php
+
+                                    $commentArray[] = array();
+
+
+                                    $sql = "SELECT * FROM comments WHERE adv_id = $id";
+                                    $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+                                    while ($row = $res->fetch_assoc()) {
+
+
+                                    ?>
 
                                     <section>
                                         <div class="">
