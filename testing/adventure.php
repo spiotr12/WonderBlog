@@ -194,10 +194,10 @@ if ($stmt->num_rows() == 1) {
                                                 while ($stmt3->fetch()) {
 
 
-                                                echo $commentFirstName;
-                                                echo " ";
-                                                echo $commentLastName;
-
+                                                    echo $commentFirstName;
+                                                    echo " ";
+                                                    echo $commentLastName;
+                                                }
 
                                                 ?></label>
                                             <label
@@ -214,7 +214,7 @@ if ($stmt->num_rows() == 1) {
 
                                 </div>
                             </div>
-                        <?php }} ?>
+                        <?php } ?>
                         </div>
                         <div class="container">
                             <div class="row">
