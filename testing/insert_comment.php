@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../resources/config.php");
+require_once("../resources/config.php");
 require_once("./db_connect.php");
 
 $advId = $_POST['adv_id'];
