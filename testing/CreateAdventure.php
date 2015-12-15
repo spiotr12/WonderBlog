@@ -38,11 +38,33 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 
-<form>
-    <fieldset class="form-group">
-        <label for="formGroupExampleInput">Example label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-    </fieldset>
+<div id="top1" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <label for="usr">First Name:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+
+                    <label for="usr">Second Name:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+
+                    <label for="usr">Description:</label>
+                    <textarea class="form-control" id="usr"  rows="5" cols="80" ></textarea>
+
+                    <label for="usr">Date Of Birth:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+
+                    <label for="usr">Country:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 
