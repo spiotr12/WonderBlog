@@ -109,12 +109,12 @@ if ($stmtAdventure) {
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
-                <p> <?php echo $stone['description'] ?></p> 
+                <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-                    <?php
-                    $goToAdv = "./adventure.php?id='" . $stone['adventureID'];
-                    ?>
-                    <p><a class="btn btn-default" href="<?php echo $goToAdv; ?>" role="button">View details &raquo;</a></p>
+<!--                    --><?php
+//                    $goToAdv = "./adventure.php?id='" . $stone['adventureID'];
+//                    ?>
+<!--                    <p><a class="btn btn-default" href="--><?php //echo $goToAdv; ?><!--" role="button">View details &raquo;</a></p>-->
 
             </div>
         </div>
