@@ -96,12 +96,13 @@ if ($stmt1->num_rows() == 1) {
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
-                                    <form action="edit_user.php" method="post">
+
                                         <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Edit Info</h4>
                                     </div>
+                                            <form action="edit_user.php" method="post">
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="usr">First Name:</label>
