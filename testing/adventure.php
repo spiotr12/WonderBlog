@@ -151,7 +151,7 @@ if ($stmt->num_rows() == 1) {
                                 </div>
                             </div>
 
-                            <?php $sql_query = "SELECT * FROM comments  WHERE adv_id LIKE $id";
+                            <?php $sql_query = "SELECT * FROM comments  WHERE adv_id = 1";
 
 
                             $result = $mysqli->query($sql_query);
