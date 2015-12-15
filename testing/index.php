@@ -118,7 +118,7 @@ if ($stmtAdventure) {
                     <?php
                     $goToAdv = './adventure.php?id=' . $adventureID;
                     ?>
-                    <p><a class="btn btn-default" href='<?php echo $goToAdv; ?>' role="button">View details &raquo;</a></p>
+                    <p><a class="btn btn-default" href="<?php echo $goToAdv; ?>" role="button">View details &raquo;</a></p>
 
             </div>
         </div>
