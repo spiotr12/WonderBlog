@@ -103,7 +103,7 @@ if ($stmt1->num_rows() == 1) {
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="usr">First Name:Description:</label>
+                                            <label for="usr">First Name:</label>
                                             <input type="text" class="form-control" id="usr" value="<?php echo $first_name;?>">
 
                                             <label for="usr">Second Name:</label>
