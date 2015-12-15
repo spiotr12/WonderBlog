@@ -6,7 +6,7 @@ require_once("./php/db_connect.php");
 $advId = $_POST['adv_id'];
 $userId = $_POST['user_id'];
 $comment = $_POST['comment'];
-$date = date("Y-m-d H:i:S");
+$date = date("Y-m-d H:i:s");
 
 echo "dump: " . var_dump($_POST) . "<br><br>";
 
@@ -21,7 +21,7 @@ if ($stmt) {
 
 echo "eror: " . $mysqli->error;
 
-//$mysqli->close();
+$mysqli->close();
 
 //header("location: ./adventure.php?id=$advId");
 
