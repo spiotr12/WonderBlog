@@ -106,32 +106,50 @@ while ($stmt2->fetch()) {
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
 
-            <?php if ($login->isUserLoggedIn() == true): ?>
+            <?php if (privelegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+            {
+            <form action="admin_vote.php" method=post>
+                Change likes by: <input type='text' name='votes' id='votes' />
+                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                <input type='submit'/>
+
+            }
+
+
+
+                <?php endif; ?>
+
+
+
+
+
+
+           <?php if ($login->isUserLoggedIn() == true): ?>
             <form action="like_adv.php" method="post">
-                <input type = "submit" name="like" value = "like"/>
+                <input type="submit" name="like" value="like"/>
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <?php endif; ?>
 
                 <?php echo $voteCount;
-            echo " Like(s)"; ?>
-                
+                echo " Like(s)"; ?>
 
-            <h2>Tags</h2>
-            <ul class="list-unstyled">
-                <li>
-                    #iLoveTags
-                </li>
-                <li>
-                    #mayTheForceBeWithYou
-                </li>
-                <li>
-                    #imGoingOnAnAdventure
-                </li>
-                <li>
-                    #youShallNotPass
-                </li>
-            </ul>
+
+                <h2>Tags</h2>
+                <ul class="list-unstyled">
+                    <li>
+                        #iLoveTags
+                    </li>
+                    <li>
+                        #mayTheForceBeWithYou
+                    </li>
+                    <li>
+                        #imGoingOnAnAdventure
+                    </li>
+                    <li>
+                        #youShallNotPass
+                    </li>
+                </ul>
         </div>
     </div>
 
@@ -198,12 +216,15 @@ while ($stmt2->fetch()) {
     <div class="row">
         <div
             class="col-md-5 col-md-offset-1 comments-section">
+            <?php if ($login->isUserLoggedIn() == true): ?>
             <form action="insert_comment.php" method=post>
-                <textarea rows="3" cols="80" name='comment' id='comment' placeholder="Insert comment here"></textarea><br/>
+                <textarea rows="3" cols="80" name='comment' id='comment'
+                          placeholder="Insert comment here"></textarea><br/>
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <input type='submit'/>
             </form>
+            <?php endif; ?>
             <br>
 
 
