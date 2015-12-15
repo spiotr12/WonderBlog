@@ -144,8 +144,8 @@ if ($stmt->num_rows() == 1) {
                                 <h2>Comments <br></h2>
 
                                 <form method = post>
-                                <textarea name='comment' id='comment'></textarea><br />
-                                <input type='submit' value='Submit' />
+                                <textarea rows = "3" cols = "75" name='comment' id='comment'></textarea><br />
+                                <input type='submit' value='Submit'<br> />
 
                                 </form>
 
