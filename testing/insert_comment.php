@@ -11,7 +11,7 @@ $date = date("Y-m-d H:i:S");
 
 $stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment, date) VALUES (?, ?, ?, ?)");
 if($stmt){
-    $stmt->bind_param("i",$userId, $advId, comment);
+    $stmt->bind_param("i",$userId, $advId, $comment);
     $stmt->bind_param("s",$date);
     $stmt->execute();
 }
