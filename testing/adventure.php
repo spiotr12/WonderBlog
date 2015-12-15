@@ -201,25 +201,11 @@ if ($stmt->num_rows() == 1) {
                             <div class="row">
                                 <div
                             class="col-md-5 col-md-offset-1 comments-section">
-                            <form method = post>
+                            <form action="insert_comment.php" method = post>
                                 <textarea rows = "3" cols = "80" name='comment' id='comment'></textarea><br />
-                                <input type='submit' value='Submit' />
+                                <input type='submit'  />
                             </form>
                            <br>
-
-                                    <?php
-                                    if( $_POST )
-                                    {
-
-                                        $users_comment = $_POST['comment'];
-
-                                        $stmt6 = new mysqli_stmt($mysqli, "INSERT INTO `comments` (`id`, `user_id`, `comment`, `date`, `adv_id`) VALUES ('NULL', '1', $users_comment, CURRENT_TIMESTAMP , $id)");
-
-
-
-                                    }
-                                    ?>
-
 
 
                                     </div>
