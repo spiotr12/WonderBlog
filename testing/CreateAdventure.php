@@ -35,45 +35,14 @@ $js = array(
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
 <body>
-
 <?php require_once("../resources/templates/menu.php"); ?>
 
 
-<!-- Modal -->
-<div id="createAdventure" class="modal fade" role="dialog">
-   <div class="modal-dialog">
-
-        <!-- Modal content-->
-<!--       <div class="modal-content">-->
-<!--           <div class="modal-header">-->
-<!--           </div>-->
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="usr">First Name:Description:</label>
-                    <input type="text" class="form-control" id="usr" value="">
-
-                    <label for="usr">Second Name:</label>
-                    <input type="text" class="form-control" id="usr" value="">
-
-                    <label for="usr">Description:</label>
-                    <textarea class="form-control" id="usr"  rows="5" cols="80"></textarea>
-
-                    <label for="usr">Date Of Birth:</label>
-                    <input type="text" class="form-control" id="usr" value="">
-
-                    <label for="usr">Country:</label>
-                    <input type="text" class="form-control" id="usr" value=" ">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
-
-            </div>
-        </div>
-
-    </div>
-<!--</div>-->
+<form>
+    <fieldset class="form-group">
+        <label for="formGroupExampleInput">Example label</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    </fieldset>
 
 </body>
 

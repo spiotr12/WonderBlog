@@ -37,7 +37,7 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                     <?php endif; ?>
 
                     <li>
-                        <a href="./CreateAdventure.php" data-toggle="modal" data-target="#createAdventure">Create Adventure</a>
+                        <a href="./CreateAdventure.php">Create Adventure</a>
                     </li>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
