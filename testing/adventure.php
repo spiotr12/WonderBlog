@@ -142,13 +142,6 @@ if ($stmt->num_rows() == 1) {
                             <div
                                 class="col-md-5 col-md-offset-1 comments-section">
                                 <h2>Comments <br></h2>
-
-                                <form method = post>
-                                <textarea name='comment' id='comment'></textarea><br />
-                                <input type='submit' value='Submit' />
-
-                                </form>
-
                             </div
                         </div
 
@@ -204,6 +197,15 @@ if ($stmt->num_rows() == 1) {
 
 
                         } ?>
+
+                            <div class="row">
+                                <div
+                            class="col-md-5 col-md-offset-1 comments-section">
+                            <form method = post>
+                                <textarea rows = "3" cols = "80" name='comment' id='comment'></textarea><br />
+                                <input type='submit' value='Submit' />
+                            </form>
+                           <br>
 
                                     </div>
 
