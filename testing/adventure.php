@@ -311,8 +311,8 @@ while ($stmt2->fetch()) {
                     <form action="edit_adventure.php" method="post">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="usr">adventure Name:</label>
-                                <input type="text" class="form-control" name="adventureName" value="">
+                                <label for="usr">Adventure Name:</label>
+                                <input type="text" class="form-control" name="adventureName" value="<?php echo $adventureName ?>">
 
                                 <label for="usr">Country:</label>
                                 <input type="text" class="form-control" name="country" value="">
@@ -321,9 +321,9 @@ while ($stmt2->fetch()) {
                                 <input type="text" class="form-control" name="city" value="">
 
                                 <label for="usr">Description:</label>
-                                <textarea class="form-control" name="description"  rows="5" cols="80"></textarea>
+                                <textarea class="form-control" name="description"  rows="5" cols="80"><?php echo $description; ?></textarea>
 
-                                <input type="text" class="form-control" name="adventureID" value="<?php echo $id;?>">
+                                <input type="hidden" class="form-control" name="adventureID" value="<?php echo $id;?>">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -331,8 +331,9 @@ while ($stmt2->fetch()) {
                             <button type="submit" class="btn btn-default" >Submit</button>
 
                         </div>
+                    </form>
                 </div>
-                </form>
+
             </div>
         </div>
 

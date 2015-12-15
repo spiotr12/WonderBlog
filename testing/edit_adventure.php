@@ -8,19 +8,19 @@ $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
 $description = $_POST["description"];;
-$adventure_id = $_POST["userID"];
+$adventure_id = $_POST["adventureID"];
 
 
 
-//$stmt = new mysqli_stmt ($mysqli, "UPDATE users
-//        SET first_name = ?, last_name = ?, description = ?, country = ?, dob = ? WHERE id= ?");
-//
-//if ($stmt) {
-//    $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $user_id);
-//    $stmt->execute();
-//
-//
-//}
-//$str = 'Location:  ./author.php?id=' . $user_id;
-//header($str);
+$stmt = new mysqli_stmt ($mysqli, "UPDATE adventures
+       SET name = ?, country = ?, city = ?, description = ? WHERE id= ?");
+
+if ($stmt) {
+    $stmt->bind_param("ssssi", $adventureName, $country, $city, $description, $adventure_id);
+    $stmt->execute();
+
+
+}
+$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+header($str);
 ?>
