@@ -72,7 +72,9 @@ renderHeader("Admin Tools", $meta, $css, $js);
             <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
         <form class="form" name="upload_file" method="post" action="./php/upload_photo.php" enctype="multipart/form-data">
-            <input class="" type="file" name="photo[]">
+            <label class="label">upload photo</label>
+            <input class="" type="file" name="photos">
+            <button type="submit" name="submit">Submit</button>
         </form>
     </div>
 </div>
