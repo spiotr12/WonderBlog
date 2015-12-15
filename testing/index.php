@@ -112,9 +112,9 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                <form id = "h2" form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST"</form>
                     <input type = "submit" name="like" value = "like"/>
-                </form>
+                </formform>
             </div>
         </div>
     </div>
