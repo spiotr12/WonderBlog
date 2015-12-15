@@ -111,12 +111,8 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-                <?php if ($login->isUserLoggedIn() == true): ?>
-                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-                    <input type = "submit" name="like" value = "like"/>
-                    <?php endif; ?>
                     <?php
-                    $goToAdv = './adventure.php?id=' . $adventureID;
+                    $goToAdv = "./adventure.php?id='" . $stone['adventureID'];
                     ?>
                     <p><a class="btn btn-default" href="<?php echo $goToAdv; ?>" role="button">View details &raquo;</a></p>
 
@@ -127,10 +123,5 @@ if ($stmtAdventure) {
 }
 ?>
 
-<?php
-if ($_POST['like']){
-    mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE `adv_id` = 1");
-}
-?>
 </body>
 </html>
