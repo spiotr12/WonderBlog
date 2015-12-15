@@ -33,7 +33,16 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                         <li>
                             <a href="./admin.php">Admin</a>
                         </li>
+
                     <?php endif; ?>
+
+                    <li>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Create Adventure</h4>
+                            </div>
+                    </li>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
                 <?php endif; ?>
