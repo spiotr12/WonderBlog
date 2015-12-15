@@ -294,6 +294,8 @@ while ($stmt2->fetch()) {
             </div>
         </div>
 
+        <?php
+        if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
 
@@ -320,7 +322,7 @@ while ($stmt2->fetch()) {
                                 <label for="usr">City:</label>
                                 <input type="text" class="form-control" name="city" value="">
 
-                                <label for="usr"><?php echo $_SESSION['id']; ?></label>
+                                <label for="usr">Description;</label>
                                 <textarea class="form-control" name="description"  rows="5" cols="80"><?php echo $description; ?></textarea>
 
                                 <input type="hidden" class="form-control" name="adventureID" value="<?php echo $id;?>">
@@ -336,7 +338,8 @@ while ($stmt2->fetch()) {
 
             </div>
         </div>
-
+        <?php }
+        ?>
         <script type="text/javascript">
             $('#adventureCarousel').carousel({
                 interval: 4000
