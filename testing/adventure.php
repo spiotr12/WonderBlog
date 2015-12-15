@@ -174,7 +174,7 @@ if ($stmt->num_rows() == 1) {
 
                             <div class="row">
                                 <div
-                                    class="col-md-5 col-md-offset-1 comments-section">
+                                    class="col-md-6 col-md-offset-1 comments-section">
 
 
                                     <section>
@@ -182,7 +182,7 @@ if ($stmt->num_rows() == 1) {
                                             <label
                                                 class=""><?php echo $row['user_id']; ?></label>
                                             <label
-                                                class="pull-right"><?php echo $row['date'] . "</p>";; ?></label>
+                                                class="pull-right"><?php echo $row['date']; ?></label>
                                         </div>
 
                                         <div
