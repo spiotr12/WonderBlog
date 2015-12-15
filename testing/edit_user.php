@@ -13,13 +13,13 @@ $userID = $_POST["userID"];
 
 echo var_dump($_POST);
 
-$stmt = new mysqli_stmt ($mysqli, "UPDATE users (id, first_name, last_name, description, country, dob)
-        SET (?,?,?,?,?,?) WHERE id= ?");
+$stmt = new mysqli_stmt ($mysqli, "UPDATE users (first_name, last_name, description, country, dob)
+        SET (?,?,?,?,?) WHERE id= ?");
 if ($stmt) {
-    $stmt->bind_param("isssss", $userID, $firstName, $secondName, $description, $country, $dob);
+    $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $userID);
     $stmt->execute();
     $user_id = $stmt->insert_id;
-//vdhgfdh
+//vdhgfdh[
 }
 $str = 'Location:  ./adventure.php?id=' . $user_id;
 //header($str);
