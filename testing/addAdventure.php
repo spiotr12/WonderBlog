@@ -19,10 +19,16 @@ $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
 $description = $_POST["description"];
-$date = $_POST["date"];
+$date = date("Y-m-d H:i:s");
+$userID = $_POST["userID"];
 
-//mysql_query($mysqli, "INSERT INTO adventures(id, name, country, city, google_location, description, date)")
-//    VALUES('$adventureName', '$country', '$city', '$description','$date' );
+$stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, google_location, description, date)
+        VALUES(?,?,?,?,?,?,?)");
+if($stmt){
+    $stmt->bind_param("issssss",$userID, $adventureName, $country, $city, $description,$date );
+    $stmt->execute();
 
+
+}
 echo "Forename: " . $adventureName . " Surname: " . $country . " Date of Birth: " . $city . " Gender: " . $description . " Superpowers: " . $date;
 ?>
