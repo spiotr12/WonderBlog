@@ -165,9 +165,7 @@ if ($stmt->num_rows() == 1) {
                         <section>
                         <div class="">
                         <label
-                            class="">
-
-                        <?php
+                            class=""><?php
 
 
                             $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
@@ -180,9 +178,7 @@ if ($stmt->num_rows() == 1) {
                                 while ($stmt3->fetch()) {
 
 
-                                    echo $commentFirstName;
-                                    echo " ";
-                                    echo $commentLastName;
+                                    echo $commentFirstName; echo " "; echo $commentLastName;
 
 
                                     ?></label>
