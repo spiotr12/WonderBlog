@@ -19,7 +19,7 @@ if ($stmt) {
     $stmt->bind_param("isssss", $userID, $firstName, $secondName, $description, $country, $dob);
     $stmt->execute();
     $user_id = $stmt->insert_id;
-
+//vdhgfdh
 }
 $str = 'Location:  ./adventure.php?id=' . $user_id;
 //header($str);
