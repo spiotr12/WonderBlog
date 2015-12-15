@@ -8,12 +8,12 @@ $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
 $description = $_POST["description"];;
-$adventure_id = $_POST["userID"];
+$adventure_id = $_POST["adventureID"];
 
 
 
-//$stmt = new mysqli_stmt ($mysqli, "UPDATE users
-//        SET first_name = ?, last_name = ?, description = ?, country = ?, dob = ? WHERE id= ?");
+$stmt = new mysqli_stmt ($mysqli, "UPDATE adventures
+//        SET name = ?, last_name = ?, country = ?, city = ?, description = ? WHERE id= ?");
 //
 //if ($stmt) {
 //    $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $user_id);
