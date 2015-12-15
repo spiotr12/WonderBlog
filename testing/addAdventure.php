@@ -14,7 +14,7 @@ $login = new Login();
 ?>
 
 <?php
-header('Location:  ./index.php');
+
 $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
@@ -30,5 +30,18 @@ if($stmt){
 
 
 }
+echo "Forename: " . $adventureName . " Surname: " . $country . " Date of Birth: " . $city . " Gender: " . $description . " Superpowers: " . $date;
+?>
 
+<?php
+if(isset($_POST['submit'])){
+    $to = "ryanj1992@hotmail.co.uk"; // this is your Email address
+    $from = $_POST['adventureName']; // this is the sender's Email address
+    $subject = "Adventure Upload";
+    $message = "A new adventure has been uploaded";
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message);
+}
 ?>
