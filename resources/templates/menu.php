@@ -33,7 +33,11 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                         <li>
                             <a href="./admin.php">Admin</a>
                         </li>
+
                     <?php endif; ?>
+                    <li>
+                        <a href="">Create Adventure</a>
+                    </li>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
                 <?php endif; ?>
