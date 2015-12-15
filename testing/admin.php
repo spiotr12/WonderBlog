@@ -71,6 +71,9 @@ renderHeader("Admin Tools", $meta, $css, $js);
         <?php else: ?>
             <h2>You do not have a rights to access this page</h2>
         <?php endif; ?>
+        <form class="form" name="upload_file" method="post" action="./php/upload_photo.php" enctype="multipart/form-data">
+            <input class="" type="file" name="photo[]">
+        </form>
     </div>
 </div>
 <script type="text/javascript" src="./js/admin.js"></script>
