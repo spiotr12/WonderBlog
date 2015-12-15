@@ -13,14 +13,14 @@ $adventure_id = $_POST["adventureID"];
 
 
 $stmt = new mysqli_stmt ($mysqli, "UPDATE adventures
-//        SET name = ?, last_name = ?, country = ?, city = ?, description = ? WHERE id= ?");
-//
-//if ($stmt) {
-//    $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $user_id);
-//    $stmt->execute();
-//
-//
-//}
-//$str = 'Location:  ./author.php?id=' . $user_id;
-//header($str);
+       SET name = ?, country = ?, city = ?, description = ? WHERE id= ?");
+
+if ($stmt) {
+    $stmt->bind_param("ssssi", $adventureName, $country, $city, $description, $adventure_id);
+    $stmt->execute();
+
+
+}
+$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+header($str);
 ?>
