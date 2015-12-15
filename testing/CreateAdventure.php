@@ -45,8 +45,8 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
         <!-- Modal content-->
 <!--       <div class="modal-content">-->
-           <div class="modal-header">
-           </div>
+<!--           <div class="modal-header">-->
+<!--           </div>-->
             <div class="modal-body">
                 <div class="form-group">
                     <label for="usr">First Name:Description:</label>
