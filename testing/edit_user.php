@@ -11,7 +11,7 @@ $dob = $_POST["dob"];
 $country = $_POST["country"];
 $userID = $_POST["userID"];
 
-echo var_dump($_POST);
+
 
 $stmt = new mysqli_stmt ($mysqli, "UPDATE users
         SET first_name = ?, last_name = ?, description = ?, country = ?, dob = ? WHERE id= ?");
@@ -22,5 +22,5 @@ if ($stmt) {
 //vdhgfdh[
 }
 $str = 'Location:  ./adventure.php?id=' . $user_id;
-//header($str);
+header($str);
 ?>
