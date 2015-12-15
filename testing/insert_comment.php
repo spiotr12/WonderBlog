@@ -10,10 +10,9 @@ $date = date("Y-m-d H:i:S");
 
 
 $stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment, date) VALUES (?, ?, ?, ?)");
-if($stmt){
-    $stmt->bind_param("iiis",$userId, $advId, $comment, $date);
+    $stmt->bind_param("iiss",$userId, $advId, $comment, $date);
     $stmt->execute();
-}
+
 
 
 
