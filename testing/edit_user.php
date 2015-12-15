@@ -9,18 +9,19 @@ $secondName = $_POST["secondName"];
 $description = $_POST["description"];
 $dob = $_POST["dob"];
 $country = $_POST["country"];
-$userID = $_POST["userID"];
+$user_id = $_POST["userID"];
 
-echo var_dump($_POST);
 
-$stmt = new mysqli_stmt ($mysqli, "UPDATE users (id, first_name, last_name, description, country, dob)
-        SET (?,?,?,?,?,?) WHERE id= ?");
+
+$stmt = new mysqli_stmt ($mysqli, "UPDATE users
+        SET first_name = ?, last_name = ?, description = ?, country = ?, dob = ? WHERE id= ?");
+
 if ($stmt) {
-    $stmt->bind_param("isssss", $userID, $firstName, $secondName, $description, $country, $dob);
+    $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $user_id);
     $stmt->execute();
-    $user_id = $stmt->insert_id;
-//vdhgfdh
+
+
 }
-$str = 'Location:  ./adventure.php?id=' . $user_id;
-//header($str);
+$str = 'Location:  ./author.php?id=' . $user_id;
+header($str);
 ?>
