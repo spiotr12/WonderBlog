@@ -164,7 +164,7 @@ if ($stmt->num_rows() == 1) {
                                 // iterate over $result object one $row at a time
                                 // use fetch_array() to return an associative array
 
-                                while($row = $result->fetch_array()){
+                                while($row = $result->array_push()){
                                 // print out fields from row of data
                                 echo "<p>” . {$row}['comment'] . “</p>";
                                 }
