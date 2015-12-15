@@ -38,10 +38,9 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <?php require_once("../resources/templates/menu.php"); ?>
 
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="createAdventure" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -65,7 +64,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <input type="text" class="form-control" id="usr" value="">
 
                     <label for="usr">Country:</label>
-                    <input type="text" class="form-control" id="usr" value="">
+                    <input type="text" class="form-control" id="usr" value=" ">
                 </div>
             </div>
             <div class="modal-footer">
