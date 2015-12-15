@@ -8,8 +8,8 @@ $adventureID = $_POST["test"];
 $delete = new mysqli_stmt ($mysqli, "DELETE FROM adventures WHERE id = $adventureID");
 
 echo "DONE";
-$str = 'Location:  ./index;';
-header($str);
+//$str = 'Location:  ./index';
+//header($str);
 
 ?>
 
