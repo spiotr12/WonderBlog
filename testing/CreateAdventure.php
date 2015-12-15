@@ -34,7 +34,7 @@ $js = array(
 );
 renderHeader("WonderBlog!", $meta, $css, $js);
 ?>
-
+<body>
 
 <?php require_once("../resources/templates/menu.php"); ?>
 
@@ -77,9 +77,9 @@ renderHeader("WonderBlog!", $meta, $css, $js);
     </div>
 </div>
 
+</body>
 
-
-
+</html>
 
 
 
