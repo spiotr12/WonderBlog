@@ -14,7 +14,7 @@ $login = new Login();
 ?>
 
 <?php
-
+//header('Location:  ./index.php');
 $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
@@ -30,5 +30,5 @@ if($stmt){
 
 
 }
-echo "Forename: " . $adventureName . " Surname: " . $country . " Date of Birth: " . $city . " Gender: " . $description . " Superpowers: " . $date;
+
 ?>
