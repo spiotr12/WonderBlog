@@ -28,3 +28,18 @@ function privilegeCheck($mysqli, $id){
     }
     return $privilege;
 }
+
+function showPotentialErrors($object){
+    if (isset($object)) {
+        if ($object->errors) {
+            foreach ($object->errors as $error) {
+                echo $error;
+            }
+        }
+        if ($object->messages) {
+            foreach ($object->messages as $message) {
+                echo $message;
+            }
+        }
+    }
+}
