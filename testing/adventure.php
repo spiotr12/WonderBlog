@@ -311,7 +311,7 @@ while ($stmt2->fetch()) {
                     <form action="edit_adventure.php" method="post">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="usr">adventure Name:</label>
+                                <label for="usr">Adventure Name:</label>
                                 <input type="text" class="form-control" name="adventureName" value="<?php echo $adventureName ?>">
 
                                 <label for="usr">Country:</label>
