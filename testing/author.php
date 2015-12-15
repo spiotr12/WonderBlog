@@ -106,19 +106,19 @@ if ($stmt1->num_rows() == 1) {
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="usr">First Name:</label>
-                                            <input type="text" class="form-control" id="firstName" value="<?php echo $first_name;?>">
+                                            <input type="text" class="form-control" name="firstName" value="<?php echo $first_name;?>">
 
                                             <label for="usr">Second Name:</label>
-                                            <input type="text" class="form-control" id="secondName" value="<?php echo $last_name;?>">
+                                            <input type="text" class="form-control" name="secondName" value="<?php echo $last_name;?>">
 
                                             <label for="usr">Description:</label>
-                                            <textarea class="form-control" id="description"  rows="5" cols="80" value="<?php echo $description;?>"></textarea>
+                                            <textarea class="form-control" name="description"  rows="5" cols="80" value="<?php echo $description;?>"></textarea>
 
                                             <label for="usr">Date Of Birth:</label>
-                                            <input type="text" class="form-control" id="dob" value="<?php echo $dob;?>">
+                                            <input type="text" class="form-control" name="dob" value="<?php echo $dob;?>">
 
                                             <label for="usr">Country:</label>
-                                            <input type="text" class="form-control" id="country" value="<?php echo $country;?>">
+                                            <input type="text" class="form-control" name="country" value="<?php echo $country;?>">
 
                                             <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
                                         </div>
