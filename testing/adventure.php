@@ -83,196 +83,190 @@ if ($stmt->num_rows() == 1) {
                         //  $comment = array();
 
 
-                       //  $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, user_id, date FROM comments WHERE id = ?");
+                        //  $stmt4 = new mysqli_stmt($mysqli, "SELECT comment, user_id, date FROM comments WHERE id = ?");
 
-                      //   $stmt4->bind_param("i", $id);
-                      //   $stmt4->execute();
-                      //   $stmt4->bind_result($comment, $commentName, $commentDate);
-                      //   $stmt4->store_result();
-                      //   if ($stmt4->num_rows() == 1) {
-                       //  while ($stmt4->fetch()) {
-
-
+                        //   $stmt4->bind_param("i", $id);
+                        //   $stmt4->execute();
+                        //   $stmt4->bind_result($comment, $commentName, $commentDate);
+                        //   $stmt4->store_result();
+                        //   if ($stmt4->num_rows() == 1) {
+                        //  while ($stmt4->fetch()) {
 
 
+                        ?>
 
 
+                        <div class="container">
+                            <div class="row">
+                                <h1 class="text-center">
+                                    <?php echo $adventureName ?></h1>
+                            </div>
+                            <div class="row">
+                                <div
+                                    class="col-md-10 col-md-offset-1">
+                                    <img class="img-responsive"
+                                         src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div
+                                    class="col-md-5 col-md-offset-1">
+                                    <h2>Description</h2>
+
+                                    <?php echo $description; ?>
+                                </div>
+                                <div
+                                    class="col-md-3 col-md-offset-2 text-center">
+                                    <h2>Rating</h2>
+                                    <?php echo $voteCount;
+                                    echo " Votes"; ?>
+
+
+                                    <!--     <span
+                                            class="glyphicon glyphicon-star"></span>
+                                        <span
+                                            class="glyphicon glyphicon-star"></span>
+                                        <span
+                                            class="glyphicon glyphicon-star"></span>
+                                        <span
+                                            class="glyphicon glyphicon-star"></span>
+                                        <span
+                                           class="glyphicon glyphicon-star"></span> -->
+
+                                    <h2>Tags</h2>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            #iLoveTags
+                                        </li>
+                                        <li>
+                                            #mayTheForceBeWithYou
+                                        </li>
+                                        <li>
+                                            #imGoingOnAnAdventure
+                                        </li>
+                                        <li>
+                                            #youShallNotPass
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <?php $sql_query = "SELECT * FROM comments  WHERE adv_id = 1";
+
+
+                            $result = $mysqli->query($sql_query);
+
+                            // iterate over $result object one $row at a time
+                            // use fetch_array() to return an associative array
+
+                            while ($row = $result->fetch_array()) {
+                                // print out fields from row of data
+                                echo "<p>" . $row['comment'] . "</p>";
+                                }
                             ?>
 
 
-                            <div class="container">
-                                <div class="row">
-                                    <h1 class="text-center">
-                                        <?php echo $adventureName ?></h1>
-                                </div>
-                                <div class="row">
-                                    <div
-                                        class="col-md-10 col-md-offset-1">
-                                        <img class="img-responsive"
-                                             src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div
-                                        class="col-md-5 col-md-offset-1">
-                                        <h2>Description</h2>
+                            <div class="row">
+                                <div
+                                    class="col-md-5 col-md-offset-1 comments-section">
+                                    <h2>Comments</h2>
 
-                                        <?php echo $description; ?>
-                                    </div>
-                                    <div
-                                        class="col-md-3 col-md-offset-2 text-center">
-                                        <h2>Rating</h2>
-                                        <?php echo $voteCount;
-                                        echo " Votes"; ?>
+                                    <section>
+                                        <div class="">
+                                            <label
+                                                class=""><?php echo "commentName"; ?></label>
+                                            <label
+                                                class="pull-right"><?php echo "commentDate"; ?></label>
+                                        </div>
 
+                                        <div
+                                            class="comment">
+                                            <?php echo "comment" ?>
 
-                                        <!--     <span
-                                                class="glyphicon glyphicon-star"></span>
-                                            <span
-                                                class="glyphicon glyphicon-star"></span>
-                                            <span
-                                                class="glyphicon glyphicon-star"></span>
-                                            <span
-                                                class="glyphicon glyphicon-star"></span>
-                                            <span
-                                               class="glyphicon glyphicon-star"></span> -->
+                                        </div>
+                                    </section>
 
-                                        <h2>Tags</h2>
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                #iLoveTags
-                                            </li>
-                                            <li>
-                                                #mayTheForceBeWithYou
-                                            </li>
-                                            <li>
-                                                #imGoingOnAnAdventure
-                                            </li>
-                                            <li>
-                                                #youShallNotPass
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <?php $sql_query = "SELECT * FROM comments  WHERE adv_id LIKE $id";
-
-
-
-                                $result = $mysqli->query($sql_query);
-
-                                // iterate over $result object one $row at a time
-                                // use fetch_array() to return an associative array
-
-                                while($row = $result->fetch_array()){
-                                // print out fields from row of data
-                                echo "<p>” . $row['comment'] . “</p>";
-                                }
-                                ?>
-
-
-                                <div class="row">
-                                    <div
-                                        class="col-md-5 col-md-offset-1 comments-section">
-                                        <h2>Comments</h2>
-
-                                            <section>
-                                                <div class="">
-                                                    <label
-                                                        class=""><?php echo "commentName"; ?></label>
-                                                    <label
-                                                        class="pull-right"><?php echo "commentDate";?></label>
-                                                </div>
-
-                                                <div
-                                                    class="comment">
-                                                    <?php echo "comment" ?>
-
-                                                </div>
-                                            </section>
-
-                                    </div>
                                 </div>
                             </div>
-                            <div class="container">
-                                <div class="row">
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div
+                                    class="col-md-10 col-md-offset-1">
                                     <div
-                                        class="col-md-10 col-md-offset-1">
+                                        class="carousel slide article-slide"
+                                        id="adventureCarousel">
                                         <div
-                                            class="carousel slide article-slide"
-                                            id="adventureCarousel">
-                                            <div
-                                                class="carousel-inner cont-slider">
-                                                <?php $carouselRuns = 3 ?>
-                                                <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
-                                                    <div
-                                                        class="item <?php if ($i == 0) echo "active"; ?>">
-                                                        <img
-                                                            src="http://placehold.it/1200x440/cccccc/ffffff">
-                                                    </div>
-                                                    <div
-                                                        class="item">
-                                                        <img
-                                                            src="http://placehold.it/1200x440/999999/cccccc">
-                                                    </div>
-                                                <?php endfor; ?>
-                                            </div>
+                                            class="carousel-inner cont-slider">
+                                            <?php $carouselRuns = 3 ?>
+                                            <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                                                <div
+                                                    class="item <?php if ($i == 0) echo "active"; ?>">
+                                                    <img
+                                                        src="http://placehold.it/1200x440/cccccc/ffffff">
+                                                </div>
+                                                <div
+                                                    class="item">
+                                                    <img
+                                                        src="http://placehold.it/1200x440/999999/cccccc">
+                                                </div>
+                                            <?php endfor; ?>
+                                        </div>
 
-                                            <!-- Controls -->
-                                            <a class="left carousel-control"
-                                               href="#adventureCarousel"
-                                               role="button"
-                                               data-slide="prev">
+                                        <!-- Controls -->
+                                        <a class="left carousel-control"
+                                           href="#adventureCarousel"
+                                           role="button"
+                                           data-slide="prev">
                                                                     <span
                                                                         class="glyphicon glyphicon-chevron-left"></span>
-                                            </a>
-                                            <a class="right carousel-control"
-                                               href="#adventureCarousel"
-                                               role="button"
-                                               data-slide="next">
+                                        </a>
+                                        <a class="right carousel-control"
+                                           href="#adventureCarousel"
+                                           role="button"
+                                           data-slide="next">
                                                                     <span
                                                                         class="glyphicon glyphicon-chevron-right"></span>
-                                            </a>
+                                        </a>
 
-                                            <!-- Indicators -->
-                                            <ol class="carousel-indicators visible-lg visible-md">
-                                                <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
-                                                    <li class="<?php if ($i == 0) echo "active"; ?>"
-                                                        data-slide-to="<?php echo 2 * $i; ?>"
-                                                        data-target="#adventureCarousel">
-                                                        <img alt=""
-                                                             title=""
-                                                             src="http://placehold.it/120x44/cccccc/ffffff">
-                                                    </li>
-                                                    <li class=""
-                                                        data-slide-to="<?php echo 2 * $i + 1; ?>"
-                                                        data-target="#adventureCarousel">
-                                                        <img alt=""
-                                                             title=""
-                                                             src="http://placehold.it/120x44/999999/cccccc">
-                                                    </li>
-                                                <?php endfor; ?>
-                                            </ol>
-                                        </div>
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators visible-lg visible-md">
+                                            <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
+                                                <li class="<?php if ($i == 0) echo "active"; ?>"
+                                                    data-slide-to="<?php echo 2 * $i; ?>"
+                                                    data-target="#adventureCarousel">
+                                                    <img alt=""
+                                                         title=""
+                                                         src="http://placehold.it/120x44/cccccc/ffffff">
+                                                </li>
+                                                <li class=""
+                                                    data-slide-to="<?php echo 2 * $i + 1; ?>"
+                                                    data-target="#adventureCarousel">
+                                                    <img alt=""
+                                                         title=""
+                                                         src="http://placehold.it/120x44/999999/cccccc">
+                                                </li>
+                                            <?php endfor; ?>
+                                        </ol>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <script type="text/javascript">
-                                $('#adventureCarousel').carousel({
-                                    interval: 4000
-                                });
-                            </script>
+                        <script type="text/javascript">
+                            $('#adventureCarousel').carousel({
+                                interval: 4000
+                            });
+                        </script>
 
-                            <?php
-                        }
+                        <?php
                     }
                 }
             }
         }
-  //  }
-   // }
-
+    }
+    //  }
+    // }
 
 
 }
