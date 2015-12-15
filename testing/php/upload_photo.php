@@ -5,7 +5,7 @@
  * Date: 15/12/2015
  * Time: 11:21
  */
-
+// require specific files
 require_once("../../resources/config.php");
 require_once("./db_connect.php");
 
