@@ -154,9 +154,9 @@ if ($stmt->num_rows() == 1) {
                             <div class="row">
                                 <div
                                     class="col-md-5 col-md-offset-1 comments-section">
-                                    <h2>Comments</h2>
-                                    </div
-                                    </div
+                                    <h2>Comments <br></h2>
+                                </div
+                            </div
 
 
                             <?php
@@ -174,15 +174,34 @@ if ($stmt->num_rows() == 1) {
 
                             <div class="row">
                                 <div
-                                    class="col-md-5 col-md-offset-1 comments-section">
+                                    class="col-md-6 col-md-offset-1 comments-section">
 
 
                                     <section>
                                         <div class="">
                                             <label
-                                                class=""><?php echo $row['user_id']; ?></label>
+                                                class="">
+
+                                                <?php
+
+                                                $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+
+                                                $stmt3->bind_param("i", $row['user_id']);
+                                                $stmt3->execute();
+                                                $stmt3->bind_result($commentFirstName, $commentLastName);
+                                                $stmt3->store_result();
+                                                if ($stmt3->num_rows() == 1) {
+                                                while ($stmt3->fetch()) {
+
+
+                                                    echo $commentFirstName;
+                                                    echo " ";
+                                                    echo $commentLastName;
+                                                }
+
+                                                ?></label>
                                             <label
-                                                class="pull-right"><?php echo $row['date'] . "</p>";; ?></label>
+                                                class="pull-right"><?php echo $row['date']; ?></label>
                                         </div>
 
                                         <div
@@ -195,7 +214,7 @@ if ($stmt->num_rows() == 1) {
 
                                 </div>
                             </div>
-                            <?php } ?>
+                        <?php } ?>
                         </div>
                         <div class="container">
                             <div class="row">
@@ -270,12 +289,12 @@ if ($stmt->num_rows() == 1) {
                         <?php
                     }
                     }
+                    }
                 }
             }
         }
         //  }
         // }
-
 
 }
 ?>
