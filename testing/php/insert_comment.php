@@ -3,10 +3,20 @@
 require_once("../../resources/config.php");
 require_once("./db_connect.php");
 
+$advId = $_POST['adv_id'];
+$userId = $_POST['user_id'];
+$comment = $_POST['comment'];
+$date = date("Y-m-d H:i:S");
 
-$id = $_GET["id"];
 
-$sql= "INSERT INTO `comments` (`id`, `user_id`, `comment`, `date`, `adv_id`) VALUES ('NULL', '1', '$_POST[comment]', CURRENT_TIMESTAMP , $id)";
+$stmt = new mysqli_stmt($mysqli, "INSERT INTO comments (user_id, adv_id, comment, date) VALUES (?, ?, ?, ?)");
+if($stmt){
+    $stmt->bind_param("i",$userId, $advId, comment);
+    $stmt->bind_param("s",$date);
+    $stmt->execute();
+}
+
+
 
 
 $mysqli->close();
