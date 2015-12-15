@@ -186,19 +186,20 @@ if ($stmt->num_rows() == 1) {
 
                                     </div>
                                     </div>
-
-                                    </div>
                                 <?php }
                             }
                         }
-                    }
-                }
-            }
-        }
-    }
+                        }
+                        }
+                        }
+                        }
+                        }
 
 
-} ?>
+                        } ?>
+
+                                    </div>
+
 <div class="container">
     <div class="row">
         <div
