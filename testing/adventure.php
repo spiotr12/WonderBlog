@@ -319,11 +319,11 @@ while ($stmt2->fetch()) {
 
                                 <label for="usr">City:</label>
                                 <input type="text" class="form-control" name="city" value="">
-                               
+
                                 <label for="usr">Description:</label>
                                 <textarea class="form-control" name="description"  rows="5" cols="80"></textarea>
 
-                                <input type="text" class="form-control" name="adventureId" value="<?php echo $_SESSION['id'];?>">
+                                <input type="text" class="form-control" name="adventureID" value="<?php echo $_SESSION['id'];?>">
                             </div>
                         </div>
                         <div class="modal-footer">
