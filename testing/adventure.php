@@ -213,7 +213,7 @@ if ($stmt->num_rows() == 1) {
 
                                         $users_comment = $_POST['comment'];
 
-                                        $users_comment = mysql_real_escape_string($users_comment);
+                                        $users_comment = mysqli_real_escape_string($users_comment);
 
                                         $query = "INSERT INTO `comments` (`id`, `user_id`, `comment`, `date`, `adv_id`) VALUES ('NULL', '1', $users_comment, CURRENT_TIMESTAMP , $id);";
 
