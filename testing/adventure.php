@@ -214,7 +214,7 @@ if ($stmt->num_rows() == 1) {
 
                                 </div>
                             </div>
-                        <?php } ?>
+                        <?php }} ?>
                         </div>
                         <div class="container">
                             <div class="row">
@@ -295,7 +295,6 @@ if ($stmt->num_rows() == 1) {
         }
         //  }
         // }
-    }
 
 }
 ?>
