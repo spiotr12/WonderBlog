@@ -22,10 +22,10 @@ $description = $_POST["description"];
 $date = date("Y-m-d H:i:s");
 $userID = $_POST["userID"];
 
-$stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, google_location, description, date)
-        VALUES(?,?,?,?,?,?,?)");
+$stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date)
+        VALUES(?,?,?,?,?,?)");
 if($stmt){
-    $stmt->bind_param("issssss",$userID, $adventureName, $country, $city, $description,$date );
+    $stmt->bind_param("isssss",$userID, $adventureName, $country, $city, $description,$date );
     $stmt->execute();
 
 
