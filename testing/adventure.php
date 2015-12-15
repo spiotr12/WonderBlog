@@ -91,7 +91,7 @@ if ($stmt->num_rows() == 1) {
                         <div class="row">
                             <div
                                 class="col-md-10 col-md-offset-1">
-                                <img class="img-responsive"
+                                <img class="img-responsive" width="1200" height ="440px"
                                      src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
                             </div>
                         </div>
