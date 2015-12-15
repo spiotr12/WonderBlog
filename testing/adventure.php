@@ -345,7 +345,7 @@ while ($stmt2->fetch()) {
         ?>
 
         <form action="delete_adventure.php" method="post">
-            <button name="subject" type="submit" value="fav_HTML">Delete Adventure</button>
+            <button type="submit" class="btn btn-default" >Delete Adventure</button>
         </form>
 
         <script type="text/javascript">
