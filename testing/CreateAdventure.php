@@ -40,13 +40,24 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <div id="top1" class="container">
     <div class="row">
-        <div class="col-md-3">
-            <img
-                src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
-                class="img-rounded" alt="Cinque Terre" width="250" height="228px">
-        </div>
-        <div class="col-md-9">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <label for="usr">First Name:Description:</label>
+                    <input type="text" class="form-control" id="usr" value="">
 
+                    <label for="usr">Second Name:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+
+                    <label for="usr">Description:</label>
+                    <textarea class="form-control" id="usr"  rows="5" cols="80" ></textarea>
+
+                    <label for="usr">Date Of Birth:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+
+                    <label for="usr">Country:</label>
+                    <input type="text" class="form-control" id="usr" value="">
+                </div>
 
         </div>
     </div>
