@@ -61,7 +61,7 @@ if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
 
 
-$stmt1 = new mysqli_stmt($mysqli, "SELECT vote FROM votes WHERE adv_id = ?");
+$stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(vote) FROM votes WHERE adv_id = ?");
 
 $stmt1->bind_param("i", $id);
 $stmt1->execute();
@@ -109,6 +109,7 @@ while ($stmt2->fetch()) {
             <?php if ($login->isUserLoggedIn() == true): ?>
             <form action="like_adv.php" method="post">
                 <input type = "submit" name="like" value = "like"/>
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <?php endif; ?>
 
