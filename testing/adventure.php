@@ -106,30 +106,18 @@ while ($stmt2->fetch()) {
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
 
-            <?php if ($login->isUserLoggedIn() == true): ?>
+
             <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
                 <input type = "submit" name="like" value = "like"/>
-                <?php endif;?>
+
                 <?php
                 if ($_POST['like']){
-                mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE adv_id = $id");
+                mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE adv_id = 1");
                 }
                 ?>
-
                 <?php echo $voteCount;
             echo " Like(s)"; ?>
-
-
-            <!--     <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                    class="glyphicon glyphicon-star"></span>
-                <span
-                   class="glyphicon glyphicon-star"></span> -->
+                
 
             <h2>Tags</h2>
             <ul class="list-unstyled">
