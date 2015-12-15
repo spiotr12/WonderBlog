@@ -107,7 +107,7 @@ if ($stmtAdventure) {
             <div class="col-md-3">
                 <img
                     src="./img/contents/<?php echo $photoID; ?>.<?php echo $photoExt; ?>"
-                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+                    class="img-rounded" alt="Cinque Txerre" width="250" height="228px">
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
@@ -115,7 +115,7 @@ if ($stmtAdventure) {
 
                 <?php
                 if('POST' == $_SERVER['REQUEST_METHOD']) {
-                    $sql = "UPDATE table set `vote` = `vote`+1 where `adv_id` = '1'";
+                    $sql = "UPDATE vote SET vote = `vote`+1 where `adv_id` = '1'";
                     $result=mysql_query($sql);
                 }
                 ?>
