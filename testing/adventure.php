@@ -158,16 +158,16 @@ if ($stmt->num_rows() == 1) {
 
 
                             $sql = "SELECT * FROM comments WHERE adv_id = $id";
-                            $res = $mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
-                            while($row = $res->fetch_assoc()) {
+                            $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+                            while ($row = $res->fetch_assoc()) {
 
                             // iterate over $result object one $row at a time
                             // use fetch_array() to return an associative array
 
 
-                                // print out fields from row of data
-                                echo "<p>" . $row['comment'] . "</p>";
-                                }
+                            // print out fields from row of data
+
+
                             ?>
 
 
@@ -179,14 +179,14 @@ if ($stmt->num_rows() == 1) {
                                     <section>
                                         <div class="">
                                             <label
-                                                class=""><?php echo "commentName"; ?></label>
+                                                class=""><?php echo $row['name']; ?></label>
                                             <label
-                                                class="pull-right"><?php echo "commentDate"; ?></label>
+                                                class="pull-right"><?php echo $row['date'] . "</p>";; ?></label>
                                         </div>
 
                                         <div
                                             class="comment">
-                                            <?php echo "comment" ?>
+                                            <?php  echo $row['comment']; ?>
 
                                         </div>
                                     </section>
@@ -266,13 +266,13 @@ if ($stmt->num_rows() == 1) {
 
                         <?php
                     }
+                    }
                 }
             }
         }
+        //  }
+        // }
     }
-    //  }
-    // }
-
 
 }
 ?>
