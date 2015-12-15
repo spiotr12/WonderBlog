@@ -150,9 +150,15 @@ if ($stmt->num_rows() == 1) {
 
                         $sql = "SELECT * FROM comments WHERE adv_id = $id";
                         $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
-                        while ($row = $res->fetch_assoc()) { ?>
+                        while ($row = $res->fetch_assoc()) {
+                         $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
 
-
+                            $stmt3->bind_param("i", $row['user_id']);
+                            $stmt3->execute();
+                            $stmt3->bind_result($commentFirstName, $commentLastName);
+                            $stmt3->store_result();
+                            if ($stmt3->num_rows() == 1) {
+                                while ($stmt3->fetch()) {?>
 
 
                         <div class="row">
@@ -165,23 +171,7 @@ if ($stmt->num_rows() == 1) {
                         <section>
                         <div class="">
                         <label
-                            class=""><?php
-
-
-                            $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
-
-                            $stmt3->bind_param("i", $row['user_id']);
-                            $stmt3->execute();
-                            $stmt3->bind_result($commentFirstName, $commentLastName);
-                            $stmt3->store_result();
-                            if ($stmt3->num_rows() == 1) {
-                                while ($stmt3->fetch()) {
-
-
-                                    echo $commentFirstName; echo " "; echo $commentLastName;
-
-
-                                    ?></label>
+                            class=""><?php echo $commentFirstName; echo " "; echo $commentLastName; ?></label>
                                     <label
                                         class="pull-right"><?php echo $row['date']; ?></label>
                                     </div>
