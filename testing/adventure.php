@@ -345,6 +345,7 @@ while ($stmt2->fetch()) {
         ?>
 
         <form action="delete_adventure.php" method="post">
+            <input type="hidden" class="form-control" name="test" value="<?php echo $_SESSION['id'];?>">
             <button type="submit" class="btn btn-default" >Delete Adventure</button>
         </form>
 
