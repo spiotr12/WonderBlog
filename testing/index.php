@@ -100,7 +100,7 @@ if ($stmtAdventure) {
     </div>
 </div>
 <?php foreach ($adventure as $stone) {
-    ?>
+?>
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
@@ -109,8 +109,13 @@ if ($stmtAdventure) {
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
-                <p> <?php echo $stone['description']; ?></p>
-                <p><?php echo $stone['vote']; ?></p>
+                <p> <?php echo $stone['description'] ?></p>
+                <p><?php echo $stone['vote'] ?></p>
+<!--                    --><?php
+//                    $goToAdv = "./adventure.php?id='" . $stone['adventureID'];
+//                    ?>
+<!--                    <p><a class="btn btn-default" href="--><?php //echo $goToAdv; ?><!--" role="button">View details &raquo;</a></p>-->
+
             </div>
         </div>
     </div>
