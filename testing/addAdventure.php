@@ -14,7 +14,7 @@ $login = new Login();
 ?>
 
 <?php
-header('Location:  ./index.php');
+//header('Location:  ./index.php');
 $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
