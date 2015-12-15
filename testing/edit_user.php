@@ -14,7 +14,7 @@ $userID = $_POST["userID"];
 echo var_dump($_POST);
 
 $stmt = new mysqli_stmt ($mysqli, "UPDATE users
-        SET first_name = ?, last_name = ?, description = ?, country = ?, dob WHERE id= ?");
+        SET first_name = ?, last_name = ?, description = ?, country = ?, dob = ? WHERE id= ?");
 if ($stmt) {
     $stmt->bind_param("sssssi", $firstName, $secondName, $description, $country, $dob, $userID);
     $stmt->execute();
