@@ -205,7 +205,7 @@ if ($stmt->num_rows() == 1) {
                                 <textarea rows = "3" cols = "80" name='comment' id='comment'></textarea><br />
                                 <input type='submit' value='Submit' />
                             </form>
-    `                       <br>
+                           <br>
 
                                     </div>
 
