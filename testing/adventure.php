@@ -205,7 +205,16 @@ if ($stmt->num_rows() == 1) {
                             </div>
 
                         </div>
-                    <?php }} ?>
+                    <?php }}  }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+} ?>
                         <div class="container">
                             <div class="row">
                                 <div
@@ -276,18 +285,7 @@ if ($stmt->num_rows() == 1) {
                             });
                         </script>
 
-                        <?php
-                    }
-                    }
-                }
-            }
-        }
-    }
 
-
-
-}
-?>
 
 </body>
 </html>
