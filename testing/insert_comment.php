@@ -23,6 +23,6 @@ echo "eror: " . $mysqli->error;
 
 $mysqli->close();
 
-//header("location: ./adventure.php?id=$advId");
+header("location: ./adventure.php?id=$advId");
 
 ?>
