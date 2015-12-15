@@ -157,7 +157,7 @@ if ($stmt->num_rows() == 1) {
                             $commentArray[] = array();
 
 
-                            $sql = "SELECT * FROM comments  WHERE adv_id = 1";
+                            $sql = "SELECT * FROM comments  WHERE adv_id LIKE 1";
                             $res = $mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
                             while($row = $res->fetch_assoc()) {
 
