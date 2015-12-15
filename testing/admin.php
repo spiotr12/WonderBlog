@@ -73,8 +73,10 @@ renderHeader("Admin Tools", $meta, $css, $js);
         <?php endif; ?>
         <form class="form" name="upload_file" method="post" action="./php/upload_photo.php" enctype="multipart/form-data">
             <label class="label">upload photo</label>
+            <input class="" type="hidden" name="user_id" value="11">
+            <input class="" type="hidden" name="adv_id" value="11">
             <input class="" type="file" name="photos">
-            <button type="submit" name="submit">Submit</button>
+            <button class="btn" type="submit" name="submit">Submit</button>
         </form>
     </div>
 </div>
