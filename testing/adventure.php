@@ -343,6 +343,11 @@ while ($stmt2->fetch()) {
         </div>
         <?php }
         ?>
+
+        <form action="delete_adventure.php" method="post">
+            <button name="subject" type="submit" value="fav_HTML">Delete Adventure</button>
+        </form>
+
         <script type="text/javascript">
             $('#adventureCarousel').carousel({
                 interval: 4000
