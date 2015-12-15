@@ -111,12 +111,14 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
+                <?php if ($login->isUserLoggedIn() == true): ?>
                 <form id = "h2" form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST"</form>
                     <input type = "submit" name="like" value = "like"/>
                 </formform>
             </div>
         </div>
     </div>
+    <?php endif; ?>
     <?php
 }
 ?>
