@@ -107,22 +107,14 @@ if ($stmtAdventure) {
             <div class="col-md-3">
                 <img
                     src="./img/contents/<?php echo $photoID; ?>.<?php echo $photoExt; ?>"
-                    class="img-rounded" alt="Cinque Txerre" width="250" height="228px">
+                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-
-                <?php
-                if('POST' == $_SERVER['REQUEST_METHOD']) {
-                    $sql = "UPDATE vote SET vote = `vote`+1 where `adv_id` = '1'";
-                    $result=mysql_query($sql);
-                }
-                ?>
-
-                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-                    <input type = "submit" value = "like"/>
-                </form>
+                <a href="#" class="btn btn-default">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                </a>
                 <a class="btn btn-default" href="#"
                    role="button">View details &raquo;
                 </a>
