@@ -36,13 +36,21 @@ if (strlen($_SERVER['QUERY_STRING'])) {
 
                     <?php endif; ?>
 
-                    <li>
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Create Adventure</h4>
+                    <ul class="nav pull-right">
+                        <li><a href="/signup">Sign Up</a></li>
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Create Adventure<strong class="caret"></strong></a>
+                            <div class="dropdown-menu">
+                                <form method="post" action="login" accept-charset="UTF-8">
+                                    <input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
+                                    <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+                                    <input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
+                                    <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+                                </form>
                             </div>
-                    </li>
+                        </li>
+                    </ul>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
                 <?php endif; ?>
