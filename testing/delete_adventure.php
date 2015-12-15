@@ -4,9 +4,12 @@ require_once("../resources/config.php");
 require_once("./php/db_connect.php");
 
 $adventureID = $_POST["test"];
-echo $adventureID;
 
-$delete = new mysqli_stmt ($mysqli, "DELETE FROM adventures WHERE id = 61");
+$delete = new mysqli_stmt ($mysqli, "DELETE FROM adventures WHERE id = $adventureID");
+
+echo "DONE";
+$str = 'Location:  ./index;';
+header($str);
 
 ?>
 
