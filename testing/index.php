@@ -124,8 +124,7 @@ if ($stmtAdventure) {
 
 <?php
 if ($_POST['like']){
-    $id = $_GET["id"];
-    mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE `id` = ?");
+    mysqli_query($mysqli, "UPDATE votes SET vote = vote+1 WHERE `adv_id` = '1'");
 }
 ?>
 </body>
