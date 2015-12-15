@@ -1,7 +1,7 @@
 <?php
 
-require_once("../../resources/config.php");
-require_once("./db_connect.php");
+require_once("../resources/config.php");
+require_once("./php/db_connect.php");
 
 $advId = $_POST['adv_id'];
 $userId = $_POST['user_id'];
