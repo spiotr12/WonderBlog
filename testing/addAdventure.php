@@ -14,11 +14,15 @@ $login = new Login();
 ?>
 
 <?php
+
 $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
 $description = $_POST["description"];
 $date = $_POST["date"];
+
+//mysql_query($mysqli, "INSERT INTO adventures(id, name, country, city, google_location, description, date)")
+//    VALUES('$adventureName', '$country', '$city', '$description','$date' );
 
 echo "Forename: " . $adventureName . " Surname: " . $country . " Date of Birth: " . $city . " Gender: " . $description . " Superpowers: " . $date;
 ?>
