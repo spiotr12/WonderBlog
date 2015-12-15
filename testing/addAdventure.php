@@ -14,11 +14,21 @@ $login = new Login();
 ?>
 
 <?php
+
 $adventureName = $_POST["adventureName"];
 $country = $_POST["country"];
 $city = $_POST["city"];
 $description = $_POST["description"];
-$date = $_POST["date"];
+$date = date("Y-m-d H:i:s");
+$userID = $_POST["userID"];
 
+$stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date)
+        VALUES(?,?,?,?,?,?)");
+if($stmt){
+    $stmt->bind_param("isssss",$userID, $adventureName, $country, $city, $description,$date );
+    $stmt->execute();
+
+
+}
 echo "Forename: " . $adventureName . " Surname: " . $country . " Date of Birth: " . $city . " Gender: " . $description . " Superpowers: " . $date;
 ?>

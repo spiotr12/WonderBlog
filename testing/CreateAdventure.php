@@ -56,8 +56,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <label for="usr">Description:</label>
                     <textarea class="form-control" name="description"  rows="5" cols="80" >Description</textarea>
 
-                    <label for="usr">Date:</label>
-                    <input type="text" class="form-control" name="date" placeholder="01/12/215">
+                    <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
 
                     <div>
                         <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>

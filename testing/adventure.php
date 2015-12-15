@@ -201,11 +201,12 @@ if ($stmt->num_rows() == 1) {
                             <div class="row">
                                 <div
                             class="col-md-5 col-md-offset-1 comments-section">
-                            <form method = post>
+                            <form action="insert_comment.php" method = post>
                                 <textarea rows = "3" cols = "80" name='comment' id='comment'></textarea><br />
-                                <input type='submit' value='Submit' />
+                                <input type='submit'  />
                             </form>
                            <br>
+
 
                                     </div>
 

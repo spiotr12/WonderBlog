@@ -27,8 +27,7 @@ $css = array(
 $js = array(
     "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
     "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js",
-    "js/main.js",
-    "js/starRating.js"
+    "js/main.js"
 );
 renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 ?>
@@ -112,9 +111,9 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description'] ?></p>
                 <p><?php echo $stone['vote'] ?></p>
-                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                <form id = "h2" form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST"</form>
                     <input type = "submit" name="like" value = "like"/>
-                </form>
+                </formform>
             </div>
         </div>
     </div>
