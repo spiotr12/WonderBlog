@@ -6,6 +6,9 @@
  * Time: 11:21
  */
 
+require_once("../../resources/config.php");
+require_once("./db_connect.php");
+
 header('Content-Type: text/plain; charset=utf-8');
 
 try {
@@ -54,18 +57,31 @@ try {
         throw new RuntimeException('Invalid file format.');
     }
 
-    // You should name it uniquely.
-    // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
+    $id = -1;
+    $dateNow = date("Y-m-d H:i:s");
+    $stmt = new mysqli_stmt($mysqli, "INSERT INTO photos (user_id, adv_id, file_ext, date) VALUES (?, ?, ?, ?) ");
+    $success = FALSE;
+    if ($stmt) {
+        $stmt->bind_param("iiss", $_POST['user_id'], $_POST['adv_id'], $ext, $dateNow);
+        if ($stmt->execute()) {
+            $success = TRUE;
+        }
+    }
+
     // On this example, obtain safe unique name from its binary data.
-    if (!move_uploaded_file(
-        $photoFile['tmp_name'],
-        sprintf('./uploads/%s.%s',
-            sha1_file($photoFile['tmp_name']),
-            $ext
+    if ($success) {
+        if (!move_uploaded_file(
+            $photoFile['tmp_name'],
+            sprintf('../img/contents/%s.%s',
+                sha1_file($photoFile['tmp_name']),
+                $ext
+            )
         )
-    )
-    ) {
-        throw new RuntimeException('Failed to move uploaded file.');
+        ) {
+            throw new RuntimeException('Failed to move uploaded file.');
+        }
+    } else {
+        echo "nothing inserted into db";
     }
 
     echo 'File is uploaded successfully.';
