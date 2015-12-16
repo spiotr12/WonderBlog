@@ -6,9 +6,9 @@ require_once("./php/db_connect.php");
 $advId = $_POST['adv_id'];
 $adminVote = $_POST['admin_votes'];
 echo $adminVote;
-$stmt = new mysqli_stmt($mysqli, "UPDATE adventures SET admin_vote = ? WHERE adv_id = ?");
+$stmt = new mysqli_stmt($mysqli, "UPDATE adventures SET admin_vote = $adminVote WHERE adv_id = ?");
 if ($stmt) {
-    $stmt->bind_param("ii", $adminVote, $advID);
+    $stmt->bind_param("i", $advID);
     $stmt->execute();}
 
     $mysqli->close();
