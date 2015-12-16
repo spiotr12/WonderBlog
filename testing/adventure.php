@@ -51,11 +51,11 @@ $id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT description, name FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT description, name, admin_vote FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $id);
 $stmt->execute();
-$stmt->bind_result($description, $adventureName);
+$stmt->bind_result($description, $adventureName, $adminVote);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -78,6 +78,7 @@ $stmt2->bind_result($coverPhotoID, $coverFileEXT);
 $stmt2->store_result();
 if ($stmt2->num_rows() == 1) {
 while ($stmt2->fetch()) {
+
 
 
 ?>
@@ -130,7 +131,11 @@ while ($stmt2->fetch()) {
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <?php endif; ?>
 
-                <?php echo $voteCount;
+                <?php
+
+                $adminVote = $voteCount-$adminVote;
+
+                echo $voteCount;
                 echo " Like(s)"; ?>
 
 
