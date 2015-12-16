@@ -124,6 +124,7 @@ while ($stmt2->fetch()) {
                     <input type="submit" name="like" value="like"/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                </form>
                     <?php endif; ?>
 
                     <?php
@@ -207,7 +208,20 @@ while ($stmt2->fetch()) {
                                 <input type='submit' value = "<?php echo "Click to edit comment";?>""/>
                                 </form>
 
+
+
+
+
+
+
                                 <?php endif; ?>
+
+
+
+
+
+
+
                             <?php endif; ?>
                         </section>
 
