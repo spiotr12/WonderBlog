@@ -199,7 +199,7 @@ while ($stmt2->fetch()) {
                             <div
                             <?php if ($row['user_id'] == $_SESSION['id']): ?>
                             <form action="edit_comment.php" method=post>
-                                <textarea rows="3" cols="80" name='editComment' id='editComment'
+                                <textarea name='editComment' id='editComment'
                                               placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <input type='submit'/>
