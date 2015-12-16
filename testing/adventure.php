@@ -116,7 +116,7 @@ while ($stmt2->fetch()) {
                 Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <input type='submit'/>
-
+                </form>
                 <?php endif; ?>
 
 
@@ -203,7 +203,7 @@ while ($stmt2->fetch()) {
                                               placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <input type='submit'/>
-
+                                </form>
 
                                 <?php endif; ?>
                         </section>
