@@ -11,5 +11,7 @@ echo "DONE";
 //$str = 'Location:  ./index';
 //header($str);
 
+$mysqli->close();
+
 ?>
 
