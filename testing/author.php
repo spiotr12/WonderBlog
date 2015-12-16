@@ -45,7 +45,7 @@ $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE us
 
 if ($stmt1) {
     $stmt1->bind_param("i", $id);
-if ($stmt1->execute()) {
+ $stmt1->execute();
     $stmt1->bind_result($adventure_no);
     $stmt1->store_result();
 if ($stmt1->num_rows() == 1) {
@@ -164,7 +164,7 @@ if ($stmt1->num_rows() == 1) {
                 }
             }
         }
-    }
+
 }
 
 ?>
