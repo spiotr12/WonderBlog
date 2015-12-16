@@ -7,10 +7,10 @@ $advId = $_POST['adv_id'];
 $adminVote = $_POST['admin_votes'];
 echo $adminVote;
 $stmt = new mysqli_stmt($mysqli, "UPDATE adventures SET admin_vote = $adminVote WHERE adv_id = $advId");
-if ($stmt) {
+//if ($stmt) {
    // $stmt->bind_param("i", $advID);
-    $stmt->execute();}
+    $stmt->execute();//}
 
     $mysqli->close();
 
-  //  header("location: ./adventure.php?id=$advId");
+  header("location: ./adventure.php?id=$advId");
