@@ -112,7 +112,7 @@ while ($stmt2->fetch()) {
 
             <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <form action="admin_votes.php" method=post>
-                Current admin vote: <?php echo $adminVote?>
+                Current admin vote: <br><?php echo $adminVote?>
                 Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <input type='submit'/>
