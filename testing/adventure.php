@@ -133,7 +133,7 @@ while ($stmt2->fetch()) {
 
                 <?php
 
-                $adminVote = $voteCount-$adminVote;
+                $voteCount = $voteCount+$adminVote;
 
                 echo $voteCount;
                 echo " Like(s)"; ?>
