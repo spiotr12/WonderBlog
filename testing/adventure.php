@@ -51,11 +51,11 @@ $id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT description, name, admin_vote FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $id);
 $stmt->execute();
-$stmt->bind_result($description, $adventureName, $adminVote);
+$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -205,9 +205,16 @@ while ($stmt2->fetch()) {
                                               placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                                <input type='submit' value = "<?php echo "Click to edit comment";?>""/>
+                                <input type='submit' value = "<?php echo "Click to submit your edited comment";?>""/>
                                 </form>
 
+
+                                <?php endif; ?>
+
+
+                                <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+
+rtttt
 
 
 
@@ -215,11 +222,6 @@ while ($stmt2->fetch()) {
 
 
                                 <?php endif; ?>
-
-
-
-
-
 
 
                             <?php endif; ?>
