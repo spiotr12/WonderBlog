@@ -203,7 +203,7 @@ while ($stmt2->fetch()) {
                                               placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                                <input type='submit'/>
+                                <input type='submit' value = "<?php echo "Click to edit comment";?>""/>
                                 </form>
 
                                 <?php endif; ?>
@@ -232,7 +232,7 @@ while ($stmt2->fetch()) {
                           placeholder="Insert comment here"></textarea><br/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                    <input type='submit'/>
+                    <input type='submit' value="<?php echo "Click to submit your comment"?> "/>
                 </form>
             <?php endif; ?>
             <br>
