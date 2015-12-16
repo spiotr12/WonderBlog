@@ -106,18 +106,6 @@ while ($stmt2->fetch()) {
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
 
-            <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-
-            <form action="admin_votes.php" method=post>
-                Change likes by: <input type='text' name='votes' id='votes' />
-                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <input type='submit'/>
-
-
-
-
-
-                <?php endif; ?>
 
 
 
@@ -125,7 +113,18 @@ while ($stmt2->fetch()) {
 
 
            <?php if ($login->isUserLoggedIn() == true): ?>
-            <form action="like_adv.php" method="post">
+            <form action="admin_votes.php" method=post>
+
+                <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+                Change likes by: <input type='text' name='votes' id='votes' />
+                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                <input type='submit'/>
+
+                <?php endif; ?>
+
+
+
+                <form action="like_adv.php" method="post">
                 <input type="submit" name="like" value="like"/>
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
