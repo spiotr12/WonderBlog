@@ -117,7 +117,7 @@ while ($stmt2->fetch()) {
             <form action="admin_votes.php" method=post>
 
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-                Change likes by: <input type="number" name="admin_votes" min="-1000000" max="1000000" />
+                Admin votes: = <input type="number" name="admin_votes" min="-1000000" max="1000000" />
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <input type='submit'/>
 
