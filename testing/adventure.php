@@ -115,7 +115,7 @@ while ($stmt2->fetch()) {
                 Current admin vote: <?php echo $adminVote ?><br>
                 Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <input type='submit'/>
+                <input type='submit' value="<?php echo "Update"?>"/>
                 </form>
                 <?php endif; ?>
 
@@ -197,7 +197,7 @@ while ($stmt2->fetch()) {
 
                             </div>
 
-                            <?php if ($row['user_id'] == $_SESSION['id']): ?>
+                            <?php if ($row['user_id'] == $_SESSION['id'] && $login->isUserLoggedIn() == true): ?>): ?>
                             <form action="edit_comment.php" method=post>
                                 <textarea rows="3" cols="75" name='editComment' id='editComment'
                                               placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
