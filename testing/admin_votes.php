@@ -8,7 +8,7 @@ $adminVote = $_POST['admin_votes'];
 echo $adminVote;
 $stmt = new mysqli_stmt($mysqli, "UPDATE adventures SET admin_vote = ? WHERE id = ?");
 if ($stmt) {
-    $stmt->bind_param("ii", $adminVote, $advID);
+    $stmt->bind_param("ii", $adminVote, $advId);
     $stmt->execute();}
 
     $mysqli->close();
