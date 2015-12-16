@@ -196,6 +196,7 @@ while ($stmt2->fetch()) {
                                 ?>
 
                             </div>
+
                             <?php if ($login->isUserLoggedIn() == true): ?>
                             <?php if ($row['user_id'] == $_SESSION['id']): ?>
                             <form action="edit_comment.php" method=post>
