@@ -21,6 +21,8 @@ if ($stmt) {
 
 
 }
+
+$mysqli->close();
 $str = 'Location:  ./adventure.php?id=' . $adventure_id;
 header($str);
 ?>
