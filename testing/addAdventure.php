@@ -38,4 +38,5 @@ $msg = "New Adventure Created" . $str;
 //foreach ($admins as $stone)
 // send email
 mail("ruairigray@gmail.com","New Adventure",$msg);
+echo $msg
 ?>
