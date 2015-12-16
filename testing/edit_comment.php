@@ -3,6 +3,7 @@
 require_once("../resources/config.php");
 require_once("./php/db_connect.php");
 
+$advId = $_POST['adv_id'];
 $commentId = $_POST['id'];
 $editedComment = $_POST['editComment'];
 $date = date("Y-m-d H:i:s");
@@ -21,6 +22,6 @@ if ($stmt) {
 
 $mysqli->close();
 
-//header("location: ./adventure.php?id=$advId");
+header("location: ./adventure.php?id=$advId");
 
 ?>
