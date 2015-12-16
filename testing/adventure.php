@@ -203,7 +203,7 @@ while ($stmt2->fetch()) {
                                               placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <input type='submit'/>
-                            </form>
+
 
                                 <?php endif; ?>
                         </section>
