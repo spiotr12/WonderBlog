@@ -60,6 +60,7 @@ $login = new Login();
                     "data" => array()
                 );
                 $stmt = null;
+                echo "change";
                 if ($search_type == "adventure") {
                     $stmt = new mysqli_stmt($mysqli, "SELECT A.id, A.name, U.first_name, U.last_name FROM adventures A, users U WHERE A.user_id = U.id AND name LIKE ? OR description LIKE ? OR keywords LIKE ? ");
                     if ($stmt) {
@@ -73,6 +74,7 @@ $login = new Login();
                             );
                         }
                     }
+                    echo $mysqli->error;
                 } else if ($search_type == "author") {
                     $stmt = new mysqli_stmt($mysqli, "SELECT id, first_name, last_name FROM users WHERE privilege > ? AND first_name LIKE ? OR last_name LIKE ?");
                     if ($stmt) {
