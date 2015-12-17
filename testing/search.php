@@ -52,6 +52,7 @@ $login = new Login();
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <h1>Search results:</h1>
                 <?php
                 $search = "%" . $search . "%";
                 $search_results = array(
