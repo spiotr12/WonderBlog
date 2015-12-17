@@ -276,6 +276,17 @@ while ($stmt2->fetch()) {
 
         </div>
 
+       <?php $sql = "SELECT * FROM photos WHERE adv_id = $id";
+        $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+        while ($row = $res->fetch_assoc()) { ?>
+
+
+        <img class="img-responsive" width="1200" height="440px"
+             src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
+
+        <?php } ?>
+
+
         <?php
         If ($login->isUserLoggedIn() == true):
 
