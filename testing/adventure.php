@@ -231,6 +231,18 @@ while ($stmt2->fetch()) {
                 </div>
 
 
+            <?php }
+        }
+    }
+    }
+    }
+    }
+    }
+    }
+
+
+    } ?>
+
     <div class="row">
         <div
             class="col-md-5 col-md-offset-1 comments-section">
@@ -376,17 +388,7 @@ while ($stmt2->fetch()) {
                 interval: 4000
             });
         </script>
-        <?php }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
 
-
-        } ?>
 
 </body>
 </html>
