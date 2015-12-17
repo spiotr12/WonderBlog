@@ -51,11 +51,11 @@ $id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT description, name, admin_vote FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $id);
 $stmt->execute();
-$stmt->bind_result($description, $adventureName, $adminVote);
+$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -78,7 +78,6 @@ $stmt2->bind_result($coverPhotoID, $coverFileEXT);
 $stmt2->store_result();
 if ($stmt2->num_rows() == 1) {
 while ($stmt2->fetch()) {
-
 
 
 ?>
@@ -108,52 +107,49 @@ while ($stmt2->fetch()) {
             <h2>Rating</h2>
 
 
+            <?php if ($login->isUserLoggedIn() == true): ?>
 
 
-
-
-
-           <?php if ($login->isUserLoggedIn() == true): ?>
+            <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
             <form action="admin_votes.php" method=post>
-
-                <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-                Change likes by: <input type='text' name='admin_votes' id='admin_votes' />
+                Current admin vote: <?php echo $adminVote ?><br>
+                Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <input type='submit'/>
-
+                <input type='submit' value="<?php echo "Update"?>"/>
+                </form>
                 <?php endif; ?>
-
 
 
                 <form action="like_adv.php" method="post">
-                <input type="submit" name="like" value="like"/>
-                <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <?php endif; ?>
+                    <input type="submit" name="like" value="like"/>
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
+                    <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                </form>
+                    <?php endif; ?>
 
-                <?php
+                    <?php
 
-                $adminVote = $voteCount-$adminVote;
+                    $voteCount = $voteCount + $adminVote;
 
-                echo $voteCount;
-                echo " Like(s)"; ?>
+                    echo $voteCount;
+                    echo " Like(s)"; ?>
 
 
-                <h2>Tags</h2>
-                <ul class="list-unstyled">
-                    <li>
-                        #iLoveTags
-                    </li>
-                    <li>
-                        #mayTheForceBeWithYou
-                    </li>
-                    <li>
-                        #imGoingOnAnAdventure
-                    </li>
-                    <li>
-                        #youShallNotPass
-                    </li>
-                </ul>
+                    <h2>Tags</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                            #iLoveTags
+                        </li>
+                        <li>
+                            #mayTheForceBeWithYou
+                        </li>
+                        <li>
+                            #imGoingOnAnAdventure
+                        </li>
+                        <li>
+                            #youShallNotPass
+                        </li>
+                    </ul>
         </div>
     </div>
 
@@ -201,6 +197,35 @@ while ($stmt2->fetch()) {
                                 ?>
 
                             </div>
+
+                            <?php if ($login->isUserLoggedIn() == true): ?>
+                            <?php if ($row['user_id'] == $_SESSION['id']): ?>
+                            <form action="edit_comment.php" method=post>
+                                <textarea rows="3" cols="75" name='editComment' id='editComment'
+                                              placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                <input type='submit' value = "<?php echo "Click to submit your edited comment";?>""/>
+                                </form>
+
+
+                                <?php endif; ?>
+
+
+                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
+
+                                    <form action="delete_comment.php" method="post">
+                                        <input type="submit" name="deleteComment" value="Click here to delete comment"/>
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                    </form>
+
+
+
+                                <?php endif; ?>
+
+
+                            <?php endif; ?>
                         </section>
 
                     </div>
@@ -221,13 +246,13 @@ while ($stmt2->fetch()) {
         <div
             class="col-md-5 col-md-offset-1 comments-section">
             <?php if ($login->isUserLoggedIn() == true): ?>
-            <form action="insert_comment.php" method=post>
+                <form action="insert_comment.php" method=post>
                 <textarea rows="3" cols="80" name='comment' id='comment'
                           placeholder="Insert comment here"></textarea><br/>
-                <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <input type='submit'/>
-            </form>
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
+                    <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                    <input type='submit' value="<?php echo "Click to submit your comment"?> "/>
+                </form>
             <?php endif; ?>
             <br>
 
@@ -302,55 +327,59 @@ while ($stmt2->fetch()) {
         $user_id = $_SESSION['id'];
         echo $user_id;
 
-        if(isset($_SESSION['id']) && $user_id == $_SESSION['id']) { ?>
-<!--         Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
+        if (isset($_SESSION['id']) && $user_id == $_SESSION['id']) { ?>
+            <!--         Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
+            </button>
 
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-                <!-- Modal content-->
+                    <!-- Modal content-->
 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Edit Adventure</h4>
-                    </div>
-                    <form action="edit_adventure.php" method="post">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="usr">Adventure Name:</label>
-                                <input type="text" class="form-control" name="adventureName" value="<?php echo $adventureName ?>">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Adventure</h4>
+                        </div>
+                        <form action="edit_adventure.php" method="post">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="usr">Adventure Name:</label>
+                                    <input type="text" class="form-control" name="adventureName"
+                                           value="<?php echo $adventureName ?>">
 
-                                <label for="usr">Country:</label>
-                                <input type="text" class="form-control" name="country" value="">
+                                    <label for="usr">Country:</label>
+                                    <input type="text" class="form-control" name="country" value="">
 
-                                <label for="usr">City:</label>
-                                <input type="text" class="form-control" name="city" value="">
+                                    <label for="usr">City:</label>
+                                    <input type="text" class="form-control" name="city" value="">
 
-                                <label for="usr">Description;</label>
-                                <textarea class="form-control" name="description"  rows="5" cols="80"><?php echo $description; ?></textarea>
+                                    <label for="usr">Description;</label>
+                                    <textarea class="form-control" name="description" rows="5"
+                                              cols="80"><?php echo $description; ?></textarea>
 
-                                <input type="hidden" class="form-control" name="adventureID" value="<?php echo $id;?>">
+                                    <input type="hidden" class="form-control" name="adventureID"
+                                           value="<?php echo $id; ?>">
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-default" >Submit</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-default">Submit</button>
 
-                        </div>
-                    </form>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
         <?php }
         ?>
 
         <form action="delete_adventure.php" method="post">
-            <input type="hidden" class="form-control" name="test" value="<?php echo $id;?>">
-            <button type="submit" class="btn btn-default" >Delete Adventure</button>
+            <input type="hidden" class="form-control" name="test" value="<?php echo $id; ?>">
+            <button type="submit" class="btn btn-default">Delete Adventure</button>
         </form>
 
         <script type="text/javascript">
