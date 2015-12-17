@@ -138,7 +138,7 @@ while ($stmt2->fetch()) {
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
-                $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventure WHERE id = ?");
+                $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 echo "id: " . $id;
                 if($tagsStmt){
                     $tagsStmt->bind_param("i", $id);
