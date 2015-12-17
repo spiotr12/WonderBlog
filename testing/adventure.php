@@ -313,8 +313,9 @@ while ($stmt2->fetch()) {
         </div>
 
         <?php
+        If ($login->isUserLoggedIn() == true):
 
-        if (((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])) && ($login->isUserLoggedIn() == true)): ?>
+        if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
             <!--         Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
             </button>
@@ -369,7 +370,7 @@ while ($stmt2->fetch()) {
             <button type="submit" class="btn btn-default">Delete Adventure</button>
         </form>
     <?php endif;?>
-
+    <?php endif; ?>
         <script type="text/javascript">
             $('#adventureCarousel').carousel({
                 interval: 4000
