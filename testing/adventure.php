@@ -124,7 +124,7 @@ while ($stmt2->fetch()) {
                         Combined vote: <?php echo $combinedVoteCount ?>
 
                     </form>
-                <?php else: ?>
+                <?php elseif (($adventureUserID != $_SESSION['id'])): ?>
 
                 <form action="like_adv.php" method="post">
                     <input type="submit" name="like" value="like"/>
@@ -132,11 +132,11 @@ while ($stmt2->fetch()) {
                     <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
                     <?php
+                    endif;
+                endif;?>
 
 
 
-                    endif;?>
-           <?php endif;?>
 
                <?php
                $combinedVoteCount = $voteCount + $adminVote;
