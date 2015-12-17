@@ -12,7 +12,7 @@ if ($stmt) {
 
 
 //echo "DONE";
-//$str = 'Location:  ./index';
+//$str = 'Location:  ./index ';
 //header($str);
 
 $mysqli->close();
