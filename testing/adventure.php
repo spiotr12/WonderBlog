@@ -102,8 +102,8 @@ while ($stmt2->fetch()) {
             <h2>Description</h2>
 
             <?php echo $description; ?>
-            <br>
-            Country: <?php echo $country ?><br><br>
+            <br><br>
+            Country: <?php echo $country ?><br>
             City: <?php echo $city ?>
         </div>
         <div
