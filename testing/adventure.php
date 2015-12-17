@@ -329,10 +329,10 @@ while ($stmt2->fetch()) {
                                                value="<?php echo $adventureName ?>">
 
                                         <label for="usr">Country:</label>
-                                        <input type="text" class="form-control" name="country" value="">
+                                        <input type="text" class="form-control" name="country" value="<?php echo $country ?>">
 
                                         <label for="usr">City:</label>
-                                        <input type="text" class="form-control" name="city" value="">
+                                        <input type="text" class="form-control" name="city" value="<?php echo $city ?>">
 
                                         <label for="usr">Description;</label>
                                     <textarea class="form-control" name="description" rows="5"
