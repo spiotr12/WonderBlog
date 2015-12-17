@@ -207,7 +207,7 @@ $total_progress = 0;
 // adventure
 $stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, p.id, p.file_ext, FROM adventures A, photos P WHERE user_id = ?");
 if ($stmtAdventure) {
-    $stmtAdventure->bind_param("iis", $author['id'], $photoID, $fileExt);
+    $stmtAdventure->bind_param("iiss", $author['id'], $photoID, $ad_description, $fileExt);
     if ($stmtAdventure->execute()) {
         $stmtAdventure->bind_result($ad_id, $ad_description, $photoID, $fileExt);
         while ($stmtAdventure->fetch()) {
