@@ -266,15 +266,15 @@ while ($stmt2->fetch()) {
 
         <?php
 
-        $photosArray[] = array();
+       // $photosArray[] = array();
 
-        $sql = "SELECT id, file_ext FROM photos WHERE adv_id = $id";
-        $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
-        while ($row = $res->fetch_assoc()) { ?>
+       // $sql = "SELECT id, file_ext FROM photos WHERE adv_id = $id";
+       // $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
+        //while ($row = $res->fetch_assoc()) { ?>
 
 
-            <img class="img-responsive" width="1200" height="440px"
-                 src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
+          <!-- <img class="img-responsive" width="1200" height="440px"
+                 src="./img/contents/<?php //echo $row['id']; ?>.<?php //echo $row['file_ext']; ?>">
 
         <?php }
         }
@@ -285,7 +285,7 @@ while ($stmt2->fetch()) {
     }
     }
     }
-    }
+  //  }
 
 
     }
