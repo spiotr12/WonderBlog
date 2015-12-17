@@ -52,7 +52,7 @@ $adv_id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote, country, city, FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote, country, city FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $adv_id);
 $stmt->execute();
