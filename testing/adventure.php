@@ -133,12 +133,13 @@ while ($stmt2->fetch()) {
                 </form>
                     <?php
 
-                    $combinedVoteCount = $voteCount + $adminVote;
+
 
                     endif;?>
            <?php endif;?>
 
                <?php
+               $combinedVoteCount = $voteCount + $adminVote;
                     echo "Current likes: ";
                     echo $combinedVoteCount;
                    ?>
