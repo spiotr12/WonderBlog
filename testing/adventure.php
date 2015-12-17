@@ -212,7 +212,7 @@ while ($stmt2->fetch()) {
                                 <?php endif; ?>
 
 
-                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id'])): ?>
+                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
 
                                     <form action="delete_comment.php" method="post">
                                         <input type="submit" name="deleteComment" value="Click here to delete comment"/>
