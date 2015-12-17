@@ -14,12 +14,12 @@ if ($stmt) {
 
 
 
-//$str = 'Location:  ./index '  ;
-//header($str);
+$str = 'Location:  ./index '  ;
+header($str);
 
 $mysqli->close();
 
-//header("location: ./index.php");
+header("location: ./index.php");
 
 ?>
 
