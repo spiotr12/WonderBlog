@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
@@ -327,62 +328,61 @@ while ($stmt2->fetch()) {
         <?php
         If ($login->isUserLoggedIn() == true):
 
-        if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
-            <!--         Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
-            </button>
+            if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id'])): ?>
+                <!--         Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
+                </button>
 
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
-                    <!-- Modal content-->
+                        <!-- Modal content-->
 
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Edit Adventure</h4>
-                        </div>
-                        <form action="edit_adventure.php" method="post">
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="usr">Adventure Name:</label>
-                                    <input type="text" class="form-control" name="adventureName"
-                                           value="<?php echo $adventureName ?>">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit Adventure</h4>
+                            </div>
+                            <form action="edit_adventure.php" method="post">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="usr">Adventure Name:</label>
+                                        <input type="text" class="form-control" name="adventureName"
+                                               value="<?php echo $adventureName ?>">
 
-                                    <label for="usr">Country:</label>
-                                    <input type="text" class="form-control" name="country" value="">
+                                        <label for="usr">Country:</label>
+                                        <input type="text" class="form-control" name="country" value="">
 
-                                    <label for="usr">City:</label>
-                                    <input type="text" class="form-control" name="city" value="">
+                                        <label for="usr">City:</label>
+                                        <input type="text" class="form-control" name="city" value="">
 
-                                    <label for="usr">Description;</label>
+                                        <label for="usr">Description;</label>
                                     <textarea class="form-control" name="description" rows="5"
                                               cols="80"><?php echo $description; ?></textarea>
 
-                                    <input type="hidden" class="form-control" name="adventureID"
-                                           value="<?php echo $adv_id; ?>">
+                                        <input type="hidden" class="form-control" name="adventureID"
+                                               value="<?php echo $adv_id; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-default">Submit</button>
 
-                            </div>
-                        </form>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
 
 
-
-        <form action="delete_adventure.php" method="post">
-            <input type="hidden" class="form-control" name="test" value="<?php echo $adv_id; ?>">
-            <button type="submit" class="btn btn-default">Delete Adventure</button>
-        </form>
-    <?php endif;?>
-    <?php endif; ?>
+                <form action="delete_adventure.php" method="post">
+                    <input type="hidden" class="form-control" name="test" value="<?php echo $adv_id; ?>">
+                    <button type="submit" class="btn btn-default">Delete Adventure</button>
+                </form>
+            <?php endif; ?>
+        <?php endif; ?>
         <script type="text/javascript">
             $('#adventureCarousel').carousel({
                 interval: 4000
