@@ -21,7 +21,7 @@ class Registration {
         if (isset($_POST["register"])) {
             $this->registerNewUser();
         } else {
-            $this->errors[] = "No post 'register'";
+//            $this->errors[] = "No post 'register'";
         }
     }
 
