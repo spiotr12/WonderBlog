@@ -80,7 +80,7 @@ if($adventure_id != -1) {
 
         // On this example, obtain safe unique name from its binary data.
         if ($success) {
-            if (!move_uploaded_file($photoFile['tmp_name'], sprintf('../img/contents/%s.%s', $id, $ext))) {
+            if (!move_uploaded_file($photoFile['tmp_name'], sprintf('./img/contents/%s.%s', $id, $ext))) {
                 throw new RuntimeException('Failed to move uploaded file.');
             }
         } else {
