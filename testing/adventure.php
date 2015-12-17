@@ -51,11 +51,11 @@ $id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT description, name FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT description, name, admin_vote FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $id);
 $stmt->execute();
-$stmt->bind_result($description, $adventureName);
+$stmt->bind_result($description, $adventureName, $adminVote);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -78,6 +78,7 @@ $stmt2->bind_result($coverPhotoID, $coverFileEXT);
 $stmt2->store_result();
 if ($stmt2->num_rows() == 1) {
 while ($stmt2->fetch()) {
+
 
 
 ?>
@@ -106,18 +107,6 @@ while ($stmt2->fetch()) {
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
 
-            <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-
-            <form action="admin_votes.php" method=post>
-                Change likes by: <input type='text' name='votes' id='votes' />
-                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <input type='submit'/>
-
-
-
-
-
-                <?php endif; ?>
 
 
 
@@ -125,13 +114,28 @@ while ($stmt2->fetch()) {
 
 
            <?php if ($login->isUserLoggedIn() == true): ?>
-            <form action="like_adv.php" method="post">
+            <form action="admin_votes.php" method=post>
+
+                <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+                Change likes by: <input type='text' name='admin_votes' id='admin_votes' />
+                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                <input type='submit'/>
+
+                <?php endif; ?>
+
+
+
+                <form action="like_adv.php" method="post">
                 <input type="submit" name="like" value="like"/>
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 <?php endif; ?>
 
-                <?php echo $voteCount;
+                <?php
+
+                $adminVote = $voteCount-$adminVote;
+
+                echo $voteCount;
                 echo " Like(s)"; ?>
 
 
@@ -298,7 +302,7 @@ while ($stmt2->fetch()) {
         $user_id = $_SESSION['id'];
         echo $user_id;
 
-        if (privilegeCheck($mysqli, $_SESSION['id']) == 0):  ?>
+        if(isset($_SESSION['id']) && $user_id == $_SESSION['id']) { ?>
 <!--         Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
 
@@ -341,7 +345,7 @@ while ($stmt2->fetch()) {
 
             </div>
         </div>
-        <?php endif;
+        <?php }
         ?>
 
         <form action="delete_adventure.php" method="post">
