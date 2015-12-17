@@ -17,5 +17,7 @@ if ($stmt) {
 
 $mysqli->close();
 
+header("location: ./adventure.php");
+
 ?>
 
