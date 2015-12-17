@@ -110,13 +110,13 @@ while ($stmt2->fetch()) {
             <?php if ($login->isUserLoggedIn() == true): ?>
 
 
-            <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-            <form action="admin_votes.php" method=post>
-                Current admin vote: <?php echo $adminVote ?><br>
-                Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
-                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                <input type='submit' value="<?php echo "Update"?>"/>
-                </form>
+                <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
+                    <form action="admin_votes.php" method=post>
+                        Current admin vote: <?php echo $adminVote ?><br>
+                        Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
+                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                        <input type='submit' value="<?php echo "Update" ?>"/>
+                    </form>
                 <?php endif; ?>
 
 
@@ -125,31 +125,30 @@ while ($stmt2->fetch()) {
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                 </form>
-                    <?php endif; ?>
+            <?php endif; ?>
 
-                    <?php
+            <?php
 
-                    $voteCount = $voteCount + $adminVote;
+            $voteCount = $voteCount + $adminVote;
 
-                    echo $voteCount;
-                    echo " Like(s)"; ?>
+            echo $voteCount;
+            echo " Like(s)"; ?>
 
 
-                    <h2>Tags</h2>
-                    <ul class="list-unstyled">
-                        <li>
-                            #iLoveTags
-                        </li>
-                        <li>
-                            #mayTheForceBeWithYou
-                        </li>
-                        <li>
-                            #imGoingOnAnAdventure
-                        </li>
-                        <li>
-                            #youShallNotPass
-                        </li>
-                    </ul>
+            <h2>Tags</h2>
+            <ul class="list-unstyled">
+                <?php
+                $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
+                $tagsStmt->bind_param("i", $id);
+                $tagsStmt->execute();
+                $tagsResult = $tagsStmt->get_result();
+                $tagsTemp = $tagsResult->fetch_array();
+                $tags = multiexplode(array(";", ","), $tagsTemp['keywords']);
+                foreach ($tags as $tag) {
+                    echo "<li>" . $tag . "</li>";
+                }
+                ?>
+            </ul>
         </div>
     </div>
 
@@ -199,27 +198,27 @@ while ($stmt2->fetch()) {
                             </div>
 
                             <?php if ($login->isUserLoggedIn() == true): ?>
-                            <?php if ($row['user_id'] == $_SESSION['id']): ?>
-                            <form action="edit_comment.php" method=post>
+                                <?php if ($row['user_id'] == $_SESSION['id']): ?>
+                                    <form action="edit_comment.php" method=post>
                                 <textarea rows="3" cols="75" name='editComment' id='editComment'
-                                              placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
-                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                                <input type='submit' value = "<?php echo "Click to submit your edited comment";?>""/>
-                                </form>
+                                          placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                        <input type='submit'
+                                               value="<?php echo "Click to submit your edited comment"; ?>""/>
+                                    </form>
 
 
                                 <?php endif; ?>
 
 
-                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
+                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id'])): ?>
 
                                     <form action="delete_comment.php" method="post">
                                         <input type="submit" name="deleteComment" value="Click here to delete comment"/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                         <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                                     </form>
-
 
 
                                 <?php endif; ?>
@@ -251,7 +250,7 @@ while ($stmt2->fetch()) {
                           placeholder="Insert comment here"></textarea><br/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                    <input type='submit' value="<?php echo "Click to submit your comment"?> "/>
+                    <input type='submit' value="<?php echo "Click to submit your comment" ?> "/>
                 </form>
             <?php endif; ?>
             <br>
