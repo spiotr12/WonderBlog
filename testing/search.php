@@ -60,6 +60,7 @@ $login = new Login();
                     "data" => array()
                 );
                 $stmt = null;
+                echo "change";
                 if ($search_type == "adventure") {
                     $stmt = new mysqli_stmt($mysqli, "SELECT A.id, A.name, U.first_name, U.last_name FROM adventures A, users U WHERE A.user_id = U.id AND (A.name LIKE ? OR A.description LIKE ? OR A.keywords LIKE ?) ");
                     if ($stmt) {
@@ -69,7 +70,7 @@ $login = new Login();
                         while ($stmt->fetch()) {
                             $search_results["data"][] = array(
                                 "id" => $id,
-                                "name" => $name . " $f $l"
+                                "name" => $name . " by  <i>$f $l</i>"
                             );
                         }
                     }
