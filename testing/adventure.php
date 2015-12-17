@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 require_once("../resources/config.php");
 require_once(LIBRARY_PATH . "/templating_functions.php");
 require_once(LIBRARY_PATH . "/functions.php");
@@ -43,19 +44,19 @@ renderHeader("Adventure", $meta, $css, $js);
 
 <?php
 
-$id = $_GET["id"];
+$adv_id = $_GET["id"];
 
 
 // create a SQL query as a string
-//$sql_query = "SELECT description FROM adventures WHERE id = $id";
+//$sql_query = "SELECT description FROM adventures WHERE id = $adv_id";
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote, country, city FROM adventures WHERE id = ?");
 
-$stmt->bind_param("i", $id);
+$stmt->bind_param("i", $adv_id);
 $stmt->execute();
-$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote);
+$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote, $country, $city);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -63,7 +64,7 @@ while ($stmt->fetch()) {
 
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(adv_id) FROM votes WHERE adv_id = ?");
 
-$stmt1->bind_param("i", $id);
+$stmt1->bind_param("i", $adv_id);
 $stmt1->execute();
 $stmt1->bind_result($voteCount);
 $stmt1->store_result();
@@ -72,7 +73,7 @@ while ($stmt1->fetch()) {
 
 $stmt2 = new mysqli_stmt($mysqli, "SELECT id, file_ext FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
-$stmt2->bind_param("i", $id);
+$stmt2->bind_param("i", $adv_id);
 $stmt2->execute();
 $stmt2->bind_result($coverPhotoID, $coverFileEXT);
 $stmt2->store_result();
@@ -101,45 +102,59 @@ while ($stmt2->fetch()) {
             <h2>Description</h2>
 
             <?php echo $description; ?>
+            <br><br>
+            Country: <?php echo $country ?><br>
+            City: <?php echo $city ?>
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
 
 
+
             <?php if ($login->isUserLoggedIn() == true): ?>
-
-
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
                     <form action="admin_votes.php" method=post>
+                        Current user vote: <?php echo $voteCount ?><br>
                         Current admin vote: <?php echo $adminVote ?><br>
                         Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
-                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
-                        <input type='submit' value="<?php echo "Update" ?>"/>
-                    </form>
-                <?php endif; ?>
+                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                        <input type='submit' value="<?php echo "Update" ?>"/><br>
+                        <?php $combinedVoteCount = $voteCount + $adminVote;?>
+                        Combined vote: <?php echo $combinedVoteCount ?>
 
+                    </form>
+                <?php else: ?>
 
                 <form action="like_adv.php" method="post">
                     <input type="submit" name="like" value="like"/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                    <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
-            <?php endif; ?>
+                    <?php
 
-            <?php
+                    $combinedVoteCount = $voteCount + $adminVote;
 
-            $voteCount = $voteCount + $adminVote;
+                    endif;?>
+           <?php endif;?>
 
-            echo $voteCount;
-            echo " Like(s)"; ?>
+               <?php
+                    echo "Current likes: ";
+                    echo $combinedVoteCount;
+                   ?>
+
+
+
+
+
+
 
 
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
-                $tagsStmt->bind_param("i", $id);
+                $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
                 $tagsResult = $tagsStmt->get_result();
                 $tagsTemp = $tagsResult->fetch_array();
@@ -162,7 +177,7 @@ while ($stmt2->fetch()) {
     <?php $commentArray[] = array();
 
 
-    $sql = "SELECT * FROM comments WHERE adv_id = $id";
+    $sql = "SELECT * FROM comments WHERE adv_id = $adv_id";
     $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
     while ($row = $res->fetch_assoc()) {
         $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
@@ -203,7 +218,7 @@ while ($stmt2->fetch()) {
                                 <textarea rows="3" cols="75" name='editComment' id='editComment'
                                           placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                                         <input type='submit'
                                                value="<?php echo "Click to submit your edited comment"; ?>""/>
                                     </form>
@@ -212,12 +227,12 @@ while ($stmt2->fetch()) {
                                 <?php endif; ?>
 
 
-                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id'])): ?>
+                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
 
                                     <form action="delete_comment.php" method="post">
                                         <input type="submit" name="deleteComment" value="Click here to delete comment"/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                                     </form>
 
 
@@ -229,6 +244,8 @@ while ($stmt2->fetch()) {
 
                     </div>
                 </div>
+
+
             <?php }
         }
     }
@@ -249,7 +266,7 @@ while ($stmt2->fetch()) {
                 <textarea rows="3" cols="80" name='comment' id='comment'
                           placeholder="Insert comment here"></textarea><br/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                    <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                     <input type='submit' value="<?php echo "Click to submit your comment" ?> "/>
                 </form>
             <?php endif; ?>
@@ -258,128 +275,64 @@ while ($stmt2->fetch()) {
 
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div
-                    class="col-md-10 col-md-offset-1">
-                    <div
-                        class="carousel slide article-slide"
-                        id="adventureCarousel">
-                        <div
-                            class="carousel-inner cont-slider">
-                            <?php $carouselRuns = 3 ?>
-                            <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
-                                <div
-                                    class="item <?php if ($i == 0) echo "active"; ?>">
-                                    <img
-                                        src="http://placehold.it/1200x440/cccccc/ffffff">
-                                </div>
-                                <div
-                                    class="item">
-                                    <img
-                                        src="http://placehold.it/1200x440/999999/cccccc">
-                                </div>
-                            <?php endfor; ?>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control"
-                           href="#adventureCarousel"
-                           role="button"
-                           data-slide="prev">
-                                                                    <span
-                                                                        class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control"
-                           href="#adventureCarousel"
-                           role="button"
-                           data-slide="next">
-                                                                    <span
-                                                                        class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators visible-lg visible-md">
-                            <?php for ($i = 0; $i < $carouselRuns; $i++): ?>
-                                <li class="<?php if ($i == 0) echo "active"; ?>"
-                                    data-slide-to="<?php echo 2 * $i; ?>"
-                                    data-target="#adventureCarousel">
-                                    <img alt=""
-                                         title=""
-                                         src="http://placehold.it/120x44/cccccc/ffffff">
-                                </li>
-                                <li class=""
-                                    data-slide-to="<?php echo 2 * $i + 1; ?>"
-                                    data-target="#adventureCarousel">
-                                    <img alt=""
-                                         title=""
-                                         src="http://placehold.it/120x44/999999/cccccc">
-                                </li>
-                            <?php endfor; ?>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <?php
+        If ($login->isUserLoggedIn() == true):
 
-        if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
-            <!--         Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
-            </button>
+            if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id'])): ?>
+                <!--         Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
+                </button>
 
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
-                    <!-- Modal content-->
+                        <!-- Modal content-->
 
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Edit Adventure</h4>
-                        </div>
-                        <form action="edit_adventure.php" method="post">
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="usr">Adventure Name:</label>
-                                    <input type="text" class="form-control" name="adventureName"
-                                           value="<?php echo $adventureName ?>">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Edit Adventure</h4>
+                            </div>
+                            <form action="edit_adventure.php" method="post">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="usr">Adventure Name:</label>
+                                        <input type="text" class="form-control" name="adventureName"
+                                               value="<?php echo $adventureName ?>">
 
-                                    <label for="usr">Country:</label>
-                                    <input type="text" class="form-control" name="country" value="">
+                                        <label for="usr">Country:</label>
+                                        <input type="text" class="form-control" name="country" value="">
 
-                                    <label for="usr">City:</label>
-                                    <input type="text" class="form-control" name="city" value="">
+                                        <label for="usr">City:</label>
+                                        <input type="text" class="form-control" name="city" value="">
 
-                                    <label for="usr">Description;</label>
+                                        <label for="usr">Description;</label>
                                     <textarea class="form-control" name="description" rows="5"
                                               cols="80"><?php echo $description; ?></textarea>
 
-                                    <input type="hidden" class="form-control" name="adventureID"
-                                           value="<?php echo $id; ?>">
+                                        <input type="hidden" class="form-control" name="adventureID"
+                                               value="<?php echo $adv_id; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-default">Submit</button>
 
-                            </div>
-                        </form>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
-
                 </div>
-            </div>
 
 
-
-        <form action="delete_adventure.php" method="post">
-            <input type="hidden" class="form-control" name="test" value="<?php echo $id; ?>">
-            <button type="submit" class="btn btn-default">Delete Adventure</button>
-        </form>
-    <?php endif;?>
-
+                <form action="delete_adventure.php" method="post">
+                    <input type="hidden" class="form-control" name="test" value="<?php echo $adv_id; ?>">
+                    <button type="submit" class="btn btn-default">Delete Adventure</button>
+                </form>
+            <?php endif; ?>
+        <?php endif; ?>
         <script type="text/javascript">
             $('#adventureCarousel').carousel({
                 interval: 4000
