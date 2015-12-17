@@ -229,17 +229,7 @@ while ($stmt2->fetch()) {
 
                     </div>
                 </div>
-            <?php }
-        }
-    }
-    }
-    }
-    }
-    }
-    }
 
-
-    } ?>
 
     <div class="row">
         <div
@@ -385,7 +375,17 @@ while ($stmt2->fetch()) {
                 interval: 4000
             });
         </script>
+        <?php }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
 
+
+        } ?>
 
 </body>
 </html>
