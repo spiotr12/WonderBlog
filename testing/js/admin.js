@@ -41,6 +41,8 @@ $(document).ready(function () {
 function getUsers() {
     var tbody = $("#usersTable").find("tbody");
     //tbody.empty();
+    var table =$('#usersTable');
+    table.before("<div id='dataLoading'>...loading...</div>");
     $.getJSON("./php/data_users.php", function (result) {
         $.each(result, function (i, user) {
             //console.log(user);
@@ -52,5 +54,7 @@ function getUsers() {
             row += '</tr>';
             tbody.append(row);
         });
+    }).done(function(){
+        $('#dataLoading').remove();
     });
 }
