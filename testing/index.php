@@ -53,8 +53,8 @@ if ($stmtAdventure) {
                 'photoID' => $photoID,
                 'adminVote' => $adminVote,
                 'voteCount' => $voteCount,
+                $voteCount = $voteCount + $adminVote,
             );
-            $voteCount = $voteCount + $adminVote;
             array_push($adventure, $temp_arr);
         }
     }
