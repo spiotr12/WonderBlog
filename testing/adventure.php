@@ -143,7 +143,8 @@ while ($stmt2->fetch()) {
                 $tagsStmt->bind_param("i", $id);
                 $tagsStmt->execute();
                 $tagsResult = $tagsStmt->get_result();
-                var_dump($tagsResult);
+                $tags = $tagsResult->fetch_array();
+                var_dump($tags);
 
                 ?>
             </ul>
