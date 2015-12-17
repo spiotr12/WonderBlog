@@ -61,7 +61,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 
 
-                  <input type="hidden" class="form-control" name="userID" value="--><?php echo $_SESSION['id'];?>
+                  <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
 
 
                     <div>
