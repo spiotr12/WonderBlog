@@ -65,11 +65,11 @@ $login = new Login();
                     if ($stmt) {
                         $stmt->bind_param("sss", $search, $search, $search);
                         $stmt->execute();
-                        $stmt->bind_result($id, $name);
+                        $stmt->bind_result($id, $name, $f, $l);
                         while ($stmt->fetch()) {
                             $search_results["data"][] = array(
                                 "id" => $id,
-                                "name" => $name
+                                "name" => $name . " $f $l"
                             );
                         }
                     }
