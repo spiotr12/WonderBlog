@@ -111,7 +111,6 @@ while ($stmt2->fetch()) {
             <h2>Rating</h2>
 
 
-            <?php if ($login->isUserLoggedIn() == true): ?>
 
 
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
@@ -125,8 +124,7 @@ while ($stmt2->fetch()) {
                         Combined vote: <?php echo $combinedVoteCount ?>
 
                     </form>
-                <?php else: ?>
-
+                <?php elseif ($login->isUserLoggedIn() == true): ?>
 
                 <form action="like_adv.php" method="post">
                     <input type="submit" name="like" value="like"/>
@@ -137,11 +135,16 @@ while ($stmt2->fetch()) {
 
                     $combinedVoteCount = $voteCount + $adminVote;
 
-                    echo $voteCount;
+                    echo $combinedVoteCount;
                     echo " Like(s)"; ?>
 
-                <?php endif; ?>
-            <?php endif; ?>
+                <?php else:
+                    echo $combinedVoteCount;
+                    echo " Like(s)";?>
+
+                    <?php endif;?>
+
+
 
 
 
