@@ -139,6 +139,7 @@ while ($stmt2->fetch()) {
             <ul class="list-unstyled">
                 <?php
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventure WHERE id = ?");
+                echo "id: " . $id;
                 if($tagsStmt){
                     $tagsStmt->bind_param("i", $id);
                     $tagsStmt->execute();
