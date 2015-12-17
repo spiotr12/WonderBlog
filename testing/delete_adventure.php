@@ -5,7 +5,11 @@ require_once("./php/db_connect.php");
 
 $adventureID = $_POST["test"];
 
-$delete = new mysqli_stmt ($mysqli, "DELETE * FROM adventures WHERE id = $adventureID");
+$stmt = new mysqli_stmt($mysqli, "DELETE * FROM adventures WHERE id = ?");
+if ($stmt) {
+    $stmt->bind_param("i", $adventureID);
+    $stmt->execute();}
+
 
 //echo "DONE";
 //$str = 'Location:  ./index';
