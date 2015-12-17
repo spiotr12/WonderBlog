@@ -311,6 +311,8 @@ while ($stmt2->fetch()) {
                                         <label for="usr">Description;</label>
                                     <textarea class="form-control" name="description" rows="5"
                                               cols="80"><?php echo $description; ?></textarea>
+                                        <label class="label">upload photo</label>
+                                        <input class="" type="file" name="photos">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
