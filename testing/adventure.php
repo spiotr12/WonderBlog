@@ -113,12 +113,16 @@ while ($stmt2->fetch()) {
 
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
                     <form action="admin_votes.php" method=post>
+                        Current user vote: <?php echo $voteCount ?>
                         Current admin vote: <?php echo $adminVote ?><br>
                         Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                         <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                         <input type='submit' value="<?php echo "Update" ?>"/>
+                        <?php $combinedVoteCount = $voteCount + $adminVote;?>
+                        Combined vote: <?php echo $combinedVoteCount ?>
+
                     </form>
-                <?php endif; ?>
+                <?php else: ?>
 
 
                 <form action="like_adv.php" method="post">
@@ -126,14 +130,17 @@ while ($stmt2->fetch()) {
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
+                    <?php
+
+                    $combinedVoteCount = $voteCount + $adminVote;
+
+                    echo $voteCount;
+                    echo " Like(s)"; ?>
+
+                <?php endif; ?>
             <?php endif; ?>
 
-            <?php
 
-            $voteCount = $voteCount + $adminVote;
-
-            echo $voteCount;
-            echo " Like(s)"; ?>
 
 
             <h2>Tags</h2>
