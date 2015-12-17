@@ -11,4 +11,7 @@ require_once("../../resources/config.php");
 
 $dir = "../img/contents/";
 $scan = scandir($dir);
-print_r($scan);
+foreach($scan as $s){
+    print_r($s);
+    echo "<br>";
+}
