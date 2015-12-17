@@ -42,7 +42,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <div id="createform" class="container">
     <div class="row">
         <div class="col-md-12">
-            <form action="addAdventure.php" method="post">
+            <form action="addAdventure.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="usr">Adventure Name:</label>
                     <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name">
@@ -56,7 +56,13 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <label for="usr">Description:</label>
                     <textarea class="form-control" name="description"  rows="5" cols="80" >Description</textarea>
 
-                    <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
+                    <label class="label">upload photo</label>
+                    <input class="" type="file" name="photos">
+
+
+
+                  <input type="hidden" class="form-control" name="userID" value="--><?php echo $_SESSION['id'];?>
+
 
                     <div>
                         <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
