@@ -43,17 +43,17 @@ renderHeader("Adventure", $meta, $css, $js);
 
 <?php
 
-$id = $_GET["id"];
+$adv_id = $_GET["id"];
 
 
 // create a SQL query as a string
-//$sql_query = "SELECT description FROM adventures WHERE id = $id";
+//$sql_query = "SELECT description FROM adventures WHERE id = $adv_id";
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
 $stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote FROM adventures WHERE id = ?");
 
-$stmt->bind_param("i", $id);
+$stmt->bind_param("i", $adv_id);
 $stmt->execute();
 $stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote);
 $stmt->store_result();
@@ -63,7 +63,7 @@ while ($stmt->fetch()) {
 
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(adv_id) FROM votes WHERE adv_id = ?");
 
-$stmt1->bind_param("i", $id);
+$stmt1->bind_param("i", $adv_id);
 $stmt1->execute();
 $stmt1->bind_result($voteCount);
 $stmt1->store_result();
@@ -72,7 +72,7 @@ while ($stmt1->fetch()) {
 
 $stmt2 = new mysqli_stmt($mysqli, "SELECT id, file_ext FROM photos WHERE adv_id = ? AND is_cover = 1 ");
 
-$stmt2->bind_param("i", $id);
+$stmt2->bind_param("i", $adv_id);
 $stmt2->execute();
 $stmt2->bind_result($coverPhotoID, $coverFileEXT);
 $stmt2->store_result();
@@ -114,7 +114,7 @@ while ($stmt2->fetch()) {
                     <form action="admin_votes.php" method=post>
                         Current admin vote: <?php echo $adminVote ?><br>
                         Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
-                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                         <input type='submit' value="<?php echo "Update" ?>"/>
                     </form>
                 <?php endif; ?>
@@ -123,7 +123,7 @@ while ($stmt2->fetch()) {
                 <form action="like_adv.php" method="post">
                     <input type="submit" name="like" value="like"/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                    <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
             <?php endif; ?>
 
@@ -139,7 +139,7 @@ while ($stmt2->fetch()) {
             <ul class="list-unstyled">
                 <?php
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
-                $tagsStmt->bind_param("i", $id);
+                $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
                 $tagsResult = $tagsStmt->get_result();
                 $tagsTemp = $tagsResult->fetch_array();
@@ -162,7 +162,7 @@ while ($stmt2->fetch()) {
     <?php $commentArray[] = array();
 
 
-    $sql = "SELECT * FROM comments WHERE adv_id = $id";
+    $sql = "SELECT * FROM comments WHERE adv_id = $adv_id";
     $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
     while ($row = $res->fetch_assoc()) {
         $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
@@ -203,7 +203,7 @@ while ($stmt2->fetch()) {
                                 <textarea rows="3" cols="75" name='editComment' id='editComment'
                                           placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                                         <input type='submit'
                                                value="<?php echo "Click to submit your edited comment"; ?>""/>
                                     </form>
@@ -217,7 +217,7 @@ while ($stmt2->fetch()) {
                                     <form action="delete_comment.php" method="post">
                                         <input type="submit" name="deleteComment" value="Click here to delete comment"/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                                     </form>
 
 
@@ -251,7 +251,7 @@ while ($stmt2->fetch()) {
                 <textarea rows="3" cols="80" name='comment' id='comment'
                           placeholder="Insert comment here"></textarea><br/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                    <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                     <input type='submit' value="<?php echo "Click to submit your comment" ?> "/>
                 </form>
             <?php endif; ?>
@@ -361,7 +361,7 @@ while ($stmt2->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                     <input type="hidden" class="form-control" name="adventureID"
-                                           value="<?php echo $id; ?>">
+                                           value="<?php echo $adv_id; ?>">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -378,7 +378,7 @@ while ($stmt2->fetch()) {
 
 
         <form action="delete_adventure.php" method="post">
-            <input type="hidden" class="form-control" name="test" value="<?php echo $id; ?>">
+            <input type="hidden" class="form-control" name="test" value="<?php echo $adv_id; ?>">
             <button type="submit" class="btn btn-default">Delete Adventure</button>
         </form>
     <?php endif;?>
