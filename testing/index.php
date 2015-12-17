@@ -114,10 +114,6 @@ if ($stmtAdventure) {
                 <p><?php echo $stone['voteCount']; ?></p>
                 <?php if ($login->isUserLoggedIn() == true): ?>
 
-                    <?php
-                    $advId = $_POST["test"];
-                    ?>
-
                 <p><a class="btn btn-default" name = test method = 'post' href="location: ./adventure.php?id=$advId" role="button">View details &raquo;</a></p>
                 <?php endif; ?>
             </div>
