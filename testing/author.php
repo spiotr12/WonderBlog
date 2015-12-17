@@ -112,7 +112,7 @@ if ($stmt1->num_rows() == 1) {
                                             <input type="text" class="form-control" name="secondName" value="<?php echo $last_name;?>">
 
                                             <label for="usr">Description:</label>
-                                            <textarea class="form-control" name="description"  rows="5" cols="80"><?php echo $description;?></textarea>
+                                            <textarea class="form-control" name="description"  rows="5" cols="80"><?php echo $description; ?></textarea>
 
                                             <label for="usr">Date Of Birth:</label>
                                             <input type="text" class="form-control" name="dob" value="<?php echo $dob;?>">
