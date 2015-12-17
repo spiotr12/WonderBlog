@@ -294,6 +294,14 @@ while ($stmt2->fetch()) {
                 <!--         Trigger the modal with a button -->
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
                 </button>
+                <form class="form" name="upload_file" method="post" action="./php/upload_photo.php"
+                      enctype="multipart/form-data">
+                    <label class="label">upload photo</label>
+                    <input class="" type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
+                    <input class="" type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                    <input class="" type="file" name="photos">
+                    <button class="btn" type="submit" name="uploadSubmit">Submit</button>
+                </form>
 
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
