@@ -10,7 +10,7 @@ $city = $_POST["city"];
 $description = $_POST["description"];
 $date = date("Y-m-d H:i:s");
 $userID = $_POST["userID"];
-$keywords =  $_post["keywords"];
+$keywords =  $_POST["keywords"];
 $adventure_id = -1;
 $stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date, keywords)
         VALUES(?,?,?,?,?,?,?)");
