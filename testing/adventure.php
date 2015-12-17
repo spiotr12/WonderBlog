@@ -136,11 +136,12 @@ while ($stmt2->fetch()) {
                     $combinedVoteCount = $voteCount + $adminVote;
 
                     endif;?>
+           <?php endif;?>
 
                <?php
                     echo "Current likes: ";
                     echo $combinedVoteCount;
-                    endif;?>
+                   ?>
 
 
 
