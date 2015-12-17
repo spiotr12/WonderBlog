@@ -323,10 +323,8 @@ while ($stmt2->fetch()) {
         </div>
 
         <?php
-        $user_id = $_SESSION['id'];
-        echo $user_id;
 
-        if (isset($_SESSION['id']) && $user_id == $_SESSION['id']) { ?>
+        if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
             <!--         Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
             </button>
@@ -373,13 +371,14 @@ while ($stmt2->fetch()) {
 
                 </div>
             </div>
-        <?php }
-        ?>
+
+
 
         <form action="delete_adventure.php" method="post">
             <input type="hidden" class="form-control" name="test" value="<?php echo $id; ?>">
             <button type="submit" class="btn btn-default">Delete Adventure</button>
         </form>
+    <?php endif;?>
 
         <script type="text/javascript">
             $('#adventureCarousel').carousel({

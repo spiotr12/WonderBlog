@@ -40,10 +40,10 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, p.file_ext, p.id, COUNT(v.adv_id) as rate FROM adventures A, votes V, photos P WHERE a.id = v.adv_id = p.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY rate DESC LIMIT 5");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, p.file_ext, p.id, a.admin_vote, COUNT(v.adv_id) as rate FROM adventures A, votes V, photos P WHERE a.id = v.adv_id = p.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY rate DESC LIMIT 5");
 if ($stmtAdventure) {
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $photoExt, $photoID, $voteCount);
+        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $photoExt, $photoID, $adminVote, $voteCount);
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
                 'adventureID' => $adventureID,
@@ -51,12 +51,14 @@ if ($stmtAdventure) {
                 'voteAdvID' => $voteAdvID,
                 'photoExt' => $photoExt,
                 'photoID' => $photoID,
+                'adminVote' => $adminVote,
                 'voteCount' => $voteCount,
             );
             array_push($adventure, $temp_arr);
         }
     }
 }
+
 ?>
 
 <div class="jumbotron">
@@ -108,7 +110,7 @@ if ($stmtAdventure) {
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description']; ?></p>
-                <p><?php echo $stone['voteCount']; ?></p>
+                <p><?php echo $stone['voteCount' + 'adminVote']; ?></p>
             </div>
         </div>
     </div>
