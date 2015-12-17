@@ -88,7 +88,7 @@ $login = new Login();
                     }
                 }
                 echo "<ul class='list-group'>";
-                foreach ($seasrch_results["data"] as $key => $val):
+                foreach ($search_results["data"] as $key => $val):
                     ?>
                     <li>
                         <a href="./<?php echo $search_results["type"] . ".php?id=" . $val['id']; ?>">
