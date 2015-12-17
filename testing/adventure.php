@@ -143,9 +143,9 @@ while ($stmt2->fetch()) {
                 $tagsStmt->bind_param("i", $id);
                 $tagsStmt->execute();
                 $tagsResult = $tagsStmt->get_result();
-                $tags = $tagsResult->fetch_array();
+                $tagsTemp = $tagsResult->fetch_array();
+                $tags = multiexplode(array(";", ","), $tagsTemp['keywords']);
                 var_dump($tags);
-
                 ?>
             </ul>
         </div>
