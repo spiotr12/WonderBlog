@@ -67,3 +67,17 @@ function isOwner($mysqli, $authorId, $adventureId){
         return FALSE;
     }
 }
+
+
+/**
+ * Function that explode string into array using multiple delimiters
+ *
+ * @param String[] $delimiters array of delimiters
+ * @param $string
+ * @return array
+ */
+function multiexplode ($delimiters, $string) {
+    $ready = str_replace($delimiters, $delimiters[0], $string);
+    $launch = explode($delimiters[0], $ready);
+    return  $launch;
+}
