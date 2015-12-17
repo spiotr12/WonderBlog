@@ -52,11 +52,11 @@ $adv_id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote, country, city FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $adv_id);
 $stmt->execute();
-$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote);
+$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote, $country, $city);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -102,6 +102,9 @@ while ($stmt2->fetch()) {
             <h2>Description</h2>
 
             <?php echo $description; ?>
+            <br><br>
+            Country: <?php echo $country ?><br>
+            City: <?php echo $city ?>
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
@@ -113,12 +116,16 @@ while ($stmt2->fetch()) {
 
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
                     <form action="admin_votes.php" method=post>
+                        Current user vote: <?php echo $voteCount ?><br>
                         Current admin vote: <?php echo $adminVote ?><br>
                         Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                         <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                        <input type='submit' value="<?php echo "Update" ?>"/>
+                        <input type='submit' value="<?php echo "Update" ?>"/><br>
+                        <?php $combinedVoteCount = $voteCount + $adminVote;?>
+                        Combined vote: <?php echo $combinedVoteCount ?>
+
                     </form>
-                <?php endif; ?>
+                <?php else: ?>
 
 
                 <form action="like_adv.php" method="post">
@@ -126,14 +133,17 @@ while ($stmt2->fetch()) {
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
+                    <?php
+
+                    $combinedVoteCount = $voteCount + $adminVote;
+
+                    echo $voteCount;
+                    echo " Like(s)"; ?>
+
+                <?php endif; ?>
             <?php endif; ?>
 
-            <?php
 
-            $voteCount = $voteCount + $adminVote;
-
-            echo $voteCount;
-            echo " Like(s)"; ?>
 
 
             <h2>Tags</h2>

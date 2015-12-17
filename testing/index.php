@@ -114,7 +114,7 @@ if ($stmtAdventure) {
                 <p><?php echo $stone['voteCount']; ?></p>
                 <?php if ($login->isUserLoggedIn() == true): ?>
                 <form action="goToAdventure.php" method="post">
-                    <input type="submit" href="location: ./adventure.php?id=$advId" name="test" value="Go To Adventure"/>
+                    <input type="submit" name="test" value="Go To Adventure"/>
                 <?php endif; ?>
             </div>
         </div>

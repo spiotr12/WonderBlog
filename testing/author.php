@@ -205,16 +205,17 @@ if ($stmtUser) {
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures WHERE user_id = ?");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, p.id, p.file_ext, FROM adventures A, photos P WHERE user_id = ?");
 if ($stmtAdventure) {
     $stmtAdventure->bind_param("i", $author['id']);
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($ad_id, $ad_description
-        );
+        $stmtAdventure->bind_result($ad_id, $ad_description, $photoID, $fileExt);
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
                 'id' => $ad_id,
                 'description' => $ad_description,
+                'photoID' => $photoID,
+                'fileExt' => $fileExt,
 
             );
             array_push($adventure, $temp_arr);
@@ -230,7 +231,7 @@ foreach ($adventure as $stone) {
         <div class="row">
             <div class="col-md-3">
                 <img
-                    src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                    src="./img/contents/<?php echo $stone['photoID']; ?>.<?php echo $stone['fileExt'] ?>"
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
