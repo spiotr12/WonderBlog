@@ -212,15 +212,13 @@ while ($stmt2->fetch()) {
                                 <?php endif; ?>
 
 
-                                <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
-
+                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0)||($adventureUserID == $_SESSION['id'])): ?>
 
                                     <form action="delete_comment.php" method="post">
                                         <input type="submit" name="deleteComment" value="Click here to delete comment"/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                         <input type="hidden" name="adv_id" value="<?php echo $id; ?>">
                                     </form>
-
 
 
 
