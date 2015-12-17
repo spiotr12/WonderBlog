@@ -61,15 +61,15 @@ $login = new Login();
                 );
                 $stmt = null;
                 if ($search_type == "adventure") {
-                    $stmt = new mysqli_stmt($mysqli, "SELECT id, name FROM adventures WHERE name LIKE ? OR description LIKE ? OR keywords LIKE ? ");
+                    $stmt = new mysqli_stmt($mysqli, "SELECT id, name, first_name, last_name FROM adventures A, users U WHERE A.user_id = U.id AND name LIKE ? OR description LIKE ? OR keywords LIKE ? ");
                     if ($stmt) {
                         $stmt->bind_param("sss", $search, $search, $search);
                         $stmt->execute();
-                        $stmt->bind_result($id, $name);
+                        $stmt->bind_result($id, $name, $fname, $lname);
                         while ($stmt->fetch()) {
                             $search_results["data"][] = array(
                                 "id" => $id,
-                                "name" => $name
+                                "name" => ($name . " (" . $fname . " " . $lname . ")")
                             );
                         }
                     }
