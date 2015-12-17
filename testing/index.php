@@ -54,6 +54,7 @@ if ($stmtAdventure) {
                 'adminVote' => $adminVote,
                 'voteCount' => $voteCount,
             );
+            $voteCount = $voteCount + $adminVote;
             array_push($adventure, $temp_arr);
         }
     }
@@ -110,7 +111,7 @@ if ($stmtAdventure) {
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description']; ?></p>
-                <p><?php echo $stone['voteCount' + 'adminVote']; ?></p>
+                <p><?php echo $stone['voteCount']; ?></p>
             </div>
         </div>
     </div>
