@@ -140,12 +140,11 @@ while ($stmt2->fetch()) {
                 <?php
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 echo "id: " . $id;
-                if($tagsStmt){
-                    $tagsStmt->bind_param("i", $id);
-                    $tagsStmt->execute();
-                    $tagsResult = $tagsStmt->get_result();
-                    var_dump($tagsResult);
-                }
+                $tagsStmt->bind_param("i", $id);
+                $tagsStmt->execute();
+                $tagsResult = $tagsStmt->get_result();
+                var_dump($tagsResult);
+
                 ?>
             </ul>
         </div>
