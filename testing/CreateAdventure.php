@@ -44,7 +44,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <div class="col-md-12">
             <form action="addAdventure.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="usr">Adventure Name:</label>
+                    <label for="usr">Adventure TEST Name:</label>
                     <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name">
 
                     <label for="usr">Country:</label>
