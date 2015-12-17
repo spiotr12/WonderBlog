@@ -145,7 +145,9 @@ while ($stmt2->fetch()) {
                 $tagsResult = $tagsStmt->get_result();
                 $tagsTemp = $tagsResult->fetch_array();
                 $tags = multiexplode(array(";", ","), $tagsTemp['keywords']);
-                var_dump($tags);
+                foreach ($tags as $tag) {
+                    echo "<li>" . $tag . "</li>";
+                }
                 ?>
             </ul>
         </div>
