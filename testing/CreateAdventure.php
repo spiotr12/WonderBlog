@@ -12,8 +12,8 @@ $login = new Login();
 // END OF LOGIN SCRIPT
 
 ?>
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <?php
 $meta = array(
     "<meta charset=\"UTF-8\">",
@@ -44,7 +44,7 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <div class="col-md-12">
             <form action="addAdventure.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="usr">Adventure TEST Name:</label>
+                    <label for="usr">Adventure Name Chage test :</label>
                     <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name">
 
                     <label for="usr">Country:</label>
@@ -56,12 +56,15 @@ renderHeader("WonderBlog!", $meta, $css, $js);
                     <label for="usr">Description:</label>
                     <textarea class="form-control" name="description"  rows="5" cols="80" >Description</textarea>
 
+                    <label for="usr">Tags:</label>
+                    <input type="text" class="form-control" name="keywords" placeholder="Keywords can be separated by either , or ; e.g. lunch,fun;lads">
+
                     <label class="label">upload photo</label>
                     <input class="" type="file" name="photos">
 
 
 
-                  <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
+                    <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
 
 
                     <div>
