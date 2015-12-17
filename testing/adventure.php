@@ -52,11 +52,11 @@ $adv_id = $_GET["id"];
 // execute the SQL query
 //$description = $mysqli->query($sql_query);
 
-$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote FROM adventures WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT user_id, description, name, admin_vote, country, city, FROM adventures WHERE id = ?");
 
 $stmt->bind_param("i", $adv_id);
 $stmt->execute();
-$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote);
+$stmt->bind_result($adventureUserID, $description, $adventureName, $adminVote, $country, $city);
 $stmt->store_result();
 if ($stmt->num_rows() == 1) {
 while ($stmt->fetch()) {
@@ -102,6 +102,9 @@ while ($stmt2->fetch()) {
             <h2>Description</h2>
 
             <?php echo $description; ?>
+            <br>
+            Country: <?php echo $country ?><br><br>
+            City: <?php echo $city ?>
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
