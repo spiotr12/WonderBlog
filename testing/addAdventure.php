@@ -20,7 +20,7 @@ if ($stmt) {
 
 }
 $str = 'Location:  ./adventure.php?id=' . $adventure_id;
-//header($str);
+header($str);
 
 //$admins = array();
 //
@@ -34,9 +34,9 @@ $str = 'Location:  ./adventure.php?id=' . $adventure_id;
 //    array_push($admins, $temp_arr);
 //}
 // the message
-$msg = "New Adventure Created" . $str;
-//foreach ($admins as $stone)
-// send email
-mail("ruairigray@gmail.com","New Adventure",$msg);
-echo $msg
+//$msg = "New Adventure Created" . $str;
+////foreach ($admins as $stone)
+//// send email
+//mail("ruairigray@gmail.com","New Adventure",$msg);
+//echo $msg
 ?>
