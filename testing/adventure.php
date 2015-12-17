@@ -264,7 +264,11 @@ while ($stmt2->fetch()) {
 
     </div>
 
-        <?php $sql = "SELECT id, file_ext FROM photos WHERE adv_id = $id";
+        <?php
+
+        $photosArray[] = array();
+
+        $sql = "SELECT id, file_ext FROM photos WHERE adv_id = $id";
         $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
         while ($row = $res->fetch_assoc()) { ?>
 
