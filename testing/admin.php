@@ -74,14 +74,6 @@ $login = new Login();
             <?php else: ?>
                 <h2>You do not have a rights to access this page</h2>
             <?php endif; ?>
-            <form class="form" name="upload_file" method="post" action="./php/upload_photo.php"
-                  enctype="multipart/form-data">
-                <label class="label">upload photo</label>
-                <input class="" type="hidden" name="user_id" value="11">
-                <input class="" type="hidden" name="adv_id" value="11">
-                <input class="" type="file" name="photos">
-                <button class="btn" type="submit" name="uploadSubmit">Submit</button>
-            </form>
         </div>
     </div>
     <script type="text/javascript" src="./js/admin.js"></script>

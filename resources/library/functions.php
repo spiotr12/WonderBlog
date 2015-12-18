@@ -88,7 +88,7 @@ function isUserVerified($mysqli, $userID){
         $stmt->bind_param('i', $userID);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_object();
-        if($result->verified == 1){
+        if($result->verified == TRUE){
             return TRUE;
         } else {
             return FALSE;
