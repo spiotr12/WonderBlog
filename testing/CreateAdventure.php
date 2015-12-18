@@ -44,23 +44,23 @@ renderHeader("WonderBlog!", $meta, $css, $js);
         <div class="col-md-12">
             <form action="addAdventure.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="usr">Adventure Name Chage test :</label>
-                    <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name">
+                    <label for="usr">Adventure Name:</label>
+                    <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name" required>
 
                     <label for="usr">Country:</label>
-                    <input type="text" class="form-control" name="country" placeholder="Country">
+                    <input type="text" class="form-control" name="country" placeholder="Country"required>
 
                     <label for="usr">City:</label>
                     <input type="text" class="form-control" name="city" placeholder="City">
 
                     <label for="usr">Description:</label>
-                    <textarea class="form-control" name="description"  rows="5" cols="80" >Description</textarea>
+                    <textarea class="form-control" name="description"  rows="5" cols="80" required>Description</textarea>
 
                     <label for="usr">Tags:</label>
                     <input type="text" class="form-control" name="keywords" placeholder="Keywords can be separated by either , or ; e.g. lunch,fun;lads">
 
                     <label class="label">upload photo</label>
-                    <input class="" type="file" name="photos">
+                    <input class="" type="file" name="photos"required>
 
 
 
