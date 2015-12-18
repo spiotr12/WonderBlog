@@ -303,6 +303,16 @@ while ($stmt3->fetch()) {
             <img class="displayed" width="600" height="220px" "
             src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
+            <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
+
+                <form action="delete_photo.php" method="post">
+                    <input type="submit" name="deletePhoto" value="Click here to delete Photo"/>
+                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                </form>
+
+
+            <?php endif; ?>
+
         <?php }
 
 
