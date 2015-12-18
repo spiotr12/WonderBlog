@@ -11,6 +11,7 @@ require_once("./db_connect.php");
 
 header('Content-Type: text/plain; charset=utf-8');
 
+$adventure_id = $POST['adv_id'];
 try {
 
     // Undefined | Multiple Files | $_FILES Corruption Attack
@@ -85,3 +86,5 @@ try {
     echo $e->getMessage();
 
 }
+$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+header($str);
