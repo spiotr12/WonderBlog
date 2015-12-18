@@ -258,7 +258,7 @@ foreach ($adventure as $stone) {
         <div class="row">
             <div class="col-md-3">
                 <img
-                    src="./img/contents/<?php echo $ad_id['pid'] . "." . $ad_id['pext']; ?>"
+                    src="./img/contents/<?php echo $stone['pid'] . "." . $stone['pext']; ?>"
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
