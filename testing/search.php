@@ -123,14 +123,16 @@ $login = new Login();
                                 $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=adventures.id WHERE rates.rate > ?";
                                 break;
                         }
-                        $stmt->bind_param("s", $search);
-                        $stmt->execute();
-                        $stmt->bind_result($id, $name);
-                        while ($stmt->fetch()) {
-                            $search_results["data"][] = array(
-                                "id" => $id,
-                                "name" => $name
-                            );
+                        $stmt = new mysqli_stmt($mysqli, $query);
+                        if ($stmt->bind_param("s", $search)) {
+                            $stmt->execute();
+                            $stmt->bind_result($id, $name);
+                            while ($stmt->fetch()) {
+                                $search_results["data"][] = array(
+                                    "id" => $id,
+                                    "name" => $name
+                                );
+                            }
                         }
                     }
                 }
