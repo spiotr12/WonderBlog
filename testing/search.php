@@ -57,13 +57,13 @@ $login = new Login();
                     <input type="text" name="q" value="<?php echo $_GET["q"]; ?>">
 <!--                    <input type="number" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
                     <br>
-                    <label><input type="radio" name="search_type_adv" value="name">by name</label>
+                    <label><input type="radio" name="search_type_adv" value="name"> by name</label>
                     <br>
-                    <label><input type="radio" name="search_type_adv" value="country">by country</label>
+                    <label><input type="radio" name="search_type_adv" value="country"> by country</label>
                     <br>
-                    <label><input type="radio" name="search_type_adv" value="author">by author</label>
+                    <label><input type="radio" name="search_type_adv" value="author"> by author</label>
                     <br>
-                    <label><input type="radio" name="search_type_adv" value="votes">by minimum voting score</label>
+                    <label><input type="radio" name="search_type_adv" value="votes"> by minimum voting score</label>
                     <br>
                     <button class="btn, btn-success" type="submit">Search advance!</button>
                 </form>
@@ -134,7 +134,7 @@ $login = new Login();
                                 $search = "%" . $search . "%";
                                 break;
                             case "votes":
-                                $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=adventures.id WHERE rates.rate > ?";
+                                $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=a.id WHERE rates.rate > ?";
                                 $bindType = 'i';
                                 $search = (int) $search;
                                 break;
@@ -143,6 +143,7 @@ $login = new Login();
                         echo " bind: " . $bindType . "<br>";
                         var_dump($search);
                         echo "<br>";
+                        var_dump($stmt->bind_param($bindType, $search));
                         if ($stmt->bind_param($bindType, $search)) {
                             $stmt->execute();
                             $stmt->bind_result($id, $name);
