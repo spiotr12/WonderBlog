@@ -340,6 +340,9 @@ while ($stmt2->fetch()) {
                                         <label class="label">upload photo</label>
                                         <input class="" type="file" name="photos">
 
+                                        <label for="usr">Tags:</label>
+                                        <input type="text" class="form-control" name="keywords" placeholder="Keywords can be separated by either , or ; e.g. lunch,fun;lads">
+
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
                                     </div>
