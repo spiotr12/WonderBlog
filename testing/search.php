@@ -76,7 +76,7 @@ $login = new Login();
                     "data" => array()
                 );
                 $stmt = null;
-                if ($search_type == "adventure" || (isset($_GET['search_type_adv']) && $_GET_['search_type_adv'] == "")) {
+                if ($search_type == "adventure" || (isset($_GET['search_type_adv']) && $_GET['search_type_adv'] == "")) {
                     $search = "%" . $search . "%";
                     $query = "SELECT A.id, A.name, U.first_name, U.last_name
                         FROM adventures A, users U
