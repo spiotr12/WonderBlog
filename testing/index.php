@@ -86,7 +86,7 @@ if ($stmtAdventure) {
             <div class="row">
                 <div id="mainSearch">
                     <div class="input-group col-md-8 col-md-offset-2">
-                        <input type="text"
+                        <input type="text" name="q"
                                class="search-query form-control"
                                placeholder="Search for author or adventures"/>
                     </div>
