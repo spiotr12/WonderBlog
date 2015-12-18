@@ -105,8 +105,8 @@ if ($stmt) {
     $stmt->execute();
 }
 
-//$str = 'Location:  ./adventure.php?id=' . $adventure_id;
-//header($str);
+$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+header($str);
 
 
 
