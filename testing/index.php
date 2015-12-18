@@ -58,6 +58,7 @@ $query = "SELECT a.id, a.name, a.description, rate.total_rate,
 $stmtAdventure = new mysqli_stmt($mysqli, $query);
 if ($stmtAdventure) {
     if ($stmtAdventure->execute()) {
+        echo "executed";
         $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
@@ -68,6 +69,8 @@ if ($stmtAdventure) {
             );
             array_push($adventure, $temp_arr);
         }
+    } else {
+        echo "not executed";
     }
 }
 
