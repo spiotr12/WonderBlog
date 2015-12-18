@@ -63,6 +63,8 @@ $login = new Login();
                     <br>
                     <label><input type="radio" name="search_type_adv" value="author"> by author</label>
                     <br>
+                    <label><input type="radio" name="search_type_adv" value="keyword"> by keyword</label>
+                    <br>
                     <label><input type="radio" name="search_type_adv" value="votes"> by minimum voting score</label>
                     <br>
                     <button class="btn, btn-success" type="submit">Search advance!</button>
@@ -125,6 +127,11 @@ $login = new Login();
                                 break;
                             case "country":
                                 $query = "SELECT A.id, A.name name FROM adventures A WHERE country LIKE ?";
+                                $bindType = 's';
+                                $search = "%" . $search . "%";
+                                break;
+                            case "keyword":
+                                $query = "SELECT A.id, A.name name FROM adventures A WHERE keywords LIKE ?";
                                 $bindType = 's';
                                 $search = "%" . $search . "%";
                                 break;
