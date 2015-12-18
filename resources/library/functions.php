@@ -6,7 +6,7 @@
  * Time: 12:12
  */
 function redirectToHome() {
-    header('Location: ./site');
+    header('Location: ./testing');
     die();
 }
 
