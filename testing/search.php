@@ -55,7 +55,7 @@ $login = new Login();
                 <h1>Advance search</h1>
                 <form name="advanceSearch" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <input type="text" name="q" value="<?php echo $_GET["q"]; ?>">
-<!--                    <input type="number" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
+                    <!--                    <input type="number" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
                     <br>
                     <label><input type="radio" name="search_type_adv" value="name" checked> by name</label>
                     <br>
@@ -134,17 +134,23 @@ $login = new Login();
                                 $search = "%" . $search . "%";
                                 break;
                             case "votes":
-                                $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=a.id WHERE rates.rate >= ?";
+                                $query = "SELECT a.id, a.name
+                                          FROM adventures a
+                                          LEFT JOIN (
+                                              SELECT id, COUNT(*) as rate, v.date
+                                              FROM adventures a, votes v
+                                              WHERE a.id = v.adv_id GROUP BY id
+                                          ) v
+                                          ON a.id = v.id
+                                          WHERE (IFNULL(v.rate,0)+a.admin_vote) >= ?";
                                 $bindType = 'i';
-                                $search = (int) $search;
+                                $search = (int)$search;
                                 break;
                         }
                         $stmt = new mysqli_stmt($mysqli, $query);
-                        echo "get: ";
-                        var_dump($_GET['search_type_adv']);
-//                        echo " bind: " . $bindType . "<br>";
-//                        var_dump($search);
-//                        echo "<br>";
+                        echo " bind: " . $bindType . "<br>";
+                        var_dump($search);
+                        echo "<br>";
 //                        var_dump($stmt->bind_param($bindType, $search));
                         if ($stmt->bind_param($bindType, $search)) {
                             $stmt->execute();

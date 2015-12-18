@@ -37,25 +37,36 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 <?php
 //prepare rating and adventure
 
-$adventure = array();
+$adventures = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.description, v.adv_id, p.file_ext, p.id, a.admin_vote, COUNT(v.adv_id) as rate FROM adventures A, votes V, photos P WHERE a.id = v.adv_id = p.adv_id AND is_cover = 1 GROUP BY A.id ORDER BY rate DESC LIMIT 5");
+$query = "SELECT a.id, a.name, a.description, rate.total_rate
+          FROM adventures A, votes V, (
+              SELECT a.id, (IFNULL(v.rate,0)+a.admin_vote) as total_rate
+              FROM adventures a
+              LEFT JOIN (
+                  SELECT id, COUNT(*) as rate, v.date
+                  FROM adventures a, votes v
+                  WHERE a.id = v.adv_id
+                 GROUP BY id
+              ) v
+              ON a.id = v.id
+          ) rate
+          WHERE a.id = rate.id
+          ORDER BY rate.total_rate
+          DESC LIMIT 5";
+$stmtAdventure = new mysqli_stmt($mysqli, $query);
 if ($stmtAdventure) {
-    if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($adventureID, $adventureDesc, $voteAdvID, $photoExt, $photoID, $adminVote, $voteCount);
-        while ($stmtAdventure->fetch()) {
-            $temp_arr = array(
-                'adventureID' => $adventureID,
-                'description' => $adventureDesc,
-                'voteAdvID' => $voteAdvID,
-                'photoExt' => $photoExt,
-                'photoID' => $photoID,
-                'adminVote' => $adminVote,
-                'voteCount' => $voteCount,
-            );
-            array_push($adventure, $temp_arr);
-        }
+    $stmtAdventure->execute();
+    $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
+    while ($stmtAdventure->fetch()) {
+        $adventures[] = array(
+            'adventureID' => $adventureID,
+            'name' => $adventureName,
+            'description' => $adventureDesc,
+            'rate' => $rate,
+        );
+
     }
 }
 
@@ -99,21 +110,26 @@ if ($stmtAdventure) {
         </div>
     </div>
 </div>
-<?php foreach ($adventure as $stone) {
+
+<?php
+var_dump($adventures);
+foreach ($adventures as $adv) {
     ?>
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
-                <img
-                    src="./img/contents/<?php echo $stone['photoID']; ?>.<?php echo $stone['photoExt'] ?>"
-                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">
+                <!--                <img-->
+                <!--                    src="./img/contents/--><?php //echo $adv['photoID']; ?><!--.-->
+                <?php //echo $adv['photoExt'] ?><!--"-->
+                <!--                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">-->
             </div>
             <div class="col-md-9">
-                <p> <?php echo $stone['description']; ?></p>
-                <p><?php echo ($stone['voteCount']+$stone['adminVote']); ?></p>
-                <p><a class="btn btn-default" href="./adventure.php?id=<?php echo $stone['adventureID'];?>" role="button">View details &raquo;</a></p>
-
-
+                <p> <?php echo $adv['description']; ?></p>
+                <p><?php echo $adv['rate']; ?></p>
+                <p>
+                    <a class="btn btn-default" href="./adventure.php?id=<?php echo $adv['adventureID']; ?>">View
+                        details &raquo;</a>
+                </p>
             </div>
         </div>
     </div>
