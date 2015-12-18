@@ -125,11 +125,11 @@ $login = new Login();
                         }
                         $stmt->bind_param("s", $search);
                         $stmt->execute();
-                        $stmt->bind_result($id, );
+                        $stmt->bind_result($id, $name);
                         while ($stmt->fetch()) {
                             $search_results["data"][] = array(
                                 "id" => $id,
-                                "name" => $name . " by  <i>$f $l</i>"
+                                "name" => $name
                             );
                         }
                     }
