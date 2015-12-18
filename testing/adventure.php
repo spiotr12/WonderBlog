@@ -117,9 +117,9 @@ while ($stmt3->fetch()) {
                 echo "City: ";
                 echo $city;
             }; endif; ?><br>
-            Author: <?php echo $commentFirstName;
+            Author: <?php echo $authorFirstName;
             echo " ";
-            echo $commentLastName; ?>
+            echo $authorLastName; ?>
 
         </div>
         <div
@@ -195,8 +195,7 @@ while ($stmt3->fetch()) {
     }
 
 
-
-    }?>
+    } ?>
 
     <?php $commentArray[] = array();
 
@@ -204,72 +203,74 @@ while ($stmt3->fetch()) {
     $sql = "SELECT * FROM comments WHERE adv_id = $adv_id";
     $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
     while ($row = $res->fetch_assoc()) {
-    $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+        $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
 
-    $stmt3->bind_param("i", $row['user_id']);
-    $stmt3->execute();
-    $stmt3->bind_result($commentFirstName, $commentLastName);
-    $stmt3->store_result();
-    if ($stmt3->num_rows() == 1) {
-    while ($stmt3->fetch()) { ?>
-
-
-    <div class="row">
-        <div
-            class="col-md-6 col-md-offset-1 comments-section">
+        $stmt3->bind_param("i", $row['user_id']);
+        $stmt3->execute();
+        $stmt3->bind_result($commentFirstName, $commentLastName);
+        $stmt3->store_result();
+        if ($stmt3->num_rows() == 1) {
+            while ($stmt3->fetch()) { ?>
 
 
-            <section>
-                <div class="">
-                    <label
-                        class=""><?php echo $commentFirstName;
-                        echo " ";
-                        echo $commentLastName; ?></label>
-                    <label
-                        class="pull-right"><?php echo $row['date']; ?></label>
-                </div>
+                <div class="row">
+                    <div
+                        class="col-md-6 col-md-offset-1 comments-section">
 
-                <div
-                    class="comment">
-                    <?php echo $row['comment'];
-                    ?>
 
-                </div>
+                        <section>
+                            <div class="">
+                                <label
+                                    class=""><?php echo $commentFirstName;
+                                    echo " ";
+                                    echo $commentLastName; ?></label>
+                                <label
+                                    class="pull-right"><?php echo $row['date']; ?></label>
+                            </div>
 
-                <?php if ($login->isUserLoggedIn() == true): ?>
-                    <?php if ($row['user_id'] == $_SESSION['id']): ?>
-                        <form action="edit_comment.php" method=post>
+                            <div
+                                class="comment">
+                                <?php echo $row['comment'];
+                                ?>
+
+                            </div>
+
+                            <?php if ($login->isUserLoggedIn() == true): ?>
+                                <?php if ($row['user_id'] == $_SESSION['id']): ?>
+                                    <form action="edit_comment.php" method=post>
                                 <textarea rows="3" cols="75" name='editComment' id='editComment'
                                           placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                            <input type='submit'
-                                   value="<?php echo "Click to submit your edited comment"; ?>""/>
-                        </form>
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                                        <input type='submit'
+                                               value="<?php echo "Click to submit your edited comment"; ?>""/>
+                                    </form>
 
 
-                    <?php endif; ?>
+                                <?php endif; ?>
 
 
-                    <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
+                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
 
-                        <form action="delete_comment.php" method="post">
-                            <input type="submit" name="deleteComment" value="Click here to delete comment"/>
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                        </form>
-
-
-                    <?php endif; ?>
+                                    <form action="delete_comment.php" method="post">
+                                        <input type="submit" name="deleteComment" value="Click here to delete comment"/>
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                                    </form>
 
 
-                <?php endif; ?>
-            </section>
+                                <?php endif; ?>
 
-        </div>
-    </div>
 
-    <?php }}}?>
+                            <?php endif; ?>
+                        </section>
+
+                    </div>
+                </div>
+
+            <?php }
+        }
+    } ?>
 
     <div class="row">
         <div
@@ -287,12 +288,7 @@ while ($stmt3->fetch()) {
             <br>
 
 
-
         </div>
-
-
-
-
 
 
         <?php
@@ -304,16 +300,13 @@ while ($stmt3->fetch()) {
         while ($row = $res->fetch_assoc()) { ?>
 
 
-
-
-
             <img class="displayed" width="600" height="220px" "
-                 src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
+            src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
-       <?php }
+        <?php }
 
 
-       ?>
+        ?>
 
 
         <?php
@@ -351,7 +344,8 @@ while ($stmt3->fetch()) {
                                                value="<?php echo $adventureName ?>">
 
                                         <label for="usr">Country:</label>
-                                        <input type="text" class="form-control" name="country" value="<?php echo $country ?>">
+                                        <input type="text" class="form-control" name="country"
+                                               value="<?php echo $country ?>">
 
                                         <label for="usr">City:</label>
                                         <input type="text" class="form-control" name="city" value="<?php echo $city ?>">
@@ -361,7 +355,8 @@ while ($stmt3->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                         <label for="usr">Tags:</label>
-                                        <input type="text" class="form-control" name="keywords" value="<?php echo $tagString ?>">
+                                        <input type="text" class="form-control" name="keywords"
+                                               value="<?php echo $tagString ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
@@ -385,7 +380,6 @@ while ($stmt3->fetch()) {
                 </form>
             <?php endif; ?>
         <?php endif; ?>
-
 
 
 </body>
