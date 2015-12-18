@@ -97,8 +97,8 @@ if($adventure_id != -1) {
 
     }
 }
-//$str = 'Location:  ./adventure.php?id=' . $adventure_id;
-//header($str);
+$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+header($str);
 
 //$admins = array();
 //
