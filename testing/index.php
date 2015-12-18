@@ -111,10 +111,8 @@ if ($stmtAdventure) {
             <div class="col-md-9">
                 <p> <?php echo $stone['description']; ?></p>
                 <p><?php echo $stone['voteCount']; ?></p>
-                <?php if ($login->isUserLoggedIn() == true): ?>
-                <form action="goToAdventure.php" method="post">
-                    <input type="submit" name="test" value="Go To Adventure"/>
-                <?php endif; ?>
+                <a class="btn" href="./adventure.php?id=<?php echo $stone['adventureID'];?>">Go to adventure</a>
+
             </div>
         </div>
     </div>
