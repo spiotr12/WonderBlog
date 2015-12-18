@@ -134,16 +134,16 @@ $login = new Login();
                                 $search = "%" . $search . "%";
                                 break;
                             case "votes":
-                                $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=a.id WHERE rates.rate > ?";
+                                $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=a.id WHERE rates.rate >= ?";
                                 $bindType = 'i';
                                 $search = (int) $search;
                                 break;
                         }
                         $stmt = new mysqli_stmt($mysqli, $query);
-                        echo " bind: " . $bindType . "<br>";
-                        var_dump($search);
-                        echo "<br>";
-                        var_dump($stmt->bind_param($bindType, $search));
+//                        echo " bind: " . $bindType . "<br>";
+//                        var_dump($search);
+//                        echo "<br>";
+//                        var_dump($stmt->bind_param($bindType, $search));
                         if ($stmt->bind_param($bindType, $search)) {
                             $stmt->execute();
                             $stmt->bind_result($id, $name);
