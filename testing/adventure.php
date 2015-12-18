@@ -252,6 +252,7 @@ while ($stmt2->fetch()) {
         </div>
     </div>
 
+    <?php }}}?>
 
     <div class="row">
         <div
@@ -274,7 +275,7 @@ while ($stmt2->fetch()) {
 
         </div>
 
-        <?php }}}?>
+
 
 
 
@@ -282,7 +283,6 @@ while ($stmt2->fetch()) {
         <?php
 
         $photosArray[] = array();
-
 
         $sql2 = "SELECT id, file_ext FROM photos WHERE adv_id = $adv_id";
         $res = $mysqli->query($sql2) or trigger_error($mysqli->error . "[$sql2]");
