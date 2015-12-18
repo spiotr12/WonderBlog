@@ -81,6 +81,12 @@ $stmt2->store_result();
 if ($stmt2->num_rows() == 1) {
 while ($stmt2->fetch()) {
 
+$stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+
+$stmt3->bind_param("i", $adventureUserID);
+$stmt3->execute();
+$stmt3->bind_result($authorFirstName, $authorLastName);
+$stmt3->store_result();
 
 ?>
 
@@ -105,7 +111,9 @@ while ($stmt2->fetch()) {
             <?php echo $description; ?>
             <br><br>
             Country: <?php echo $country ?><br>
-            <?php If ($city != NULL): {echo "City: "; echo $city;}; endif; ?>
+            <?php If ($city != NULL): {echo "City: "; echo $city;}; endif; ?><br>
+            Author: <?php echo $commentFirstName; echo " "; echo $commentLastName; ?>
+
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
