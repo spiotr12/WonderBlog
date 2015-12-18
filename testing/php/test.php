@@ -31,3 +31,12 @@ foreach($scan as $s){
 //WHERE a.id = rate.id
 //ORDER BY rate.total_rate
 //DESC LIMIT 5
+?>
+<!--            <form class="form" name="upload_file" method="post" action="./php/upload_photo.php"-->
+<!--                  enctype="multipart/form-data">-->
+<!--                <label class="label">upload photo</label>-->
+<!--                <input class="" type="hidden" name="user_id" value="11">-->
+<!--                <input class="" type="hidden" name="adv_id" value="11">-->
+<!--                <input class="" type="file" name="photos">-->
+<!--                <button class="btn" type="submit" name="uploadSubmit">Submit</button>-->
+<!--            </form>-->
