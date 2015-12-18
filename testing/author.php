@@ -120,6 +120,9 @@ if ($stmt1->num_rows() == 1) {
                                             <label for="usr">Country:</label>
                                             <input type="text" class="form-control" name="country" value="<?php echo $country;?>">
 
+                                            <label class="label">Upload Photo:</label>
+                                            <input class="" type="file" name="photos"required>
+
                                             <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
                                         </div>
                                     </div>
