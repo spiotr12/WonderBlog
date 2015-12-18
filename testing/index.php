@@ -82,28 +82,29 @@ if ($stmtAdventure) {
 
         <p>The place to upload and explore adventures!</p>
 
-        <div class="row">
-            <div id="mainSearch">
-                <div
-                    class="input-group col-md-8 col-md-offset-2">
-                    <input type="text"
-                           class="search-query form-control"
-                           placeholder="Search for author or adventures"/>
+        <form class="navbar-form" role="search" method="get" action="./search.php">
+            <div class="row">
+                <div id="mainSearch">
+                    <div class="input-group col-md-8 col-md-offset-2">
+                        <input type="text"
+                               class="search-query form-control"
+                               placeholder="Search for author or adventures"/>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="buttonGroup" class="row">
-            <div id="searchAuthor" class="col-md-6">
-                <button type="button"
-                        class="btn btn-danger">Search Author
-                </button>
+            <div id="buttonGroup" class="row">
+                <div id="searchAuthor" class="col-md-6">
+                    <button type="submit" name="search_type" value="author"
+                            class="btn btn-danger">Search Author
+                    </button>
+                </div>
+                <div id="searchAdventure" class="col-md-6">
+                    <button type="submit" name="search_type" value="adventure"
+                            class="btn btn-danger">Search Adventure
+                    </button>
+                </div>
             </div>
-            <div id="searchAdventure" class="col-md-6">
-                <button type="button"
-                        class="btn btn-danger">Search Adventure
-                </button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
