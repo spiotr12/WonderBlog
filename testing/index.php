@@ -126,6 +126,7 @@ foreach ($adventures as $adv) {
                      width="250" height="228px">
             </div>
             <div class="col-md-9">
+                <h4><?php echo $adv['name'] ?></h4>
                 <p> <?php echo $adv['description']; ?></p>
                 <p><?php echo $adv['rate']; ?></p>
                 <p>

@@ -244,6 +244,7 @@ if ($stmtAdventure) {
                 'description' => $ad_description,
                 'name' => $name,
                 'pid' => $photoid,
+                'rate' => $rate,
                 'pext' => $photoext
             );
         }
@@ -265,6 +266,7 @@ foreach ($adventure as $stone) {
                 <h4><?php echo $stone['name'] ?></h4>
 
                 <p> <?php echo $stone['description'] ?></p>
+                <p><?php echo $stone['rate']; ?></p>
 
                 <p><a class="btn btn-default" href="./adventure.php?id=<?php echo $stone['id']; ?>" role="button">View
                         details &raquo;</a></p>
