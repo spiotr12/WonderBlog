@@ -111,7 +111,6 @@ while ($stmt2->fetch()) {
             <h2>Rating</h2>
 
 
-
             <?php if ($login->isUserLoggedIn() == true): ?>
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
                     <form action="admin_votes.php" method=post>
@@ -120,35 +119,29 @@ while ($stmt2->fetch()) {
                         Update admin vote to: <input type="number" name="admin_votes" min="-1000000" max="1000000"/>
                         <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                         <input type='submit' value="<?php echo "Update" ?>"/><br>
-                        <?php $combinedVoteCount = $voteCount + $adminVote;?>
+                        <?php $combinedVoteCount = $voteCount + $adminVote; ?>
                         Combined vote: <?php echo $combinedVoteCount ?>
 
                     </form>
                 <?php elseif (($adventureUserID != $_SESSION['id'])): ?>
 
-                <form action="like_adv.php" method="post">
-                    <input type="submit" name="like" value="like"/>
-                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-                    <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                </form>
+                    <form action="like_adv.php" method="post">
+                        <input type="submit" name="like" value="like"/>
+                        <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
+                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                    </form>
                     <?php
-                    endif;
-                endif;?>
+                endif;
+            endif; ?>
 
 
 
 
-               <?php
-               $combinedVoteCount = $voteCount + $adminVote;
-                    echo "Current likes: ";
-                    echo $combinedVoteCount;
-                   ?>
-
-
-
-
-
-
+            <?php
+            $combinedVoteCount = $voteCount + $adminVote;
+            echo "Current likes: ";
+            echo $combinedVoteCount;
+            ?>
 
 
             <h2>Tags</h2>
@@ -183,14 +176,14 @@ while ($stmt2->fetch()) {
     $sql = "SELECT * FROM comments WHERE adv_id = $adv_id";
     $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
     while ($row = $res->fetch_assoc()) {
-        $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
+    $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
 
-        $stmt3->bind_param("i", $row['user_id']);
-        $stmt3->execute();
-        $stmt3->bind_result($commentFirstName, $commentLastName);
-        $stmt3->store_result();
-        if ($stmt3->num_rows() == 1) {
-            while ($stmt3->fetch()) { ?>
+    $stmt3->bind_param("i", $row['user_id']);
+    $stmt3->execute();
+    $stmt3->bind_result($commentFirstName, $commentLastName);
+    $stmt3->store_result();
+    if ($stmt3->num_rows() == 1) {
+    while ($stmt3->fetch()) { ?>
 
 
     <div class="row">
@@ -264,24 +257,34 @@ while ($stmt2->fetch()) {
             <br>
 
 
-    </div>
+        </div>
 
         <?php
 
-       $photosArray[] = array();
+        $photosArray[] = array();
 
 
-
-
-       $sql2 = "SELECT id, file_ext FROM photos WHERE adv_id = $adv_id";
-      $res = $mysqli->query($sql2) or trigger_error($mysqli->error . "[$sql2]");
+        $sql2 = "SELECT id, file_ext FROM photos WHERE adv_id = $adv_id";
+        $res = $mysqli->query($sql2) or trigger_error($mysqli->error . "[$sql2]");
         while ($row = $res->fetch_assoc()) { ?>
 
 
-          <img class="img-responsive" width="1200" height="440px"
+            <img class="img-responsive" width="1200" height="440px"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
+        <?php }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
 
+
+       ?>
 
 
         <?php
@@ -355,21 +358,6 @@ while ($stmt2->fetch()) {
         <?php endif; ?>
 
 
-        <?php }
-        }
 
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-
-
-        }
-
-
-        ?>
 </body>
 </html>
