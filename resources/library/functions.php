@@ -81,3 +81,19 @@ function multiexplode ($delimiters, $string) {
     $launch = explode($delimiters[0], $ready);
     return  $launch;
 }
+
+function isUserVerified($mysqli, $userID){
+    $stmt = new mysqli_stmt($mysqli, "SELECT verified FROM users WHERE id = ?");
+    if($stmt){
+        $stmt->bind_param('i', $userID);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_object();
+        if($result->verified == 1){
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } else {
+        return FALSE;
+    }
+}
