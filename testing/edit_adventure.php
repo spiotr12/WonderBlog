@@ -4,12 +4,12 @@ require_once("../resources/config.php");
 require_once("./php/db_connect.php");
 
 
-$adventureName = $_POST["adventureName"];
-$country = $_POST["country"];
-$city = $_POST["city"];
-$description = $_POST["description"];;
-$adventure_id = $_POST["adventureID"];
-$keywords = $_POST["keywords"];
+$adventureName = $mysqli->real_escape_string($_POST["adventureName"]);
+$country = $mysqli->real_escape_string($_POST["country"]);
+$city = $mysqli->real_escape_string($_POST["city"]);
+$description = $mysqli->real_escape_string($_POST["description"]);
+$adventure_id = $mysqli->real_escape_string($_POST["adventureID"]);
+$keywords = $mysqli->real_escape_string($_POST["keywords"]);
 
 
 

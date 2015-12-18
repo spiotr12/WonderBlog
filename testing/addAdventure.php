@@ -5,13 +5,13 @@ require_once("./php/db_connect.php");
 require_once(LIBRARY_PATH . "/functions.php");
 
 
-$adventureName = $_POST["adventureName"];
-$country = $_POST["country"];
-$city = $_POST["city"];
-$description = $_POST["description"];
+$adventureName = $mysqli->real_escape_string($_POST["adventureName"]);
+$country = $mysqli->real_escape_string($_POST["country"]);
+$city = $mysqli->real_escape_string($_POST["city"]);
+$description = $mysqli->real_escape_string($_POST["description"]);
 $date = date("Y-m-d H:i:s");
 $userID = $_POST["userID"];
-$keywords = $_POST["keywords"];
+$keywords = $mysqli->real_escape_string($_POST["keywords"]);
 $adventure_id = -1;
 $stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date, keywords)
         VALUES(?,?,?,?,?,?,?)");
