@@ -290,7 +290,7 @@ while ($stmt2->fetch()) {
 
         <div class="row">
             <div
-                class="col-md-12">
+                class="col-md-8">
             <img class="img-responsive" width="600" height="220px" align="center"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
             </div>
