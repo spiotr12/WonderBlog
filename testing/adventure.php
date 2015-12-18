@@ -301,7 +301,7 @@ while ($stmt3->fetch()) {
 
 
             <img class="displayed" width="600" height="220px"
-            src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
+            src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>"><br>
 
             <?php if ($login->isUserLoggedIn() == true): ?>
             <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
