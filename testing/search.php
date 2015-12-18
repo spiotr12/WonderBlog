@@ -57,8 +57,7 @@ $login = new Login();
                     <input type="text" name="q" value="<?php echo $_GET["q"]; ?>">
 <!--                    <input type="number" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
                     <br>
-                    <input type="radio" name="search_type_adv" value="" class="hidden" checked>
-                    <label><input type="radio" name="search_type_adv" value="name"> by name</label>
+                    <label><input type="radio" name="search_type_adv" value="name" checked> by name</label>
                     <br>
                     <label><input type="radio" name="search_type_adv" value="country"> by country</label>
                     <br>
@@ -115,7 +114,7 @@ $login = new Login();
                         }
                     }
                 } else {
-                    if (isset($_GET['search_type_adv']) && count($_GET['search_type_adv']) != 0) {
+                    if (isset($_GET['search_type_adv'])) {
                         $query = "";
                         $bindType = "";
                         switch ($_GET['search_type_adv']) {
