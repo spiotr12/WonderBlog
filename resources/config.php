@@ -24,3 +24,5 @@ $config = array(
 defined("LIBRARY_PATH") OR define("LIBRARY_PATH", realpath(dirname(__FILE__) . '/library'));
 
 defined("TEMPLATES_PATH") OR define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
+
+date_default_timezone_set("Europe/London");
