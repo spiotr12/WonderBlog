@@ -42,15 +42,15 @@ $total_progress = 0;
 // adventure
 $query = "SELECT a.id, a.name, a.description, rate.total_rate
           FROM adventures A, votes V, (
-            SELECT a.id, (IFNULL(v.rate,0)+a.admin_vote) as total_rate
-            FROM adventures a
-            LEFT JOIN (
-              SELECT id, COUNT(*) as rate, v.date
-              FROM adventures a, votes v
-              WHERE a.id = v.adv_id
-              GROUP BY id
-            ) v
-            ON a.id = v.id
+              SELECT a.id, (IFNULL(v.rate,0)+a.admin_vote) as total_rate
+              FROM adventures a
+              LEFT JOIN (
+                  SELECT id, COUNT(*) as rate, v.date
+                  FROM adventures a, votes v
+                  WHERE a.id = v.adv_id
+                 GROUP BY id
+              ) v
+              ON a.id = v.id
           ) rate
           WHERE a.id = rate.id
           ORDER BY rate.total_rate
@@ -60,16 +60,14 @@ if ($stmtAdventure) {
     $stmtAdventure->execute();
     $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
     while ($stmtAdventure->fetch()) {
-        $temp_arr = array(
+        $adventure[] = array(
             'adventureID' => $adventureID,
             'name' => $adventureName,
             'description' => $adventureDesc,
             'rate' => $rate,
         );
-        array_push($adventure, $temp_arr);
+
     }
-    echo $stmtAdventure->error;
-    echo $mysqli->error;
 }
 
 ?>
