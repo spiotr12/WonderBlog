@@ -105,7 +105,7 @@ while ($stmt2->fetch()) {
             <?php echo $description; ?>
             <br><br>
             Country: <?php echo $country ?><br>
-            City: <?php echo $city ?>
+            <?php If ($city != NULL): {echo "City: "; echo $city;}; endif; ?>
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
@@ -124,7 +124,7 @@ while ($stmt2->fetch()) {
                         Combined vote: <?php echo $combinedVoteCount ?>
 
                     </form>
-                <?php elseif (($adventureUserID != $_SESSION['id'])): ?>
+                <?php elseif (($adventureUserID != $_SESSION['id']) && (isUserVerified($mysqli, $_SESSION['id']) == TRUE)): ?>
 
                     <form action="like_adv.php" method="post">
                         <input type="submit" name="like" value="like"/>
@@ -257,7 +257,7 @@ while ($stmt2->fetch()) {
     <div class="row">
         <div
             class="col-md-5 col-md-offset-1 comments-section">
-            <?php if ($login->isUserLoggedIn() == true): ?>
+            <?php if (($login->isUserLoggedIn() == true) && (isUserVerified($mysqli, $_SESSION['id']) == TRUE)): ?>
                 <form action="insert_comment.php" method=post>
                 <textarea rows="3" cols="80" name='comment' id='comment'
                           placeholder="Insert comment here"></textarea><br/>
@@ -288,13 +288,11 @@ while ($stmt2->fetch()) {
 
 
 
-        <div class="row">
-            <div
-                class="col-md-12 text-center">
-            <img class="img-responsive" width="600" height="220px" align="center"
+
+
+            <img class="displayed" width="600" height="220px" "
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
-            </div>
-            </div>
+
        <?php }
 
 
