@@ -155,10 +155,6 @@ $login = new Login();
                                 break;
                         }
                         $stmt = new mysqli_stmt($mysqli, $query);
-                        echo " bind: " . $bindType . "<br>";
-                        var_dump($search);
-                        echo "<br>";
-//                        var_dump($stmt->bind_param($bindType, $search));
                         if ($stmt->bind_param($bindType, $search)) {
                             $stmt->execute();
                             $stmt->bind_result($id, $name);
