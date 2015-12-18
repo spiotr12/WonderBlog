@@ -35,6 +35,7 @@ $js = array(
     "js/main.js"
 );
 renderHeader("Adventure", $meta, $css, $js);
+$tagString = "";
 ?>
 <body>
 
@@ -147,7 +148,7 @@ while ($stmt2->fetch()) {
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
-                $tagString = "";
+
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
@@ -332,7 +333,7 @@ while ($stmt2->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                         <label for="usr">Tags:</label>
-                                        <input type="text" class="form-control" name="keywords" placeholder="<?php echo $tagString ?>">
+                                        <input type="text" class="form-control" name="keywords" value="<?php echo $tagString ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
