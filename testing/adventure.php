@@ -93,7 +93,7 @@ while ($stmt2->fetch()) {
     <div class="row">
         <div
             class="col-md-10 col-md-offset-1">
-            <img class="img-responsive" width="1200" height="440px"
+            <img class="img-responsive" width="945" height="636px"
                  src="./img/contents/<?php echo $coverPhotoID; ?>.<?php echo $coverFileEXT; ?>">
         </div>
     </div>
@@ -287,7 +287,7 @@ while ($stmt2->fetch()) {
         while ($row = $res->fetch_assoc()) { ?>
 
 
-            <img class="img-responsive" width="600" height="220px"
+            <img class="img-responsive" width="600" height="220px" align="middle"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
        <?php }
