@@ -4,6 +4,7 @@ require_once("../resources/config.php");
 require_once("./php/db_connect.php");
 
 $id = $_POST['id'];
+$adv_id = $_POST['adv_id'];
 
 
 
