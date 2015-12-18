@@ -38,50 +38,52 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 <?php require_once("../resources/templates/menu.php"); ?>
 
 
+<?php if (isUserVerified($mysqli, $_SESSION["id"])): ?>
 
-<div id="createform" class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <form action="addAdventure.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="usr">Adventure Name:</label>
-                    <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name" required>
+    <div id="createform" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="addAdventure.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="usr">Adventure Name:</label>
+                        <input type="text" class="form-control" name="adventureName" placeholder="Adventure Name"
+                               required>
 
-                    <label for="usr">Country:</label>
-                    <input type="text" class="form-control" name="country" placeholder="Country"required>
+                        <label for="usr">Country:</label>
+                        <input type="text" class="form-control" name="country" placeholder="Country" required>
 
-                    <label for="usr">City:</label>
-                    <input type="text" class="form-control" name="city" placeholder="City">
+                        <label for="usr">City:</label>
+                        <input type="text" class="form-control" name="city" placeholder="City">
 
-                    <label for="usr">Description:</label>
-                    <textarea class="form-control" name="description"  rows="5" cols="80" required>Description</textarea>
+                        <label for="usr">Description:</label>
+                        <textarea class="form-control" name="description" rows="5" cols="80"
+                                  required>Description</textarea>
 
-                    <label for="usr">Tags:</label>
-                    <input type="text" class="form-control" name="keywords" placeholder="Keywords can be separated by either , or ; e.g. lunch,fun;lads">
+                        <label for="usr">Tags:</label>
+                        <input type="text" class="form-control" name="keywords"
+                               placeholder="Keywords can be separated by either , or ; e.g. lunch,fun;lads">
 
-                    <label class="label">upload photo</label>
-                    <input class="" type="file" name="photos"required>
-
-
-
-                    <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
+                        <label class="label">upload photo</label>
+                        <input class="" type="file" name="photos" required>
 
 
-                    <div>
-                        <button type="submit" class="btn btn-default" data-dismiss="modal" >Submit</button>
+                        <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id']; ?>">
+
+
+                        <div>
+                            <button type="submit" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        </div>
+
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 </body>
 
 </html>
-
-
 
 
 <?php $mysqli->close(); ?>
