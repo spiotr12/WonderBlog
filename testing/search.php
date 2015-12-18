@@ -115,7 +115,7 @@ $login = new Login();
                         }
                     }
                 } else {
-                    if (isset($_GET['search_type_adv'])) {
+                    if (isset($_GET['search_type_adv']) && count($_GET['search_type_adv']) == 0) {
                         $query = "";
                         $bindType = "";
                         switch ($_GET['search_type_adv']) {
@@ -141,6 +141,8 @@ $login = new Login();
                                 break;
                         }
                         $stmt = new mysqli_stmt($mysqli, $query);
+                        echo "get: ";
+                        var_dump($_GET['search_type_adv']);
 //                        echo " bind: " . $bindType . "<br>";
 //                        var_dump($search);
 //                        echo "<br>";
