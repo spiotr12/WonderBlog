@@ -51,7 +51,7 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                         <input type="text" class="form-control" placeholder="Search" name="q" id="srch-term"
                             <?php
                             if (isset($_GET['q'])) {
-                                echo 'value="' . $_GET['q'] . '"s';
+                                echo 'value="' . $search . '"s';
                             }
                             ?>
                         >

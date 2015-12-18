@@ -54,7 +54,7 @@ $login = new Login();
             <div class="col-md-12">
                 <h1>Advance search</h1>
                 <form name="advanceSearch" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <input type="text" name="q" value="<?php echo $_GET["q"]; ?>">
+                    <input type="text" name="q" value="<?php echo $search; ?>">
                     <!--                    <input type="number" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
                     <br>
                     <label><input type="radio" name="search_type_adv" value="name" checked> by name</label>
