@@ -268,8 +268,6 @@ while ($stmt2->fetch()) {
             <?php endif; ?>
             <br>
             <br>
-            <br><br>
-            <br>
 
 
 
@@ -289,7 +287,7 @@ while ($stmt2->fetch()) {
         while ($row = $res->fetch_assoc()) { ?>
 
 
-            <img class="img-responsive" width="1200" height="440px"
+            <img class="img-responsive" width="600" height="220px"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
        <?php }
