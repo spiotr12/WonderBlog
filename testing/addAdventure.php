@@ -10,11 +10,12 @@ $city = $_POST["city"];
 $description = $_POST["description"];
 $date = date("Y-m-d H:i:s");
 $userID = $_POST["userID"];
+$keywords =  $_POST["keywords"];
 $adventure_id = -1;
-$stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date)
-        VALUES(?,?,?,?,?,?)");
+$stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date, keywords)
+        VALUES(?,?,?,?,?,?,?)");
 if ($stmt) {
-    $stmt->bind_param("isssss", $userID, $adventureName, $country, $city, $description, $date);
+    $stmt->bind_param("issssss", $userID, $adventureName, $country, $city, $description, $date, $keywords);
     $stmt->execute();
     $adventure_id = $stmt->insert_id;
 
@@ -80,7 +81,7 @@ if($adventure_id != -1) {
 
         // On this example, obtain safe unique name from its binary data.
         if ($success) {
-            if (!move_uploaded_file($photoFile['tmp_name'], sprintf('../img/contents/%s.%s', $id, $ext))) {
+            if (!move_uploaded_file($photoFile['tmp_name'], sprintf('./img/contents/%s.%s', $id, $ext))) {
                 throw new RuntimeException('Failed to move uploaded file.');
             }
         } else {
@@ -95,8 +96,8 @@ if($adventure_id != -1) {
 
     }
 }
-$str = 'Location:  ./adventure.php?id=' . $adventure_id;
-header($str);
+//$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+//header($str);
 
 //$admins = array();
 //

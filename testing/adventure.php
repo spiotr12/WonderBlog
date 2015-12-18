@@ -124,7 +124,7 @@ while ($stmt2->fetch()) {
                         Combined vote: <?php echo $combinedVoteCount ?>
 
                     </form>
-                <?php else: ?>
+                <?php elseif (($adventureUserID != $_SESSION['id'])): ?>
 
                 <form action="like_adv.php" method="post">
                     <input type="submit" name="like" value="like"/>
@@ -132,11 +132,11 @@ while ($stmt2->fetch()) {
                     <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
                     <?php
+                    endif;
+                endif;?>
 
 
 
-                    endif;?>
-           <?php endif;?>
 
                <?php
                $combinedVoteCount = $voteCount + $adminVote;
@@ -191,73 +191,61 @@ while ($stmt2->fetch()) {
             while ($stmt3->fetch()) { ?>
 
 
-                <div class="row">
-                    <div
-                        class="col-md-6 col-md-offset-1 comments-section">
+    <div class="row">
+        <div
+            class="col-md-6 col-md-offset-1 comments-section">
 
 
-                        <section>
-                            <div class="">
-                                <label
-                                    class=""><?php echo $commentFirstName;
-                                    echo " ";
-                                    echo $commentLastName; ?></label>
-                                <label
-                                    class="pull-right"><?php echo $row['date']; ?></label>
-                            </div>
-
-                            <div
-                                class="comment">
-                                <?php echo $row['comment'];
-                                ?>
-
-                            </div>
-
-                            <?php if ($login->isUserLoggedIn() == true): ?>
-                                <?php if ($row['user_id'] == $_SESSION['id']): ?>
-                                    <form action="edit_comment.php" method=post>
-                                <textarea rows="3" cols="75" name='editComment' id='editComment'
-                                          placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
-                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                                        <input type='submit'
-                                               value="<?php echo "Click to submit your edited comment"; ?>""/>
-                                    </form>
-
-
-                                <?php endif; ?>
-
-
-                                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
-
-                                    <form action="delete_comment.php" method="post">
-                                        <input type="submit" name="deleteComment" value="Click here to delete comment"/>
-                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                                    </form>
-
-
-                                <?php endif; ?>
-
-
-                            <?php endif; ?>
-                        </section>
-
-                    </div>
+            <section>
+                <div class="">
+                    <label
+                        class=""><?php echo $commentFirstName;
+                        echo " ";
+                        echo $commentLastName; ?></label>
+                    <label
+                        class="pull-right"><?php echo $row['date']; ?></label>
                 </div>
 
+                <div
+                    class="comment">
+                    <?php echo $row['comment'];
+                    ?>
 
-            <?php }
-        }
-    }
-    }
-    }
-    }
-    }
-    }
+                </div>
+
+                <?php if ($login->isUserLoggedIn() == true): ?>
+                    <?php if ($row['user_id'] == $_SESSION['id']): ?>
+                        <form action="edit_comment.php" method=post>
+                                <textarea rows="3" cols="75" name='editComment' id='editComment'
+                                          placeholder="<?php echo $row['comment'] ?>"></textarea><br/>
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                            <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                            <input type='submit'
+                                   value="<?php echo "Click to submit your edited comment"; ?>""/>
+                        </form>
 
 
-    } ?>
+                    <?php endif; ?>
+
+
+                    <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
+
+                        <form action="delete_comment.php" method="post">
+                            <input type="submit" name="deleteComment" value="Click here to delete comment"/>
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                            <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                        </form>
+
+
+                    <?php endif; ?>
+
+
+                <?php endif; ?>
+            </section>
+
+        </div>
+    </div>
+
 
     <div class="row">
         <div
@@ -274,7 +262,37 @@ while ($stmt2->fetch()) {
             <br>
 
 
-        </div>
+    </div>
+
+        <?php
+
+       $photosArray[] = array();
+
+       $sql2 = "SELECT id, file_ext FROM photos WHERE adv_id = $id";
+      $res = $mysqli->query($sql2) or trigger_error($mysqli->error . "[$sql2]");
+        while ($row = $res->fetch_assoc()) { ?>
+
+
+          <img class="img-responsive" width="1200" height="440px"
+                 src="./img/contents/<?php //echo $row['id']; ?>.<?php //echo $row['file_ext']; ?>">
+
+        <?php }
+        }
+
+        }
+    }
+    }
+    }
+    }
+    }
+   }
+
+
+    }
+
+
+       ?>
+
 
         <?php
         If ($login->isUserLoggedIn() == true):
@@ -283,6 +301,14 @@ while ($stmt2->fetch()) {
                 <!--         Trigger the modal with a button -->
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info
                 </button>
+                <form class="form" name="upload_file" method="post" action="./php/upload_photo.php"
+                      enctype="multipart/form-data">
+                    <label class="label">upload photo</label>
+                    <input class="" type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
+                    <input class="" type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
+                    <input class="" type="file" name="photos">
+                    <button class="btn" type="submit" name="uploadSubmit">Submit</button>
+                </form>
 
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
@@ -303,14 +329,16 @@ while ($stmt2->fetch()) {
                                                value="<?php echo $adventureName ?>">
 
                                         <label for="usr">Country:</label>
-                                        <input type="text" class="form-control" name="country" value="">
+                                        <input type="text" class="form-control" name="country" value="<?php echo $country ?>">
 
                                         <label for="usr">City:</label>
-                                        <input type="text" class="form-control" name="city" value="">
+                                        <input type="text" class="form-control" name="city" value="<?php echo $city ?>">
 
                                         <label for="usr">Description;</label>
                                     <textarea class="form-control" name="description" rows="5"
                                               cols="80"><?php echo $description; ?></textarea>
+                                        <label class="label">upload photo</label>
+                                        <input class="" type="file" name="photos">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
