@@ -4,7 +4,7 @@ require_once("../resources/config.php");
 require_once("./php/db_connect.php");
 
 $id = $_POST['id'];
-$adv_id = $_POST['adv_id'];
+$adventure_id = $_POST['adv_id'];
 
 
 
@@ -22,4 +22,7 @@ if ($stmt) {
 
 $mysqli->close();
 
-header("location: ./adventure.php?id=$advId");
+
+
+$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+header($str);

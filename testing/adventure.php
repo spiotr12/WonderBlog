@@ -307,8 +307,9 @@ while ($stmt3->fetch()) {
             <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
 
                 <form action="delete_photo.php" method="post">
-                    <input type="submit" name="deletePhoto" value="Click here to delete Photo"/>
-                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                    <input type="submit" name="deletePhoto" value="Click here to delete Photo">
+                    <input type="TEXT" name="id" value="<?php echo $row['id']; ?>">
+                    <input type="TEXT" name="adv_id" value="<?php echo $adv_id; ?>">
                 </form>
 
                 <?php endif; ?>
