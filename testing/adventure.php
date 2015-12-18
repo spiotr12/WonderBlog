@@ -281,22 +281,7 @@ while ($stmt2->fetch()) {
           <img class="img-responsive" width="1200" height="440px"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
-        <?php }
-        }
 
-        }
-    }
-    }
-    }
-    }
-    }
-   }
-
-
-    }
-
-
-       ?>
 
 
         <?php
@@ -344,9 +329,7 @@ while ($stmt2->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                         <label for="usr">Tags:</label>
-                                        <input type="text" class="form-control" name="keywords" placeholder="<?php foreach ($tags as $tag) {
-                                            echo "<li>" . $tag . "</li>";
-                                        } ?>">
+                                        <input type="text" class="form-control" name="keywords" placeholder="<?php echo $tagString ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
@@ -372,6 +355,21 @@ while ($stmt2->fetch()) {
         <?php endif; ?>
 
 
+        <?php }
+        }
 
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+
+
+        }
+
+
+        ?>
 </body>
 </html>
