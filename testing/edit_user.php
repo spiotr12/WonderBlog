@@ -92,6 +92,5 @@ try {
 
 
 }
-//$str = 'Location:  ./author.php?id=' . $user_id;
-//header($str);
-//?>
+$str = 'Location:  ./author.php?id=' . $user_id;
+header($str);
