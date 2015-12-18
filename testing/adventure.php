@@ -287,9 +287,14 @@ while ($stmt2->fetch()) {
         while ($row = $res->fetch_assoc()) { ?>
 
 
+
+        <div class="row">
+            <div
+                class="col-md-10 col-md-offset-1">
             <img class="img-responsive" width="600" height="220px" align="center"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
-
+            </div>
+            </div>
        <?php }
 
 
