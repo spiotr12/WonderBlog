@@ -344,7 +344,9 @@ while ($stmt2->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                         <label for="usr">Tags:</label>
-                                        <input type="text" class="form-control" name="keywords" placeholder="<?php echo $tags ?>">
+                                        <input type="text" class="form-control" name="keywords" placeholder="<?php foreach ($tags as $tag) {
+                                            echo "<li>" . $tag . "</li>";
+                                        } ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
