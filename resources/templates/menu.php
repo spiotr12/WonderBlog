@@ -20,11 +20,11 @@ if (strlen($_SERVER['QUERY_STRING'])) {
             <ul class="nav navbar-nav">
                 <li class=""><a href="./#">Home</a></li>
                 <?php if ($login->isUserLoggedIn() == true): ?>
-                    <li class=""><a href="./author.php?id=<?php echo $_SESSION['id']; ?>">
+                    <li><a href="./author.php?id=<?php echo $_SESSION['id']; ?>">
                             <?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?>
                         </a>
                     </li>
-                    <li class="">
+                    <li>
                         <a href="./<?php echo $url; ?>logout">
                             Log out
                         </a>
