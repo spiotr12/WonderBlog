@@ -98,15 +98,15 @@ if ($adventure_id != -1) {
     }
 }
 
-$stmt = new mysqli_stmt($mysqli, "UPDATE users SET (privilege=?) WHERE id = ?");
-if($stmt){
+$stmt = new mysqli_stmt($mysqli, "UPDATE users SET privilege = ? WHERE id = ? ");
+if ($stmt) {
     $priv = 1;
     $stmt->bind_param("ii", $priv, $userID);
     $stmt->execute();
 }
 
-$str = 'Location:  ./adventure.php?id=' . $adventure_id;
-header($str);
+//$str = 'Location:  ./adventure.php?id=' . $adventure_id;
+//header($str);
 
 
 
