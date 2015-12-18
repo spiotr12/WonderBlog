@@ -40,25 +40,25 @@ renderHeader("WonderBlog!", $meta, $css, $js);
 
 <?php
 $id = $_GET['id'];
-$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob FROM users WHERE id = ?");
+$stmt = new mysqli_stmt($mysqli, "SELECT first_name, last_name, description, country, dob, file_ext FROM users WHERE id = ?");
 $stmt1 = new mysqli_stmt($mysqli, "SELECT COUNT(user_id)FROM adventures WHERE user_id = ?");
 
 if ($stmt1) {
-    $stmt1->bind_param("i", $id);
- $stmt1->execute();
-    $stmt1->bind_result($adventure_no);
-    $stmt1->store_result();
+$stmt1->bind_param("i", $id);
+$stmt1->execute();
+$stmt1->bind_result($adventure_no);
+$stmt1->store_result();
 if ($stmt1->num_rows() == 1) {
 
-    while ($stmt1->fetch()) {
+while ($stmt1->fetch()) {
 
-        if ($stmt) {
-            $stmt->bind_param("i", $id);
-                if ($stmt->execute()) {
-                    $stmt->bind_result($first_name, $last_name, $description, $country, $dob);
-                    $stmt->store_result();
-                        if ($stmt->num_rows() == 1) {
-                            while ($stmt->fetch()) {
+if ($stmt) {
+$stmt->bind_param("i", $id);
+if ($stmt->execute()) {
+$stmt->bind_result($first_name, $last_name, $description, $country, $dob, $ext);
+$stmt->store_result();
+if ($stmt->num_rows() == 1) {
+while ($stmt->fetch()) {
 
 ?>
 <body>
@@ -70,103 +70,110 @@ if ($stmt1->num_rows() == 1) {
             <div class="row">
                 <div id="AuthorPic" class="col-md-3">
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/9/93/Evan_Roth_head_shot.jpg"
+                        src="./img/profile/<?php echo $id . "." . $ext; ?>"
                         class="img-rounded" alt="Mountain View" style="width:250px; height:260px;">
                 </div>
-                    <?php
-                    if(isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
+                <?php
+                if (isset($_SESSION['id']) && $id == $_SESSION['id']) { ?>
 
-                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
+                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
 
-                        <p>Date of Birth: <?php echo $dob; ?></p>
+                    <p>Date of Birth: <?php echo $dob; ?></p>
 
-                        <p>Country: <?php echo $country; ?></p>
+                    <p>Country: <?php echo $country; ?></p>
 
-                        <p>Adventures: <?php echo $adventure_no; ?> </p>
+                    <p>Adventures: <?php echo $adventure_no; ?> </p>
 
-                        <p>Memeber Since: 01/10/15 </p>
+                    <p>Memeber Since: 01/10/15 </p>
 
-                        <p><?php echo $description; ?></p>
+                    <p><?php echo $description; ?></p>
 
-                        <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit Info</button>
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Edit
+                        Info
+                    </button>
 
-                        <!-- Modal -->
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
 
-                                <!-- Modal content-->
+                            <!-- Modal content-->
 
-                                        <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Edit Info</h4>
-                                    </div>
-                                            <form action="edit_user.php" method="post" enctype="multipart/form-data">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Edit Info</h4>
+                                </div>
+                                <form action="edit_user.php" method="post" enctype="multipart/form-data">
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="usr">First Name:</label>
-                                            <input type="text" class="form-control" name="firstName" value="<?php echo $first_name;?>">
+                                            <input type="text" class="form-control" name="firstName"
+                                                   value="<?php echo $first_name; ?>">
 
                                             <label for="usr">Second Name:</label>
-                                            <input type="text" class="form-control" name="secondName" value="<?php echo $last_name;?>">
+                                            <input type="text" class="form-control" name="secondName"
+                                                   value="<?php echo $last_name; ?>">
 
                                             <label for="usr">Description:</label>
-                                            <textarea class="form-control" name="description"  rows="5" cols="80"><?php echo $description; ?></textarea>
+                                            <textarea class="form-control" name="description" rows="5"
+                                                      cols="80"><?php echo $description; ?></textarea>
 
                                             <label for="usr">Date Of Birth:</label>
-                                            <input type="text" class="form-control" name="dob" value="<?php echo $dob;?>">
+                                            <input type="text" class="form-control" name="dob"
+                                                   value="<?php echo $dob; ?>">
 
                                             <label for="usr">Country:</label>
-                                            <input type="text" class="form-control" name="country" value="<?php echo $country;?>">
+                                            <input type="text" class="form-control" name="country"
+                                                   value="<?php echo $country; ?>">
 
                                             <label class="label">Upload Photo:</label>
-                                            <input class="" type="file" name="photos"required>
+                                            <input class="" type="file" name="photos" required>
 
-                                            <input type="hidden" class="form-control" name="userID" value="<?php echo $_SESSION['id'];?>">
+                                            <input type="hidden" class="form-control" name="userID"
+                                                   value="<?php echo $_SESSION['id']; ?>">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-default" >Submit</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-default">Submit</button>
 
                                     </div>
-                                </div>
-                                    </form>
                             </div>
+                            </form>
                         </div>
+                    </div>
 
-                    <?php }
-
-                   else{
-                        ?>
-                        <h2><?php echo $first_name . " " . $last_name; ?></h2>
-
-                        <p>Date of Birth: <?php echo $dob ?></p>
-
-                        <p>Country: <?php echo $country ?></p>
-
-                        <p>Adventures: <?php echo $adventure_no; ?> </p>
-
-                        <p>Memeber Since: 01/10/15 </p>
-
-                        <p><?php echo $description; ?></p>
-                        <?php
-                    }
+                <?php } else {
                     ?>
-                </div>
+                    <h2><?php echo $first_name . " " . $last_name; ?></h2>
+
+                    <p>Date of Birth: <?php echo $dob ?></p>
+
+                    <p>Country: <?php echo $country ?></p>
+
+                    <p>Adventures: <?php echo $adventure_no; ?> </p>
+
+                    <p>Memeber Since: 01/10/15 </p>
+
+                    <p><?php echo $description; ?></p>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
 </div>
+</div>
 
 <?php
-                            }
-                        }
-                    }
-                }
-            }
-        }
+}
+}
+}
+}
+}
+}
 
 }
 
@@ -238,10 +245,12 @@ foreach ($adventure as $stone) {
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
-                <h4><?php echo $stone['name']?></h4>
+                <h4><?php echo $stone['name'] ?></h4>
+
                 <p> <?php echo $stone['description'] ?></p>
 
-                <p><a class="btn btn-default" href="./adventure.php?id=<?php echo $stone['id'];?>" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="./adventure.php?id=<?php echo $stone['id']; ?>" role="button">View
+                        details &raquo;</a></p>
 
 
             </div>
@@ -251,8 +260,6 @@ foreach ($adventure as $stone) {
     <?php
 }
 ?>
-
-
 
 
 </body>
