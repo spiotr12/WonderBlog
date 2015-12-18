@@ -300,7 +300,7 @@ while ($stmt3->fetch()) {
         while ($row = $res->fetch_assoc()) { ?>
 
 
-            <img class="displayed" width="600" height="220px" "
+            <img class="displayed" width="600" height="220px"
             src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
             <?php if ($login->isUserLoggedIn() == true): ?>
