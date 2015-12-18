@@ -128,7 +128,7 @@ while ($stmt->fetch()) {
                                                    value="<?php echo $country; ?>">
 
                                             <label class="label">Upload Photo:</label>
-                                            <input class="" type="file" name="photos" required>
+                                            <input class="" type="file" name="photos">
 
                                             <input type="hidden" class="form-control" name="userID"
                                                    value="<?php echo $_SESSION['id']; ?>">
