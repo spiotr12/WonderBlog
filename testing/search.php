@@ -65,7 +65,7 @@ $login = new Login();
                     <br>
                     <label><input type="radio" name="search_type_adv" value="votes">by minimum voting score</label>
                     <br>
-                    <button type="submit">Search advance!</button>
+                    <button class="btn, btn-success" type="submit">Search advance!</button>
                 </form>
             </div>
             <div class="col-md-12">
@@ -139,6 +139,7 @@ $login = new Login();
                                 break;
                         }
                         $stmt = new mysqli_stmt($mysqli, $query);
+                        echo " bind: " . $bindType;
                         if ($stmt->bind_param($bindType, $search)) {
                             $stmt->execute();
                             $stmt->bind_result($id, $name);
