@@ -54,11 +54,17 @@ $login = new Login();
             <div class="col-md-12">
                 <h1>Advance search</h1>
                 <form name="advanceSearch" method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <input type="text" name="q">
+<!--                    <input type="text" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
+                    <input type="number" name="q" value="<?php echo $_GET["q"]; ?>">
+                    <br>
                     <label><input type="radio" name="search_type_adv" value="name">by name</label>
+                    <br>
                     <label><input type="radio" name="search_type_adv" value="country">by country</label>
+                    <br>
                     <label><input type="radio" name="search_type_adv" value="author">by author</label>
+                    <br>
                     <label><input type="radio" name="search_type_adv" value="votes">by minimum voting score</label>
+                    <br>
                     <button type="submit">Search advance!</button>
                 </form>
             </div>
