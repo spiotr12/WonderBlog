@@ -13,14 +13,10 @@ li.active {
     background-color: #355f7c;
 }
 
-.wraptocenter {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-.wraptocenter * {
-    vertical-align: middle;
-}
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
 
 #adventureCarousel .carousel-indicators {
     bottom: 0;
