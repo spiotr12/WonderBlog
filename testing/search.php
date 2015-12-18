@@ -65,13 +65,13 @@ $login = new Login();
             <div class="col-md-12">
                 <h1>Search results:</h1>
                 <?php
-                $search = "%" . $search . "%";
                 $search_results = array(
                     "type" => $search_type,
                     "data" => array()
                 );
                 $stmt = null;
                 if ($search_type == "adventure") {
+                    $search = "%" . $search . "%";
                     $query = "SELECT A.id, A.name, U.first_name, U.last_name
                         FROM adventures A, users U
                         WHERE A.user_id = U.id
@@ -93,6 +93,7 @@ $login = new Login();
                         }
                     }
                 } else if ($search_type == "author") {
+                    $search = "%" . $search . "%";
                     $stmt = new mysqli_stmt($mysqli, "SELECT id, first_name, last_name FROM users WHERE privilege < ? AND (first_name LIKE ? OR last_name LIKE ?)");
                     if ($stmt) {
                         $priv = 2;
@@ -109,22 +110,30 @@ $login = new Login();
                 } else {
                     if (isset($_GET['search_type_adv'])) {
                         $query = "";
+                        $bindType = "";
                         switch ($_GET['search_type_adv']) {
                             case "name":
                                 $query = "SELECT A.id, A.name name FROM adventures A WHERE name LIKE ?";
+                                $bindType = 's';
+                                $search = "%" . $search . "%";
                                 break;
                             case "country":
                                 $query = "SELECT A.id, A.name name FROM adventures A WHERE country LIKE ?";
+                                $bindType = 's';
+                                $search = "%" . $search . "%";
                                 break;
                             case "author":
                                 $query = "SELECT A.id, A.name FROM adventures A, users U WHERE A.user_id = U.id AND (CONCAT(first_name, ' ', last_name) LIKE ?)";
+                                $bindType = 's';
+                                $search = "%" . $search . "%";
                                 break;
                             case "vote":
                                 $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=adventures.id WHERE rates.rate > ?";
+                                $bindType = 'i';
                                 break;
                         }
                         $stmt = new mysqli_stmt($mysqli, $query);
-                        if ($stmt->bind_param("s", $search)) {
+                        if ($stmt->bind_param($bindType, $search)) {
                             $stmt->execute();
                             $stmt->bind_result($id, $name);
                             while ($stmt->fetch()) {
