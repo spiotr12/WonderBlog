@@ -37,7 +37,7 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 <?php
 //prepare rating and adventure
 
-$adventure = array();
+$adventures = array();
 $total_progress = 0;
 // adventure
 $query = "SELECT a.id, a.name, a.description, rate.total_rate
@@ -60,7 +60,7 @@ if ($stmtAdventure) {
     $stmtAdventure->execute();
     $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
     while ($stmtAdventure->fetch()) {
-        $adventure[] = array(
+        $adventures[] = array(
             'adventureID' => $adventureID,
             'name' => $adventureName,
             'description' => $adventureDesc,
@@ -110,7 +110,10 @@ if ($stmtAdventure) {
         </div>
     </div>
 </div>
-<?php foreach ($adventure as $adv) {
+
+<?php
+var_dump($adventures);
+foreach ($adventures as $adv) {
     ?>
     <div id="top1" class="container">
         <div class="row">
