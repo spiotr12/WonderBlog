@@ -65,7 +65,7 @@ $login = new Login();
                     <br>
                     <label><input type="radio" name="search_type_adv" value="votes">by minimum voting score</label>
                     <br>
-                    <button type="submit">Search advance!</button>
+                    <button class="btn, btn-success" type="submit">Search advance!</button>
                 </form>
             </div>
             <div class="col-md-12">
