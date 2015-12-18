@@ -33,7 +33,14 @@ if (strlen($_SERVER['QUERY_STRING'])) {
                         <li>
                             <a href="./admin.php">Admin</a>
                         </li>
+                    <?php endif; ?>
 
+                    <?php
+                    echo "<li><a>ISVerified?" . isUserVerified($mysqli, $_SESSION["id"]) . "</a></li>"
+                    if (isUserVerified($mysqli, $_SESSION["id"]) == 0): ?>
+                        <li>
+                            <a href="./admin.php">Admin</a>
+                        </li>
                     <?php endif; ?>
                 <?php else: ?>
                     <li class=""><a href="./login.php">Login</a></li>
