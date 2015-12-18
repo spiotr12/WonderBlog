@@ -108,21 +108,5 @@ if($stmt){
 $str = 'Location:  ./adventure.php?id=' . $adventure_id;
 header($str);
 
-//$admins = array();
-//
-//$stmt1 = new mysqli_stmt($mysqli, "SELECT first_name, email, privilege FROM users WHERE privilege = 0");
-//if($stmt1){
-//    $stmt1->bind_param($first_name, $email, $privilege);
-//    $stmt1->execute();
-//    $temp_arr = array(
-//        'email' => $email,
-//    );
-//    array_push($admins, $temp_arr);
-//}
-// the message
-//$msg = "New Adventure Created" . $str;
-////foreach ($admins as $stone)
-//// send email
-//mail("ruairigray@gmail.com","New Adventure",$msg);
-//echo $msg
+
 
