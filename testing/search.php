@@ -57,6 +57,7 @@ $login = new Login();
                     <input type="text" name="q" value="<?php echo $_GET["q"]; ?>">
 <!--                    <input type="number" name="q" value="--><?php //echo $_GET["q"]; ?><!--">-->
                     <br>
+                    <input type="radio" name="search_type_adv" value="" class="hidden" checked>
                     <label><input type="radio" name="search_type_adv" value="name"> by name</label>
                     <br>
                     <label><input type="radio" name="search_type_adv" value="country"> by country</label>
@@ -76,7 +77,7 @@ $login = new Login();
                     "data" => array()
                 );
                 $stmt = null;
-                if ($search_type == "adventure" || (isset($_GET['search_type_adv']) && $_GET['search_type_adv'] == "")) {
+                if ($search_type == "adventure" || (isset($_GET['search_type_adv']) && count($_GET['search_type_adv']) == 0)) {
                     $search = "%" . $search . "%";
                     $query = "SELECT A.id, A.name, U.first_name, U.last_name
                         FROM adventures A, users U
