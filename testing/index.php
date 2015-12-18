@@ -52,7 +52,7 @@ if ($stmtAdventure) {
                 'photoExt' => $photoExt,
                 'photoID' => $photoID,
                 'adminVote' => $adminVote,
-                'voteCount' => $voteCount + $adminVote,
+                'voteCount' => $voteCount,
             );
             array_push($adventure, $temp_arr);
         }
@@ -110,7 +110,7 @@ if ($stmtAdventure) {
             </div>
             <div class="col-md-9">
                 <p> <?php echo $stone['description']; ?></p>
-                <p><?php echo $stone['voteCount']; ?></p>
+                <p><?php echo ($stone['voteCount']+$stone['adminVote']); ?></p>
                 <a class="btn" href="./adventure.php?id=<?php echo $stone['adventureID'];?>">Go to adventure</a>
 
             </div>
