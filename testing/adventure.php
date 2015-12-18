@@ -365,11 +365,7 @@ while ($stmt2->fetch()) {
                 </form>
             <?php endif; ?>
         <?php endif; ?>
-        <script type="text/javascript">
-            $('#adventureCarousel').carousel({
-                interval: 4000
-            });
-        </script>
+
 
 
 </body>
