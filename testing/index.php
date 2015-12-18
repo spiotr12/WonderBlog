@@ -40,7 +40,7 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $adventure = array();
 $total_progress = 0;
 // adventure
-$query = "SELECT a.id, a.name, a.description, rate.total_rate,
+$query = "SELECT a.id, a.name, a.description, rate.total_rate
           FROM adventures A, votes V, (
             SELECT a.id, (IFNULL(v.rate,0)+a.admin_vote) as total_rate
             FROM adventures a
