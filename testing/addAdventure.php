@@ -10,7 +10,7 @@ $city = $_POST["city"];
 $description = $_POST["description"];
 $date = date("Y-m-d H:i:s");
 $userID = $_POST["userID"];
-$keywords =  $_POST["keywords"];
+$keywords = $_POST["keywords"];
 $adventure_id = -1;
 $stmt = new mysqli_stmt ($mysqli, "INSERT INTO adventures(user_id, name, country, city, description, date, keywords)
         VALUES(?,?,?,?,?,?,?)");
@@ -20,7 +20,7 @@ if ($stmt) {
     $adventure_id = $stmt->insert_id;
 
 }
-if($adventure_id != -1) {
+if ($adventure_id != -1) {
     try {
 
         // Undefined | Multiple Files | $_FILES Corruption Attack
@@ -97,6 +97,14 @@ if($adventure_id != -1) {
 
     }
 }
+
+$stmt = new mysqli_stmt($mysqli, "UPDATE users SET (privilege=?) WHERE id = ?");
+if($stmt){
+    $priv = 1;
+    $stmt->bind_param("ii", $priv, $userID);
+    $stmt->execute();
+}
+
 $str = 'Location:  ./adventure.php?id=' . $adventure_id;
 header($str);
 
