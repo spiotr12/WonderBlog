@@ -18,7 +18,9 @@ li.active {
     text-align: center;
     vertical-align: middle;
 }
-
+.wraptocenter * {
+    vertical-align: middle;
+}
 
 #adventureCarousel .carousel-indicators {
     bottom: 0;
