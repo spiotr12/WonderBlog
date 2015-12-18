@@ -36,7 +36,7 @@ $login = new Login();
 
     $search = "";
     if (isset($_GET["q"])) {
-        $search = $_GET["q"];
+        $search = $mysqli->real_escape_string($_GET["q"]);
     }
     $search_type = "";
     if (isset($_GET["search_type"])) {
