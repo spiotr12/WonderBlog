@@ -40,8 +40,8 @@ renderHeader("WonderBlog! [testing2]", $meta, $css, $js);
 $adventures = array();
 $total_progress = 0;
 // adventure
-$query = "SELECT a.id, a.name, a.description, rate.total_rate
-          FROM adventures A, (
+$query = "SELECT a.id, a.name, a.description, rate.total_rate, p.id, p.file_ext
+          FROM adventures a, photos p, (
               SELECT a.id, (IFNULL(v.rate,0)+a.admin_vote) as total_rate
               FROM adventures a
               LEFT JOIN (
@@ -53,18 +53,22 @@ $query = "SELECT a.id, a.name, a.description, rate.total_rate
               ON a.id = v.id
           ) rate
           WHERE a.id = rate.id
+          AND (p.adv_id = a.id
+          AND p.is_cover = 1)
           ORDER BY rate.total_rate
           DESC LIMIT 5";
 $stmtAdventure = new mysqli_stmt($mysqli, $query);
 if ($stmtAdventure) {
     $stmtAdventure->execute();
-    $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
+    $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate, $photoId, $photoExt);
     while ($stmtAdventure->fetch()) {
         $adventures[] = array(
             'adventureID' => $adventureID,
             'name' => $adventureName,
             'description' => $adventureDesc,
             'rate' => $rate,
+            'photoId' => $photoId,
+            'photoExt' => $photoExt
         );
 
     }
@@ -112,16 +116,13 @@ if ($stmtAdventure) {
 </div>
 
 <?php
-var_dump($adventures);
 foreach ($adventures as $adv) {
     ?>
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
-                <!--                <img-->
-                <!--                    src="./img/contents/--><?php //echo $adv['photoID']; ?><!--.-->
-                <?php //echo $adv['photoExt'] ?><!--"-->
-                <!--                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">-->
+                <img src="./img/contents/<?php echo $adv['photoId'] . "." . $adv['photoExt']; ?>" class="img-rounded"
+                     width="250" height="228px">
             </div>
             <div class="col-md-9">
                 <p> <?php echo $adv['description']; ?></p>
