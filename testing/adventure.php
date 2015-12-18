@@ -260,6 +260,18 @@ while ($stmt2->fetch()) {
 
         </div>
 
+
+        <?php }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }?>
+
+
         <?php
 
         $photosArray[] = array();
@@ -273,16 +285,7 @@ while ($stmt2->fetch()) {
             <img class="img-responsive" width="1200" height="440px"
                  src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
-        <?php }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
+       <?php }
 
 
        ?>
