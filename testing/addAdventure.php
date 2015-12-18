@@ -2,6 +2,7 @@
 
 require_once("../resources/config.php");
 require_once("./php/db_connect.php");
+require_once(LIBRARY_PATH . "/functions.php");
 
 
 $adventureName = $_POST["adventureName"];
@@ -98,11 +99,13 @@ if ($adventure_id != -1) {
     }
 }
 
-$stmt = new mysqli_stmt($mysqli, "UPDATE users SET privilege = ? WHERE id = ? ");
-if ($stmt) {
-    $priv = 1;
-    $stmt->bind_param("ii", $priv, $userID);
-    $stmt->execute();
+if (privilegeCheck($mysqli, $userID) != 0) {
+    $stmt = new mysqli_stmt($mysqli, "UPDATE users SET privilege = ? WHERE id = ? ");
+    if ($stmt) {
+        $priv = 1;
+        $stmt->bind_param("ii", $priv, $userID);
+        $stmt->execute();
+    }
 }
 
 $str = 'Location:  ./adventure.php?id=' . $adventure_id;
