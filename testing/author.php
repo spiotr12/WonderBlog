@@ -84,7 +84,6 @@ while ($stmt->fetch()) {
 
                     <p>Adventures: <?php echo $adventure_no; ?> </p>
 
-                    <p>Memeber Since: 01/10/15 </p>
 
                     <p><?php echo $description; ?></p>
 
