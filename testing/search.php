@@ -133,7 +133,7 @@ $login = new Login();
                                 $bindType = 's';
                                 $search = "%" . $search . "%";
                                 break;
-                            case "vote":
+                            case "votes":
                                 $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=adventures.id WHERE rates.rate > ?";
                                 $bindType = 'i';
                                 break;
