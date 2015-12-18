@@ -115,7 +115,7 @@ $login = new Login();
                         }
                     }
                 } else {
-                    if (isset($_GET['search_type_adv']) && count($_GET['search_type_adv']) == 0) {
+                    if (isset($_GET['search_type_adv']) && count($_GET['search_type_adv']) != 0) {
                         $query = "";
                         $bindType = "";
                         switch ($_GET['search_type_adv']) {
