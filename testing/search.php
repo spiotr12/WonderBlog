@@ -134,7 +134,7 @@ $login = new Login();
                                 $search = "%" . $search . "%";
                                 break;
                             case "votes":
-                                $query = "SELECT A.id, A.name FROM adventures A LEFT JOIN ( SELECT adv_id, (COUNT(*)+a.admin_vote) as rate FROM votes v, adventures a WHERE a.id = v.adv_id GROUP BY adv_id ) as rates ON rates.adv_id=a.id WHERE rates.rate >= ?";
+                                $query = "SELECT a.id, name, (IFNULL(v.rate,0)+a.admin_vote) as total_rate FROM adventures a LEFT JOIN ( SELECT id, COUNT(*) as rate, v.date FROM adventures a, votes v WHERE a.id = v.adv_id GROUP BY id) v ON a.id = v.id WHERE (IFNULL(v.rate,0)+a.admin_vote) >= ?";
                                 $bindType = 'i';
                                 $search = (int) $search;
                                 break;
