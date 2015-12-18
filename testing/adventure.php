@@ -87,6 +87,8 @@ $stmt3->bind_param("i", $adventureUserID);
 $stmt3->execute();
 $stmt3->bind_result($authorFirstName, $authorLastName);
 $stmt3->store_result();
+if ($stmt3->num_rows() == 1) {
+while ($stmt3->fetch()) {
 
 ?>
 
@@ -111,8 +113,13 @@ $stmt3->store_result();
             <?php echo $description; ?>
             <br><br>
             Country: <?php echo $country ?><br>
-            <?php If ($city != NULL): {echo "City: "; echo $city;}; endif; ?><br>
-            Author: <?php echo $commentFirstName; echo " "; echo $commentLastName; ?>
+            <?php If ($city != NULL): {
+                echo "City: ";
+                echo $city;
+            }; endif; ?><br>
+            Author: <?php echo $commentFirstName;
+            echo " ";
+            echo $commentLastName; ?>
 
         </div>
         <div
@@ -180,6 +187,8 @@ $stmt3->store_result();
     </div
 
     <?php }
+    }
+    }
     }
     }
     }
