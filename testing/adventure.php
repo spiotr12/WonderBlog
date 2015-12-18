@@ -154,11 +154,13 @@ while ($stmt2->fetch()) {
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
+                $tagString = "";
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
                 $tagsResult = $tagsStmt->get_result();
                 $tagsTemp = $tagsResult->fetch_array();
+                $tagString = $tagsTemp['keywords'];
                 $tags = multiexplode(array(";", ","), $tagsTemp['keywords']);
                 foreach ($tags as $tag) {
                     echo "<li>" . $tag . "</li>";
@@ -268,13 +270,16 @@ while ($stmt2->fetch()) {
 
        $photosArray[] = array();
 
-       $sql2 = "SELECT id, file_ext FROM photos WHERE adv_id = $id";
+
+
+
+       $sql2 = "SELECT id, file_ext FROM photos WHERE adv_id = $adv_id";
       $res = $mysqli->query($sql2) or trigger_error($mysqli->error . "[$sql2]");
         while ($row = $res->fetch_assoc()) { ?>
 
 
           <img class="img-responsive" width="1200" height="440px"
-                 src="./img/contents/<?php //echo $row['id']; ?>.<?php //echo $row['file_ext']; ?>">
+                 src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>">
 
         <?php }
         }
@@ -337,8 +342,11 @@ while ($stmt2->fetch()) {
                                         <label for="usr">Description;</label>
                                     <textarea class="form-control" name="description" rows="5"
                                               cols="80"><?php echo $description; ?></textarea>
-                                        <label class="label">upload photo</label>
-                                        <input class="" type="file" name="photos">
+
+                                        <label for="usr">Tags:</label>
+                                        <input type="text" class="form-control" name="keywords" placeholder="<?php foreach ($tags as $tag) {
+                                            echo "<li>" . $tag . "</li>";
+                                        } ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
@@ -362,11 +370,7 @@ while ($stmt2->fetch()) {
                 </form>
             <?php endif; ?>
         <?php endif; ?>
-        <script type="text/javascript">
-            $('#adventureCarousel').carousel({
-                interval: 4000
-            });
-        </script>
+
 
 
 </body>
