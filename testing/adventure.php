@@ -171,6 +171,16 @@ while ($stmt2->fetch()) {
         </div
     </div
 
+    <?php }
+    }
+    }
+    }
+    }
+
+
+
+    }?>
+
     <?php $commentArray[] = array();
 
 
@@ -260,16 +270,9 @@ while ($stmt2->fetch()) {
 
         </div>
 
+        <?php }}}?>
 
-        <?php }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }?>
+
 
 
         <?php
