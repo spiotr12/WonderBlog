@@ -36,7 +36,7 @@ if (strlen($_SERVER['QUERY_STRING'])) {
 
                     <?php endif; ?>
                     <?php
-                    echo "verified?: " . isUserVerified($mysqli, $_SESSION["id"]);
+                    echo "<h1>verified?: " . isUserVerified($mysqli, $_SESSION["id"] . "</h1>");
                     if (isUserVerified($mysqli, $_SESSION["id"])): ?>
                         <li>
                             <a href="./CreateAdventure.php">Create Adventure</a>
