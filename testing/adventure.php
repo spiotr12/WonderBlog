@@ -35,6 +35,7 @@ $js = array(
     "js/main.js"
 );
 renderHeader("Adventure", $meta, $css, $js);
+$tagString = "";
 ?>
 <body>
 
@@ -147,7 +148,7 @@ while ($stmt2->fetch()) {
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
-                $tagString = "";
+
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
