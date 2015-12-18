@@ -37,7 +37,7 @@ if (strlen($_SERVER['QUERY_STRING'])) {
 
                     <?php
                     echo "<li><a>ISVerified?" . isUserVerified($mysqli, $_SESSION["id"]) . "</a></li>"
-                    if (isUserVerified($mysqli, $_SESSION["id"]) == 0): ?>
+                    if (isUserVerified($mysqli, $_SESSION["id"])): ?>
                         <li>
                             <a href="./admin.php">Admin</a>
                         </li>
