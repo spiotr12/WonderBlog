@@ -333,7 +333,7 @@ while ($stmt2->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                         <label for="usr">Tags:</label>
-                                        <input type="text" class="form-control" name="keywords" placeholder="<?php echo $tagString ?>">
+                                        <input type="text" class="form-control" name="keywords" value="<?php echo $tagString ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
