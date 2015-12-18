@@ -71,6 +71,7 @@ if ($stmtAdventure) {
         }
     } else {
         echo "not executed";
+        echo $mysqli->error;
     }
 }
 
