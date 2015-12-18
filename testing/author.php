@@ -215,20 +215,37 @@ if ($stmtUser) {
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, name, description FROM adventures WHERE user_id = ?");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT a.id, a.name, a.description, rate.total_rate, p.id, p.file_ext
+FROM adventures a, photos p, users u, (
+	SELECT a.id, (IFNULL(v.rate,0)+a.admin_vote) as total_rate
+	FROM adventures a
+	LEFT JOIN (
+		SELECT id, COUNT(*) as rate, v.date
+		FROM adventures a, votes v
+		WHERE a.id = v.adv_id
+		GROUP BY id
+	) v
+	ON a.id = v.id
+) rate
+WHERE a.user_id = u.id
+AND u.id = ?
+AND a.id = rate.id
+AND (p.adv_id = a.id
+AND p.is_cover = 1)
+ORDER BY rate.total_rate");
 if ($stmtAdventure) {
     $stmtAdventure->bind_param("i", $author['id']);
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($ad_id, $name, $ad_description
+        $stmtAdventure->bind_result($ad_id, $name, $ad_description, $rate, $photoid, $photoext
         );
         while ($stmtAdventure->fetch()) {
-            $temp_arr = array(
+            $adventure[] = array(
                 'id' => $ad_id,
                 'description' => $ad_description,
                 'name' => $name,
-
+                'pid' => $photoid,
+                'pext' => $photoext
             );
-            array_push($adventure, $temp_arr);
         }
     }
 }
@@ -241,7 +258,7 @@ foreach ($adventure as $stone) {
         <div class="row">
             <div class="col-md-3">
                 <img
-                    src="http://www.wallpaperup.com/uploads/wallpapers/2014/05/04/349132/big_thumb_f3d6cfe01fbc551c76dce58d36d9f090.jpg"
+                    src="./img/contents/<?php echo $ad_id['pid'] . "." . $ad_id['pext']; ?>"
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
