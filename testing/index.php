@@ -57,22 +57,19 @@ $query = "SELECT a.id, a.name, a.description, rate.total_rate,
           DESC LIMIT 5";
 $stmtAdventure = new mysqli_stmt($mysqli, $query);
 if ($stmtAdventure) {
-    if ($stmtAdventure->execute()) {
-        echo "executed";
-        $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
-        while ($stmtAdventure->fetch()) {
-            $temp_arr = array(
-                'adventureID' => $adventureID,
-                'name' => $adventureName,
-                'description' => $adventureDesc,
-                'rate' => $rate,
-            );
-            array_push($adventure, $temp_arr);
-        }
-    } else {
-        echo "not executed";
-        echo $mysqli->error;
+    $stmtAdventure->execute();
+    $stmtAdventure->bind_result($adventureID, $adventureName, $adventureDesc, $rate);
+    while ($stmtAdventure->fetch()) {
+        $temp_arr = array(
+            'adventureID' => $adventureID,
+            'name' => $adventureName,
+            'description' => $adventureDesc,
+            'rate' => $rate,
+        );
+        array_push($adventure, $temp_arr);
     }
+    echo $stmtAdventure->error;
+    echo $mysqli->error;
 }
 
 ?>
@@ -120,15 +117,17 @@ if ($stmtAdventure) {
     <div id="top1" class="container">
         <div class="row">
             <div class="col-md-3">
-<!--                <img-->
-<!--                    src="./img/contents/--><?php //echo $adv['photoID']; ?><!--.--><?php //echo $adv['photoExt'] ?><!--"-->
-<!--                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">-->
+                <!--                <img-->
+                <!--                    src="./img/contents/--><?php //echo $adv['photoID']; ?><!--.-->
+                <?php //echo $adv['photoExt'] ?><!--"-->
+                <!--                    class="img-rounded" alt="Cinque Terre" width="250" height="228px">-->
             </div>
             <div class="col-md-9">
                 <p> <?php echo $adv['description']; ?></p>
                 <p><?php echo $adv['rate']; ?></p>
                 <p>
-                    <a class="btn btn-default" href="./adventure.php?id=<?php echo $adv['adventureID']; ?>">View details &raquo;</a>
+                    <a class="btn btn-default" href="./adventure.php?id=<?php echo $adv['adventureID']; ?>">View
+                        details &raquo;</a>
                 </p>
             </div>
         </div>
