@@ -121,17 +121,17 @@ $login = new Login();
                         $bindType = "";
                         switch ($_GET['search_type_adv']) {
                             case "name":
-                                $query = "SELECT A.id, A.name name FROM adventures A WHERE name LIKE ?";
+                                $query = "SELECT A.id, A.name FROM adventures A WHERE name LIKE ?";
                                 $bindType = 's';
                                 $search = "%" . $search . "%";
                                 break;
                             case "country":
-                                $query = "SELECT A.id, A.name name FROM adventures A WHERE country LIKE ?";
+                                $query = "SELECT A.id, A.name FROM adventures A WHERE country LIKE ?";
                                 $bindType = 's';
                                 $search = "%" . $search . "%";
                                 break;
                             case "keyword":
-                                $query = "SELECT A.id, A.name name FROM adventures A WHERE keywords LIKE ?";
+                                $query = "SELECT A.id, A.name FROM adventures A WHERE keywords LIKE ?";
                                 $bindType = 's';
                                 $search = "%" . $search . "%";
                                 break;
