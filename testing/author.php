@@ -205,16 +205,17 @@ if ($stmtUser) {
 $adventure = array();
 $total_progress = 0;
 // adventure
-$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, description FROM adventures WHERE user_id = ?");
+$stmtAdventure = new mysqli_stmt($mysqli, "SELECT id, name, description FROM adventures WHERE user_id = ?");
 if ($stmtAdventure) {
     $stmtAdventure->bind_param("i", $author['id']);
     if ($stmtAdventure->execute()) {
-        $stmtAdventure->bind_result($ad_id, $ad_description
+        $stmtAdventure->bind_result($ad_id, $name, $ad_description
         );
         while ($stmtAdventure->fetch()) {
             $temp_arr = array(
                 'id' => $ad_id,
                 'description' => $ad_description,
+                'name' => $name,
 
             );
             array_push($adventure, $temp_arr);
@@ -234,6 +235,7 @@ foreach ($adventure as $stone) {
                     class="img-rounded" alt="Cinque Terre" width="250" height="228px">
             </div>
             <div class="col-md-9">
+                <p><?php echo $stone['name']?></p>
                 <p> <?php echo $stone['description'] ?></p>
 
                 <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
