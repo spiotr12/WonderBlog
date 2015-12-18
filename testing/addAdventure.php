@@ -69,10 +69,11 @@ if($adventure_id != -1) {
 
         $id = -1;
         $dateNow = date("Y-m-d H:i:s");
-        $stmt = new mysqli_stmt($mysqli, "INSERT INTO photos (user_id, adv_id, file_ext, date) VALUES (?, ?, ?, ?) ");
+        $stmt = new mysqli_stmt($mysqli, "INSERT INTO photos (user_id, adv_id, file_ext, date, is_cover) VALUES (?, ?, ?, ?, ?) ");
         $success = FALSE;
         if ($stmt) {
-            $stmt->bind_param("iiss", $userID, $adventure_id, $ext, $dateNow);
+            $cov = 1;
+            $stmt->bind_param("iissi", $userID, $adventure_id, $ext, $dateNow, $cov);
             if ($stmt->execute()) {
                 $id = $stmt->insert_id;
                 $success = TRUE;
