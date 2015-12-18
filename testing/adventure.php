@@ -154,13 +154,13 @@ while ($stmt2->fetch()) {
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
-                $tagstring = "";
+                $tagString = "";
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
                 $tagsResult = $tagsStmt->get_result();
                 $tagsTemp = $tagsResult->fetch_array();
-                $tagstring = $tagsTemp['keywords'];
+                $tagString = $tagsTemp['keywords'];
                 $tags = multiexplode(array(";", ","), $tagsTemp['keywords']);
                 foreach ($tags as $tag) {
                     echo "<li>" . $tag . "</li>";
@@ -344,7 +344,7 @@ while ($stmt2->fetch()) {
                                               cols="80"><?php echo $description; ?></textarea>
 
                                         <label for="usr">Tags:</label>
-                                        <input type="text" class="form-control" name="keywords" placeholder="<?php echo $tagstring ?>">
+                                        <input type="text" class="form-control" name="keywords" placeholder="<?php echo $tags ?>">
 
                                         <input type="hidden" class="form-control" name="adventureID"
                                                value="<?php echo $adv_id; ?>">
