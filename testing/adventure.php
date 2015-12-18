@@ -105,7 +105,7 @@ while ($stmt2->fetch()) {
             <?php echo $description; ?>
             <br><br>
             Country: <?php echo $country ?><br>
-            City: <?php echo $city ?>
+            <?php If ($city != NULL): {echo "City: "; echo $city;}; endif; ?>
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
