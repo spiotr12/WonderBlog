@@ -270,8 +270,8 @@ while ($stmt3->fetch()) {
                     <form action="delete_photo.php" method="post">
                         <input class="btn btn-danger" type="submit" name="deletePhoto"
                                value="Click here to delete Photo">
-                        <input type="TEXT" name="id" value="<?php echo $row['id']; ?>">
-                        <input type="TEXT" name="adv_id" value="<?php echo $adv_id; ?>">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                     </form>
 
                 <?php endif;
