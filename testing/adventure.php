@@ -89,10 +89,7 @@ $stmt3->bind_result($authorFirstName, $authorLastName);
 $stmt3->store_result();
 if ($stmt3->num_rows() == 1) {
 while ($stmt3->fetch()) {
-
 ?>
-
-
 <div class="container">
     <div class="row">
         <h1 class="text-center">
@@ -120,13 +117,10 @@ while ($stmt3->fetch()) {
             Author: <?php echo $authorFirstName;
             echo " ";
             echo $authorLastName; ?>
-
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
             <h2>Rating</h2>
-
-
             <?php if ($login->isUserLoggedIn() == true): ?>
                 <?php if (privilegeCheck($mysqli, $_SESSION['id']) == 0): ?>
                     <form action="admin_votes.php" method=post>
@@ -149,21 +143,14 @@ while ($stmt3->fetch()) {
                     <?php
                 endif;
             endif; ?>
-
-
-
-
             <?php
             $combinedVoteCount = $voteCount + $adminVote;
             echo "Current likes: ";
             echo $combinedVoteCount;
             ?>
-
-
             <h2>Tags</h2>
             <ul class="list-unstyled">
                 <?php
-
                 $tagsStmt = new mysqli_stmt($mysqli, "SELECT keywords FROM adventures WHERE id = ?");
                 $tagsStmt->bind_param("i", $adv_id);
                 $tagsStmt->execute();
@@ -178,14 +165,12 @@ while ($stmt3->fetch()) {
             </ul>
         </div>
     </div>
-
     <div class="row">
         <div
             class="col-md-5 col-md-offset-1 comments-section">
             <h2>Comments <br></h2>
         </div
     </div
-
     <?php }
     }
     }
@@ -193,31 +178,21 @@ while ($stmt3->fetch()) {
     }
     }
     }
-
-
     } ?>
-
     <?php $commentArray[] = array();
-
-
     $sql = "SELECT * FROM comments WHERE adv_id = $adv_id";
     $res = $mysqli->query($sql) or trigger_error($mysqli->error . "[$sql]");
     while ($row = $res->fetch_assoc()) {
         $stmt3 = new mysqli_stmt($mysqli, "SELECT first_name, last_name FROM users WHERE id = ?");
-
         $stmt3->bind_param("i", $row['user_id']);
         $stmt3->execute();
         $stmt3->bind_result($commentFirstName, $commentLastName);
         $stmt3->store_result();
         if ($stmt3->num_rows() == 1) {
             while ($stmt3->fetch()) { ?>
-
-
                 <div class="row">
                     <div
                         class="col-md-6 col-md-offset-1 comments-section">
-
-
                         <section>
                             <div class="">
                                 <label
@@ -227,14 +202,11 @@ while ($stmt3->fetch()) {
                                 <label
                                     class="pull-right"><?php echo $row['date']; ?></label>
                             </div>
-
                             <div
                                 class="comment">
                                 <?php echo $row['comment'];
                                 ?>
-
                             </div>
-
                             <?php if ($login->isUserLoggedIn() == true): ?>
                                 <?php if ($row['user_id'] == $_SESSION['id']): ?>
                                     <form action="edit_comment.php" method=post>
@@ -245,29 +217,18 @@ while ($stmt3->fetch()) {
                                         <input type='submit'
                                                value="<?php echo "Click to submit your edited comment"; ?>""/>
                                     </form>
-
-
                                 <?php endif; ?>
-
-
                                 <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
-
                                     <form action="delete_comment.php" method="post">
                                         <input type="submit" name="deleteComment" value="Click here to delete comment"/>
                                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                         <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                                     </form>
-
-
                                 <?php endif; ?>
-
-
                             <?php endif; ?>
                         </section>
-
                     </div>
                 </div>
-
             <?php }
         }
     } ?>
@@ -281,7 +242,7 @@ while ($stmt3->fetch()) {
                           placeholder="Insert comment here"></textarea><br/>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
-                    <input type='submit' value="<?php echo "Click to submit your comment" ?> "/>
+                    <input class="btn btn-success" type='submit' value="<?php echo "Click to submit your comment" ?> "/>
                 </form>
             <?php endif; ?>
             <br>
@@ -301,26 +262,22 @@ while ($stmt3->fetch()) {
 
 
             <img class="displayed" width="600" height="220px"
-            src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>"><br>
+                 src="./img/contents/<?php echo $row['id']; ?>.<?php echo $row['file_ext']; ?>"><br>
 
             <?php if ($login->isUserLoggedIn() == true): ?>
-            <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
+                <?php if ((privilegeCheck($mysqli, $_SESSION['id']) == 0) || ($adventureUserID == $_SESSION['id']) || ($row['user_id'] == $_SESSION['id'])): ?>
 
-                <form action="delete_photo.php" method="post">
-                    <input type="submit" name="deletePhoto" value="Click here to delete Photo">
-                    <input type="TEXT" name="id" value="<?php echo $row['id']; ?>">
-                    <input type="TEXT" name="adv_id" value="<?php echo $adv_id; ?>">
-                </form>
+                    <form action="delete_photo.php" method="post">
+                        <input class="btn btn-danger" type="submit" name="deletePhoto"
+                               value="Click here to delete Photo">
+                        <input type="TEXT" name="id" value="<?php echo $row['id']; ?>">
+                        <input type="TEXT" name="adv_id" value="<?php echo $adv_id; ?>">
+                    </form>
 
-                <?php endif; ?>
-
-            <?php endif; ?>
-
-        <?php }
-
-
+                <?php endif;
+            endif;
+        }
         ?>
-
 
         <?php
         If ($login->isUserLoggedIn() == true):
@@ -335,7 +292,7 @@ while ($stmt3->fetch()) {
                     <input class="" type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                     <input class="" type="hidden" name="adv_id" value="<?php echo $adv_id; ?>">
                     <input class="" type="file" name="photos">
-                    <button class="btn" type="submit" name="uploadSubmit">Submit</button>
+                    <button class="btn btn-default" type="submit" name="uploadSubmit">Submit</button>
                 </form>
 
                 <!-- Modal -->
