@@ -41,6 +41,8 @@ $login = new Login();
     $search_type = "";
     if (isset($_GET["search_type"])) {
         $search_type = $_GET["search_type"];
+    } else {
+        $search_type = "adventure";
     }
 
     renderHeader("Search: " . $search, $meta, $css, $js);
@@ -173,7 +175,7 @@ $login = new Login();
                 foreach ($search_results["data"] as $key => $val):
                     ?>
                     <li>
-                        <a href="./<?php echo $search_results["type"] . ".php?id=" . $val['id']; ?>">
+                        <a href="./<?php echo $search_type . ".php?id=" . $val['id']; ?>">
                             <?php echo $val['name'] ?>
                         </a>
                     </li>
