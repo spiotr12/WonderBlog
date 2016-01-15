@@ -119,12 +119,6 @@ while ($stmt3->fetch()) {
             echo $authorLastName; ?>
 
 
-            <?php
-            $juice = 'apple';
-            echo "I drank some $juice juice<br />";
-            echo 'I drank some $juice juice<br />';
-            ?>
-
 
 
         </div>
