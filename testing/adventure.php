@@ -117,6 +117,16 @@ while ($stmt3->fetch()) {
             Author: <?php echo $authorFirstName;
             echo " ";
             echo $authorLastName; ?>
+
+
+            <?php
+            $juice = 'apple';
+            echo "I drank some $juice juice<br />";
+            echo 'I drank some $juice juice<br />';
+            ?>
+
+
+
         </div>
         <div
             class="col-md-3 col-md-offset-2 text-center">
