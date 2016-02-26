@@ -29,6 +29,11 @@ function privilegeCheck($mysqli, $id){
     return $privilege;
 }
 
+/**
+ * Shows errors for register/login classes
+ *
+ * @param $object
+ */
 function showPotentialErrors($object){
     if (isset($object)) {
         if ($object->errors) {
@@ -47,9 +52,9 @@ function showPotentialErrors($object){
 /**
  * Compares adventure ID and author ID to see if the adventure was created by that author
  *
- * @param $mysqli
- * @param $authorId
- * @param $adventureId
+ * @param mysqli $mysqli db connection
+ * @param int $authorId
+ * @param int $adventureId
  * @return bool
  */
 function isOwner($mysqli, $authorId, $adventureId){
